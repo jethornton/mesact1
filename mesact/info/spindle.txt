@@ -1,0 +1,18 @@
+PCW Normally you would set minlim to 0 and maxlim and scale to the spindle
+speed at full voltage
+ 
+ 
+<pcw-home> on the spindle configuration, note that 7I96S,7I76,7I76E,7I47S all need to use the -abs command
+<pcw-home> since they have 0 to 10V (unipolar) outputs
+<pcw-home> also if using the spindle  PID as a feedthrough (no encoder feedback used)
+P should be 0
+<pcw-home> Otherwise the scaling will be wrong (2x too high output)
+
+<pcw-home> No need for the abs component, motion already exports and absolute spindle speed pin
+<pcw-home> spindle.0.speed-out-abs
+
+pid.4.output => abs.0.in => abs.0.out => hm2_7i96s.0.pwmgen.00.value
+
+
+<pcw-home> Actually I realize that only the 7I76 requires the absolute spindle
+speed (the others use the PWMgen which is sign-magnitude so OK with signed speeds) 

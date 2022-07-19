@@ -1,0 +1,12 @@
+To use stepgen 04 pins as general purpose outputs you must first
+limit the number of stepgens to 4 (num_stepgens=4 in the config string)
+
+Then you must set the correct GPIO pins to output mode:
+
+setp hm2_7i76e.0.gpio.008.is_output true # dir 04 pin
+setp hm2_7i76e.0.gpio.009.is_output true # step 04 pin
+
+Then to actually use them, they need to be connected to the appropriate LinuxCNC signal:
+
+net estop-ext hm2_7i76e.0.gpio.008.out
+net estop-ext hm2_7i76e.0.gpio.009.out 

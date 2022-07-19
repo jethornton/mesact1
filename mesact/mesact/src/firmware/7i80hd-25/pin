@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+
+import os, subprocess, time
+
+BOARD = '7i80hd-16'
+
+for file in os.listdir(os.getcwd()):
+	if file.endswith('.bit'):
+		pin = os.path.join(os.path.splitext(file)[0] + '.pin')
+		file = '7i80hd_16_st12.bit'
+		command = ['mesaflash', f'--device {BOARD}', '--addr 10.10.10.10', f'--write {file}']
+		subprocess.run(command)
+		time.sleep(5)
+		command = ['mesaflash', f'--device {BOARD}', '--addr 10.10.10.10', f'--reload']
+		subprocess.run(command)
+		time.sleep(5)
+		command = ['mesaflash', f'--device {BOARD}', ' --addr 10.10.10.10', '--readhmid']
+		with open(pin, "w") as outfile:
+			subprocess.run(command, stdout=outfile)
+
+
+		subprocess.run(command, shell=True, check=True)
+		time.sleep(5)
+
+mesaflash --device 7i80hd-16 --addr 10.10.10.10 --write 7i80hd_16_st12.bit
+mesaflash --device 7i80hd-16 --addr 10.10.10.10 --reload
+mesaflash --device 7i80hd-16 --addr 10.10.10.10 --readhmid
+command = ['mesaflash', '--device 7i80hd-16', ' --addr 10.10.10.10', '--readhmid']
+subprocess.run(["mesaflash", "--device 7i80hd-16", " --addr 10.10.10.10", "--readhmid"])

@@ -1,0 +1,98 @@
+mesact (0.7.0) unstable; urgency=medium
+
+  * Fix Desktop categories
+
+ -- John Thornton <jt@gnipsel.com>  Thu, 30 Jun 2022 07:14:03 -0500
+
+mesact (0.6.5) unstable; urgency=medium
+
+  * Finish Smart Serial Card Support
+
+ -- John Thornton <jt@gnipsel.com>  Tue, 28 Jun 2022 07:24:33 -0500
+
+mesact (0.6.4) unstable; urgency=medium
+
+  * Improve NIC test and Servo Thread test
+
+ -- John Thornton <jt@gnipsel.com>  Tue, 21 Jun 2022 07:19:34 -0500
+
+mesact (0.6.3) unstable; urgency=medium
+
+  * Add Mesaflash PCI operations
+
+ -- John Thornton <jt@gnipsel.com>  Sun, 12 Jun 2022 12:52:25 -0500
+
+mesact (0.6.2) unstable; urgency=medium
+
+  * Add step and direction spindle
+
+ -- John Thornton <jt@gnipsel.com>  Thu, 09 Jun 2022 07:19:48 -0500
+
+mesact (0.6.1) unstable; urgency=medium
+
+  * Catch all exceptions in a nice way
+
+ -- John Thornton <jt@gnipsel.com>  Sat, 21 May 2022 08:02:08 -0500
+
+mesact (0.6.0) unstable; urgency=medium
+
+  * Add Mesa PDF documents
+
+ -- John Thornton <jt@gnipsel.com>  Fri, 20 May 2022 06:26:31 -0500
+
+mesact (0.5.0) unstable; urgency=medium
+
+  * Add 7i96S I/O
+
+ -- John Thornton <jt@gnipsel.com>  Tue, 17 May 2022 07:18:19 -0500
+
+mesact (0.4.5) unstable; urgency=medium
+
+  * Add support for 7i96S
+
+ -- John Thornton <jt@gnipsel.com>  Sun, 15 May 2022 09:40:12 -0500
+
+mesact (0.4.4) unstable; urgency=medium
+
+  * Add PDF Documents
+  * Add auto loading of ini file
+
+ -- John Thornton <jt@gnipsel.com>  Wed, 11 May 2022 07:27:28 -0500
+
+mesact (0.4.3) unstable; urgency=medium
+
+  * add custom stepper driver name save
+
+ -- John Thornton <jt@gnipsel.com>  Mon, 02 May 2022 08:52:24 -0500
+
+mesact (0.4.2) unstable; urgency=medium
+
+  * Fix daughter cards I/O
+
+ -- John Thornton <jt@gnipsel.com>  Sun, 24 Apr 2022 07:41:43 -0500
+
+mesact (0.4.1) unstable; urgency=medium
+
+  * Get I/O working and add download
+
+ -- John Thornton <jt@gnipsel.com>  Wed, 20 Apr 2022 07:20:46 -0500
+
+mesact (0.4.0) unstable; urgency=medium
+
+  * Get most cards axes working
+
+ -- John Thornton <jt@gnipsel.com>  Sat, 16 Apr 2022 11:33:50 -0500
+
+mesact (0.3.0) unstable; urgency=medium
+
+  * 7i76e configuration tested
+
+ -- John Thornton <jt@gnipsel.com>  Fri, 15 Apr 2022 06:37:06 -0500
+
+mesact (0.2.0) unstable; urgency=medium
+
+  * Initial release.
+  * Build ini file
+  * Get working configuratons for most combos
+
+ -- John Thornton <jt@gnipsel.com>  Wed, 13 Apr 2022 12:10:32 -0500

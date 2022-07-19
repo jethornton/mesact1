@@ -1,0 +1,9 @@
+mesact/docs/build/*
+mesact/mesact/debian/mesact/*
+mesact/mesact/debian/.debhelper/*
+mesact/*.dsc
+mesact/*.tar.xz
+mesact/*.build
+mesact/*.buildinfo
+mesact/*.changes
+

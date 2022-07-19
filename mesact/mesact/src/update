@@ -1,0 +1,6 @@
+#!/bin/bash
+
+pyuic5 mesact.ui -o libmesact/ui_mesact.py
+pylupdate5 libmesact/ui_mesact.py  -ts libmesact/eng-de.ts
+#pylupdate5 libmesact/ui_mesact.py  -ts libmesact/eng-es.ts
+pylupdate5 libmesact/ui_mesact.py  -ts libmesact/eng-fr.ts
