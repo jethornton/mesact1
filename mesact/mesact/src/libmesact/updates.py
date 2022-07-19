@@ -6,7 +6,7 @@ from packaging import version
 from PyQt5.QtWidgets import QApplication, QFileDialog, QComboBox
 
 def checkUpdates(parent):
-	response = requests.get(f"https://api.github.com/repos/jethornton/{REPO}/releases/latest")
+	response = requests.get(f"https://api.github.com/repos/jethornton/mesact/releases/latest")
 	repoVersion = response.json()["name"]
 	if version.parse(repoVersion) > version.parse(parent.version):
 		parent.machinePTE.appendPlainText(f'A newer version {repoVersion} is available for download')
