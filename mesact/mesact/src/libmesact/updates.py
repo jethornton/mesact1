@@ -19,9 +19,11 @@ def downloadAmd64Deb(parent):
 		parent.statusbar.showMessage('Checking Repo')
 		response = requests.get("https://api.github.com/repos/jethornton/mesact/releases/latest")
 		repoVersion = response.json()["name"]
+		print(repoVersion)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Starting')
 		destination = os.path.join(directory, 'mesact_' + repoVersion + '_amd64.deb')
-		deburl = os.path.join('https://github.com/jethornton/mesact/raw/master/mesact_' + repoVersion + '_amd64.deb')
+		deburl = os.path.join('https://github.com/jethornton/mesact/raw/master/mesact/mesact_' + repoVersion + '_amd64.deb')
+		print(deburl)
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
 	else:
@@ -35,7 +37,7 @@ def downloadArmhDeb(parent):
 		repoVersion = response.json()["name"]
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Starting')
 		destination = os.path.join(directory, 'mesact_' + repoVersion + '_armhf.deb')
-		deburl = os.path.join('https://github.com/jethornton/mesact/raw/master/mesact_' + repoVersion + '_armhf.deb')
+		deburl = os.path.join('https://github.com/jethornton/mesact/raw/master/mesact/mesact_' + repoVersion + '_armhf.deb')
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
 	else:
