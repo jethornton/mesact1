@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Installing &#8212; Mesa Configuration Tool  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Basic Usage" href="basic.html" />
+    <link rel="prev" title="Mesa Configuration Tool" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="basic.html" title="Basic Usage"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Mesa Configuration Tool"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Mesa Configuration Tool  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Installing</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installing">
+<h1>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h1>
+<p>Mesa Configuration Tool</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tested on Debian 10, and Linux Mint 20.2 but it should work on
+other Debian type OS’s.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Requires Python 3.6 or newer to work.</p>
+</div>
+<p>Use the Debian deb for installing the Mesa Configuration Tool!!!</p>
+<p>Download the <a class="reference external" href="https://github.com/jethornton/mesact/raw/master/mesact_0.7.0_amd64.deb">deb</a></p>
+<p>Or use wget from a terminal</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">jethornton</span><span class="o">/</span><span class="n">mesact</span><span class="o">/</span><span class="n">raw</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">mesact_0</span><span class="o">.</span><span class="mf">7.0</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span>
+</pre></div>
+</div>
+<p>If you get <cite>bash: wget: command not found</cite> you can install it from a terminal with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">wget</span>
+</pre></div>
+</div>
+<p>Check the readme.md file for the latest deb and md5sum.</p>
+<p>Open the File Manager and right click on the file and open with Gdebi then install.</p>
+<p>If you don’t have Gdebi installed you can install it from a terminal</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">gdebi</span>
+</pre></div>
+</div>
+<p>If the graphical version of gdebi has problems you can run it from a
+terminal in the directory where you downloaded the deb with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">gdebi</span> <span class="n">mesact_0</span><span class="o">.</span><span class="mf">6.1</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span>
+</pre></div>
+</div>
+<p>If you don’t have LinuxCNC installed then the mesact Configuration tool
+will show up in the Applications &gt; Other menu otherwise it will be in
+the CNC menu.</p>
+<p>If you have problems try running from a terminal with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesact</span>
+</pre></div>
+</div>
+<p>To flash firmware to the mesact you need to install
+<a class="reference external" href="https://github.com/LinuxCNC/mesaflash">mesaflash</a> from the LinuxCNC
+repository.</p>
+<p>To uninstall the mesact Configuration Tool right click on the .deb file
+and open with Gdebi and select <cite>Remove Package</cite>.</p>
+<p>To upgrade the mesact Configuration Tool delete the .deb file and download
+a fresh copy then right click on the .deb file and open with Gdebi and
+select <cite>Reinstall Package</cite></p>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Mesa Configuration Tool</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="basic.html"
+                        title="next chapter">Basic Usage</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/install.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="basic.html" title="Basic Usage"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Mesa Configuration Tool"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Mesa Configuration Tool  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Installing</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, John Thornton.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
+    </div>
+  </body>
+</html>

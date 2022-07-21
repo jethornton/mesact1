@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Thu, 30 Jun 2022 07:14:03 -0500
+Source: mesact
+Binary: mesact
+Architecture: source amd64
+Version: 0.7.0
+Distribution: unstable
+Urgency: medium
+Maintainer: John Thornton <jt@gnipsel.com>
+Changed-By: John Thornton <jt@gnipsel.com>
+Description:
+ mesact     - Mesa Configuration Tools
+Changes:
+ mesact (0.7.0) unstable; urgency=medium
+ .
+   * Fix Desktop categories
+Checksums-Sha1:
+ 3c0f5b5c13711e61c694d053985d153720c06aaf 509 mesact_0.7.0.dsc
+ 09d4cdeec608132bb3e75a14af525e89e2f4a086 42478808 mesact_0.7.0.tar.xz
+ a4d0a37f89507b9dba5d058ae8a50973b398d350 5470 mesact_0.7.0_amd64.buildinfo
+ d08125c0baaf476b71fd6d6320c5e8f95285ae70 30810360 mesact_0.7.0_amd64.deb
+Checksums-Sha256:
+ 86010377b3e5d7216cff537fba074ca5756377902d9b72138741eea03b18cae5 509 mesact_0.7.0.dsc
+ e0dd62cf2869df2c204df3d1215d804f610ee02933118824553ced50eeca2ebd 42478808 mesact_0.7.0.tar.xz
+ f37b68584e11cf3a5a9879c55dc2cece1ab295a2b9c4b91ce06f008703b96e98 5470 mesact_0.7.0_amd64.buildinfo
+ b12e0ae567a9057e2fc2d343d1e58c2b391b25b5157a4c785a420e7cf7f747ea 30810360 mesact_0.7.0_amd64.deb
+Files:
+ ef3882c32ce26a3c263f1ace93090ae3 509 utils optional mesact_0.7.0.dsc
+ f9291e279cce986e8c1d289f5a5e265a 42478808 utils optional mesact_0.7.0.tar.xz
+ 2e5f2932c5a6f52c3c515dc7d7a832d7 5470 utils optional mesact_0.7.0_amd64.buildinfo
+ cca6252bbeec831b2c80b5e92ca9310e 30810360 utils optional mesact_0.7.0_amd64.deb
