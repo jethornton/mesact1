@@ -19,11 +19,9 @@ def downloadAmd64Deb(parent):
 		parent.statusbar.showMessage('Checking Repo')
 		response = requests.get("https://api.github.com/repos/jethornton/mesact/releases/latest")
 		repoVersion = response.json()["name"]
-		print(repoVersion)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Starting')
 		destination = os.path.join(directory, 'mesact_' + repoVersion + '_amd64.deb')
 		deburl = os.path.join('https://github.com/jethornton/mesact/raw/master/mesact_' + repoVersion + '_amd64.deb')
-		print(deburl)
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
 	else:
@@ -53,13 +51,13 @@ def download(parent, down_url, save_loc):
 			QApplication.processEvents()
 	urllib.request.urlretrieve(down_url, save_loc, Handle_Progress)
 	parent.progressBar.setValue(100)
-	parent.timer.start(10000)
+	parent.timer.start(1000)
 
 def clearProgressBar(parent):
 	parent.progressBar.setValue(0)
 	parent.statusbar.clearMessage()
-	parent.machinePTE.clear()
-	parent.machinePTE.appendPlainText('Close the Configuration Tool and reinstall')
+	parent.errorMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
+	parent.timer.stop()
 
 def showDocs(parent, pdfDoc):
 	docPath = False
