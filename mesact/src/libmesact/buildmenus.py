@@ -26,7 +26,10 @@ inputs = [{'Not Used':'Select'},
 	]},
 	{'Motion':['Probe Input', 'Digital 0', 'Digital 1', 'Digital 2', 'Digital 3']},
 	{'Spindle':['Spindle Amp Fault', 'Spindle Inhibit', 'Spindle Oriented', 'Spindle Orient Fault']},
-	{'I/O Control':['Lube Level', 'Tool Changed', 'Tool Prepared', 'Tool Changer Fault', 'External E Stop']}
+	{'I/O Control':[
+		{'External E Stop':['E Stop 0', 'E Stop 1', 'E Stop 2', 'E Stop 3',
+		'E Stop 4', 'E Stop 5', 'E Stop 6', 'E Stop 7', 'E Stop 8']},
+		'Lube Level', 'Tool Changed', 'Tool Prepared', 'Tool Changer Fault']}
 ]
 
 # {'':['', ]},
