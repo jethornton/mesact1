@@ -65,39 +65,39 @@ def build(parent):
 
 		'Joint 0 Plus and Home':'net pos-limit-and-home-joint-0 joint.0.pos-lim-sw-in\n'
 			'net pos-limit-and-home-joint-0 joint.0.home-sw-in <=',
-		'Joint 0 Minus and Home':'neg-limit-and-home-joint-0 joint.0.neg-lim-sw-in\n'
+		'Joint 0 Minus and Home':'net neg-limit-and-home-joint-0 joint.0.neg-lim-sw-in\n'
 			'net neg-limit-and-home-joint-0 joint.0.home-sw-in <=',
 		'Joint 1 Plus and Home':'net pos-limit-and-home-joint-1 joint.1.pos-lim-sw-in\n'
 			'net pos-limit-and-home-joint-1 joint.1.home-sw-in <=',
-		'Joint 1 Minus and Home':'neg-limit-and-home-joint-1 joint.1.neg-lim-sw-in\n'
+		'Joint 1 Minus and Home':'net neg-limit-and-home-joint-1 joint.1.neg-lim-sw-in\n'
 			'net neg-limit-and-home-joint-1 joint.1.home-sw-in <=',
 		'Joint 2 Plus and Home':'net pos-limit-and-home-joint-2 joint.2.pos-lim-sw-in\n'
 			'net pos-limit-and-home-joint-2 joint.2.home-sw-in <=',
-		'Joint 2 Minus and Home':'neg-limit-and-home-joint-2 joint.2.neg-lim-sw-in\n'
+		'Joint 2 Minus and Home':'net neg-limit-and-home-joint-2 joint.2.neg-lim-sw-in\n'
 			'net neg-limit-and-home-joint-2 joint.2.home-sw-in <=',
 		'Joint 3 Plus and Home':'net pos-limit-and-home-joint-3 joint.3.pos-lim-sw-in\n'
 			'net pos-limit-and-home-joint-3 joint.3.home-sw-in <=',
-		'Joint 3 Minus and Home':'neg-limit-and-home-joint-3 joint.3.neg-lim-sw-in\n'
+		'Joint 3 Minus and Home':'net neg-limit-and-home-joint-3 joint.3.neg-lim-sw-in\n'
 			'net neg-limit-and-home-joint-3 joint.3.home-sw-in <=',
 		'Joint 4 Plus and Home':'net pos-limit-and-home-joint-4 joint.4.pos-lim-sw-in\n'
 			'net pos-limit-and-home-joint-4 joint.4.home-sw-in <=',
-		'Joint 4 Minus and Home':'neg-limit-and-home-joint-4 joint.4.neg-lim-sw-in\n'
+		'Joint 4 Minus and Home':'net neg-limit-and-home-joint-4 joint.4.neg-lim-sw-in\n'
 			'net neg-limit-and-home-joint-4 joint.4.home-sw-in <=',
 		'Joint 5 Plus and Home':'net pos-limit-and-home-joint-5 joint.5.pos-lim-sw-in\n'
 			'net pos-limit-and-home-joint-5 joint.5.home-sw-in <=',
-		'Joint 5 Minus and Home':'neg-limit-and-home-joint-5 joint.5.neg-lim-sw-in\n'
+		'Joint 5 Minus and Home':'net neg-limit-and-home-joint-5 joint.5.neg-lim-sw-in\n'
 			'net neg-limit-and-home-joint-5 joint.5.home-sw-in <=',
 		'Joint 6 Plus and Home':'net pos-limit-and-home-joint-6 joint.6.pos-lim-sw-in\n'
 			'net pos-limit-and-home-joint-6 joint.6.home-sw-in <=',
-		'Joint 6 Minus and Home':'neg-limit-and-home-joint-6 joint.6.neg-lim-sw-in\n'
+		'Joint 6 Minus and Home':'net neg-limit-and-home-joint-6 joint.6.neg-lim-sw-in\n'
 			'net neg-limit-and-home-joint-6 joint.6.home-sw-in <=',
 		'Joint 7 Plus and Home':'net pos-limit-and-home-joint-7 joint.7.pos-lim-sw-in\n'
 			'net pos-limit-and-home-joint-7 joint.7.home-sw-in <=',
-		'Joint 7 Minus and Home':'neg-limit-and-home-joint-7 joint.7.neg-lim-sw-in\n'
+		'Joint 7 Minus and Home':'net neg-limit-and-home-joint-7 joint.7.neg-lim-sw-in\n'
 			'net neg-limit-and-home-joint-7 joint.7.home-sw-in <=',
 		'Joint 8 Plus and Home':'net pos-limit-and-home-joint-8 joint.8.pos-lim-sw-in\n'
 			'net pos-limit-and-home-joint-8 joint.8.home-sw-in <=',
-		'Joint 8 Minus and Home':'neg-limit-and-home-joint-8 joint.8.neg-lim-sw-in\n'
+		'Joint 8 Minus and Home':'net neg-limit-and-home-joint-8 joint.8.neg-lim-sw-in\n'
 			'net neg-limit-and-home-joint-8 joint.8.home-sw-in <=',
 
 		'Jog X Plus':'net jog-x-plus halui.axis.x.plus <= ',
