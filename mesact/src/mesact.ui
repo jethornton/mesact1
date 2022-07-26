@@ -4828,8 +4828,7 @@ usually set slower than Search Velocity</string>
                <item row="0" column="1">
                 <widget class="QLineEdit" name="c0_home_0">
                  <property name="toolTip">
-                  <string>Step rate at
-max speed</string>
+                  <string>Home is usually set to 0</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
