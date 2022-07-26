@@ -187,11 +187,12 @@ def build(parent):
 		#contents.append('#E Stop chain\n')
 		contents.append('net estop-loopin iocontrol.0.user-enable-out => estop-latch.0.ok-in\n')
 		for i in range(len(eStops) - 1):
-			contents.append(f'net estop-latch.{i}.ok-out => estop-latch.{i+1}.ok-in\n')
+			contents.append(f'net estop-{i}-out estop-latch.{i}.ok-out => estop-latch.{i+1}.ok-in\n')
 		contents.append(f'net estop-loopout estop-latch.{len(eStops)-1}.ok-out => iocontrol.0.emc-enable-in\n')
 		#contents.append('#E Stop reset\n')
+		contents.append(f'net estop-reset iocontrol.0.user-request-enable\n')
 		for i in range(len(eStops)):
-			contents.append(f'net estop-{i}-reset iocontrol.0.user-request-enable => estop-latch.{i}.reset \n')
+			contents.append(f'net estop-reset => estop-latch.{i}.reset \n')
 		#contents.append('#E Stop inputs\n')
 		for i in range(len(eStops)):
 			contents.append(f'net remote-estop{i} estop-latch.{i}.fault-in <= {eStops[i]}')
