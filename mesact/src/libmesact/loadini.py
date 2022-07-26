@@ -208,6 +208,10 @@ def loadini(parent, iniFile, config):
 						getattr(parent, item[2]).setItemText(0, config[item[0]][item[1]])
 				if item[1] == 'FIRMWARE':
 					index = getattr(parent, item[2]).findText(config[item[0]][item[1]])
+				if item[1] == 'DISPLAY': # Allow custom GUIs we don't have an option to pick (Ex: probe_basic)
+					if index == -1:
+						getattr(parent, item[2]).addItem(config[item[0]][item[1]], config[item[0]][item[1]])
+						index = getattr(parent, item[2]).count()-1
 				if index >= 0:
 					getattr(parent, item[2]).setCurrentIndex(index)
 			elif isinstance(getattr(parent, item[2]), QPushButton):
