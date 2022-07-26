@@ -500,7 +500,7 @@ def spindleChanged(parent):
 	else:
 		if parent.spindleTypeCB.currentData() == 'analog':
 			parent.spindleGB.setEnabled(True)
-			parent.spindlepidGB.setEnabled(False)
+			parent.spindleMinRpm.setEnabled(True)
 			parent.spindleStepgenGB.setEnabled(False)
 			for i in range(parent.axes):
 				parent.jointTabs_0.setTabEnabled(i, True)
@@ -512,7 +512,6 @@ def spindleChanged(parent):
 				parent.jointTabs_0.setTabEnabled(i, True)
 
 		if parent.spindleTypeCB.currentData()[:7] == 'stepgen':
-			parent.spindlepidGB.setEnabled(False)
 			for i in range(parent.axes):
 				if i == int(parent.spindleTypeCB.currentData()[-1]):
 					parent.jointTabs_0.setTabEnabled(i, False)
@@ -521,6 +520,9 @@ def spindleChanged(parent):
 			parent.spindleGB.setEnabled(True)
 			parent.spindleMinRpm.setEnabled(False)
 			parent.spindleStepgenGB.setEnabled(True)
+
+		if parent.spindleFeedbackCB.currentData() == 'encoder':
+			parent.spindlepidGB.setEnabled(True)
 
 def spindleSettingsChanged(parent):
 	if parent.spindleMinRpm.value() > 0:
