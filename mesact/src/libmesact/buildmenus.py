@@ -35,7 +35,10 @@ outputs = [{'Not Used':'Select'},
 	{'Spindle':['Spindle On', 'Spindle CW', 'Spindle CCW', 'Spindle Brake']},
 	{'I/O Control':['Coolant Flood', 'Coolant Mist', 'Lube Pump',
 		'Tool Change', 'Tool Prepare', 'E-Stop Out']},
-	{'Digital Out':['Digital Out 0', 'Digital Out 1', 'Digital Out 2', 'Digital Out 3', ]}
+	{'Digital Out':['Digital Out 0', 'Digital Out 1', 'Digital Out 2', 'Digital Out 3', ]},
+	{'Joint':['Joint 0 Amp Enable', 'Joint 1 Amp Enable', 'Joint 2 Amp Enable', 
+	'Joint 3 Amp Enable', 'Joint 4 Amp Enable', 'Joint 5 Amp Enable', 
+	'Joint 6 Amp Enable', 'Joint 7 Amp Enable', 'Joint 8 Amp Enable']}
 ]
 
 ain = [{'Not Used':'Select'},

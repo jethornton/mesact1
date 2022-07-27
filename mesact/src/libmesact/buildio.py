@@ -195,8 +195,19 @@ def build(parent):
 	'Digital Out 0': 'net digital-out-0 motion.digital-out-00 => ',
 	'Digital Out 1': 'net digital-out-1 motion.digital-out-01 => ',
 	'Digital Out 2': 'net digital-out-2 motion.digital-out-02 => ',
-	'Digital Out 3': 'net digital-out-3 motion.digital-out-03 => '
+	'Digital Out 3': 'net digital-out-3 motion.digital-out-03 => ',
+	'Joint 0 Amp Enable': 'net joint-0-enable joint.0.amp-enable-out => ',
+	'Joint 1 Amp Enable': 'net joint-1-enable joint.1.amp-enable-out => ',
+	'Joint 2 Amp Enable': 'net joint-2-enable joint.2.amp-enable-out => ',
+	'Joint 3 Amp Enable': 'net joint-3-enable joint.3.amp-enable-out => ',
+	'Joint 4 Amp Enable': 'net joint-4-enable joint.4.amp-enable-out => ',
+	'Joint 5 Amp Enable': 'net joint-5-enable joint.5.amp-enable-out => ',
+	'Joint 6 Amp Enable': 'net joint-6-enable joint.6.amp-enable-out => ',
+	'Joint 7 Amp Enable': 'net joint-7-enable joint.7.amp-enable-out => ',
+	'Joint 8 Amp Enable': 'net joint-8-enable joint.8.amp-enable-out => ',
 	}
+
+	#joint.0.amp-enable-out
 
 	# build the outputs
 	for i in range(16):
