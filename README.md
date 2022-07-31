@@ -1,8 +1,5 @@
 # mesact
 
-Due to my perception that no one used this tool I removed it only to find that
-a user uses my tool and requested that I restore it so I'm restoring it.
-
 If I can help just one person then all the thousands of hours of beating my head
 against the desk, searching the internet for coding examples and all the coding
 done on this tool it is worth the effort.
