@@ -130,6 +130,12 @@ def firmwareChanged(parent):
 		parent.machinePTE.clear()
 
 def daughterCardChanged(parent):
+	# if boardCB.currentData() in MAIN_BOARDS:
+		# enable cardTabs(0)
+	# elif boardCB.currentData() in ALL_IN_ONE_BOARDS:
+		# enable cardTabs(0)
+		# enable cardTabs(1)
+
 	if parent.sender().currentData():
 
 		#motherBoards = ['5i25', '7i80db', '7i80hd', '7i92', '7i93', '7i98']
