@@ -21,6 +21,9 @@ from PyQt5.QtWidgets import (QApplication, QMainWindow, QMessageBox,
 from PyQt5.QtGui import QPixmap
 from PyQt5 import uic
 
+# disable cache usage
+sys.dont_write_bytecode = True
+
 #from libmesact.ui_mesact import Ui_mainWindow
 from libmesact import startup
 from libmesact import boards
