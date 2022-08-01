@@ -269,6 +269,16 @@ Spaces are replaced with underscore.</string>
              </property>
             </widget>
            </item>
+           <item row="2" column="3" colspan="2">
+            <widget class="QLabel" name="mesaflashLBL">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -27504,7 +27514,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>461</width>
+                 <width>458</width>
                  <height>121</height>
                 </rect>
                </property>
