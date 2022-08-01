@@ -219,8 +219,7 @@ def build(parent):
 			if parent.board == '7i95': # hm2_7i95.0.ssr.00.out-00
 				contents.append(output_dict[key] + f'hm2_7i95.0.ssr.00.out-{i:02}\n')
 			if parent.board == '7i96':
-				contents.append(f'setp hm2_7i96.0.gpio.0{i:02}.is_output True\n')
-				contents.append(output_dict[key] + f'hm2_7i96.0.gpio.0{i:02}.out\n')
+				contents.append(output_dict[key] + f'hm2_7i96.0.ssr.00.out-{i:02}\n')
 			if parent.board == '7i96s':
 				if i in range(4):
 					contents.append(output_dict[key] + f'hm2_7i96s.0.ssr.00.out-{i:02}\n')
