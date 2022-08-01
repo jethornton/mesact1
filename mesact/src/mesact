@@ -21,7 +21,7 @@ from PyQt5.QtWidgets import (QApplication, QMainWindow, QMessageBox,
 from PyQt5.QtGui import QPixmap
 from PyQt5 import uic
 
-from libmesact.ui_mesact import Ui_mainWindow
+#from libmesact.ui_mesact import Ui_mainWindow
 from libmesact import startup
 from libmesact import boards
 from libmesact import utilities
