@@ -208,7 +208,7 @@ def build(parent):
 		halContents.append('net spindle-vel-cmd-rpm <= spindle.0.speed-out\n')
 		halContents.append('net spindle-vel-cmd-rpm-abs <= spindle.0.speed-out-abs\n')
 		halContents.append('\n# Spindle Command Pins\n')
-		halContents.append('net spindle-enable <= spindle.0.on\n')
+		halContents.append('net spindle-on <= spindle.0.on\n')
 		halContents.append('net spindle-cw <= spindle.0.forward\n')
 		halContents.append('net spindle-ccw <= spindle.0.reverse\n')
 		halContents.append('net spindle-brake <= spindle.0.brake\n')
