@@ -307,7 +307,7 @@ def checkit(parent):
 	# end of Axis Tab
 
 	# check the I/O Tab for errors
-	for i in range(32):
+	for i in range(32): # check for Home All
 		# check for home all
 		if getattr(parent, f'inputPB_{i}').text() == 'Home All':
 			seq = []
@@ -336,13 +336,18 @@ def checkit(parent):
 					tabError = True
 					configErrors.append(f'\tThe Home All Input requires the Home Sequence to not skip a number {numList}')
 
-	# check for invert and debounce
-	for i in range(32):
+	for i in range(32): # check for invert and debounce
 		invert = getattr(parent, f'inputInvertCB_{i}').isChecked()
 		debounce = getattr(parent, f'inputDebounceCB_{i}').isChecked()
 		if invert and debounce:
 			tabError = True
 			configErrors.append(f'\tInvert and Debouce for Joint {i} can not be used together')
+
+	for i in range(16): # check for spindle on
+		if getattr(parent, f'outputPB_{i}').text() == 'Spindle On':
+			if parent.spindleTypeCB.currentText() != 'Digital':
+				tabError = True
+				configErrors.append(f'\tSpindle Output must be set to Digital to use Spindle On')
 
 	if tabError:
 		configErrors.insert(nextHeader, 'I/O Tab:')
