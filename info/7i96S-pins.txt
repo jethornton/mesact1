@@ -1,9 +1,6 @@
 Loaded HAL Components:
 ID      Type  Name                                            PID   State
-     9  User  halcmd514575                                    514575 ready
      7  RT    hm2_eth                                               ready
-     6  User  halcmd514533                                    514533 ready
-     4  RT    hostmot2                                              ready
 
 Component Pins:
 Owner   Type  Dir         Value  Name
@@ -158,9 +155,13 @@ Owner   Type  Dir         Value  Name
      7  bit   OUT         FALSE  hm2_7i96s.0.gpio.050.in_not
      7  bit   IN          FALSE  hm2_7i96s.0.gpio.050.out
      7  s32   OUT             0  hm2_7i96s.0.inm.00.enc0-count
+     7  bit   IN          FALSE  hm2_7i96s.0.inm.00.enc0-reset
      7  s32   OUT             0  hm2_7i96s.0.inm.00.enc1-count
+     7  bit   IN          FALSE  hm2_7i96s.0.inm.00.enc1-reset
      7  s32   OUT             0  hm2_7i96s.0.inm.00.enc2-count
+     7  bit   IN          FALSE  hm2_7i96s.0.inm.00.enc2-reset
      7  s32   OUT             0  hm2_7i96s.0.inm.00.enc3-count
+     7  bit   IN          FALSE  hm2_7i96s.0.inm.00.enc3-reset
      7  bit   OUT         FALSE  hm2_7i96s.0.inm.00.input-00
      7  bit   OUT         FALSE  hm2_7i96s.0.inm.00.input-00-not
      7  bit   IN          FALSE  hm2_7i96s.0.inm.00.input-00-slow
@@ -534,9 +535,9 @@ Parameter Aliases:
 
 Exported Functions:
 Owner   CodeAddr  Arg       FP   Users  Name
- 00007  7fbc6334f8da  562593897d10  YES      0   hm2_7i96s.0.read
- 00007  7fbc6334f863  562593897d10  YES      0   hm2_7i96s.0.read-request
- 00007  7fbc6334f729  562593897d10  YES      0   hm2_7i96s.0.write
+ 00007  7fbf595418e0  557fd6fbfd00  YES      0   hm2_7i96s.0.read
+ 00007  7fbf59541869  557fd6fbfd00  YES      0   hm2_7i96s.0.read-request
+ 00007  7fbf59541731  557fd6fbfd00  YES      0   hm2_7i96s.0.write
 
 Realtime Threads:
      Period  FP     Name               (     Time, Max-Time )
