@@ -184,7 +184,6 @@ def build(parent):
 	parent.ss7i73lcdCB.addItem('None', 'w7d')
 	parent.ss7i73lcdCB.addItem('Enabled', 'w7u')
 
-
 	debug = [
 		['Debug Off', '0x00000000'],
 		['Debug Configuration', '0x00000002'],

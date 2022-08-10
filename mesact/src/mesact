@@ -33,6 +33,7 @@ from libmesact import buildmenus
 from libmesact import firmware
 from libmesact import card
 from libmesact import loadini
+from libmesact import hal
 from libmesact import checkconfig
 from libmesact import buildconfig
 from libmesact import extcmd
@@ -179,6 +180,13 @@ class MainWindow(QMainWindow):
 
 		# Smart Serial Tab
 		self.ssCardCB.currentIndexChanged.connect(partial(utilities.ssCardChanged, self))
+
+		# HAL Tab
+		self.buildHalPB.clicked.connect(partial(hal.buildHal, self))
+		for i in range(6):
+			getattr(self, f'halFunctionCB_{i}').currentIndexChanged.connect(partial(hal.functionChanged, self))
+		for i in range(4):
+			getattr(self, f'functionCountSB_{i}').valueChanged.connect(partial(hal.countChanged, self))
 
 		# Pins Tab
 		self.cardPinsPB.clicked.connect(partial(card.getCardPins, self))

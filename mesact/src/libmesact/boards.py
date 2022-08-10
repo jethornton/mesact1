@@ -1,8 +1,22 @@
 import os
 
 from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QMenu, QAction
 
 from libmesact import utilities
+
+def add_menu(data, menu_obj):
+	if isinstance(data, dict):
+		for k, v in data.items():
+			sub_menu = QMenu(k, menu_obj)
+			menu_obj.addMenu(sub_menu)
+			add_menu(v, sub_menu)
+	elif isinstance(data, list):
+		for element in data:
+			add_menu(element, menu_obj)
+	else:
+		action = menu_obj.addAction(data)
+		action.setIconVisibleInMenu(False)
 
 def boardChanged(parent):
 	if parent.boardCB.currentData():
@@ -635,6 +649,29 @@ def boardChanged(parent):
 			'PWM frequency is 10-20 KHz but frequencies from 5 KHz to 50 KHz are acceptable, lower\n'
 			'frequencies will have higher output ripple and higher frequencies will have worse linearity.\n')
 			parent.spindlePTE.setPlainText(spinnotes)
+
+			# Custom HAL
+			halInputs = ['Select']
+			for i in range(10):
+				halInputs.append(f'hm2_7i96s.0.inm.00.input-{i:02}')
+			for i in range(6):
+				button = getattr(parent, "inputPinPB_{}".format(i))
+				menu = QMenu()
+				menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
+				add_menu(halInputs, menu)
+				button.setMenu(menu)
+
+			halOutputs = ['Select']
+			for i in range(4):
+				halOutputs.append(f'hm2_7i96s.0.ssr.00.out-{i:02}')
+			for i in range(4,6):
+				halOutputs.append(f'hm2_7i96s.0.outm.00.out-{i:02}')
+			for i in range(6):
+				button = getattr(parent, "outputPinPB_{}".format(i))
+				menu = QMenu()
+				menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
+				add_menu(halOutputs, menu)
+				button.setMenu(menu)
 
 		# 6 axes of analog servo 16 isolated inputs 6 isolated outputs
 		elif parent.boardCB.currentData() == '7i97':

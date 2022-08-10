@@ -45,6 +45,25 @@ ain = [{'Not Used':'Select'},
 	{'Analog':['Analog In 0', 'Analog In 1', 'Analog In 2','Analog In 3']}
 ]
 
+halPins  = [{'Not Used':'Select'},
+	{'Motion':['motion.adaptive-feed', 'motion.coord-error', 'motion.coord-mode', 'motion.current-vel',
+	'motion.distance-to-go', 'motion.enable', 'motion.eoffset-active', 'motion.eoffset-limited',
+	'motion.homing-inhibit', 'motion.in-position', 'motion.is-all-homed', 'motion.jog-inhibit',
+	'motion.jog-is-active', 'motion.jog-stop', 'motion.jog-stop-immediate', 'motion.motion-enabled',
+	'motion.motion-type', 'motion.on-soft-limit', 'motion.probe-input', 'motion.program-line',
+	'motion.requested-vel', 'motion.teleop-mode', ]},
+
+	{'Motion Feed':['motion.feed-hold', 'motion.feed-inches-per-minute', 'motion.feed-inches-per-second' , 'motion.feed-inhibit', 'motion.feed-mm-per-minute', 'motion.feed-mm-per-second', 'motion.feed-upm']},
+
+	{'Motion Tool Offset':['motion.tooloffset.a', 'motion.tooloffset.b', 'motion.tooloffset.c', 'motion.tooloffset.u',
+	'motion.tooloffset.v', 'motion.tooloffset.w', 'motion.tooloffset.x', 'motion.tooloffset.y', 'motion.tooloffset.z',
+	'motion.tp-reverse']},
+
+	{'Motion Analog':['motion.analog-in-00' , 'motion.analog-in-01' , 'motion.analog-in-02' , 'motion.analog-in-03' , 'motion.analog-out-00' , 'motion.analog-out-01' , 'motion.analog-out-02' , 'motion.analog-out-03']},
+
+	{'Motion Digital':['motion.digital-in-00' , 'motion.digital-in-01' , 'motion.digital-in-02' , 'motion.digital-in-03' , 'motion.digital-out-00' , 'motion.digital-out-01' , 'motion.digital-out-02' , 'motion.digital-out-03']},
+]
+
 def build(parent):
 	for i in range(32):
 		button = getattr(parent, "inputPB_{}".format(i))
@@ -59,7 +78,6 @@ def build(parent):
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
 		add_menu(outputs, menu)
 		button.setMenu(menu)
-
 
 	for i in range(24):
 		button = getattr(parent, "ss7i64in_{}".format(i))
@@ -88,7 +106,6 @@ def build(parent):
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
 		add_menu(inputs, menu)
 		button.setMenu(menu)
-
 
 	for i in range(24):
 		button = getattr(parent, "ss7i64out_{}".format(i))
@@ -187,6 +204,13 @@ def build(parent):
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
 		add_menu(ain, menu)
+		button.setMenu(menu)
+
+	for i in range(6):
+		button = getattr(parent, f'halPin_{i}')
+		menu = QMenu()
+		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
+		add_menu(halPins, menu)
 		button.setMenu(menu)
 
 def add_menu(data, menu_obj):
