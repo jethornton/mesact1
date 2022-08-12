@@ -66,7 +66,7 @@ QGroupBox::title {
              <x>0</x>
              <y>0</y>
              <width>976</width>
-             <height>326</height>
+             <height>322</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout">
@@ -118,18 +118,7 @@ Backups</string>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">QGroupBox {
-    font: bold;
-    border: 2px solid silver;
-    border-radius: 6px;
-    margin-top: 6px;
-}
-
-QGroupBox::title {
-    subcontrol-origin: margin;
-    left: 7px;
-    padding: 0px 5px 0px 5px;
-}</string>
+           <string notr="true"/>
           </property>
           <property name="title">
            <string>Machine</string>
@@ -139,7 +128,7 @@ QGroupBox::title {
             <number>9</number>
            </property>
            <property name="topMargin">
-            <number>15</number>
+            <number>9</number>
            </property>
            <property name="rightMargin">
             <number>9</number>
@@ -306,18 +295,7 @@ Spaces are replaced with underscore.</string>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">QGroupBox {
-    font: bold;
-    border: 2px solid silver;
-    border-radius: 6px;
-    margin-top: 6px;
-}
-
-QGroupBox::title {
-    subcontrol-origin: margin;
-    left: 7px;
-    padding: 0px 5px 0px 5px;
-}</string>
+           <string notr="true"/>
           </property>
           <property name="title">
            <string>Configuration Setup</string>
@@ -498,25 +476,14 @@ QGroupBox::title {
         <item row="3" column="0" colspan="2">
          <widget class="QGroupBox" name="gridGroupBox_3">
           <property name="styleSheet">
-           <string notr="true">QGroupBox {
-    font: bold;
-    border: 2px solid silver;
-    border-radius: 6px;
-    margin-top: 6px;
-}
-
-QGroupBox::title {
-    subcontrol-origin: margin;
-    left: 7px;
-    padding: 0px 5px 0px 5px;
-}</string>
+           <string notr="true"/>
           </property>
           <property name="title">
            <string> Firmware</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_29">
            <property name="topMargin">
-            <number>15</number>
+            <number>9</number>
            </property>
            <item row="1" column="5">
             <widget class="QPushButton" name="reloadPB">
@@ -3582,18 +3549,7 @@ Female</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QGroupBox {
-    font: bold;
-    border: 2px solid silver;
-    border-radius: 6px;
-    margin-top: 6px;
-}
-
-QGroupBox::title {
-    subcontrol-origin: margin;
-    left: 7px;
-    padding: 0px 5px 0px 5px;
-}</string>
+         <string notr="true"/>
         </property>
         <property name="title">
          <string>Axis Display Options</string>
@@ -3625,18 +3581,7 @@ QGroupBox::title {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QGroupBox {
-    font: bold;
-    border: 2px solid silver;
-    border-radius: 6px;
-    margin-top: 6px;
-}
-
-QGroupBox::title {
-    subcontrol-origin: margin;
-    left: 7px;
-    padding: 0px 5px 0px 5px;
-}</string>
+         <string notr="true"/>
         </property>
         <property name="title">
          <string>Display</string>
@@ -3646,7 +3591,7 @@ QGroupBox::title {
           <number>9</number>
          </property>
          <property name="topMargin">
-          <number>15</number>
+          <number>9</number>
          </property>
          <property name="rightMargin">
           <number>9</number>
@@ -4144,7 +4089,7 @@ QGroupBox::title {
                 <widget class="QLabel" name="c0_unitsLB_0">
                  <property name="font">
                   <font>
-                   <pointsize>11</pointsize>
+                   <pointsize>8</pointsize>
                   </font>
                  </property>
                  <property name="frameShape">
@@ -19767,19 +19712,19 @@ max speed</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_30">
          <property name="leftMargin">
-          <number>10</number>
+          <number>9</number>
          </property>
          <property name="topMargin">
-          <number>15</number>
+          <number>9</number>
          </property>
          <property name="rightMargin">
-          <number>10</number>
+          <number>9</number>
          </property>
          <property name="bottomMargin">
-          <number>10</number>
+          <number>9</number>
          </property>
          <property name="spacing">
-          <number>5</number>
+          <number>6</number>
          </property>
          <item row="7" column="0">
           <widget class="QLabel" name="label_270">
@@ -20030,7 +19975,7 @@ max speed</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_37">
          <property name="topMargin">
-          <number>15</number>
+          <number>9</number>
          </property>
          <item row="5" column="0">
           <widget class="QLabel" name="label_1154">
@@ -28450,7 +28395,7 @@ Copy HAL Add Functions and HAL to custom.hal</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_51">
          <property name="topMargin">
-          <number>15</number>
+          <number>9</number>
          </property>
          <item row="3" column="0">
           <widget class="QCheckBox" name="shutdownCB">
@@ -28496,7 +28441,7 @@ Copy HAL Add Functions and HAL to custom.hal</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_53">
          <property name="topMargin">
-          <number>15</number>
+          <number>9</number>
          </property>
          <item row="0" column="0">
           <widget class="QCheckBox" name="pyvcpCB">
@@ -30408,8 +30353,8 @@ Copy HAL Add Functions and HAL to custom.hal</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>337</width>
-                 <height>118</height>
+                 <width>952</width>
+                 <height>561</height>
                 </rect>
                </property>
                <layout class="QGridLayout" name="gridLayout_41">
