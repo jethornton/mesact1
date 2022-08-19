@@ -6,6 +6,9 @@ from libmesact import loadini
 from libmesact import utilities
 
 def setup(parent):
+	configPath = os.path.expanduser('~/.config/measct/mesact.conf')
+	if not os.path.isfile(configPath):
+		os.makedirs(os.path.expanduser('~/.config/measct'))
 	#print(type(parent.checkMesaflashCB.isChecked()))
 	parent.emcVersionLB.clear()
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')

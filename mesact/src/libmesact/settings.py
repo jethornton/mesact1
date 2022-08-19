@@ -30,7 +30,7 @@ def update(parent):
 			config.add_section('NAGS')
 			config['NAGS']['MESAFLASH'] = f'{parent.checkMesaflashCB.isChecked()}'
 			config['NAGS']['NEWUSER'] = f'{parent.newUserCB.isChecked()}'
-			os.makedirs(os.path.expanduser('~/.config/measct'))
+			os.makedirs(os.path.expanduser('~/.config/measct')) # this is moved to startup
 		with open(configPath, 'w') as cf:
 			config.write(cf)
 
