@@ -29,6 +29,12 @@ def build(parent):
 	halContents.append('# motion controller\n')
 	halContents.append('loadrt [EMCMOT]EMCMOT ')
 	halContents.append('servo_period_nsec=[EMCMOT]SERVO_PERIOD ')
+	# check for extra motion options
+	#parent.numDioSB
+	#parent.numAioSB
+	#parent.numSpindlesSB
+	#parent.numJointSB
+	#parent.numExtraJointsSB
 	halContents.append('num_joints=[KINS]JOINTS\n\n')
 	halContents.append('# standard components\n')
 	if parent.spindleTypeCB.currentData():

@@ -6,6 +6,22 @@ from libmesact import loadini
 from libmesact import utilities
 
 def setup(parent):
+	#print(type(parent.checkMesaflashCB.isChecked()))
+	parent.emcVersionLB.clear()
+	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
+	if len(emc) > 0:
+		version = emc.split()[2]
+		parent.emcVersionLB.setText(version.split(':')[1])
+	else:
+		parent.emcVersionLB.setText('Not Installed')
+	try:
+		mf = subprocess.check_output('mesaflash', encoding='UTF-8')
+		if len(mf) > 0:
+			parent.mesaflashVersionLB.setText(mf.split()[2])
+	except FileNotFoundError as error:
+		#print(error.filename)
+		parent.mesaflashVersionLB.setText('Not Installed')
+
 	parent.mainTabs.setTabEnabled(3, False)
 	parent.mainTabs.setTabEnabled(4, False)
 	parent.cardTabs.setTabEnabled(1, False)
@@ -54,22 +70,13 @@ def checkconfig(parent):
 		if config.has_option('STARTUP', 'CONFIG'):
 			if config['STARTUP']['CONFIG'] != 'False':
 				loadini.openini(parent, config['STARTUP']['CONFIG'].lower())
-
-	else: # no mesact.conf file found set defaults
-		print(f'{os.path.expanduser("~/.config/measct/mesact.conf")} not found')
-		config.add_section('NAGS')
-		config['NAGS']['MESAFLASH'] = 'True'
+	else:
 		parent.checkMesaflashCB.setChecked(True)
-		config['NAGS']['NEWUSER'] = 'True'
+		checkmf(parent)
 		parent.newUserCB.setChecked(True)
-		if not os.path.isdir(os.path.expanduser('~/.config/measct')):
-			os.makedirs(os.path.expanduser('~/.config/measct'))
-		with open(os.path.expanduser('~/.config/measct/mesact.conf'), 'w') as configfile:
-			config.write(configfile)
-
 
 def checkmf(parent):
-	# only check to see if it's installed here
+	# only check to see if it's installed here mesaflashVersionLB
 	try:
 		subprocess.check_output('mesaflash', encoding='UTF-8')
 	except FileNotFoundError:

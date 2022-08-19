@@ -20,6 +20,12 @@ def check_emc():
 	else:
 		return False
 
+def check_mesaflash():
+	if subprocess.call(['which', 'mesaflash']) == 0:
+		return True
+	else:
+		return False
+
 def getResults(parent, prompt, result):
 	if result == 0:
 		output = prompt[0]
@@ -35,6 +41,10 @@ def checkCard(parent):
 	if check_emc():
 		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {parent.board}', 'Error')
 		return
+	if not check_mesaflash():
+		parent.errorMsgOk(f'Mesaflash is not Installed', 'Error')
+		return
+
 	if parent.boardType == 'eth':
 		if check_ip(parent):
 			ipAddress = parent.ipAddressCB.currentText()

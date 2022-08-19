@@ -17,16 +17,10 @@ def build(parent):
 		utilities.backupFiles(parent)
 
 	config = configparser.ConfigParser()
+	config.optionxform = str
 	config.add_section('NAGS')
-	if parent.checkMesaflashCB.isChecked():
-		config['NAGS']['MESAFLASH'] = 'True'
-	else:
-		config['NAGS']['MESAFLASH'] = 'False'
-	if parent.newUserCB.isChecked():
-		config['NAGS']['NEWUSER'] = 'True'
-	else:
-		config['NAGS']['NEWUSER'] = 'False'
-
+	config['NAGS']['MESAFLASH'] = str(parent.checkMesaflashCB.isChecked())
+	config['NAGS']['NEWUSER'] = str(parent.newUserCB.isChecked())
 
 	config.add_section('STARTUP')
 	if parent.loadConfigCB.isChecked():
@@ -36,12 +30,14 @@ def build(parent):
 	with open(os.path.expanduser('~/.config/measct/mesact.conf'), 'w') as configfile:
 		config.write(configfile)
 
+	'''
 		if config.has_option('NAGS', 'MESAFLASH'):
 			if config['NAGS']['MESAFLASH'] == 'True':
 				parent.checkMesaflashCB.setChecked(True)
 		if config.has_option('NAGS', 'MESAFLASH'):
 			if config['NAGS']['NEWUSER'] == 'True':
 				parent.newUserCB.setChecked(True)
+	'''
 
 	# check for linuxcnc paths
 	if not os.path.exists(os.path.expanduser('~/linuxcnc')):

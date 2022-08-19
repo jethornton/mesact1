@@ -1,4 +1,3 @@
-import configparser
 
 def load(parent, config):
 	card = config.get('SSERIAL', 'SS_CARD')
