@@ -9,7 +9,7 @@ you can configure the daughter card, but not the 7i97, which, is weird.
 Store Connector used for building config
 
 """
-VERSION = '0.7.0'
+VERSION = '0.7.1'
 
 import sys, os, traceback
 from functools import partial
