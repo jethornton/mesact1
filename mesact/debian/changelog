@@ -1,3 +1,9 @@
+mesact (0.7.1) unstable; urgency=medium
+
+  * Add Mesaflash and LinuxCNC version info, fix preference saving
+
+ -- John Thornton <jt@gnipsel.com>  Fri, 19 Aug 2022 07:31:56 -0500
+
 mesact (0.7.0) unstable; urgency=medium
 
   * Fix Desktop categories
