@@ -24,7 +24,6 @@ def setup(parent):
 	except FileNotFoundError as error:
 		#print(error.filename)
 		parent.mesaflashVersionLB.setText('Not Installed')
-
 	parent.mainTabs.setTabEnabled(3, False)
 	parent.mainTabs.setTabEnabled(4, False)
 	parent.cardTabs.setTabEnabled(1, False)
@@ -34,6 +33,7 @@ def setup(parent):
 	parent.defAngJogVelDSB.setEnabled(False)
 	parent.maxAngJogVelDSB.setEnabled(False)
 	parent.spindleStepgenGB.setEnabled(False)
+
 	pixmap = QPixmap(os.path.join(parent.lib_path, '7i76.png'))
 	parent.card7i76LB.setPixmap(pixmap)
 	pixmap = QPixmap(os.path.join(parent.lib_path, '7i77.png'))
@@ -61,8 +61,23 @@ def setup(parent):
 
 def checkconfig(parent):
 	config = configparser.ConfigParser()
+	config.optionxform = str
+	configPath = os.path.expanduser('~/.config/measct/mesact.conf')
 	if os.path.isfile(os.path.expanduser('~/.config/measct/mesact.conf')):
+		rebuild = False
 		config.read(os.path.expanduser('~/.config/measct/mesact.conf'))
+		if config.has_option('NAGS', 'mesaflash'):
+			config.remove_option('NAGS', 'mesaflash')
+			rebuild = True
+		if config.has_option('NAGS', 'newuser'):
+			config.remove_option('NAGS', 'newuser')
+			rebuild = True
+		if rebuild:
+			config['NAGS']['MESAFLASH'] = 'True'
+			config['NAGS']['NEWUSER'] = 'True'
+			with open(configPath, 'w') as cf:
+				config.write(cf)
+
 		if config.has_option('NAGS', 'MESAFLASH'):
 			if config['NAGS']['MESAFLASH'] == 'True':
 				parent.checkMesaflashCB.setChecked(True)
