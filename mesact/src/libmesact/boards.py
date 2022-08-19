@@ -48,16 +48,6 @@ def boardChanged(parent):
 				parent.firmwareCB.addItem(os.path.basename(file), file)
 
 		if bitFiles:
-			if parent.newUserCB.isChecked():
-				msg = ('If this is your first time using the '
-							'Mesa Configuration Tool press the Documents '
-							'Button and read the Basic Usage for general '
-							'instructions on getting started.\n'
-							'You can turn this notification off on the '
-							'Options Tab in the Startup Box'
-				)
-				parent.infoMsgOk(msg, 'Greetings')
-				parent.newUserCB.setChecked(False)
 			parent.machinePTE.appendPlainText(f'Firmware for {parent.boardCB.currentText()} Loaded')
 			parent.machinePTE.appendPlainText('Select Firmware for Daughter Cards')
 			parent.machinePTE.appendPlainText('Not all Firmware has a dictionary entry for Daughter Cards')
