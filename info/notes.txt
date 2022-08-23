@@ -1,4 +1,5 @@
 make html
+latexmk needs to be installed to build pfd docs
 make latexpdf
 
 http://tom-itx.no-ip.biz:81/~webpage/cnc/JT-SHOP/mesact/
