@@ -8,6 +8,15 @@ from libmesact import utilities
 def setup(parent):
 	if not os.path.isdir(os.path.expanduser('~/.config/measct')):
 		os.makedirs(os.path.expanduser('~/.config/measct'))
+		msg = ('If this is your first time using the '
+			'Mesa Configuration Tool press the Documents '
+			'Button and read the Basic Usage for general '
+			'instructions on getting started.\n'
+			'You can turn this notification off on the '
+			'Options Tab in the Startup Box'
+		)
+		parent.infoMsgOk(msg, 'Greetings')
+
 	parent.emcVersionLB.clear()
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
 	if len(emc) > 0:
