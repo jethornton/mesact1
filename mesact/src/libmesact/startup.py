@@ -6,10 +6,8 @@ from libmesact import loadini
 from libmesact import utilities
 
 def setup(parent):
-	configPath = os.path.expanduser('~/.config/measct/mesact.conf')
-	if not os.path.isdir(os.path.dirname(configPath)):
+	if not os.path.isdir(os.path.expanduser('~/.config/measct')):
 		os.makedirs(os.path.expanduser('~/.config/measct'))
-	#print(type(parent.checkMesaflashCB.isChecked()))
 	parent.emcVersionLB.clear()
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
 	if len(emc) > 0:
@@ -22,7 +20,6 @@ def setup(parent):
 		if len(mf) > 0:
 			parent.mesaflashVersionLB.setText(mf.split()[2])
 	except FileNotFoundError as error:
-		#print(error.filename)
 		parent.mesaflashVersionLB.setText('Not Installed')
 	parent.mainTabs.setTabEnabled(3, False)
 	parent.mainTabs.setTabEnabled(4, False)
