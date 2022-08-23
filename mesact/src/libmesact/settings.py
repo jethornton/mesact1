@@ -37,16 +37,6 @@ def update(parent):
 
 	else: # no mesact.conf file found set defaults
 		#print(f'{os.path.expanduser("~/.config/measct/mesact.conf")} not found')
-		config.add_section('NAGS')
-		config['NAGS']['MESAFLASH'] = 'True'
-		parent.checkMesaflashCB.setChecked(True)
-		checkmf(parent)
-		config['NAGS']['NEWUSER'] = 'True'
-		parent.newUserCB.setChecked(True)
-		if not os.path.isdir(os.path.expanduser('~/.config/measct')):
-			os.makedirs(os.path.expanduser('~/.config/measct'))
-		with open(os.path.expanduser('~/.config/measct/mesact.conf'), 'w') as configfile:
-			config.write(configfile)
 
 
 

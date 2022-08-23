@@ -1,5 +1,5 @@
-import os, configparser, subprocess
-
+import os, subprocess
+from configparser import ConfigParser
 from PyQt5.QtGui import QPixmap
 
 from libmesact import loadini
@@ -8,15 +8,6 @@ from libmesact import utilities
 def setup(parent):
 	if not os.path.isdir(os.path.expanduser('~/.config/measct')):
 		os.makedirs(os.path.expanduser('~/.config/measct'))
-		msg = ('If this is your first time using the '
-			'Mesa Configuration Tool press the Documents '
-			'Button and read the Basic Usage for general '
-			'instructions on getting started.\n'
-			'You can turn this notification off on the '
-			'Options Tab in the Startup Box'
-		)
-		parent.infoMsgOk(msg, 'Greetings')
-
 	parent.emcVersionLB.clear()
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
 	if len(emc) > 0:
@@ -66,7 +57,7 @@ def setup(parent):
 	parent.card7i88LB.setPixmap(pixmap)
 
 def checkconfig(parent):
-	config = configparser.ConfigParser()
+	config = ConfigParser()
 	config.optionxform = str
 	configPath = os.path.expanduser('~/.config/measct/mesact.conf')
 	if os.path.isfile(os.path.expanduser('~/.config/measct/mesact.conf')):
@@ -91,22 +82,22 @@ def checkconfig(parent):
 		if config.has_option('NAGS', 'NEWUSER'):
 			if config['NAGS']['NEWUSER'] == 'True':
 				parent.newUserCB.setChecked(True)
-				msg = ('If this is your first time using the '
-							'Mesa Configuration Tool press the Documents '
-							'Button and read the Basic Usage for general '
-							'instructions on getting started.\n'
-							'You can turn this notification off on the '
-							'Options Tab in the Startup Box'
-				)
-				parent.infoMsgOk(msg, 'Greetings')
-
+				newuser(parent)
 		if config.has_option('STARTUP', 'CONFIG'):
 			if config['STARTUP']['CONFIG'] != 'False':
 				loadini.openini(parent, config['STARTUP']['CONFIG'].lower())
 	else:
+		config = ConfigParser()
+		config.optionxform = str
+		config.add_section('NAGS')
+		config['NAGS']['MESAFLASH'] = 'True'
+		config['NAGS']['NEWUSER'] = 'True'
+		with open(os.path.expanduser('~/.config/measct/mesact.conf'), 'w') as configfile:
+			config.write(configfile)
 		parent.checkMesaflashCB.setChecked(True)
 		checkmf(parent)
 		parent.newUserCB.setChecked(True)
+		newuser(parent)
 
 def checkmf(parent):
 	# only check to see if it's installed here mesaflashVersionLB
@@ -130,6 +121,16 @@ def checkmf(parent):
 		parent.reloadPB.setEnabled(False)
 		parent.verifyPB.setEnabled(False)
 		parent.statusbar.showMessage('Mesaflash not found!')
+
+def newuser(parent):
+	msg = ('If this is your first time using the '
+		'Mesa Configuration Tool press the Documents '
+		'Button and read the Basic Usage for general '
+		'instructions on getting started.\n'
+		'You can turn this notification off on the '
+		'Options Tab in the Startup Box'
+	)
+	parent.infoMsgOk(msg, 'Greetings')
 
 
 def getpref(parent):
