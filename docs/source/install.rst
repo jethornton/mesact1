@@ -4,7 +4,7 @@ Installing
 
 Mesa Configuration Tool
 
-.. Note:: Tested on Debian 10, and Linux Mint 20.2 but it should work on
+.. Note:: Tested on Debian 10, 11, 12, 13 and Linux Mint 20.2 but it should work on
 	other Debian type OS's.
 
 .. Note:: Requires Python 3.6 or newer to work.
@@ -23,8 +23,6 @@ If you get `bash: wget: command not found` you can install it from a terminal wi
 
 	sudo apt install wget
 
-Check the readme.md file for the latest deb and md5sum.
-
 Open the File Manager and right click on the file and open with Gdebi then install.
 
 If you don't have Gdebi installed you can install it from a terminal
@@ -36,7 +34,7 @@ If the graphical version of gdebi has problems you can run it from a
 terminal in the directory where you downloaded the deb with:
 ::
 
-	sudo gdebi mesact_0.6.1_amd64.deb
+	sudo gdebi mesact_0.7.1_amd64.deb
 
 If you don't have LinuxCNC installed then the mesact Configuration tool
 will show up in the Applications > Other menu otherwise it will be in
