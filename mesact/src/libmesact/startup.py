@@ -7,7 +7,7 @@ from libmesact import utilities
 
 def setup(parent):
 	configPath = os.path.expanduser('~/.config/measct/mesact.conf')
-	if not os.path.isfile(configPath):
+	if not os.path.isdir(os.path.dirname(configPath)):
 		os.makedirs(os.path.expanduser('~/.config/measct'))
 	#print(type(parent.checkMesaflashCB.isChecked()))
 	parent.emcVersionLB.clear()
