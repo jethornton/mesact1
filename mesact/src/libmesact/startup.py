@@ -11,7 +11,6 @@ def setup(parent):
 	parent.emcVersionLB.clear()
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
 	version = emc.split()[2]
-	print(version)
 	if ':' in version:
 		parent.emcVersionLB.setText(version.split(':')[1])
 	else:
