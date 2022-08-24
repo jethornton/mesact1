@@ -10,10 +10,9 @@ def setup(parent):
 		os.makedirs(os.path.expanduser('~/.config/measct'))
 	parent.emcVersionLB.clear()
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
-	print(emc)
-	if len(emc) > 0:
-		version = emc.split()[2]
-		print(version)
+	version = emc.split()[2]
+	print(version)
+	if ':' in version:
 		parent.emcVersionLB.setText(version.split(':')[1])
 	else:
 		parent.emcVersionLB.setText('Not Installed')
