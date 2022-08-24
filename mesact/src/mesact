@@ -10,6 +10,7 @@ Store Connector used for building config
 
 """
 VERSION = '0.7.1'
+BUILD_DATE = '8/24/2022'
 
 import sys, os, traceback
 from functools import partial
@@ -79,7 +80,7 @@ class MainWindow(QMainWindow):
 		sys.excepthook = self.excepthook
 		self.version = VERSION
 		self.emcVersion = '1.1'
-		self.setWindowTitle(f'Mesa Configuration Tool Version {self.version}')
+		self.setWindowTitle(f'Mesa Configuration Tool - Version {VERSION} - Build Date {BUILD_DATE}')
 		self.progressBar = QProgressBar()
 		self.statusBar().addPermanentWidget(self.progressBar)
 		self.board = '' # main board
