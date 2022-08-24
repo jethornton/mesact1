@@ -284,22 +284,23 @@ class MainWindow(QMainWindow):
 			line_no = tb.tb_lineno
 			local_vars = tb.tb_frame.f_locals
 			tb = tb.tb_next
-		print(f"File {filename} line {line_no}, in {name}")
+		print(f'File {filename} line {line_no}, in function {name}')
+		print(f'Error: {exception_value}')
 		print(f'{traceback.format_exception(exception_type, exception_value, tb)}')
 		error = traceback.format_exception(exception_type, exception_value, tb)[0].split(None, 1)[1]
 		msg = (f'A Program Error Occurred in {filename} line {line_no}\n'
-		f'{error}\n'
-		'Please file an issue.')
+		f'Error: {error}\n'
+		'Please file an issue at\n'
+		'https://github.com/jethornton/mesact/issues\n')
 
 		text = "".join(traceback.format_exception(exception_type, exception_value, tb))
 		self.mainTabs.setCurrentIndex(0)
 		self.machinePTE.clear()
 		self.machinePTE.appendPlainText('PROGRAM ERROR')
 		self.machinePTE.appendPlainText(msg)
-		self.machinePTE.appendPlainText('Please open an issue at https://github.com/jethornton/mesact/issues')
-		msg = (f'A Program Error Occurred in {filename} line {line_no}\n'
-		f'{error}\n'
-		'Please file an issue.')
+		msg = msg + (
+		'\nIf the program crashes copy the error\n'
+		'from this popup.')
 		self.errorMsgOk(msg, 'PROGRAM ERROR' )
 
 
