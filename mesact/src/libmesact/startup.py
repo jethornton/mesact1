@@ -13,6 +13,7 @@ def setup(parent):
 	print(emc)
 	if len(emc) > 0:
 		version = emc.split()[2]
+		print(version)
 		parent.emcVersionLB.setText(version.split(':')[1])
 	else:
 		parent.emcVersionLB.setText('Not Installed')
