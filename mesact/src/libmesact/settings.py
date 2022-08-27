@@ -3,18 +3,35 @@ from configparser import ConfigParser
 from PyQt5.QtWidgets import (QFileDialog, QLabel, QLineEdit, QSpinBox,
 	QDoubleSpinBox, QCheckBox, QGroupBox, QComboBox, QPushButton)
 
-
 # Do all config settings here.
 
 def update(parent):
 	configPath = os.path.expanduser('~/.config/measct/mesact.conf')
+	config = ConfigParser()
+	config.optionxform = str
+	config.add_section('NAGS')
+	config['NAGS']['MESAFLASH'] = f'{parent.checkMesaflashCB.isChecked()}'
+	config['NAGS']['NEWUSER'] = f'{parent.newUserCB.isChecked()}'
+	config.add_section('STARTUP')
+	if parent.loadConfigCB.isChecked():
+		config['STARTUP']['CONFIG'] = parent.configName.text()
+	else:
+		config['STARTUP']['CONFIG'] = 'False'
+	with open(configPath, 'w') as cf:
+		config.write(cf)
+
+def update_value(parent):
+	configPath = os.path.expanduser('~/.config/measct/mesact.conf')
 	sender = parent.sender().objectName()
 	section = parent.sender().property('Section')
-	item = parent.sender().property('Item')
+	option = parent.sender().property('Option')
 	value = None
 	# check to see what type of object it is to get correct value
 	if isinstance(parent.sender(), QCheckBox):
-		value = f'{parent.sender().isChecked()}'
+		if sender == 'loadConfigCB' and parent.sender().isChecked():
+			value = parent.configName.text()
+		else:
+			value = f'{parent.sender().isChecked()}'
 	elif isinstance(parent.sender(), QLabel):
 		print('yes')
 	else:
@@ -25,47 +42,19 @@ def update(parent):
 		config.optionxform = str
 		if os.path.isfile(configPath): # Read the file
 			config.read(configPath)
-			config.set(section, item, value)
+			if not config.has_section(section):
+				config.add_section(section)
+			if not config.has_option(section, option):
+				config[section][option] = value
+			config.set(section, option, value)
 		else: # config file does not exist
 			config.add_section('NAGS')
 			config['NAGS']['MESAFLASH'] = f'{parent.checkMesaflashCB.isChecked()}'
 			config['NAGS']['NEWUSER'] = f'{parent.newUserCB.isChecked()}'
+			config.add_section('STARTUP')
+			if parent.loadConfigCB.isChecked():
+				config['STARTUP']['CONFIG'] = parent.configName.text()
+			else:
+				config['STARTUP']['CONFIG'] = 'False'
 		with open(configPath, 'w') as cf:
 			config.write(cf)
-
-	'''
-
-	else: # no mesact.conf file found set defaults
-		#print(f'{os.path.expanduser("~/.config/measct/mesact.conf")} not found')
-
-
-
-
-
-	#print(f'Check MF {parent.checkMesaflashCB.isChecked()}')
-	#print(f'Check NU {parent.newUserCB.isChecked()}')
-
-
-	#checkmf(parent)
-	#if config.has_option('NAGS', 'NEWUSER'):
-	#if config['NAGS']['NEWUSER'] == 'True':
-	#parent.newUserCB.setChecked(True)
-
-def update_system_status_values(file, section, system, value):
-    config.read(file)
-    cfgfile = open(file, 'w')
-    config.set(section, system, value)
-    config.write(cfgfile)
-    cfgfile.close()
-
-1) Read it
-
-2) Open it
-
-3) Update it
-
-4) Write it
-
-5) Close it
-'''
-

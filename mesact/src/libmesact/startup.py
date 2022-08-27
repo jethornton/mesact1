@@ -6,8 +6,25 @@ from libmesact import loadini
 from libmesact import utilities
 
 def setup(parent):
+	# if the config file does not exist create it
 	if not os.path.isdir(os.path.expanduser('~/.config/measct')):
 		os.makedirs(os.path.expanduser('~/.config/measct'))
+		config = ConfigParser()
+		config.optionxform = str
+		config.add_section('MESACT')
+		config['MESACT']['VERSION'] = f'{parent.version}'
+		config.add_section('NAGS')
+		config['NAGS']['MESAFLASH'] = 'True'
+		config['NAGS']['NEWUSER'] = 'True'
+		config.add_section('STARTUP')
+		config['STARTUP']['CONFIG'] = 'False'
+		configPath = os.path.expanduser('~/.config/measct/mesact.conf')
+		with open(configPath, 'w') as cf:
+			config.write(cf)
+	# update config file
+	if os.path.isfile(os.path.expanduser('~/.config/measct/mesact.conf')):
+		pass
+
 	parent.emcVersionLB.clear()
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
 	version = emc.split()[2]

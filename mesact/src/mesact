@@ -125,6 +125,7 @@ class MainWindow(QMainWindow):
 		self.configName.textChanged[str].connect(partial(utilities.configNameChanged, self))
 		self.linearUnitsCB.currentIndexChanged.connect(partial(utilities.unitsChanged, self))
 		self.trajMaxLinVelDSB.valueChanged.connect(partial(utilities.maxVelChanged, self))
+		self.loadConfigCB.clicked.connect(partial(settings.update_value, self))
 		self.boardCB.currentIndexChanged.connect(partial(boards.boardChanged, self))
 		for i in range(2):
 			getattr(self, f'daughterCB_{i}').currentIndexChanged.connect(partial(utilities.daughterCardChanged, self))
@@ -204,8 +205,8 @@ class MainWindow(QMainWindow):
 		self.calculateServoPB.clicked.connect(partial(pcinfo.calcServoPercent, self))
 
 		# Options Tab
-		self.checkMesaflashCB.clicked.connect(partial(settings.update, self))
-		self.newUserCB.clicked.connect(partial(settings.update, self))
+		self.checkMesaflashCB.clicked.connect(partial(settings.update_value, self))
+		self.newUserCB.clicked.connect(partial(settings.update_value, self))
 
 	def change_language(self, translationFile = None):
 		text = ('After spending hundreds of hours figuring out translations.\n'
