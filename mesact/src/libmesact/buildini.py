@@ -133,7 +133,7 @@ def build(parent):
 	# build the [HALUI] section
 	iniContents.append('\n[HALUI]\n')
 
-
+	# To Do build joints for each axis after the axis so the ini is easier to read
 	# build the axes
 	if parent.cardTabs.isTabEnabled(0):
 		card = 'c0'
