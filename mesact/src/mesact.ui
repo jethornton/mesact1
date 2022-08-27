@@ -315,6 +315,12 @@ QGroupBox::title {
              <property name="text">
               <string>Load this Configuration at Startup</string>
              </property>
+             <property name="Section" stdset="0">
+              <string>STARTUP</string>
+             </property>
+             <property name="Option" stdset="0">
+              <string>CONFIG</string>
+             </property>
             </widget>
            </item>
            <item row="4" column="5">
@@ -26349,7 +26355,7 @@ reload all default PID values</string>
              <property name="Section" stdset="0">
               <string>NAGS</string>
              </property>
-             <property name="Item" stdset="0">
+             <property name="Option" stdset="0">
               <string>NEWUSER</string>
              </property>
             </widget>
@@ -26362,7 +26368,7 @@ reload all default PID values</string>
              <property name="Section" stdset="0">
               <string>NAGS</string>
              </property>
-             <property name="Item" stdset="0">
+             <property name="Option" stdset="0">
               <string>MESAFLASH</string>
              </property>
             </widget>

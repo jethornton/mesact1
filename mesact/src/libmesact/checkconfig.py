@@ -76,6 +76,7 @@ def checkit(parent):
 
 	# check the Axis Tab for errors
 	# bitch and bail if the Axis Tab is not enabled
+	# To Do check for mis matched limits on tandem joints
 	if parent.mainTabs.isTabEnabled(3):
 		if len(parent.coordinatesLB.text()) == 0:
 			tabError = True
@@ -83,6 +84,54 @@ def checkit(parent):
 		else: #check the joints
 			# make this a loop getattr(parent, f'_{i}')
 			coordinates = parent.coordinatesLB.text()
+
+			# check for multiple joints per axis
+			joints = {}
+			for i in range(len(parent.coordinatesLB.text())):
+				joints[f'joint{i}'] = {}
+				joints[f'joint{i}']['axis'] = getattr(parent, f'c0_axisCB_{i}').currentData()
+				joints[f'joint{i}']['minLimit'] = getattr(parent, f'c0_minLimit_{i}').text()
+				joints[f'joint{i}']['maxLimit'] = getattr(parent, f'c0_maxLimit_{i}').text()
+				joints[f'joint{i}']['homeSeq'] = getattr(parent, f'c0_homeSequence_{i}').text()
+
+			axes = set(parent.coordinatesLB.text())
+			#print(axes)
+			gantry = []
+			for item in axes:
+				if parent.coordinatesLB.text().count(item) > 1:
+					gantry.append(item)
+			#print(gantry)
+
+			gantryJoints = []
+			for item in joints:
+				if joints[item]['axis'] in gantry:
+					gantryJoints.append(item)
+			#print(gantryJoints)
+
+			compare = []
+			for i, item in enumerate(gantryJoints):
+				compare.append(joints[item]['minLimit'])
+			if len(set(compare)) > 1:
+				tabError = True
+				configErrors.append(f'\tMultiple Joint Axis {"".join(gantry)} {" & ".join(gantryJoints)} Min Limit must match.')
+			compare = []
+			for i, item in enumerate(gantryJoints):
+				compare.append(joints[item]['maxLimit'])
+			if len(set(compare)) > 1:
+				tabError = True
+				configErrors.append(f'\tMultiple Joint Axis {"".join(gantry)} {" & ".join(gantryJoints} Max Limit must match.')
+			homeOk = False
+			for i, item in enumerate(gantryJoints):
+				if joints[item]['homeSeq'].startswith('-'):
+					homeOk = True
+			if not homeOk:
+				tabError = True
+				configErrors.append(f'\tMultiple Joint Axis {"".join(gantry)} {" & ".join(gantryJoints} must be negative for at least one Joint.')
+
+			card = 'c0'
+			for i in range(6):
+				if getattr(parent, f'{card}_axisCB_{i}').currentText() != 'Select':
+					pass
 
 			for i in range(6): # Axes
 				if parent.daughterCB_0.currentData():
@@ -92,22 +141,6 @@ def checkit(parent):
 				else:
 					card = 'c0'
 				if getattr(parent, f'{card}_axisCB_{i}').currentText() != 'Select':
-					coordinates = coordinates[:1]
-					currentAxis = getattr(parent, f'{card}_axisCB_{i}').currentText()
-					if currentAxis in coordinates: # multiple joints on one axis
-						if i != coordinates.index(currentAxis):
-							if getattr(parent, f'{card}_homeSequence_{coordinates.index(currentAxis)}').text()[0] == '-':
-								firstJoint = True
-							else:
-								firstJoint = False
-							if getattr(parent, f'{card}_homeSequence_{i}').text()[0] == '-':
-								secondJoint = True
-							else:
-								secondJoint = False
-							if not firstJoint and not secondJoint:
-								configErrors.append(f'\tThe Home Sequence for a Gantry must be negative for at least one Joint')
-								configErrors.append(f'\tEither Joint {coordinates.index(currentAxis)} or Joint {i} must be negative')
-
 					if not getattr(parent, f'{card}_scale_{i}').text():
 						tabError = True
 						configErrors.append(f'\tThe Scale must be specified for Joint {i}')
