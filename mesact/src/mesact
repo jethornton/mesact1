@@ -41,6 +41,7 @@ from libmesact import extcmd
 from libmesact import pcinfo
 from libmesact import updates
 from libmesact import settings
+from libmesact import tools
 from libmesact import helptext
 from libmesact.help import Ui_Dialog as helpDialog
 from libmesact.about import Ui_about as aboutDialog
@@ -203,6 +204,7 @@ class MainWindow(QMainWindow):
 		self.writeTmaxPB.clicked.connect(partial(pcinfo.writeTmax, self))
 		self.servoThreadTmaxPB.clicked.connect(partial(pcinfo.readServoTmax, self))
 		self.calculateServoPB.clicked.connect(partial(pcinfo.calcServoPercent, self))
+		self.latencyTestPB.clicked.connect(partial(tools.runLatencyHisogram, self))
 
 		# Options Tab
 		self.checkMesaflashCB.clicked.connect(partial(settings.update_value, self))
