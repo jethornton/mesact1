@@ -206,6 +206,14 @@ def verifyCard(parent):
 		return
 
 def getCardPins(parent):
+	if parent.boardType == '':
+		parent.errorMsgOk(f'No Board Selected\non the Machine Tab', 'Error')
+		return
+
+	if check_emc():
+		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {parent.board}', 'Error')
+		return
+
 	prompt = None
 	if parent.boardType == 'eth':
 		if check_ip(parent):
