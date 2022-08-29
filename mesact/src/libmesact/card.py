@@ -1,6 +1,7 @@
 import os, sys, subprocess
 from subprocess import Popen, PIPE
 from PyQt5.QtWidgets import QInputDialog, QLineEdit, QDialogButtonBox
+from libmesact import functions
 
 def getPassword(parent):
 	dialog = 'You need root privileges\nfor this operation.\nEnter your Password:'
@@ -14,11 +15,13 @@ def check_ip(parent):
 		return False
 	return True
 
+'''
 def check_emc():
 	if "0x48414c32" in subprocess.getoutput('ipcs'):
 		return True
 	else:
 		return False
+'''
 
 def check_mesaflash():
 	if subprocess.call(['which', 'mesaflash']) == 0:
@@ -38,7 +41,7 @@ def getResults(parent, prompt, result):
 def checkCard(parent):
 	prompt = None
 	board = parent.device
-	if check_emc():
+	if functions.check_emc():
 		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {parent.board}', 'Error')
 		return
 	if not check_mesaflash():
@@ -66,7 +69,7 @@ def checkCard(parent):
 
 def readpd(parent):
 	prompt = None
-	if check_emc():
+	if functions.check_emc():
 		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {parent.board}', 'Error')
 		return
 	if parent.boardType == 'eth':
@@ -91,7 +94,7 @@ def readpd(parent):
 
 def readhmid(parent):
 	prompt = None
-	if check_emc():
+	if functions.check_emc():
 		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {parent.board}', 'Error')
 		return
 	if parent.boardType == 'eth':
@@ -118,7 +121,7 @@ def readhmid(parent):
 def flashCard(parent):
 	prompt = None
 	arguments = []
-	if check_emc():
+	if functions.check_emc():
 		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to flash the {parent.board}', 'Error')
 		return
 	if parent.firmwareCB.currentData():
@@ -150,7 +153,7 @@ def flashCard(parent):
 
 def reloadCard(parent):
 	prompt = None
-	if check_emc():
+	if functions.check_emc():
 		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to reload the {board}', 'Error')
 		return
 	if parent.boardType == 'eth':
@@ -176,7 +179,7 @@ def reloadCard(parent):
 
 def verifyCard(parent):
 	prompt = None
-	if check_emc():
+	if functions.check_emc():
 		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to verify the {board}', 'Error')
 		return
 	if parent.firmwareCB.currentData():
@@ -210,7 +213,7 @@ def getCardPins(parent):
 		parent.errorMsgOk(f'No Board Selected\non the Machine Tab', 'Error')
 		return
 
-	if check_emc():
+	if functions.check_emc():
 		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {parent.board}', 'Error')
 		return
 
