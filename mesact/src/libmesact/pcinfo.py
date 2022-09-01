@@ -1,6 +1,7 @@
 import subprocess
 from subprocess import Popen, PIPE
 from libmesact import card
+from libmesact import functions
 
 """
 Usage extcmd.job(self, cmd="something", args="",
@@ -55,28 +56,35 @@ def calcServoPercent(parent):
 	parent.servoResultLB.setText(f'{(stmax / sp)*100:.0f}%')
 
 def readTmax(parent):
-	if "0x48414c32" in subprocess.getoutput('ipcs'):
-		p = Popen(['halcmd', 'show', 'param', 'hm2*read.tmax'],
-			stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
-		prompt = p.communicate()
-		if prompt:
-			parent.tmaxPTE.appendPlainText(prompt[0])
+	if not functions.check_emc():
+		parent.errorMsgOk(f'LinuxCNC must be running\nto get read.tmax', 'Error')
+		return
+
+	p = Popen(['halcmd', 'show', 'param', 'hm2*read.tmax'],
+		stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+	prompt = p.communicate()
+	if prompt:
+		parent.tmaxPTE.appendPlainText(prompt[0])
+		if 'hm2' in prompt[0]:
 			ret = prompt[0].splitlines()
 			parent.readtmaxLE.setText(ret[2].split()[3])
-	else:
-		parent.errorMsgOk('LinuxCNC must be running this configuration!','Error')
+		else:
+			parent.errorMsgOk(f'LinuxCNC must be running\na Mesa Ethernet configuration\nto get read.tmax', 'Error')
 
 def writeTmax(parent):
-	if "0x48414c32" in subprocess.getoutput('ipcs'):
-		p = Popen(['halcmd', 'show', 'param', 'hm2*write.tmax'],
-			stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
-		prompt = p.communicate()
-		if prompt:
-			parent.tmaxPTE.appendPlainText(prompt[0])
+	if not functions.check_emc():
+		parent.errorMsgOk(f'LinuxCNC must be running\nto get write.tmax', 'Error')
+		return
+	p = Popen(['halcmd', 'show', 'param', 'hm2*write.tmax'],
+		stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+	prompt = p.communicate()
+	if prompt:
+		parent.tmaxPTE.appendPlainText(prompt[0])
+		if 'hm2' in prompt[0]:
 			ret = prompt[0].splitlines()
 			parent.writetmaxLE.setText(ret[2].split()[3])
 	else:
-		parent.errorMsgOk('LinuxCNC must be running this configuration!','Error')
+		parent.errorMsgOk(f'LinuxCNC must be running\na Mesa Ethernet configuration\nto get write.tmax', 'Error')
 
 
 def cpuSpeed(parent):
@@ -89,14 +97,9 @@ def cpuSpeed(parent):
 			stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 		prompt = p.communicate(parent.password + '\n')
 	if prompt:
-		#print(type(prompt))
-		#print(len(prompt[0]))
-		#parent.tmaxPTE.appendPlainText(prompt[0]) mickey
 		ret = prompt[0].splitlines()
-		#print(len(ret))
 
 		for line in ret: 
 			if 'MHz' in line:
 				parent.tmaxPTE.appendPlainText(line.strip())
-		#card.getResults(parent, prompt, p.returncode)
 
