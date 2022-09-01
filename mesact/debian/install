@@ -1,6 +1,5 @@
 src/mesact usr/bin
 src/mesact.ui usr/lib/libmesact
-src/libmesact/*.qm usr/lib/libmesact
 src/images/*.png usr/lib/libmesact
 src/libmesact/*.py usr/lib/python3/dist-packages/libmesact
 src/firmware/5i24/*.* usr/lib/libmesact/5i24
