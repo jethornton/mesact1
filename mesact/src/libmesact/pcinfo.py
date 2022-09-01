@@ -92,7 +92,6 @@ def cpuSpeed(parent):
 		password = card.getPassword(parent)
 		parent.password = password
 	if parent.password != None:
-		#sudo dmidecode | grep MHz
 		p = Popen(['sudo', '-S', 'dmidecode'],
 			stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 		prompt = p.communicate(parent.password + '\n')
