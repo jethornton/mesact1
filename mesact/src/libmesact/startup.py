@@ -25,57 +25,16 @@ def setup(parent):
 	if os.path.isfile(os.path.expanduser('~/.config/measct/mesact.conf')):
 		pass
 
-	'''
-	Debian 10
-	john@debian10:~$ apt-cache policy linuxcnc-uspace
-	linuxcnc-uspace:
-		Installed: 1:2.8.3
-		Candidate: 1:2.8.3
-		Version table:
-	 *** 1:2.8.3 100
-		      100 /var/lib/dpkg/status
-
-	Debian 11
-	john@debian11:~$ apt-cache policy linuxcnc-uspace
-	linuxcnc-uspace:
-		Installed: 1:2.9.0~pre0
-		Candidate: 1:2.9.0~pre0
-		Version table:
-	 *** 1:2.9.0~pre0 100
-		      100 /var/lib/dpkg/status
-
-	Debian 12
-	john@cave-2:~$ apt-cache policy linuxcnc-uspace
-	linuxcnc-uspace:
-		Installed: 2.9.0~pre0+git20220402.2500863908-4
-		Candidate: 2.9.0~pre0+git20220402.2500863908-4
-		Version table:
-	 *** 2.9.0~pre0+git20220402.2500863908-4 500
-		      500 http://deb.debian.org/debian bookworm/main amd64 Packages
-		      100 /var/lib/dpkg/status
-
-	Debian 13
-	john@cave:~$ apt-cache policy linuxcnc-uspace
-	linuxcnc-uspace:
-		Installed: 1:2.9.0~pre0
-		Candidate: 1:2.9.0~pre0
-		Version table:
-	 *** 1:2.9.0~pre0 100
-		      100 /var/lib/dpkg/status
-		   2.9.0~pre0+git20220827.f7d1c37ffd-1 500
-		      500 http://deb.debian.org/debian unstable/main amd64 Packages
-
-	'''
-
 	parent.emcVersionLB.clear()
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
-	print(emc)
+	#print(emc)
 	version = emc.split()[2]
 	print(version)
-	if ':' in version:
-		parent.emcVersionLB.setText(version.split(':')[1])
-	else:
+	if 'none' in version:
 		parent.emcVersionLB.setText('Not Installed')
+	elif ':' in version:
+		parent.emcVersionLB.setText(version.split(':')[1])
+
 	try:
 		mf = subprocess.check_output('mesaflash', encoding='UTF-8')
 		if len(mf) > 0:
