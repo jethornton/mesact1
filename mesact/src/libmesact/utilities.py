@@ -7,6 +7,9 @@ from PyQt5.QtWidgets import QMessageBox, QApplication
 
 from libmesact import firmware
 
+#def createError(parent):
+#	os.makedirs(os.path.expanduser('~/.config/measct'))
+
 MAIN_BOARDS = ['5i25', '7i80db_16', '7i80db_25', '7i80hd_16', '7i80hd_25',
 	'7i92', '7i93', '7i98']
 

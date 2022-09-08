@@ -28225,7 +28225,7 @@ reload all default PID values</string>
         <item>
          <widget class="QTabWidget" name="tabWidget_4">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_19">
            <attribute name="title">
@@ -28631,8 +28631,8 @@ try increasing the thread period.</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>908</width>
-                 <height>325</height>
+                 <width>88</width>
+                 <height>88</height>
                 </rect>
                </property>
                <layout class="QGridLayout" name="gridLayout_40">

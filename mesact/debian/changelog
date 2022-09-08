@@ -1,3 +1,9 @@
+mesact (0.7.2) unstable; urgency=medium
+
+  * Small error fixes
+
+ -- John Thornton <jt@gnipsel.com>  Thu, 08 Sep 2022 11:36:40 -0500
+
 mesact (0.7.1) unstable; urgency=medium
 
   * Add Mesaflash and LinuxCNC version info, fix preference saving
