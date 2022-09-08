@@ -28,8 +28,9 @@ def setup(parent):
 	parent.emcVersionLB.clear()
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
 	#print(emc)
-	version = emc.split()[2]
-	print(version)
+	if len(emc.split()) >= 3:
+		version = emc.split()[2]
+	print(emc)
 	if 'none' in version:
 		parent.emcVersionLB.setText('Not Installed')
 	elif ':' in version:
