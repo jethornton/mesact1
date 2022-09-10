@@ -106,27 +106,44 @@ def checkit(parent):
 			for item in joints:
 				if joints[item]['axis'] in gantry:
 					gantryJoints.append(item)
-			#print(gantryJoints)
 
-			compare = []
-			for i, item in enumerate(gantryJoints):
-				compare.append(joints[item]['minLimit'])
-			if len(set(compare)) > 1:
-				tabError = True
-				configErrors.append(f'\tMultiple Joint Axis {"".join(gantry)} {" & ".join(gantryJoints)} Min Limit must match.')
-			compare = []
-			for i, item in enumerate(gantryJoints):
-				compare.append(joints[item]['maxLimit'])
-			if len(set(compare)) > 1:
-				tabError = True
-				configErrors.append(f'\tMultiple Joint Axis {"".join(gantry)} {" & ".join(gantryJoints)} Max Limit must match.')
-			homeOk = False
-			for i, item in enumerate(gantryJoints):
-				if joints[item]['homeSeq'].startswith('-'):
-					homeOk = True
-			if not homeOk:
-				tabError = True
-				configErrors.append(f'\tMultiple Joint Axis {"".join(gantry)} {" & ".join(gantryJoints)} must be negative for at least one Joint.')
+			if gantryJoints:
+				check = True
+				compare = []
+				for i, item in enumerate(gantryJoints):
+					compare.append(joints[item]['minLimit'])
+				if len(set(compare)) > 1:
+					tabError = True
+					configErrors.append(f'\tMultiple Joint Axis {"".join(gantry)} {" & ".join(gantryJoints)} Min Limit must match.')
+				compare = []
+				for i, item in enumerate(gantryJoints):
+					compare.append(joints[item]['maxLimit'])
+				if len(set(compare)) > 1:
+					tabError = True
+					configErrors.append(f'\tMultiple Joint Axis {"".join(gantry)} {" & ".join(gantryJoints)} Max Limit must match.')
+
+				for i, item in enumerate(gantryJoints):
+					if not joints[item]['homeSeq']:
+						tabError = True
+						configErrors.append(f'\tMultiple Joint Axis {item} Home Sequence must be specified.')
+						check = False
+
+				if check:
+					compare = []
+					for i, item in enumerate(gantryJoints):
+						compare.append(joints[item]['homeSeq'].strip('-'))
+					if len(set(compare)) > 1:
+						tabError = True
+						configErrors.append(f'\tMultiple Joint Axis {"".join(gantry)} {" & ".join(gantryJoints)} Home Sequence must match.')
+
+				homeOk = False
+				for i, item in enumerate(gantryJoints):
+					if joints[item]['homeSeq'].startswith('-'):
+						homeOk = True
+				if not homeOk:
+					tabError = True
+					configErrors.append(f'\tMultiple Joint Axis {"".join(gantry)} {" & ".join(gantryJoints)} must be negative for at least one Joint.')
+
 
 			card = 'c0'
 			for i in range(6):
@@ -326,6 +343,11 @@ def checkit(parent):
 							tabError = True
 							hs = getattr(parent, f'{card}_homeSequence_{i}').text()
 							configErrors.append(f'\tThe Home Sequence for Joint {i} must be a number')
+
+					if not f'joint{i}' in gantryJoints:
+						if '-' in getattr(parent, f'{card}_homeSequence_{i}').text():
+							tabError = True
+							configErrors.append(f'\tThe Home Sequence for Joint {i} must be a positive number')
 
 	else: # Axes Tab not enabled
 		if parent.boardCB.currentData():
