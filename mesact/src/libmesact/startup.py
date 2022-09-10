@@ -27,7 +27,6 @@ def setup(parent):
 
 	parent.emcVersionLB.clear()
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
-	print(emc)
 	if len(emc.split()) >= 3:
 		version = emc.split()[2]
 		if 'none' in version:
