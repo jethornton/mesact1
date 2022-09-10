@@ -95,12 +95,10 @@ def checkit(parent):
 				joints[f'joint{i}']['homeSeq'] = getattr(parent, f'c0_homeSequence_{i}').text()
 
 			axes = set(parent.coordinatesLB.text())
-			#print(axes)
 			gantry = []
 			for item in axes:
 				if parent.coordinatesLB.text().count(item) > 1:
 					gantry.append(item)
-			#print(gantry)
 
 			gantryJoints = []
 			for item in joints:
@@ -427,9 +425,7 @@ def checkit(parent):
 				tabError = True
 				configErrors.append(f'\tEncoder Scale {parent.spindleEncoderScale.value()} needs to greater than 0')
 
-		#print(parent.spindleTypeCB.currentData()[:7])
 		if parent.spindleTypeCB.currentData()[:7] == 'stepgen':
-			#print('stepgen')
 			if not parent.spindleStepTime.text():
 				tabError = True
 				configErrors.append(f'\tThe Step Time for Spindle must be specified')

@@ -32,10 +32,6 @@ def update_value(parent):
 			value = parent.configName.text()
 		else:
 			value = f'{parent.sender().isChecked()}'
-	elif isinstance(parent.sender(), QLabel):
-		print('yes')
-	else:
-		print('no')
 
 	if value is not None: # Update config
 		config = ConfigParser()

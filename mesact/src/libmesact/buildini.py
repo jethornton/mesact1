@@ -154,14 +154,6 @@ def build(parent):
 			iniContents.append(f'MAX_VELOCITY = {getattr(parent, f"{card}_maxVelocity_{i}").text()}\n')
 			iniContents.append(f'MAX_ACCELERATION = {getattr(parent, f"{card}_maxAccel_{i}").text()}\n')
 
-	'''
-		i = 0
-		test = []
-		#print(getattr(self, f'{card}_minLimit_{i}').text())
-		test.append(f'MIN_LIMIT = {getattr(self, f"{card}_minLimit_{i}").text()}')
-		print(test)
-	'''
-
 	card = 'c0'
 	# build the [JOINT_n] sections
 	for i in range(6):

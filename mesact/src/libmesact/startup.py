@@ -155,19 +155,4 @@ def newuser(parent):
 def getpref(parent):
 	pass
 
-'''
-		try:
-			version = subprocess.check_output(['mesaflash', '--version'], encoding='UTF-8')[-6:]
-			print(int(version.replace('.', '')))
-			if int(version.replace('.', '')) >= 343:
-				parent.machinePTE.appendPlainText(f'Mesaflash Version: {version}')
-				# fixme
-		except:
-			t = ('Mesaflash version is less than 3.4.2\n'
-				'The Mesa 7i96S requires Mesaflash 3.4.2 or later.\n'
-				'Go to https://github.com/LinuxCNC/mesaflash\n'
-				'for installation/update instructions.')
-			parent.machinePTE.appendPlainText(t)
 
-
-'''
