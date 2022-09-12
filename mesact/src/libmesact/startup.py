@@ -27,12 +27,13 @@ def setup(parent):
 
 	parent.emcVersionLB.clear()
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
-	if len(emc.split()) >= 3:
-		version = emc.split()[2]
-		if 'none' in version:
+	for line in emc.split('\n'):
+		if 'installed' in line.casefold():
+			#print(line[line.index('2'):])
+			parent.emcVersionLB.setText(line[line.index('2'):])
+			break
+		else:
 			parent.emcVersionLB.setText('Not Installed')
-		elif ':' in version:
-			parent.emcVersionLB.setText(version.split(':')[1])
 
 	try:
 		mf = subprocess.check_output('mesaflash', encoding='UTF-8')
