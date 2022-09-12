@@ -11,12 +11,14 @@ Mesa Configuration Tool
 
 Use the Debian deb for installing the Mesa Configuration Tool!!!
 
-Download the `deb <https://github.com/jethornton/mesact/raw/master/mesact_0.7.2_amd64.deb>`_
+Download the `PC deb <https://github.com/jethornton/mesact/raw/master/mesact_0.7.2_amd64.deb>`_
 
 Or use wget from a terminal
 ::
 
 	wget https://github.com/jethornton/mesact/raw/master/mesact_0.7.2_amd64.deb
+
+Raspberry `Pi 4 deb <https://github.com/jethornton/mesact/raw/master/mesact_0.7.2_armhf.deb>`_
 
 If you get `bash: wget: command not found` you can install it from a terminal with
 ::
