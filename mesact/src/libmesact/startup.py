@@ -29,6 +29,8 @@ def setup(parent):
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
 	for line in emc.split('\n'):
 		if 'installed' in line.casefold():
+			if '+' in line:
+				line = line.split('+')[0]
 			#print(line[line.index('2'):])
 			parent.emcVersionLB.setText(line[line.index('2'):])
 			break
