@@ -195,6 +195,7 @@ class MainWindow(QMainWindow):
 		self.cardPinsPB.clicked.connect(partial(card.getCardPins, self))
 
 		# PC Tab
+		self.motherboardPB.clicked.connect(partial(pcinfo.mbInfo, self))
 		self.cpuPB.clicked.connect(partial(pcinfo.cpuInfo, self))
 		self.nicPB.clicked.connect(partial(pcinfo.nicInfo, self))
 		self.calcNicPB.clicked.connect(partial(pcinfo.nicCalc, self))

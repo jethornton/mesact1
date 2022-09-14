@@ -2,6 +2,7 @@ import subprocess
 from subprocess import Popen, PIPE
 from libmesact import card
 from libmesact import functions
+from libmesact import utilities
 
 """
 Usage extcmd.job(self, cmd="something", args="",
@@ -11,6 +12,47 @@ To pipe the output of cmd1 to cmd2 use the following
 Usage extcmd.pipe_job(self, cmd1="something", arg1="", cmd2="pipe to",
 arg2, "", dest=self.QPlainTextEdit)
 """
+
+def mbInfo(parent):
+	if not parent.password:
+		password = utilities.getPassword(parent)
+		parent.password = password
+	if parent.password != None:
+		p = Popen(['sudo', '-S', 'dmidecode', '-t 2'],
+			stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+		prompt = p.communicate(parent.password + '\n')
+
+		if prompt:
+			parent.infoPTE.clear()
+			if p.returncode == 0:
+				output = prompt[0]
+			else:
+				output = prompt[1]
+			parent.infoPTE.setPlainText(f'Return Code: {p.returncode}')
+			parent.infoPTE.appendPlainText(output)
+			#getResults(parent, prompt, p.returncode)
+
+	'''
+		if not parent.password:
+			password = getPassword(parent)
+			parent.password = password
+		if parent.password != None:
+			p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.device, '--print-pd'],
+				stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+			prompt = p.communicate(parent.password + '\n')
+	if prompt:
+		getResults(parent, prompt, p.returncode)
+	if result == 0:
+		output = prompt[0]
+	else:
+		output = prompt[1]
+	parent.machinePTE.clear()
+	parent.machinePTE.setPlainText(f'Return Code: {result}')
+	parent.machinePTE.appendPlainText(output)
+
+	'''
+	#parent.extcmd.job(cmd="lscpu", args=None, dest=parent.infoPTE)
+
 def cpuInfo(parent):
 	parent.extcmd.job(cmd="lscpu", args=None, dest=parent.infoPTE)
 

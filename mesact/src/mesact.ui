@@ -28222,7 +28222,41 @@ reload all default PID values</string>
             <string>PC Info</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_177">
-            <item row="0" column="0" colspan="3">
+            <item row="1" column="3">
+             <widget class="QPushButton" name="copyInfoPB">
+              <property name="text">
+               <string>Copy</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QPushButton" name="nicPB">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Network Interface Card&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="text">
+               <string>NIC</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QPushButton" name="cpuPB">
+              <property name="toolTip">
+               <string>Central Processing Unit</string>
+              </property>
+              <property name="text">
+               <string>CPU</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="motherboardPB">
+              <property name="text">
+               <string>Motherboard</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="4">
              <widget class="QPlainTextEdit" name="infoPTE">
               <property name="enabled">
                <bool>true</bool>
@@ -28234,33 +28268,6 @@ reload all default PID values</string>
               </property>
               <property name="textInteractionFlags">
                <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QPushButton" name="cpuPB">
-              <property name="toolTip">
-               <string>Central Processing Unit</string>
-              </property>
-              <property name="text">
-               <string>CPU</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QPushButton" name="nicPB">
-              <property name="toolTip">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Network Interface Card&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-              <property name="text">
-               <string>NIC</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="2">
-             <widget class="QPushButton" name="copyInfoPB">
-              <property name="text">
-               <string>Copy</string>
               </property>
              </widget>
             </item>
