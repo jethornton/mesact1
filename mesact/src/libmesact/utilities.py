@@ -3,9 +3,15 @@ from packaging import version
 from functools import partial
 from datetime import datetime
 
-from PyQt5.QtWidgets import QMessageBox, QApplication
+from PyQt5.QtWidgets import QMessageBox, QApplication, QInputDialog, QLineEdit
 
 from libmesact import firmware
+
+def getPassword(parent):
+	dialog = 'You need root privileges\nfor this operation.\nEnter your Password:'
+	password, okPressed = QInputDialog.getText(parent, 'Password Required', dialog, QLineEdit.Normal, "")
+	if okPressed and password != '':
+		return password
 
 #def createError(parent):
 #	os.makedirs(os.path.expanduser('~/.config/measct'))
