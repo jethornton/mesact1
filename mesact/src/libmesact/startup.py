@@ -31,7 +31,11 @@ def setup(parent):
 		if 'installed' in line.casefold():
 			if '+' in line:
 				line = line.split('+')[0]
-				parent.emcVersionLB.setText(line[line.index('2'):])
+				parent.emcVersionLB.setText(line)
+			if ':' in line:
+				line = line.split(':')[2]
+				parent.emcVersionLB.setText(line)
+			break
 		else:
 			parent.emcVersionLB.setText('Not Installed')
 
