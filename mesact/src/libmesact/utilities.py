@@ -146,14 +146,16 @@ def daughterCardChanged(parent):
 		# enable cardTabs(1)
 
 	if parent.sender().currentData():
+		#print(parent.sender().currentData())
 
 		#motherBoards = ['5i25', '7i80db', '7i80hd', '7i92', '7i93', '7i98']
-		axes = {'7i33': 4, '7i47': 6, '7i76': 5, '7i77': 6, '7i78': 4, '5ABOB': 5}
-		inputs = {'7i76': '32', '7i77': '32', '7i78': '0', '5ABOB': '5'}
-		outputs = {'7i76': '16', '7i77': '16', '7i78': '0', '5ABOB': '1'}
+		axes = {'7i33': 4, '7i47': 6, '7i76': 5, '7i77': 6, '7i78': 4, '7i85': 6, '7i85s': 6, '5ABOB': 5}
+		inputs = {'7i76': '32', '7i77': '32', '7i78': '0', '7i85': 0, '7i85s': 0, '5ABOB': '5'}
+		outputs = {'7i76': '16', '7i77': '16', '7i78': '0', '7i85': 0, '7i85s': 0, '5ABOB': '1'}
 		stepper = ['7i76', '7i78']
 		servo = ['7i77']
-		cardType = {'7i33': 'servo', '7i47': 'step', '7i76': 'step', '7i77': 'servo', '7i78': 'step', '5ABOB': 'step'}
+		cardType = {'7i33': 'servo', '7i47': 'step', '7i76': 'step', '7i77': 'servo',
+		'7i78': 'step', '7i85': 'servo', '7i85s': 'servo', '5ABOB': 'step'}
 
 		if parent.sender().currentData() == '7i76':
 			spinnotes = ('SPINDLE INTERFACE\n'
@@ -194,7 +196,6 @@ def daughterCardChanged(parent):
 		parent.mainTabs.setTabEnabled(3, True)
 		parent.mainTabs.setTabEnabled(4, True)
 		parent.axes = axes[parent.sender().currentData()]
-		#print(axes[parent.sender().currentData()])
 
 		parent.cardTabs.setTabText(0, parent.sender().currentData())
 		parent.cardType_0 = cardType[parent.sender().currentData()]
@@ -233,20 +234,19 @@ def daughterCardChanged(parent):
 					getattr(parent, f'c0_analogGB_{i}').setVisible(True)
 					getattr(parent, f'c0_encoderGB_{i}').setVisible(True)
 
-		if inputs[parent.sender().currentData()]:
-			for i in range(int(inputs[parent.sender().currentData()])):
-				getattr(parent, f'inputPB_{i}').setEnabled(True)
-				getattr(parent, f'inputInvertCB_{i}').setEnabled(True)
-			for i in range(int(inputs[parent.sender().currentData()]),32):
-				getattr(parent, f'inputPB_{i}').setEnabled(False)
-				getattr(parent, f'inputInvertCB_{i}').setEnabled(False)
-			for i in range(32):
-				getattr(parent, f'inputDebounceCB_{i}').setEnabled(False)
-		if outputs[parent.sender().currentData()]:
-			for i in range(int(outputs[parent.sender().currentData()])):
-				getattr(parent, f'outputPB_{i}').setEnabled(True)
-			for i in range(int(outputs[parent.sender().currentData()]),16):
-				getattr(parent, f'outputPB_{i}').setEnabled(False)
+		# Setup I/O
+		for i in range(int(inputs[parent.sender().currentData()])):
+			getattr(parent, f'inputPB_{i}').setEnabled(True)
+			getattr(parent, f'inputInvertCB_{i}').setEnabled(True)
+		for i in range(int(inputs[parent.sender().currentData()]),32):
+			getattr(parent, f'inputPB_{i}').setEnabled(False)
+			getattr(parent, f'inputInvertCB_{i}').setEnabled(False)
+		for i in range(32):
+			getattr(parent, f'inputDebounceCB_{i}').setEnabled(False)
+		for i in range(int(outputs[parent.sender().currentData()])):
+			getattr(parent, f'outputPB_{i}').setEnabled(True)
+		for i in range(int(outputs[parent.sender().currentData()]),16):
+			getattr(parent, f'outputPB_{i}').setEnabled(False)
 
 	else:
 		if parent.boardCB.currentData() in MAIN_BOARDS:

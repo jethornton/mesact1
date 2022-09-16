@@ -25,6 +25,20 @@ def setup(parent):
 	if os.path.isfile(os.path.expanduser('~/.config/measct/mesact.conf')):
 		pass
 
+	'''
+	Rpi 64 bit
+	  Installed: 2.9.0~pre0+git20220402.2500863908-4
+
+	Debian 10
+	  installed: 1:2.8.3
+	  Installed: 1:2.9.0~pre0
+
+	Debian 13
+	  Installed: 1:2.9.0~pre0
+
+
+	'''
+
 	parent.emcVersionLB.clear()
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
 	for line in emc.split('\n'):

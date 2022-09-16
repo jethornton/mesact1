@@ -20,6 +20,8 @@ def d5i25(parent):
 		'5i25_7i77_7i78.bit': ['7i77', '7i78'],
 		'5i25_7i85_7i77.bit': ['7i85', '7i77'],
 		'5i25_7i77x2.bit': ['7i77', '7i77'],
+		'5i25_7i85sx2.bit': ['7i85s', '7i85s'],
+		'5i25_7i85x2.bit': ['7i85', '7i85'],
 		}
 	return daughters
 
