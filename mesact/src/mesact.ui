@@ -1605,7 +1605,7 @@ Backups</string>
              <item row="2" column="0">
               <widget class="QLabel" name="label_1191">
                <property name="text">
-                <string>7i80D-B25</string>
+                <string>7i80DB-25</string>
                </property>
               </widget>
              </item>

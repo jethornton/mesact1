@@ -10,7 +10,7 @@ def build(parent):
 	filePath = os.path.join(parent.configPath, 'io.hal')
 	parent.machinePTE.appendPlainText(f'Building {filePath}')
 	contents = []
-	contents = ['# This file was created with the 7i92 Wizard on ']
+	contents = ['# This file was created with the Mesa Configuration Tool on ']
 	contents.append(datetime.now().strftime('%b %d %Y %H:%M:%S') + '\n')
 	contents.append('# If you make changes to this file DO NOT use the Configuration Tool\n\n')
 
