@@ -27,6 +27,7 @@ sys.dont_write_bytecode = True
 
 #from libmesact.ui_mesact import Ui_mainWindow
 from libmesact import startup
+from libmesact import machine
 from libmesact import boards
 from libmesact import utilities
 from libmesact import buildcombos
@@ -123,13 +124,13 @@ class MainWindow(QMainWindow):
 		self.timer.timeout.connect(partial(updates.clearProgressBar, self))
 
 		# Machine Tab
-		self.configName.textChanged[str].connect(partial(utilities.configNameChanged, self))
+		self.configName.textChanged[str].connect(partial(machine.configNameChanged, self))
 		self.linearUnitsCB.currentIndexChanged.connect(partial(utilities.unitsChanged, self))
 		self.trajMaxLinVelDSB.valueChanged.connect(partial(utilities.maxVelChanged, self))
 		self.loadConfigCB.clicked.connect(partial(settings.update_value, self))
 		self.boardCB.currentIndexChanged.connect(partial(boards.boardChanged, self))
 		for i in range(2):
-			getattr(self, f'daughterCB_{i}').currentIndexChanged.connect(partial(utilities.daughterCardChanged, self))
+			getattr(self, f'daughterCB_{i}').currentIndexChanged.connect(partial(machine.daughterCardChanged, self))
 		self.checkBoardPB.clicked.connect(partial(card.checkCard, self))
 		self.firmwareCB.currentIndexChanged.connect(partial(utilities.firmwareChanged, self))
 		self.readpdPB.clicked.connect(partial(card.readpd, self))

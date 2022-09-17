@@ -17363,20 +17363,6 @@ max speed</string>
            <string>Outputs</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_113">
-           <item row="4" column="1">
-            <widget class="QPushButton" name="outputPB_4">
-             <property name="text">
-              <string>Select</string>
-             </property>
-            </widget>
-           </item>
-           <item row="12" column="1">
-            <widget class="QPushButton" name="outputPB_12">
-             <property name="text">
-              <string>Select</string>
-             </property>
-            </widget>
-           </item>
            <item row="6" column="1">
             <widget class="QPushButton" name="outputPB_6">
              <property name="text">
@@ -17384,71 +17370,15 @@ max speed</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_481">
+           <item row="11" column="0">
+            <widget class="QLabel" name="label_804">
              <property name="text">
-              <string>1</string>
+              <string>11</string>
              </property>
             </widget>
            </item>
-           <item row="13" column="1">
-            <widget class="QPushButton" name="outputPB_13">
-             <property name="text">
-              <string>Select</string>
-             </property>
-            </widget>
-           </item>
-           <item row="14" column="0">
-            <widget class="QLabel" name="label_798">
-             <property name="text">
-              <string>14</string>
-             </property>
-            </widget>
-           </item>
-           <item row="11" column="1">
-            <widget class="QPushButton" name="outputPB_11">
-             <property name="text">
-              <string>Select</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_521">
-             <property name="text">
-              <string>0</string>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="1">
-            <widget class="QPushButton" name="outputPB_9">
-             <property name="text">
-              <string>Select</string>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="1">
-            <widget class="QPushButton" name="outputPB_7">
-             <property name="text">
-              <string>Select</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_483">
-             <property name="text">
-              <string>2</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="1">
-            <widget class="QPushButton" name="outputPB_5">
-             <property name="text">
-              <string>Select</string>
-             </property>
-            </widget>
-           </item>
-           <item row="10" column="1">
-            <widget class="QPushButton" name="outputPB_10">
+           <item row="4" column="1">
+            <widget class="QPushButton" name="outputPB_4">
              <property name="text">
               <string>Select</string>
              </property>
@@ -17461,29 +17391,36 @@ max speed</string>
              </property>
             </widget>
            </item>
-           <item row="8" column="1">
-            <widget class="QPushButton" name="outputPB_8">
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_483">
              <property name="text">
-              <string>Select</string>
+              <string>2</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="label_746">
+           <item row="12" column="0">
+            <widget class="QLabel" name="label_805">
              <property name="text">
-              <string>3</string>
+              <string>12</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QPushButton" name="outputPB_1">
+           <item row="10" column="0">
+            <widget class="QLabel" name="label_803">
              <property name="text">
-              <string>Select</string>
+              <string>10</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="1">
-            <widget class="QPushButton" name="outputPB_0">
+           <item row="8" column="0">
+            <widget class="QLabel" name="label_801">
+             <property name="text">
+              <string>8</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QPushButton" name="outputPB_2">
              <property name="text">
               <string>Select</string>
              </property>
@@ -17496,29 +17433,92 @@ max speed</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="1">
-            <widget class="QPushButton" name="outputPB_2">
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_800">
+             <property name="text">
+              <string>7</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="QPushButton" name="outputPB_9">
              <property name="text">
               <string>Select</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="1">
-            <widget class="QPushButton" name="outputPB_3">
+           <item row="13" column="0">
+            <widget class="QLabel" name="label_806">
+             <property name="text">
+              <string>13</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_746">
+             <property name="text">
+              <string>3</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_521">
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="outputPB_1">
              <property name="text">
               <string>Select</string>
              </property>
             </widget>
            </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="label_482">
+           <item row="11" column="1">
+            <widget class="QPushButton" name="outputPB_11">
              <property name="text">
-              <string>4</string>
+              <string>Select</string>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="1">
+            <widget class="QPushButton" name="outputPB_13">
+             <property name="text">
+              <string>Select</string>
              </property>
             </widget>
            </item>
            <item row="15" column="1">
             <widget class="QPushButton" name="outputPB_15">
+             <property name="text">
+              <string>Select</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="label_802">
+             <property name="text">
+              <string>9</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <widget class="QPushButton" name="outputPB_8">
+             <property name="text">
+              <string>Select</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="outputPB_0">
+             <property name="text">
+              <string>Select</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QPushButton" name="outputPB_5">
              <property name="text">
               <string>Select</string>
              </property>
@@ -17531,52 +17531,45 @@ max speed</string>
              </property>
             </widget>
            </item>
-           <item row="7" column="0">
-            <widget class="QLabel" name="label_800">
+           <item row="12" column="1">
+            <widget class="QPushButton" name="outputPB_12">
              <property name="text">
-              <string>7</string>
+              <string>Select</string>
              </property>
             </widget>
            </item>
-           <item row="8" column="0">
-            <widget class="QLabel" name="label_801">
+           <item row="3" column="1">
+            <widget class="QPushButton" name="outputPB_3">
              <property name="text">
-              <string>8</string>
+              <string>Select</string>
              </property>
             </widget>
            </item>
-           <item row="9" column="0">
-            <widget class="QLabel" name="label_802">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_481">
              <property name="text">
-              <string>9</string>
+              <string>1</string>
              </property>
             </widget>
            </item>
-           <item row="10" column="0">
-            <widget class="QLabel" name="label_803">
+           <item row="10" column="1">
+            <widget class="QPushButton" name="outputPB_10">
              <property name="text">
-              <string>10</string>
+              <string>Select</string>
              </property>
             </widget>
            </item>
-           <item row="11" column="0">
-            <widget class="QLabel" name="label_804">
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_482">
              <property name="text">
-              <string>11</string>
+              <string>4</string>
              </property>
             </widget>
            </item>
-           <item row="12" column="0">
-            <widget class="QLabel" name="label_805">
+           <item row="7" column="1">
+            <widget class="QPushButton" name="outputPB_7">
              <property name="text">
-              <string>12</string>
-             </property>
-            </widget>
-           </item>
-           <item row="13" column="0">
-            <widget class="QLabel" name="label_806">
-             <property name="text">
-              <string>13</string>
+              <string>Select</string>
              </property>
             </widget>
            </item>
@@ -17584,6 +17577,125 @@ max speed</string>
             <widget class="QLabel" name="label_807">
              <property name="text">
               <string>15</string>
+             </property>
+            </widget>
+           </item>
+           <item row="14" column="0">
+            <widget class="QLabel" name="label_798">
+             <property name="text">
+              <string>14</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_0">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_1">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_2">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_3">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_4">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_5">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_6">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_7">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_8">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_9">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_10">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_11">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_12">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_13">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="14" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_14">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="15" column="2">
+            <widget class="QCheckBox" name="outputInvertCB_15">
+             <property name="text">
+              <string>Invert</string>
              </property>
             </widget>
            </item>

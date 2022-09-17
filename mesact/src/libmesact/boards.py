@@ -149,6 +149,8 @@ def boardChanged(parent):
 				getattr(parent, f'inputDebounceCB_{i}').setEnabled(False)
 			for i in range(16):
 				getattr(parent, f'outputPB_{i}').setEnabled(True)
+				# to do
+				getattr(parent, f'outputInvertCB_{i}').setEnabled(False)
 			parent.cardTabs.setTabText(0, '7i76e')
 			parent.jointTabs_0.setTabEnabled(5, False)
 			parent.boardTW.setTabText(0, '7i76e')
@@ -442,6 +444,8 @@ def boardChanged(parent):
 				getattr(parent, f'inputDebounceCB_{i}').setEnabled(False)
 			for i in range(6,16):
 				getattr(parent, f'outputPB_{i}').setEnabled(False)
+				# To Do
+				getattr(parent, f'outputInvertCB_{i}').setEnabled(False)
 			parent.cardTabs.setTabText(0, '7i95')
 			parent.jointTabs_0.setTabEnabled(5, True)
 			parent.mainTabs.setTabEnabled(4, True)
@@ -501,6 +505,8 @@ def boardChanged(parent):
 				getattr(parent, f'inputInvertCB_{i}').setEnabled(True)
 			for i in range(6):
 				getattr(parent, f'outputPB_{i}').setEnabled(True)
+				# Change to True when done
+				getattr(parent, f'outputInvertCB_{i}').setEnabled(False)
 			for i in range(32):
 				getattr(parent, f'inputDebounceCB_{i}').setEnabled(False)
 			for i in range(11,32):
@@ -508,6 +514,7 @@ def boardChanged(parent):
 				getattr(parent, f'inputInvertCB_{i}').setEnabled(False)
 			for i in range(6,16):
 				getattr(parent, f'outputPB_{i}').setEnabled(False)
+				getattr(parent, f'outputInvertCB_{i}').setEnabled(False)
 			parent.cardTabs.setTabText(0, '7i96')
 			parent.jointTabs_0.setTabEnabled(5, False)
 			parent.boardTW.setTabText(0, '7i96')
@@ -566,12 +573,14 @@ def boardChanged(parent):
 				getattr(parent, f'inputDebounceCB_{i}').setEnabled(True)
 			for i in range(6):
 				getattr(parent, f'outputPB_{i}').setEnabled(True)
+				getattr(parent, f'outputInvertCB_{i}').setEnabled(True)
 			for i in range(11,32):
 				getattr(parent, f'inputPB_{i}').setEnabled(False)
 				getattr(parent, f'inputInvertCB_{i}').setEnabled(False)
 				getattr(parent, f'inputDebounceCB_{i}').setEnabled(False)
 			for i in range(6,16):
 				getattr(parent, f'outputPB_{i}').setEnabled(False)
+				getattr(parent, f'outputInvertCB_{i}').setEnabled(False)
 			parent.cardTabs.setTabText(0, '7i96S')
 			parent.jointTabs_0.setTabEnabled(5, False)
 			parent.boardTW.setTabText(0, '7i96S')

@@ -207,8 +207,6 @@ def build(parent):
 	'Joint 8 Amp Enable': 'net joint-8-enable joint.8.amp-enable-out => ',
 	}
 
-	#joint.0.amp-enable-out
-
 	# build the outputs
 	for i in range(16):
 		# hm2_7i92.0.7i77.0.0.output-15
@@ -223,8 +221,12 @@ def build(parent):
 			if parent.board == '7i96s':
 				if i in range(4):
 					contents.append(output_dict[key] + f'hm2_7i96s.0.ssr.00.out-{i:02}\n')
+					if getattr(parent, f'outputInvertCB_{i}').isChecked():
+						contents.append(f'setp hm2_7i96s.0.ssr.00.invert-{i:02} True\n')
 				if i in range(4,6):
 					contents.append(output_dict[key] + f'hm2_7i96s.0.outm.00.out-{i:02}\n')
+					if getattr(parent, f'outputInvertCB_{i}').isChecked():
+						contents.append(f'setp hm2_7i96s.0.outm.00.invert-{i:02} True\n')
 			if parent.board == '7i97':
 				contents.append(output_dict[key] + f'hm2_7i97.0.ssr.00.out-{i:02}\n')
 

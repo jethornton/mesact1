@@ -278,6 +278,7 @@ def build(parent):
 	iniContents.append('# DO NOT change the outputs they are used by the configuration tool\n')
 	for i in range(16):
 		iniContents.append(f'OUTPUT_{i} = {getattr(parent, "outputPB_" + str(i)).text()}\n')
+		iniContents.append(f'OUTPUT_INVERT_{i} = {getattr(parent, "outputInvertCB_" + str(i)).isChecked()}\n')
 
 	# build the [OPTIONS] section
 	iniContents.append('\n[OPTIONS]\n')

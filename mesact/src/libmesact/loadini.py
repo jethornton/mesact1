@@ -166,6 +166,7 @@ def loadini(parent, iniFile, config):
 
 	for i in range(16):
 		iniList.append(['OUTPUTS', f'OUTPUT_{i}', f'outputPB_{i}'])
+		iniList.append(['OUTPUTS', f'OUTPUT_INVERT_{i}', f'outputInvertCB_{i}'])
 
 	iniList.append(['OPTIONS', 'LOAD_CONFIG', 'loadConfigCB'])
 	iniList.append(['OPTIONS', 'INTRO_GRAPHIC', 'introGraphicLE'])
