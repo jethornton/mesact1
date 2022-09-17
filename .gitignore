@@ -6,4 +6,5 @@ mesact/debian/mesact/*
 mesact/debian/.debhelper/*
 mesact/debian/debhelper*
 mesact/debian/*.substvars
+mesact/debian/files
 docs/build
