@@ -5,7 +5,7 @@ from libmesact import functions
 
 def getPassword(parent):
 	dialog = 'You need root privileges\nfor this operation.\nEnter your Password:'
-	password, okPressed = QInputDialog.getText(parent, 'Password Required', dialog, QLineEdit.Normal, "")
+	password, okPressed = QInputDialog.getText(parent, 'Password Required', dialog, QLineEdit.Password, "")
 	if okPressed and password != '':
 		return password
 
