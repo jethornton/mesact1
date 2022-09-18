@@ -249,7 +249,7 @@ QGroupBox::title {
              <x>0</x>
              <y>0</y>
              <width>930</width>
-             <height>441</height>
+             <height>455</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout">
@@ -612,14 +612,13 @@ PIN file format</string>
         <item row="3" column="3">
          <widget class="QGroupBox" name="groupBox_27">
           <property name="title">
-           <string>Backups</string>
+           <string>Configuration Backups</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_66">
            <item row="0" column="0">
             <widget class="QCheckBox" name="backupCB">
              <property name="text">
-              <string>Enable
-Backups</string>
+              <string>Enable</string>
              </property>
              <property name="checked">
               <bool>false</bool>
