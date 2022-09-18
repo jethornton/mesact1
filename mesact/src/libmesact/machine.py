@@ -1,5 +1,10 @@
 import os
 
+MAIN_BOARDS = ['5i25', '7i80db_16', '7i80db_25', '7i80hd_16', '7i80hd_25',
+	'7i92', '7i93', '7i98']
+
+ALL_IN_ONE_BOARDS = ['7i76e', '7i95', '7i96', '7i96s', '7i97']
+
 def configNameChanged(parent, text):
 	if text:
 		parent.configNameUnderscored = text.replace(' ','_').lower()

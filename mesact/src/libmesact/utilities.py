@@ -53,11 +53,6 @@ def maxVelChanged(parent):
 #def createError(parent):
 #	os.makedirs(os.path.expanduser('~/.config/measct'))
 
-MAIN_BOARDS = ['5i25', '7i80db_16', '7i80db_25', '7i80hd_16', '7i80hd_25',
-	'7i92', '7i93', '7i98']
-
-ALL_IN_ONE_BOARDS = ['7i76e', '7i95', '7i96', '7i96s', '7i97']
-
 def isNumber(s):
 	try:
 		s[-1].isdigit()
