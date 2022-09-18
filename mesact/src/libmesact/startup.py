@@ -41,6 +41,19 @@ def setup(parent):
 
 	parent.emcVersionLB.clear()
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
+	# get second line
+	line = emc.split('\n')[1]
+	version = line.split()[1]
+	if ':' in version:
+		version = version.split(':')[1]
+	if '+' in version:
+		version = version.split('+')[0]
+	if 'none' in version:
+		parent.emcVersionLB.setText('Not Installed')
+	else:
+		parent.emcVersionLB.setText(version)
+
+	'''
 	for line in emc.split('\n'):
 		if 'installed' in line.casefold():
 			line = line.split()[1]
@@ -53,6 +66,8 @@ def setup(parent):
 			break
 		else:
 			parent.emcVersionLB.setText('Not Installed')
+	'''
+
 
 	try:
 		mf = subprocess.check_output('mesaflash', encoding='UTF-8')
