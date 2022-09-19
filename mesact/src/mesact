@@ -10,7 +10,7 @@ Store Connector used for building config
 
 """
 VERSION = '0.7.2'
-BUILD_DATE = '9/15/2022'
+BUILD_DATE = '9/19/2022'
 
 import sys, os, traceback
 from functools import partial
