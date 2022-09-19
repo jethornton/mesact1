@@ -92,6 +92,10 @@ class MainWindow(QMainWindow):
 		self.cardType_0 = '' # step or servo
 		self.cardType_1 = '' # step or servo
 		self.fw = firmware
+		self.mainBoards = ['5i25', '7i80db_16', '7i80db_25', '7i80hd_16', '7i80hd_25',
+	'7i92', '7i93', '7i98']
+		self.allInOneBoards = ['7i76e', '7i95', '7i96', '7i96s', '7i97']
+
 		self.password = None
 		self.newUser = None
 		self.axes = 0
