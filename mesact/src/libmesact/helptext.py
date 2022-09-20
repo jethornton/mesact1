@@ -9,40 +9,44 @@ def descriptions(index):
 		return text_1
 	elif index == 2: # Display Tab
 		return text_2
-	elif index == 3: # Cards Tab
+	elif index == 3: # Axes Tab
 		return text_3
 	elif index == 4: # I/O Tab
 		return text_4
-	elif index == 50: # SS Cards Tab 0 - 8
-		return text_50
-	elif index == 51: # SS Cards Tab 0 - 8
-		return text_51
-	elif index == 52: # SS Cards Tab 0 - 8
-		return text_52
-	elif index == 53: # SS Cards Tab 0 - 8
-		return text_53
-	elif index == 54: # SS Cards Tab 0 - 8
-		return text_54
-	elif index == 55: # SS Cards Tab 0 - 8
-		return text_55
-	elif index == 56: # SS Cards Tab 0 - 8
-		return text_56
-	elif index == 57: # SS Cards Tab 0 - 8
-		return text_57
-	elif index == 58: # SS Cards Tab 0 - 8
-		return text_58
-	elif index == 6: # Spindle Tab
-		return text_6
-	elif index == 7: # Tool Changer Tab
+	elif index == 5: # Spindle Tab
+		return text_5
+	elif index == 60: # SS Cards Tab 0 - 8
+		return text_60
+	elif index == 61: # SS Cards Tab 0 - 8
+		return text_61
+	elif index == 62: # SS Cards Tab 0 - 8
+		return text_62
+	elif index == 63: # SS Cards Tab 0 - 8
+		return text_63
+	elif index == 64: # SS Cards Tab 0 - 8
+		return text_64
+	elif index == 65: # SS Cards Tab 0 - 8
+		return text_65
+	elif index == 66: # SS Cards Tab 0 - 8
+		return text_66
+	elif index == 67: # SS Cards Tab 0 - 8
+		return text_67
+	elif index == 68: # SS Cards Tab 0 - 8
+		return text_68
+	elif index == 7: # HAL Tab
 		return text_7
-	elif index == 8: # Options Tab
+	elif index == 8: # GPIO Tab
 		return text_8
-	elif index == 9: # PLC Tab
+	elif index == 9: # Tool Changer Tab
 		return text_9
-	elif index == 10: # Pins Tab
+	elif index == 10: # Options Tab
 		return text_10
-	elif index == 12: # PC Tab
+	elif index == 11: # PLC Tab
+		return text_11
+	elif index == 12: # Pins Tab
 		return text_12
+	elif index == 13: # PC Tab
+		return text_13
 	else:
 		return text_no
 
@@ -143,49 +147,59 @@ specified.
 
 Outputs are optional.
 """
-text_6 = """
+text_5 = """
 Help Text for Spindle Tab
 """
 
-text_50 = """
+text_60 = """
 Help Text for SS Cards Tab
 """
 
-text_51 = """
+text_61 = """
 Help Text for 7i64 Tab
 """
-text_52 = """
+text_62 = """
 Help Text for 7i69 Tab
 """
-text_53 = """
+text_63 = """
 Help Text for 7i70 Tab
 """
-text_54 = """
+text_64 = """
 Help Text for 7i71 Tab
 """
-text_55 = """
+text_65 = """
 Help Text for 7i72 Tab
 """
-text_56 = """
+text_66 = """
 Help Text for 7i73 Tab
 
 Powered up no config running CR1 is solid red and CR2 is off
 Powered up and LinuxCNC running CR1 is off and CR2 is blinking green
 
 """
-text_57 = """
+text_67 = """
 Help Text for 7i84 Tab
 """
-text_58 = """
+text_68 = """
 Help Text for 7i87 Tab
 """
 
 text_7 = """
-Help Text for Tool Changer Tab
+Help Text for HAL Tab
 
 """
 
 text_8 = """
+Help Text for GPIO Tab
+
+"""
+
+text_9 = """
+Help Text for Tool Changer Tab
+
+"""
+
+text_10 = """
 Help Text for Options Tab
 
 On Screen Prompt for Manual Tool Change
@@ -213,25 +227,25 @@ Debug Options
 	in a terminal type dmesg.
 """
 
-text_9 = """
+text_11 = """
 Help Text for PLC Tab
 
 Classicladder PLC will add a basic PLC to the configuration. You can also set
 the number of components that Classicladder starts with.
 """
-text_10 = """
+text_12 = """
 Help Text for Pins Tab
 
 If you have the 7i92 connected press get pins to get the current pinout
 """
 
-text_11 = """
+text_13 = """
 Help Text for Info Tab
 
 Get CPU information and NIC information
 """
 
-text_12 = """
+text_14 = """
 Help Text for PC Tab
 
 To check if the network packet time is ok get the CPU speed from the Info Tab.
