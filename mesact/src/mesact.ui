@@ -26372,7 +26372,7 @@ Copy HAL Add Functions and HAL to custom.hal</string>
            <item row="0" column="0">
             <widget class="QSpinBox" name="servoPeriodSB">
              <property name="suffix">
-              <string>us</string>
+              <string>ns</string>
              </property>
              <property name="minimum">
               <number>10000</number>
