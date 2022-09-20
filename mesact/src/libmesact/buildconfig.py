@@ -3,7 +3,6 @@ import os, traceback, configparser
 from libmesact import settings
 
 from libmesact import checkconfig
-#from libmesact import buildsetup
 from libmesact import buildini
 from libmesact import buildhal
 from libmesact import buildio
@@ -46,7 +45,6 @@ def build(parent):
 		except OSError:
 			parent.machinePTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
-	#buildsetup.build(parent)
 	buildini.build(parent)
 	buildhal.build(parent)
 	buildio.build(parent)
