@@ -236,7 +236,7 @@ the number of components that Classicladder starts with.
 text_12 = """
 Help Text for Pins Tab
 
-If you have the 7i92 connected press get pins to get the current pinout
+If you have a Mesa board connected press get pins to get the current pinout
 """
 
 text_13 = """
@@ -252,8 +252,8 @@ To check if the network packet time is ok get the CPU speed from the Info Tab.
 Then get the tmax time and put those values into the boxes then hit calculate.
 Make sure you select if the CPU speed is gHz or mHz.
 
-To get tMax you must have the 7i92 connected to the PC and be running the
-configuration with LinuxCNC.
+To get tMax you must have the Mesa Ethernet board connected to the PC and be
+running the configuration with LinuxCNC.
 """
 
 text_20 = """
