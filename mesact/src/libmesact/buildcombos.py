@@ -273,6 +273,7 @@ def build(parent):
 	['7i71', '7i71man.pdf'],
 	['7i72', '7i72man.pdf'],
 	['7i73', '7i73man.pdf'],
+	['7i73 Pins', '7i73_pin_tables.pdf'],
 	['7i74', '7i74man.pdf'],
 	['7i84', '7i84man.pdf'],
 	['7i87', '7i87man.pdf'],
