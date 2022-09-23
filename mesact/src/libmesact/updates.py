@@ -41,6 +41,21 @@ def downloadArmhDeb(parent):
 	else:
 		parent.statusbar.showMessage('Download Cancled')
 
+def downloadArm64Deb(parent):
+	directory = str(QFileDialog.getExistingDirectory(parent, "Select Directory"))
+	if directory != '':
+		parent.statusbar.showMessage('Checking Repo')
+		response = requests.get("https://api.github.com/repos/jethornton/mesact/releases/latest")
+		repoVersion = response.json()["name"]
+		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Starting')
+		destination = os.path.join(directory, 'mesact_' + repoVersion + '_arm64.deb')
+		deburl = os.path.join('https://github.com/jethornton/mesact/raw/master/mesact_' + repoVersion + '_arm64.deb')
+		download(parent, deburl, destination)
+		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
+	else:
+		parent.statusbar.showMessage('Download Cancled')
+
+
 def download(parent, down_url, save_loc):
 	def Handle_Progress(blocknum, blocksize, totalsize):
 		## calculate the progress

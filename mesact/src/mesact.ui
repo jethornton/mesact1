@@ -26372,7 +26372,7 @@ Copy HAL Add Functions and HAL to custom.hal</string>
            <item row="0" column="0">
             <widget class="QSpinBox" name="servoPeriodSB">
              <property name="suffix">
-              <string>ns</string>
+              <string>us</string>
              </property>
              <property name="minimum">
               <number>10000</number>
@@ -28806,6 +28806,7 @@ auto enp2s0
     <addaction name="actionOpen"/>
     <addaction name="actionDlAmd64Deb"/>
     <addaction name="actionDlArmhfDeb"/>
+    <addaction name="actionDlArm64Deb"/>
    </widget>
    <widget class="QMenu" name="menuConfig">
     <property name="title">
@@ -28919,13 +28920,16 @@ QToolButton {
    <property name="text">
     <string>Download Amd64 Deb</string>
    </property>
+   <property name="toolTip">
+    <string>Deb for Amd64 PC</string>
+   </property>
   </action>
   <action name="actionDlArmhfDeb">
    <property name="text">
     <string>Download Armhf Deb</string>
    </property>
    <property name="toolTip">
-    <string>Download Raspberry Pi Armhf Deb</string>
+    <string>Deb for Raspberry Pi 4 32bit</string>
    </property>
   </action>
   <action name="actionDocuments">
@@ -28934,6 +28938,14 @@ QToolButton {
    </property>
    <property name="toolTip">
     <string>Open PDF Documents</string>
+   </property>
+  </action>
+  <action name="actionDlArm64Deb">
+   <property name="text">
+    <string>Download Arm64 Deb</string>
+   </property>
+   <property name="toolTip">
+    <string>Deb for Raspberry Pi 4 64bit</string>
    </property>
   </action>
  </widget>

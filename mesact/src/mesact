@@ -127,6 +127,7 @@ class MainWindow(QMainWindow):
 		self.actionCheckUpdates.triggered.connect(partial(updates.checkUpdates, self))
 		self.actionDlAmd64Deb.triggered.connect(partial(updates.downloadAmd64Deb, self))
 		self.actionDlArmhfDeb.triggered.connect(partial(updates.downloadArmhDeb, self))
+		self.actionDlArm64Deb.triggered.connect(partial(updates.downloadArm64Deb, self))
 		self.actionDocuments.triggered.connect(partial(updates.showDocs, self, 'mesact.pdf'))
 		self.timer.timeout.connect(partial(updates.clearProgressBar, self))
 
