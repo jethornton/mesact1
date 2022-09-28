@@ -25,49 +25,20 @@ def setup(parent):
 	if os.path.isfile(os.path.expanduser('~/.config/measct/mesact.conf')):
 		pass
 
-	'''
-	Rpi 64 bit
-	  Installed: 2.9.0~pre0+git20220402.2500863908-4
-
-	Debian 10
-	  installed: 1:2.8.3
-	  Installed: 1:2.9.0~pre0
-
-	Debian 13
-	  Installed: 1:2.9.0~pre0
-
-
-	'''
-
 	parent.emcVersionLB.clear()
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
-	# get second line
-	line = emc.split('\n')[1]
-	version = line.split()[1]
-	if ':' in version:
-		version = version.split(':')[1]
-	if '+' in version:
-		version = version.split('+')[0]
-	if 'none' in version:
-		parent.emcVersionLB.setText('Not Installed')
-	else:
-		parent.emcVersionLB.setText(version)
-
-	'''
-	for line in emc.split('\n'):
-		if 'installed' in line.casefold():
-			line = line.split()[1]
-			if '+' in line:
-				line = line.split('+')[0]
-				parent.emcVersionLB.setText(line)
-			if ':' in line:
-				line = line.split(':')[1]
-				parent.emcVersionLB.setText(line)
-			break
-		else:
+	if emc:
+		# get second line
+		line = emc.split('\n')[1]
+		version = line.split()[1]
+		if ':' in version:
+			version = version.split(':')[1]
+		if '+' in version:
+			version = version.split('+')[0]
+		if 'none' in version:
 			parent.emcVersionLB.setText('Not Installed')
-	'''
-
+		else:
+			parent.emcVersionLB.setText(version)
 
 	try:
 		mf = subprocess.check_output('mesaflash', encoding='UTF-8')
