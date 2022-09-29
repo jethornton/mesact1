@@ -184,6 +184,8 @@ def loadini(parent, iniFile, config):
 
 #iniList.append(['', '', ''])
 	# iniList section, item, value
+	booleanDict = {'true': True, 't': True, '1': True, 'True': True,
+		'false': False, 'f': False, '0': False, 'False': False}
 	for item in iniList:
 		if config.has_option(item[0], item[1]):
 			if isinstance(getattr(parent, item[2]), QLabel):
@@ -196,7 +198,7 @@ def loadini(parent, iniFile, config):
 				if config[item[0]][item[1]]:
 					getattr(parent, item[2]).setValue(float(config[item[0]][item[1]]))
 			elif isinstance(getattr(parent, item[2]), QCheckBox):
-				getattr(parent, item[2]).setChecked(eval(config[item[0]][item[1]]))
+				getattr(parent, item[2]).setChecked(booleanDict[config[item[0]][item[1]]])
 			elif isinstance(getattr(parent, item[2]), QGroupBox):
 				getattr(parent, item[2]).setChecked(eval(config[item[0]][item[1]]))
 			elif isinstance(getattr(parent, item[2]), QComboBox):
