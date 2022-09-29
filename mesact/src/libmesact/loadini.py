@@ -184,8 +184,8 @@ def loadini(parent, iniFile, config):
 
 #iniList.append(['', '', ''])
 	# iniList section, item, value
-	booleanDict = {'true': True, 't': True, '1': True, 'True': True,
-		'false': False, 'f': False, '0': False, 'False': False}
+	booleanDict = {'true': True, 'yes': True, 'Yes': True, '1': True, 'True': True,
+		'false': False, 'no': False, 'No': False, '0': False, 'False': False}
 	for item in iniList:
 		if config.has_option(item[0], item[1]):
 			if isinstance(getattr(parent, item[2]), QLabel):
