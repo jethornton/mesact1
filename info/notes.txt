@@ -7,6 +7,9 @@ make html
 latexmk needs to be installed to build pfd docs
 make latexpdf
 
+Qt Designer
+sudo apt install qttools5-dev-tools
+
 http://tom-itx.no-ip.biz:81/~webpage/cnc/JT-SHOP/mesact/
 
 halrun
