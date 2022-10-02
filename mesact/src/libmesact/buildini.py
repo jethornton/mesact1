@@ -56,7 +56,7 @@ def build(parent):
 	iniContents.append(f'POSITION_FEEDBACK = {parent.positionFeedbackCB.currentData()}\n')
 	iniContents.append(f'MAX_FEED_OVERRIDE = {parent.maxFeedOverrideSB.value()}\n')
 	if set('XYZUVW')&set(parent.coordinatesLB.text()):
-		iniContents.append(f'MIN_VELOCITY = {parent.minLinJogVelDSB.value()}\n')
+		iniContents.append(f'MIN_LINEAR_VELOCITY = {parent.minLinJogVelDSB.value()}\n')
 		iniContents.append(f'DEFAULT_LINEAR_VELOCITY = {parent.defLinJogVelDSB.value()}\n')
 		iniContents.append(f'MAX_LINEAR_VELOCITY = {parent.maxLinJogVelDSB.value()}\n')
 	if set('ABC')&set(parent.coordinatesLB.text()):
