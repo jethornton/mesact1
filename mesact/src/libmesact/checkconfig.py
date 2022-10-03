@@ -148,14 +148,20 @@ def checkit(parent):
 				if getattr(parent, f'{card}_axisCB_{i}').currentText() != 'Select':
 					pass
 
+			'''
+			if parent.daughterCB_0.currentData():
+				card = 'c0'
+			elif parent.daughterCB_1.currentData():
+				card = 'c1'
+				print('here')
+			else:
+				card = 'c0'
+			'''
+			card = 'c0'
 			for i in range(6): # Axes
-				if parent.daughterCB_0.currentData():
-					card = 'c0'
-				elif parent.daughterCB_1.currentData():
-					card = 'c1'
-				else:
-					card = 'c0'
-				if getattr(parent, f'{card}_axisCB_{i}').currentText() != 'Select':
+				#print(getattr(parent, f'{card}_axisCB_{i}').currentData())
+				if getattr(parent, f'{card}_axisCB_{i}').currentData():
+					#print(getattr(parent, f'{card}_axisCB_{i}').currentData())
 					if not getattr(parent, f'{card}_scale_{i}').text():
 						tabError = True
 						configErrors.append(f'\tThe Scale must be specified for Joint {i}')
@@ -182,6 +188,7 @@ def checkit(parent):
 						if not isNumber(getattr(parent, f'{card}_maxLimit_{i}').text()):
 							tabError = True
 							configErrors.append(f'\tThe Maximum Limit for Joint {i} {validNumber}')
+
 					if not getattr(parent, f'{card}_maxVelocity_{i}').text():
 						tabError = True
 						configErrors.append(f'\tThe Maximum Velocity for Joint {i} must be specified')
@@ -189,6 +196,7 @@ def checkit(parent):
 						if not isNumber(getattr(parent, f'{card}_maxVelocity_{i}').text()):
 							tabError = True
 							configErrors.append(f'\tThe Maximum Velocity for Joint {i} {validNumber}')
+
 					if not getattr(parent, f'{card}_maxAccel_{i}').text():
 						tabError = True
 						configErrors.append(f'\tThe Maximum Acceleration for Joint {i} must be specified')
