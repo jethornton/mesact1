@@ -148,7 +148,7 @@ def checkit(parent):
 				if getattr(parent, f'{card}_axisCB_{i}').currentText() != 'Select':
 					pass
 
-			'''
+			''' This is not the same as the daughter tab enables...
 			if parent.daughterCB_0.currentData():
 				card = 'c0'
 			elif parent.daughterCB_1.currentData():
