@@ -222,7 +222,7 @@ def build(parent):
 
 	# build the [SPINDLE] section if enabled
 	if parent.spindleTypeCB.currentData():
-		iniContents.append('\n[SPINDLE]\n')
+		iniContents.append('\n[SPINDLE_0]\n')
 		iniContents.append(f'SPINDLE_TYPE = {parent.spindleTypeCB.currentData()}\n')
 		if parent.spindlePwmTypeCB.currentData():
 			iniContents.append(f'SPINDLE_PWM_TYPE = {parent.spindlePwmTypeCB.currentData()}\n')
