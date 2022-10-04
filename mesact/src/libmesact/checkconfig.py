@@ -81,7 +81,13 @@ def checkit(parent):
 		if len(parent.coordinatesLB.text()) == 0:
 			tabError = True
 			configErrors.append('\tAt least one Joint must be configured starting with Joint 0')
-		else: #check the joints
+		else: # check the joints
+			# check for skipped joints
+			for i in range(len(parent.coordinatesLB.text())):
+				if not getattr(parent, f'c0_axisCB_{i}').currentData():
+					tabError = True
+					configErrors.append('\tJoints(s) must be in sequence and start with 0')
+
 			# make this a loop getattr(parent, f'_{i}')
 			coordinates = parent.coordinatesLB.text()
 
