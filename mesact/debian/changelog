@@ -1,3 +1,9 @@
+mesact (0.7.3) unstable; urgency=medium
+
+  * Build joints after axes in ini file
+
+ -- John Thornton <jt@gnipsel.com>  Wed, 05 Oct 2022 07:38:08 -0500
+
 mesact (0.7.2) unstable; urgency=medium
 
   * Small error fixes
