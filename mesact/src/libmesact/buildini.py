@@ -133,7 +133,6 @@ def build(parent):
 	# build the [HALUI] section
 	iniContents.append('\n[HALUI]\n')
 
-	# To Do build joints for each axis after the axis so the ini is easier to read
 	# build the axes
 	if parent.cardTabs.isTabEnabled(0):
 		card = 'c0'
@@ -145,18 +144,14 @@ def build(parent):
 		axis = getattr(parent, f'{card}_axisCB_{i}').currentData()
 		if axis and axis not in axes:
 			axes.append(axis)
-			#jointTab = getattr(parent, f'{card}_axisCB_{i}')
+			# build the [AXIS_ ] sections
 			iniContents.append(f'\n[AXIS_{axis}]\n')
-			#print(getattr(parent, f'{card}_minLimit_{i}').text())
-
 			iniContents.append(f'MIN_LIMIT = {getattr(parent, f"{card}_minLimit_{i}").text()}\n')
 			iniContents.append(f'MAX_LIMIT = {getattr(parent, f"{card}_maxLimit_{i}").text()}\n')
 			iniContents.append(f'MAX_VELOCITY = {getattr(parent, f"{card}_maxVelocity_{i}").text()}\n')
 			iniContents.append(f'MAX_ACCELERATION = {getattr(parent, f"{card}_maxAccel_{i}").text()}\n')
 
-	card = 'c0'
-	# build the [JOINT_n] sections
-	for i in range(6):
+		# build the [JOINT_n] sections
 		if getattr(parent, f'{card}_axisCB_{i}').currentData():
 			iniContents.append(f'\n[JOINT_{i}]\n')
 			iniContents.append(f'AXIS = {getattr(parent, f"{card}_axisCB_{i}").currentData()}\n')
