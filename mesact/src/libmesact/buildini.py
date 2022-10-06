@@ -293,6 +293,7 @@ def build(parent):
 
 	# build the [PLC] section
 	if parent.ladderGB.isChecked(): # check for any options
+		iniContents.append('# DO NOT change the plc options they are used by the configuration tool\n')
 		iniContents.append('\n[PLC]\n')
 		for option in parent.ladderOptionsList:
 			iniContents.append(f'{getattr(parent, option).property("item")} = {getattr(parent, option).value()}\n')
