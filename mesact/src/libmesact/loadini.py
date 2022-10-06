@@ -58,6 +58,9 @@ def openini(parent, configName = ''):
 def loadini(parent, iniFile, config):
 	# Section, Item, Object Name
 	iniList = []
+	booleanDict = {'true': True, 'yes': True, '1': True,
+		'false': False, 'no': False, '0': False,}
+
 	iniList.append(['MESA', 'BOARD', 'boardCB'])
 	iniList.append(['MESA', 'FIRMWARE', 'firmwareCB'])
 	iniList.append(['MESA', 'CARD_0', 'daughterCB_0'])
@@ -182,10 +185,28 @@ def loadini(parent, iniFile, config):
 	iniList.append(['OPTIONS', 'LADDER_RUNGS', 'ladderRungsSB'])
 	iniList.append(['OPTIONS', 'BACKUP', 'backupCB'])
 
+	if config.has_option('OPTIONS', 'LADDER'):
+		if config['OPTIONS']['LADDER']:
+			iniList.append(['PLC', 'LADDER_RUNGS', 'ladderRungsSB'])
+			iniList.append(['PLC', 'LADDER_BITS', 'ladderBitsSB'])
+			iniList.append(['PLC', 'LADDER_WORDS', 'ladderWordsSB'])
+			iniList.append(['PLC', 'LADDER_TIMERS', 'ladderTimersSB'])
+			iniList.append(['PLC', 'LADDER_IEC_TIMERS', 'iecTimerSB'])
+			iniList.append(['PLC', 'LADDER_MONOSTABLES', 'ladderMonostablesSB'])
+			iniList.append(['PLC', 'LADDER_COUNTERS', 'ladderCountersSB'])
+			iniList.append(['PLC', 'LADDER_HAL_INPUTS', 'ladderInputsSB'])
+			iniList.append(['PLC', 'LADDER_HAL_OUTPUTS', 'ladderOutputsSB'])
+			iniList.append(['PLC', 'LADDER_EXPRESSIONS', 'ladderExpresionsSB'])
+			iniList.append(['PLC', 'LADDER_SECTIONS', 'ladderSectionsSB'])
+			iniList.append(['PLC', 'LADDER_SYMBOLS', 'ladderSymbolsSB'])
+			iniList.append(['PLC', 'LADDER_S32_INPUTS', 'ladderS32InputsSB'])
+			iniList.append(['PLC', 'LADDER_S32_OUTPUTS', 'ladderS32OuputsSB'])
+			iniList.append(['PLC', 'LADDER_FLOAT_INPUTS', 'ladderFloatInputsSB'])
+			iniList.append(['PLC', 'LADDER_FLOAT_OUTPUTS', 'ladderFloatOutputsSB'])
+
+
 #iniList.append(['', '', ''])
 	# iniList section, item, value
-	booleanDict = {'true': True, 'yes': True, '1': True,
-		'false': False, 'no': False, '0': False,}
 	for item in iniList:
 		if config.has_option(item[0], item[1]):
 			if isinstance(getattr(parent, item[2]), QLabel):
