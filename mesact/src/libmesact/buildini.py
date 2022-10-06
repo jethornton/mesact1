@@ -291,11 +291,10 @@ def build(parent):
 	iniContents.append(f'LADDER = {parent.ladderGB.isChecked()}\n')
 	iniContents.append(f'BACKUP = {parent.backupCB.isChecked()}\n')
 
-	# build the plc section
+	# build the [PLC] section
 	if parent.ladderGB.isChecked(): # check for any options
 		iniContents.append('\n[PLC]\n')
 		for option in parent.ladderOptionsList:
-			#if getattr(parent, option).value() > 0: #******** work to be done here
 			iniContents.append(f'{getattr(parent, option).property("item")} = {getattr(parent, option).value()}\n')
 
 	# build the [SSERIAL] section
