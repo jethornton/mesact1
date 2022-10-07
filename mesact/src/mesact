@@ -157,6 +157,12 @@ class MainWindow(QMainWindow):
 		self.minAngJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
 		self.defAngJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
 		self.maxAngJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
+		self.axisButtonGroup.setExclusive(False)  # Radio buttons are not exclusive
+		self.axisButtonGroup.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
+
+		#self.frontToolLatheRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
+		#self.backToolLatheRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
+		#self.foamRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
 
 		# Info Tab
 		self.OpenManPB_0.clicked.connect(partial(updates.showDocs, self, self.mainBoardDocsCB))

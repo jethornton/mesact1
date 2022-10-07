@@ -1,6 +1,6 @@
 import os, configparser
 from PyQt5.QtWidgets import (QFileDialog, QLabel, QLineEdit, QSpinBox,
-	QDoubleSpinBox, QCheckBox, QGroupBox, QComboBox, QPushButton)
+	QDoubleSpinBox, QCheckBox, QGroupBox, QComboBox, QPushButton, QRadioButton)
 
 from libmesact import loadss
 
@@ -86,6 +86,9 @@ def loadini(parent, iniFile, config):
 	iniList.append(['DISPLAY', 'MIN_ANGULAR_VELOCITY', 'minAngJogVelDSB'])
 	iniList.append(['DISPLAY', 'DEFAULT_ANGULAR_VELOCITY', 'defAngJogVelDSB'])
 	iniList.append(['DISPLAY', 'MAX_ANGULAR_VELOCITY', 'maxAngJogVelDSB'])
+	iniList.append(['DISPLAY', 'LATHE', 'frontToolLatheRB'])
+	iniList.append(['DISPLAY', 'BACK_TOOL_LATHE', 'backToolLatheRB'])
+	iniList.append(['DISPLAY', 'FOAM', 'foamRB'])
 
 	iniList.append(['EMCMOT', 'SERVO_PERIOD', 'servoPeriodSB'])
 
@@ -219,6 +222,8 @@ def loadini(parent, iniFile, config):
 				if config[item[0]][item[1]]:
 					getattr(parent, item[2]).setValue(float(config[item[0]][item[1]]))
 			elif isinstance(getattr(parent, item[2]), QCheckBox):
+				getattr(parent, item[2]).setChecked(booleanDict[config[item[0]][item[1]].lower()])
+			elif isinstance(getattr(parent, item[2]), QRadioButton):
 				getattr(parent, item[2]).setChecked(booleanDict[config[item[0]][item[1]].lower()])
 			elif isinstance(getattr(parent, item[2]), QGroupBox):
 				getattr(parent, item[2]).setChecked(eval(config[item[0]][item[1]]))

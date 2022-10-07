@@ -163,8 +163,6 @@ def firmwareChanged(parent):
 	else:
 		parent.machinePTE.clear()
 
-
-
 def connectorChanged(parent):
 	if parent.connectorCB.currentText() == 'P1':
 		parent.ioPort = '3'
@@ -172,6 +170,12 @@ def connectorChanged(parent):
 	if parent.connectorCB.currentText() == 'P2':
 		parent.ioPort = '0'
 		parent.analogPort = '1'
+
+def axisDisplayChanged(parent, radioButton):
+	#print(parent.sender().objectName())
+	for button in parent.axisButtonGroup.buttons():
+		if button is not radioButton:
+			button.setChecked(False)
 
 def updateAxisInfo(parent):
 	if parent.sender().objectName() == 'actionOpen':

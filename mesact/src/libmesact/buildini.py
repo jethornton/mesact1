@@ -70,10 +70,13 @@ def build(parent):
 	iniContents.append('OPEN_FILE = ""\n')
 	if parent.pyvcpCB.isChecked():
 		iniContents.append(f'PYVCP = {parent.configNameUnderscored}.xml\n')
-	if parent.frontToolLatheCB.isChecked():
+	if parent.frontToolLatheRB.isChecked():
 		iniContents.append('LATHE = 1\n')
-	if parent.frontToolLatheCB.isChecked():
+	if parent.backToolLatheRB.isChecked():
 		iniContents.append('BACK_TOOL_LATHE = 1\n')
+	if parent.foamRB.isChecked():
+		iniContents.append(f'Geometry = {parent.coordinatesLB.text()[0:2]};{parent.coordinatesLB.text()[2:4]}\n')
+		iniContents.append('FOAM = 1\n')
 
 	# build the [KINS] section
 	iniContents.append('\n[KINS]\n')

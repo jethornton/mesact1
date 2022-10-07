@@ -3385,7 +3385,7 @@ Female</string>
           <x>500</x>
           <y>10</y>
           <width>211</width>
-          <height>80</height>
+          <height>151</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -3406,18 +3406,34 @@ QGroupBox::title {
          <string>Axis Display Options</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_32">
-         <item row="0" column="0">
-          <widget class="QCheckBox" name="frontToolLatheCB">
-           <property name="text">
-            <string>Front Tool Lathe</string>
-           </property>
-          </widget>
-         </item>
          <item row="1" column="0">
-          <widget class="QCheckBox" name="backToolLatheCB">
+          <widget class="QRadioButton" name="backToolLatheRB">
            <property name="text">
             <string>Back Tool Lathe</string>
            </property>
+           <attribute name="buttonGroup">
+            <string notr="true">axisButtonGroup</string>
+           </attribute>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QRadioButton" name="frontToolLatheRB">
+           <property name="text">
+            <string>Front Tool Lathe</string>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">axisButtonGroup</string>
+           </attribute>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QRadioButton" name="foamRB">
+           <property name="text">
+            <string>Foam</string>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">axisButtonGroup</string>
+           </attribute>
           </widget>
          </item>
         </layout>
@@ -26633,7 +26649,7 @@ reload all default PID values</string>
          <rect>
           <x>40</x>
           <y>30</y>
-          <width>271</width>
+          <width>311</width>
           <height>531</height>
          </rect>
         </property>
@@ -28939,4 +28955,7 @@ QToolButton {
  </widget>
  <resources/>
  <connections/>
+ <buttongroups>
+  <buttongroup name="axisButtonGroup"/>
+ </buttongroups>
 </ui>

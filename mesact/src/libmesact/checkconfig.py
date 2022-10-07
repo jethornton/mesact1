@@ -51,9 +51,6 @@ def checkit(parent):
 	if parent.maxFeedOverrideSB.value() == 0.0:
 		tabError = True
 		configErrors.append('\tThe Max Feed Override must be greater than zero, 1.2 is suggested')
-	if parent.frontToolLatheCB.isChecked() and parent.backToolLatheCB.isChecked():
-		configErrors.append('\tOnly one lathe display option can be checked')
-		tabError = True
 	if set('XYZUVW')&set(parent.coordinatesLB.text()):
 		if parent.defLinJogVelDSB.value() == 0.0:
 			tabError = True
@@ -68,6 +65,12 @@ def checkit(parent):
 		if parent.maxAngJogVelDSB.value() == 0.0:
 			tabError = True
 			configErrors.append('\tMaximum Angular Jog Velocity must be greater than zero')
+	foamAxes = ['XYUV', 'XYZA', 'XYUZ']
+	if parent.foamRB.isChecked():
+		if parent.coordinatesLB.text() not in foamAxes:
+			tabError = True
+			configErrors.append('\tFoam axes must be one of XYUV, XYZA or XYUZ')
+
 	if tabError:
 		configErrors.insert(nextHeader, 'Display Tab:')
 		nextHeader = len(configErrors)
