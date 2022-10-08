@@ -261,11 +261,8 @@ def loadini(parent, iniFile, config):
 	parent.machinePTE.appendPlainText('Smart Serial file Loaded')
 
 def loadReadMe(parent, configsDir, configName):
-	print(configsDir)
-	print(configName)
 	configsDir = os.path.expanduser('~/linuxcnc/configs')
 	readmeFile = os.path.join(configsDir, configName, 'README')
-	print(readmeFile)
 	if os.path.isfile(readmeFile):
 		with open(readmeFile) as f:
 			contents = f.read()
