@@ -44,12 +44,14 @@ def openini(parent, configName = ''):
 			iniVersion = config['MESA']['VERSION']
 			if iniVersion == parent.version:
 				loadini(parent, iniFile, config)
+				loadReadMe(parent, configsDir, configName)
 			else:
 				msg = (f'The ini file version is {iniVersion}\n'
 					f'The Configuration Tool version is {parent.version}\n'
 					'Try and open the ini?')
 				if parent.errorMsg(msg, 'Version Difference'):
 					loadini(parent, iniFile, config)
+					loadReadMe(parent, configsDir, configName)
 		else:
 			msg = ('This ini was not created with the\n'
 				'Mesa Configuration Tool!')
@@ -258,9 +260,12 @@ def loadini(parent, iniFile, config):
 		loadss.load(parent, config)
 	parent.machinePTE.appendPlainText('Smart Serial file Loaded')
 
-def loadReadMe(parent, configName):
+def loadReadMe(parent, configsDir, configName):
+	print(configsDir)
+	print(configName)
 	configsDir = os.path.expanduser('~/linuxcnc/configs')
 	readmeFile = os.path.join(configsDir, configName, 'README')
+	print(readmeFile)
 	if os.path.isfile(readmeFile):
 		with open(readmeFile) as f:
 			contents = f.read()
