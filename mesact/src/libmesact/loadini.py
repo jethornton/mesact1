@@ -92,6 +92,10 @@ def loadini(parent, iniFile, config):
 	iniList.append(['DISPLAY', 'BACK_TOOL_LATHE', 'backToolLatheRB'])
 	iniList.append(['DISPLAY', 'FOAM', 'foamRB'])
 
+	if config.has_section('FILTER'):
+		iniList.append(['FILTER', 'PROGRAM_EXTENSION', 'filterExtensionLE'])
+		iniList.append(['FILTER', config['FILTER']['PROGRAM_EXTENSION'].strip('.'), 'filterProgramLE'])
+
 	iniList.append(['EMCMOT', 'SERVO_PERIOD', 'servoPeriodSB'])
 
 	iniList.append(['TRAJ', 'LINEAR_UNITS', 'linearUnitsCB'])

@@ -71,6 +71,13 @@ def checkit(parent):
 			tabError = True
 			configErrors.append('\tFoam axes must be one of XYUV, XYZA or XYUZ')
 
+	if parent.filterExtensionLE.text() and not parent.filterProgramLE.text():
+		tabError = True
+		configErrors.append('\tA Filter extension requires a program')
+	if parent.filterProgramLE.text() and not parent.filterExtensionLE.text():
+		tabError = True
+		configErrors.append('\tA Filter program requires a extension')
+
 	if tabError:
 		configErrors.insert(nextHeader, 'Display Tab:')
 		nextHeader = len(configErrors)

@@ -78,6 +78,12 @@ def build(parent):
 		iniContents.append(f'Geometry = {parent.coordinatesLB.text()[0:2]};{parent.coordinatesLB.text()[2:4]}\n')
 		iniContents.append('FOAM = 1\n')
 
+	# builed the [FILTER] section
+	if parent.filterExtensionLE.text() and parent.filterProgramLE.text():
+		iniContents.append('\n[FILTER]\n')
+		iniContents.append(f'PROGRAM_EXTENSION = {parent.filterExtensionLE.text()}\n')
+		iniContents.append(f'{parent.filterExtensionLE.text().strip(".")} = {parent.filterProgramLE.text()}\n')
+
 	# build the [KINS] section
 	iniContents.append('\n[KINS]\n')
 	if len(set(parent.coordinatesLB.text())) == len(parent.coordinatesLB.text()): # 1 joint for each axis
