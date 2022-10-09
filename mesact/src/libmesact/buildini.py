@@ -82,7 +82,8 @@ def build(parent):
 	if parent.filterExtensionLE.text() and parent.filterProgramLE.text():
 		iniContents.append('\n[FILTER]\n')
 		iniContents.append(f'PROGRAM_EXTENSION = {parent.filterExtensionLE.text()}\n')
-		iniContents.append(f'{parent.filterExtensionLE.text().strip(".")} = {parent.filterProgramLE.text()}\n')
+		ext = parent.filterExtensionLE.text().split(',')[0].strip('.')
+		iniContents.append(f'{ext} = {parent.filterProgramLE.text()}\n')
 
 	# build the [KINS] section
 	iniContents.append('\n[KINS]\n')
@@ -141,6 +142,8 @@ def build(parent):
 
 	# build the [HALUI] section
 	iniContents.append('\n[HALUI]\n')
+	if parent.mdiCmdLE.text():
+		iniContents.append(f'MDI = {parent.mdiCmdLE.text()}\n')
 
 	# build the axes
 	if parent.cardTabs.isTabEnabled(0):

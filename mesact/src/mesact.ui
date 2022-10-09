@@ -19416,7 +19416,7 @@ max speed</string>
          </rect>
         </property>
        </widget>
-       <widget class="QGroupBox" name="groupBox_88">
+       <widget class="QGroupBox" name="spindlepwmGB">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -26275,10 +26275,17 @@ Copy HAL Add Functions and HAL to custom.hal</string>
            <property name="topMargin">
             <number>15</number>
            </property>
-           <item row="3" column="0">
-            <widget class="QCheckBox" name="shutdownCB">
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_1310">
              <property name="text">
-              <string>Shutdown HAL File</string>
+              <string>MDI Command</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QCheckBox" name="haluiCB">
+             <property name="text">
+              <string>Halui User Interface</string>
              </property>
             </widget>
            </item>
@@ -26289,6 +26296,13 @@ Copy HAL Add Functions and HAL to custom.hal</string>
              </property>
             </widget>
            </item>
+           <item row="3" column="0">
+            <widget class="QCheckBox" name="shutdownCB">
+             <property name="text">
+              <string>Shutdown HAL File</string>
+             </property>
+            </widget>
+           </item>
            <item row="2" column="0">
             <widget class="QCheckBox" name="postguiCB">
              <property name="text">
@@ -26296,12 +26310,8 @@ Copy HAL Add Functions and HAL to custom.hal</string>
              </property>
             </widget>
            </item>
-           <item row="4" column="0">
-            <widget class="QCheckBox" name="haluiCB">
-             <property name="text">
-              <string>Halui User Interface</string>
-             </property>
-            </widget>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="mdiCmdLE"/>
            </item>
           </layout>
          </widget>

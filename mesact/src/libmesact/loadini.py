@@ -94,7 +94,12 @@ def loadini(parent, iniFile, config):
 
 	if config.has_section('FILTER'):
 		iniList.append(['FILTER', 'PROGRAM_EXTENSION', 'filterExtensionLE'])
-		iniList.append(['FILTER', config['FILTER']['PROGRAM_EXTENSION'].strip('.'), 'filterProgramLE'])
+		key = config['FILTER']['PROGRAM_EXTENSION'].split(',')[0].strip('.')
+		iniList.append(['FILTER', key, 'filterProgramLE'])
+
+	if config.has_option('HALUI', 'MDI'):
+		iniList.append(['HALUI', 'MDI', 'mdiCmdLE'])
+
 
 	iniList.append(['EMCMOT', 'SERVO_PERIOD', 'servoPeriodSB'])
 

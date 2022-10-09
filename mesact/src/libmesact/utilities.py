@@ -386,23 +386,28 @@ def spindleChanged(parent):
 	#print(parent.axes)
 	if not parent.spindleTypeCB.currentData():
 		parent.spindleGB.setEnabled(False)
+		parent.spindlepwmGB.setEnabled(False)
 		parent.spindlepidGB.setEnabled(False)
 		parent.spindleStepgenGB.setEnabled(False)
 	else:
 		if parent.spindleTypeCB.currentData() == 'analog':
 			parent.spindleGB.setEnabled(True)
-			parent.spindlepidGB.setEnabled(False)
+			parent.spindlepwmGB.setEnabled(True)
+			parent.spindlepidGB.setEnabled(True)
 			parent.spindleStepgenGB.setEnabled(False)
 			for i in range(parent.axes):
 				parent.jointTabs_0.setTabEnabled(i, True)
 
 		if parent.spindleTypeCB.currentData() == 'digital':
 			parent.spindleGB.setEnabled(False)
+			parent.spindlepwmGB.setEnabled(False)
+			parent.spindlepidGB.setEnabled(False)
 			parent.spindleStepgenGB.setEnabled(False)
 			for i in range(parent.axes):
 				parent.jointTabs_0.setTabEnabled(i, True)
 
 		if parent.spindleTypeCB.currentData()[:7] == 'stepgen':
+			parent.spindlepwmGB.setEnabled(False)
 			parent.spindlepidGB.setEnabled(False)
 			for i in range(parent.axes):
 				if i == int(parent.spindleTypeCB.currentData()[-1]):

@@ -50,6 +50,7 @@ def setup(parent):
 	parent.mainTabs.setTabEnabled(4, False)
 	parent.cardTabs.setTabEnabled(1, False)
 	parent.spindleGB.setEnabled(False)
+	parent.spindlepwmGB.setEnabled(False)
 	parent.spindlepidGB.setEnabled(False)
 	parent.minAngJogVelDSB.setEnabled(False)
 	parent.defAngJogVelDSB.setEnabled(False)
