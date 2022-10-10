@@ -1,5 +1,4 @@
 git fetch
-git checkout -b ini2 origin/ini2
 git checkout -b ini3 origin/ini3
 
 sudo apt install devscripts
