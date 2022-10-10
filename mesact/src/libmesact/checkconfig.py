@@ -71,19 +71,20 @@ def checkit(parent):
 			tabError = True
 			configErrors.append('\tFoam axes must be one of XYUV, XYZA or XYUZ')
 
-	if not parent.filterExtensionLE.text().startswith('.'):
-		tabError = True
-		configErrors.append('\tThe Filter extension must start with a period like .py')
-	if len(parent.filterExtensionLE.text().split(',')) != 2:
-		tabError = True
-		configErrors.append('\tThe Filter extension requires the format .extension, description')
-		configErrors.append('\tFor Example: .py, my python filter')
-	if parent.filterExtensionLE.text() and not parent.filterProgramLE.text():
-		tabError = True
-		configErrors.append('\tA Filter extension requires a program')
-	if parent.filterProgramLE.text() and not parent.filterExtensionLE.text():
-		tabError = True
-		configErrors.append('\tA Filter program requires a extension')
+	if parent.filterExtensionLE.text() or parent.filterProgramLE.text():
+		if not parent.filterExtensionLE.text().startswith('.'):
+			tabError = True
+			configErrors.append('\tThe Filter extension must start with a period like .py')
+		if len(parent.filterExtensionLE.text().split(',')) != 2:
+			tabError = True
+			configErrors.append('\tThe Filter extension requires the format .extension, description')
+			configErrors.append('\tFor Example: .py, my python filter')
+		if parent.filterExtensionLE.text() and not parent.filterProgramLE.text():
+			tabError = True
+			configErrors.append('\tA Filter extension requires a program')
+		if parent.filterProgramLE.text() and not parent.filterExtensionLE.text():
+			tabError = True
+			configErrors.append('\tA Filter program requires a extension')
 
 	if tabError:
 		configErrors.insert(nextHeader, 'Display Tab:')
