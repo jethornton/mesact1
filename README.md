@@ -27,7 +27,7 @@ usage instructions.
 Note: The Mesa 7i96 requires LinuxCNC 2.8 Uspace or newer to work.
 [LinuxCNC 2.8](https://gnipsel.com/linuxcnc/uspace/debian10-emc.html)
 
-Note: The Mesa 7i96S requires LinuxCNC 2.9 (Master) or newer to work and it
+Note: The Mesa 7i96S requires LinuxCNC 2.8.4 or newer to work and it
 requires Mesaflash 3.4.3 or newer to flash or read the board.
 
 I have documentation [here](https://gnipsel.com/linuxcnc/index.html) to install
