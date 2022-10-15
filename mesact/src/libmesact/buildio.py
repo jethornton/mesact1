@@ -139,7 +139,7 @@ def build(parent):
 		}
 	{'Spindle':['Spindle Amp Fault', 'Spindle Inhibit', 'Spindle Oriented', 'Spindle Orient Fault']},
 
-	# build inputs from qpushbutton menus
+
 	'''
 	hm2_7i76e.0.7i76.0.0.input-00
 	hm2_7i76e.0.7i76.0.0.input-00-not
@@ -174,10 +174,10 @@ def build(parent):
 	'''
 	motherBoards = ['5i25', '7i80db', '7i80hd', '7i92', '7i93', '7i98']
 	daughterBoards =['7i76', '7i77', '7i78']
-	# build inputs, check for debounce
 
+	# build inputs from qpushbutton menus, check for debounce
 	hm2 = ''
-
+	eStops = []
 	for i in range(32):
 		key = getattr(parent, 'inputPB_' + str(i)).text()
 		invert = '-not' if getattr(parent, 'inputInvertCB_' + str(i)).isChecked() else ''
@@ -212,14 +212,26 @@ def build(parent):
 				for i in range(6):
 					if getattr(parent, 'axisCB_' + str(i)).currentData():
 						contents.append('net home-all ' + f'joint.{i}.home-sw-in\n')
-			elif key == 'External E Stop':
-				contents.append('\n# External E-Stop\n')
-				contents.append('loadrt estop_latch\n')
-				contents.append('addf estop-latch.0 servo-thread\n')
-				contents.append('net estop-loopout iocontrol.0.emc-enable-in <= estop-latch.0.ok-out\n')
-				contents.append('net estop-loopin iocontrol.0.user-enable-out => estop-latch.0.ok-in\n')
-				contents.append('net estop-reset iocontrol.0.user-request-enable => estop-latch.0.reset\n')
-				contents.append(f'net remote-estop estop-latch.0.fault-in <= {hm2}\n')
+			elif key[0:6] == 'E Stop':
+				eStops.append(hm2)
+
+
+	#Build E-Stop Chain
+	if len(eStops) > 0:
+		contents.append('# E-Stop Chain\n')
+		contents.append(f'loadrt estop_latch count={len(eStops)}\n')
+		for i in range(len(eStops)):
+			contents.append(f'addf estop-latch.{i} servo-thread\n')
+		contents.append('\n# E-Stop Loop\n')
+		contents.append('net estop-loopin iocontrol.0.user-enable-out => estop-latch.0.ok-in\n')
+		for i in range(len(eStops) - 1):
+			contents.append(f'net estop-{i}-out estop-latch.{i}.ok-out => estop-latch.{i+1}.ok-in\n')
+		contents.append(f'net estop-loopout estop-latch.{len(eStops)-1}.ok-out => iocontrol.0.emc-enable-in\n')
+		contents.append('\n# E-Stop Reset\n')
+		contents.append(f'net estop-reset iocontrol.0.user-request-enable\n')
+		for i in range(len(eStops)):
+			contents.append(f'net estop-reset => estop-latch.{i}.reset\n')
+			contents.append(f'net remote-estop{i} estop-latch.{i}.fault-in <= {eStops[i]}')
 
 	output_dict = {
 	'Coolant Flood': 'net flood-output iocontrol.0.coolant-flood => ',
