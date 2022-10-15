@@ -421,18 +421,32 @@ def checkit(parent):
 					tabError = True
 					configErrors.append(f'\tThe Home All Input requires the Home Sequence to not skip a number {numList}')
 
-	for i in range(32): # check for invert and debounce
-		invert = getattr(parent, f'inputInvertCB_{i}').isChecked()
-		debounce = getattr(parent, f'inputDebounceCB_{i}').isChecked()
-		if invert and debounce:
-			tabError = True
-			configErrors.append(f'\tInvert and Debouce for Joint {i} can not be used together')
+	input_keys = []
+	for i in range(32): # check for duplicate input keys
+		if getattr(parent, f'inputPB_{i}').text() != 'Select':
+			key = getattr(parent, f'inputPB_{i}').text()
+			if key in input_keys:
+				tabError = True
+				configErrors.append(f'\tDuplicate Inputs {key}')
+			input_keys.append(key)
+
+	output_keys = []
+	for i in range(16): # check for duplicate output keys
+		if getattr(parent, f'outputPB_{i}').text() != 'Select':
+			key = getattr(parent, f'outputPB_{i}').text()
+			if key in output_keys:
+				tabError = True
+				configErrors.append(f'\tDuplicate Ouputs {key}')
+			output_keys.append(key)
+
 
 	for i in range(16): # check for spindle on
 		if getattr(parent, f'outputPB_{i}').text() == 'Spindle On':
 			if parent.spindleTypeCB.currentText() != 'Digital':
 				tabError = True
 				configErrors.append(f'\tSpindle Output must be set to Digital to use Spindle On')
+
+
 
 	if tabError:
 		configErrors.insert(nextHeader, 'I/O Tab:')
