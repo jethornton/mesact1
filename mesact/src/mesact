@@ -108,6 +108,7 @@ class MainWindow(QMainWindow):
 		buildcombos.build(self)
 		buildmenus.build(self)
 		self.helpInfo = helptext.descriptions
+		self.updateini = updateini.updateini()
 		self.extcmd = extcmd.extcmd()
 		self.ladderOptionsList = utilities.plcOptions()
 		self.setupConnections()
