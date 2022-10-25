@@ -38,7 +38,7 @@ def checkit(parent):
 		tabError = False
 	# end of Machine Tab
 
-	# check the Display Tab for errors
+	# check the Settings Tab for errors
 	if parent.guiCB.currentText() == 'Select':
 		tabError = True
 		configErrors.append('\tA GUI must be selected')
@@ -90,7 +90,7 @@ def checkit(parent):
 		configErrors.insert(nextHeader, 'Display Tab:')
 		nextHeader = len(configErrors)
 		tabError = False
-	# end of Display Tab
+	# end of Settings Tab
 
 	# check the Axis Tab for errors
 	# bitch and bail if the Axis Tab is not enabled
