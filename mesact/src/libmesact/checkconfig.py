@@ -11,7 +11,7 @@ def checkit(parent):
 	if not parent.configName.text():
 		tabError = True
 		configErrors.append('\tA configuration name must be entered')
-	if parent.linearUnitsCB.currentText() == 'Select':
+	if not parent.linearUnitsCB.currentData():
 		tabError = True
 		configErrors.append('\tLinear Units must be selected')
 	if parent.trajMaxLinVelDSB.value() == 0:
@@ -25,7 +25,7 @@ def checkit(parent):
 	if not parent.boardCB.currentData():
 		tabError = True
 		configErrors.append('\tA Board must be selected')
-	if parent.boardType == 'eth' and parent.ipAddressCB.currentText() == 'Select':
+	if parent.boardType == 'eth' and not parent.ipAddressCB.currentData():
 		tabError = True
 		configErrors.append('\tAn IP address must be selected, 10.10.10.10 is recommended')
 	if parent.daughterCB_0.currentData() and parent.daughterCB_1.currentData():
@@ -39,13 +39,13 @@ def checkit(parent):
 	# end of Machine Tab
 
 	# check the Settings Tab for errors
-	if parent.guiCB.currentText() == 'Select':
+	if not parent.guiCB.currentData():
 		tabError = True
 		configErrors.append('\tA GUI must be selected')
-	if parent.positionOffsetCB.currentText() == 'Select':
+	if not parent.positionOffsetCB.currentData():
 		tabError = True
 		configErrors.append('\tA Position Offset must be selected')
-	if parent.positionFeedbackCB.currentText() == 'Select':
+	if not parent.positionFeedbackCB.currentData():
 		tabError = True
 		configErrors.append('\tA Position Feedback must be selected')
 	if parent.maxFeedOverrideSB.value() == 0.0:
