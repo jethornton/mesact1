@@ -45,7 +45,24 @@ def build(parent):
 		except OSError:
 			parent.machinePTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
-	buildini.build(parent)
+	if os.path.exists(iniFile):
+		parent.updateini.update(parent, iniFile)
+	else:
+		buildini.build(parent)
+
+	# build halfiles.hal
+	halfiles = []
+	halfiles.append(f'source {os.path.join(parent.configNameUnderscored + ".hal")}')
+	halfiles.append('source io.hal')
+	if parent.customhalCB.isChecked():
+		halfiles.append('source custom.hal')
+	if parent.ssCardCB.currentData():
+		halfiles.append('source sserial.hal')
+
+	with open(os.path.join(parent.configPath, 'filelist' + '.hal'), 'w') as f:
+		f.write('\n'.join(halfiles))
+
+	#buildini.build(parent)
 	buildhal.build(parent)
 	buildio.build(parent)
 	buildmisc.build(parent)
