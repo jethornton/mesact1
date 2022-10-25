@@ -45,6 +45,7 @@ def build(parent):
 		except OSError:
 			parent.machinePTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
+	iniFile = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
 	if os.path.exists(iniFile):
 		parent.updateini.update(parent, iniFile)
 	else:
