@@ -70,7 +70,6 @@ def checkit(parent):
 		if parent.coordinatesLB.text() not in foamAxes:
 			tabError = True
 			configErrors.append('\tFoam axes must be one of XYUV, XYZA or XYUZ')
-
 	if parent.filterExtensionLE.text() or parent.filterProgramLE.text():
 		if not parent.filterExtensionLE.text().startswith('.'):
 			tabError = True
@@ -85,6 +84,13 @@ def checkit(parent):
 		if parent.filterProgramLE.text() and not parent.filterExtensionLE.text():
 			tabError = True
 			configErrors.append('\tA Filter program requires a extension')
+	mdi_commands = []
+	for i in range(3):
+		if getattr(parent, f'mdiCmdLE_{i}').text():
+			mdi_commands.append(i)
+	if mdi_commands[-1] != len(mdi_commands)-1:
+		tabError = True
+		configErrors.append('\tMDI Commands must be in sequence starting with 0')
 
 	if tabError:
 		configErrors.insert(nextHeader, 'Display Tab:')
