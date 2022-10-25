@@ -3377,7 +3377,7 @@ Female</string>
       </widget>
       <widget class="QWidget" name="display">
        <attribute name="title">
-        <string>Display</string>
+        <string>Settings</string>
        </attribute>
        <widget class="QGroupBox" name="gridGroupBox_4">
         <property name="geometry">
@@ -3770,6 +3770,51 @@ QGroupBox::title {
          </item>
          <item row="0" column="1">
           <widget class="QLineEdit" name="filterExtensionLE"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_88">
+        <property name="geometry">
+         <rect>
+          <x>500</x>
+          <y>340</y>
+          <width>441</width>
+          <height>161</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>MDI Commands</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_211">
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="mdiCmdLE_0"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_1380">
+           <property name="text">
+            <string>MDI Command 01</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_1310">
+           <property name="text">
+            <string>MDI Command 00</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_1386">
+           <property name="text">
+            <string>MDI Command 02</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="mdiCmdLE_1"/>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="mdiCmdLE_2"/>
          </item>
         </layout>
        </widget>
@@ -26275,13 +26320,6 @@ Copy HAL Add Functions and HAL to custom.hal</string>
            <property name="topMargin">
             <number>15</number>
            </property>
-           <item row="5" column="0">
-            <widget class="QLabel" name="label_1310">
-             <property name="text">
-              <string>MDI Command</string>
-             </property>
-            </widget>
-           </item>
            <item row="4" column="0">
             <widget class="QCheckBox" name="haluiCB">
              <property name="text">
@@ -26309,9 +26347,6 @@ Copy HAL Add Functions and HAL to custom.hal</string>
               <string>Post GUI HAL File</string>
              </property>
             </widget>
-           </item>
-           <item row="5" column="1">
-            <widget class="QLineEdit" name="mdiCmdLE"/>
            </item>
           </layout>
          </widget>
