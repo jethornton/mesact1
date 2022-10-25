@@ -142,8 +142,8 @@ def build(parent):
 
 	# build the [HALUI] section
 	iniContents.append('\n[HALUI]\n')
-	if parent.mdiCmdLE.text():
-		iniContents.append(f'MDI_COMMAND = {parent.mdiCmdLE.text()}\n')
+	#if parent.mdiCmdLE.text():
+	#	iniContents.append(f'MDI_COMMAND = {parent.mdiCmdLE.text()}\n')
 
 	# build the axes
 	if parent.cardTabs.isTabEnabled(0):
