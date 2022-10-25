@@ -128,12 +128,12 @@ def build(parent):
 
 	# build the [HAL] section
 	iniContents.append('\n[HAL]\n')
-	iniContents.append(f'HALFILE = {parent.configNameUnderscored}.hal\n')
-	iniContents.append('HALFILE = io.hal\n')
-	if parent.ssCardCB.currentData():
-		iniContents.append('HALFILE = sserial.hal\n')
-	if parent.customhalCB.isChecked():
-		iniContents.append('HALFILE = custom.hal\n')
+	#iniContents.append(f'HALFILE = {parent.configNameUnderscored}.hal\n')
+	iniContents.append('HALFILE = filelist.hal\n')
+	#if parent.ssCardCB.currentData():
+	#	iniContents.append('HALFILE = sserial.hal\n')
+	#if parent.customhalCB.isChecked():
+	#	iniContents.append('HALFILE = custom.hal\n')
 	if parent.postguiCB.isChecked():
 		iniContents.append('POSTGUI_HALFILE = postgui.hal\n')
 	if parent.shutdownCB.isChecked():
