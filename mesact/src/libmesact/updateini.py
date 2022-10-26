@@ -178,7 +178,6 @@ class updateini:
 			for i in range(index[0], index[1]):
 				if self.content[i].startswith('MDI_COMMAND'):
 					ini_mdi.append(self.content[i].split('=')[1].strip())
-			#print(len(ini_mdi))
 			tool_mdi = []
 			for i in range(3):
 				mdi_text = f'{getattr(parent, f"mdiCmdLE_{i}").text()}'
@@ -187,13 +186,11 @@ class updateini:
 			print(len(tool_mdi))
 
 			if len(ini_mdi) == len(tool_mdi):
-				print('same length')
 				for i, j in enumerate(range(index[0] + 1, index[1])):
 					if self.content[j].startswith('MDI_COMMAND'):
 						self.content[j] = f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n'
 			elif len(ini_mdi) > len(tool_mdi):
 				remove = len(ini_mdi) - len(tool_mdi)
-				#print(f'remove {remove}')
 				for i in reversed(range(index[0] + 1, index[1])):
 					if self.content[i].startswith('MDI_COMMAND') and remove > 0:
 						del self.content[i]
@@ -201,13 +198,10 @@ class updateini:
 				self.get_sections() # update section start/end
 			elif len(ini_mdi) < len(tool_mdi):
 				add = len(tool_mdi) - len(ini_mdi)
-				print(f'add {add}')
 				for i, j in enumerate(range(index[0] + 1, index[1] + add)):
-					#print(self.content[j].strip())
 					if self.content[j].startswith('MDI_COMMAND'): # replace it
 						self.content[j] = f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n'
 					elif self.content[j].strip() == '': # insert it
-						print('here')
 						self.content.insert(j, f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n')
 				self.get_sections() # update section start/end
 
