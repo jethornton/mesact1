@@ -88,9 +88,10 @@ def checkit(parent):
 	for i in range(3):
 		if getattr(parent, f'mdiCmdLE_{i}').text():
 			mdi_commands.append(i)
-	if mdi_commands[-1] != len(mdi_commands)-1:
-		tabError = True
-		configErrors.append('\tMDI Commands must be in sequence starting with 0')
+	if mdi_commands:
+		if mdi_commands[-1] != len(mdi_commands)-1:
+			tabError = True
+			configErrors.append('\tMDI Commands must be in sequence starting with 0')
 
 	if tabError:
 		configErrors.insert(nextHeader, 'Display Tab:')
