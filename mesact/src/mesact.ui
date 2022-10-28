@@ -3792,42 +3792,85 @@ QGroupBox::title {
           <x>500</x>
           <y>340</y>
           <width>441</width>
-          <height>161</height>
+          <height>271</height>
          </rect>
         </property>
         <property name="title">
          <string>MDI Commands</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_211">
-         <item row="0" column="1">
+         <item row="1" column="1">
           <widget class="QLineEdit" name="mdiCmdLE_0"/>
          </item>
-         <item row="1" column="0">
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_1390">
+           <property name="text">
+            <string>MDI Command 5</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="mdiCmdLE_2"/>
+         </item>
+         <item row="2" column="0">
           <widget class="QLabel" name="label_1380">
            <property name="text">
             <string>MDI Command 1</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="0">
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_1389">
+           <property name="text">
+            <string>MDI Command 4</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="mdiCmdLE_3"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_1388">
+           <property name="text">
+            <string>MDI Command 3</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
           <widget class="QLabel" name="label_1310">
            <property name="text">
             <string>MDI Command 0</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="mdiCmdLE_5"/>
+         </item>
+         <item row="3" column="0">
           <widget class="QLabel" name="label_1386">
            <property name="text">
             <string>MDI Command 2</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
+         <item row="2" column="1">
           <widget class="QLineEdit" name="mdiCmdLE_1"/>
          </item>
-         <item row="2" column="1">
-          <widget class="QLineEdit" name="mdiCmdLE_2"/>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="mdiCmdLE_4"/>
+         </item>
+         <item row="0" column="0" colspan="2">
+          <widget class="QLabel" name="label_1391">
+           <property name="frameShape">
+            <enum>QFrame::Box</enum>
+           </property>
+           <property name="text">
+            <string>MDI Commands must start at 0 and not skip a number</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>

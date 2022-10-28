@@ -71,8 +71,9 @@ def checkit(parent):
 			tabError = True
 			configErrors.append('\tFoam axes must be one of XYUV, XYZA or XYUZ')
 	# program filter checks to be added
+
 	mdi_commands = []
-	for i in range(3):
+	for i in range(6):
 		if getattr(parent, f'mdiCmdLE_{i}').text():
 			mdi_commands.append(i)
 	if mdi_commands:

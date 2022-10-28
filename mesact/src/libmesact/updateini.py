@@ -156,6 +156,7 @@ class updateini:
 		for item in traj:
 			self.update_key(item[0], item[1], item[2])
 
+		'''
 		# [HAL]
 		hal = [
 		['HAL', 'HALFILE', f'filelist.hal'],
@@ -169,21 +170,22 @@ class updateini:
 
 		for item in hal:
 			self.update_key(item[0], item[1], item[2])
+		'''
 
 		# [HALUI]
 		index = self.sections['[HALUI]']
-		print(index)
+		#print(index)
 		if len(index) == 2:
 			ini_mdi = []
 			for i in range(index[0], index[1]):
 				if self.content[i].startswith('MDI_COMMAND'):
 					ini_mdi.append(self.content[i].split('=')[1].strip())
 			tool_mdi = []
-			for i in range(3):
+			for i in range(6):
 				mdi_text = f'{getattr(parent, f"mdiCmdLE_{i}").text()}'
 				if mdi_text:
 					tool_mdi.append(f'{getattr(parent, f"mdiCmdLE_{i}").text()}')
-			print(len(tool_mdi))
+			#print(len(tool_mdi))
 
 			if len(ini_mdi) == len(tool_mdi):
 				for i, j in enumerate(range(index[0] + 1, index[1])):

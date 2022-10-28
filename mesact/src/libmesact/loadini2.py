@@ -69,8 +69,8 @@ class openini:
 		with open(self.iniFile,'r') as file:
 			self.content = file.readlines() # create a list of the ini file
 		self.get_sections()
-		start = self.sections['[MESA]'][0]
-		end = self.sections['[MESA]'][1]
+		#start = self.sections['[MESA]'][0]
+		#end = self.sections['[MESA]'][1]
 
 		iniDict['[MESA]'] = {}
 		iniDict['[MESA]']['VERSION'] = None
@@ -109,8 +109,22 @@ class openini:
 		iniDict['[FILTER]'] = {}
 		iniDict['[FILTER]']['PROGRAM_EXTENSION'] = 'programFilterLE_0'
 		iniDict['[FILTER]']['PROGRAM_EXTENSION'] = 'programFilterLE_1'
+		# build the [KINS] section
+		# build the [EMCIO] section
+		# build the [RS274NGC] section
+		# build the [EMCMOT] section
+		# build the [TASK] section
+		# build the [TRAJ] section
 		'''
 
+		# build the [HAL] section
+
+		# load the [HALUI] section
+		start = self.sections['[HALUI]'][0]
+		end = self.sections['[HALUI]'][1]
+		for i, item in enumerate(self.content[start:end]):
+			if item.strip():
+				getattr(parent, f'mdiCmdLE_{i}').setText(item.split('=')[1])
 
 
 		noUpdate = ['None', 'False', 'Select']
@@ -172,13 +186,13 @@ class openini:
 		end = len(self.content)
 		for index, line in enumerate(self.content):
 			if line.strip().startswith('['):
-				self.sections[line.strip()] = [index, end]
+				self.sections[line.strip()] = [index + 1, end]
 
 		# set start and stop index for each section
 		previous = ''
 		for key, value in self.sections.items():
 			#print(key)
 			if previous:
-				self.sections[previous][1] = value[0] - 1
+				self.sections[previous][1] = value[0] - 2
 			previous = key
 
