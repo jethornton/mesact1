@@ -126,6 +126,48 @@ class openini:
 			if item.strip():
 				getattr(parent, f'mdiCmdLE_{i}').setText(item.split('=')[1])
 
+		# load the [JOINT] sections
+		for i in range(6):
+			iniDict[f'[JOINT_{i}]'] = {}
+			iniDict[f'[JOINT_{i}]']['AXIS'] = f'c0_axisCB_{i}'
+			iniDict[f'[JOINT_{i}]']['DRIVE'] = f'c0_driveCB_{i}'
+			iniDict[f'[JOINT_{i}]']['STEP_INVERT'] = f'c0_StepInvert_{i}'
+			iniDict[f'[JOINT_{i}]']['DIR_INVERT'] = f'c0_DirInvert_{i}'
+			iniDict[f'[JOINT_{i}]']['STEPLEN'] = f'c0_StepTime_{i}'
+			iniDict[f'[JOINT_{i}]']['STEPSPACE'] = f'c0_StepSpace_{i}'
+			iniDict[f'[JOINT_{i}]']['DIRSETUP'] = f'c0_DirSetup_{i}'
+			iniDict[f'[JOINT_{i}]']['DIRHOLD'] = f'c0_DirHold_{i}'
+			iniDict[f'[JOINT_{i}]']['MIN_LIMIT'] = f'c0_minLimit_{i}'
+			iniDict[f'[JOINT_{i}]']['MAX_LIMIT'] = f'c0_maxLimit_{i}'
+			iniDict[f'[JOINT_{i}]']['MAX_VELOCITY'] = f'c0_maxVelocity_{i}'
+			iniDict[f'[JOINT_{i}]']['MAX_ACCELERATION'] = f'c0_maxAccel_{i}'
+			iniDict[f'[JOINT_{i}]']['SCALE'] = f'c0_scale_{i}'
+			iniDict[f'[JOINT_{i}]']['HOME'] = f'c0_home_{i}'
+			iniDict[f'[JOINT_{i}]']['HOME_OFFSET'] = f'c0_homeOffset_{i}'
+			iniDict[f'[JOINT_{i}]']['HOME_SEARCH_VEL'] = f'c0_homeSearchVel_{i}'
+			iniDict[f'[JOINT_{i}]']['HOME_LATCH_VEL'] = f'c0_homeLatchVel_{i}'
+			iniDict[f'[JOINT_{i}]']['HOME_FINAL_VEL'] = f'c0_homeFinalVelocity_{i}'
+			iniDict[f'[JOINT_{i}]']['HOME_USE_INDEX'] = f'c0_homeUseIndex_{i}'
+			iniDict[f'[JOINT_{i}]']['HOME_IGNORE_LIMITS'] = f'c0_homeIgnoreLimits_{i}'
+			iniDict[f'[JOINT_{i}]']['HOME_IS_SHARED'] = f'c0_homeSwitchShared_{i}'
+			iniDict[f'[JOINT_{i}]']['HOME_SEQUENCE'] = f'c0_homeSequence_{i}'
+			iniDict[f'[JOINT_{i}]']['P'] = f'c0_p_{i}'
+			iniDict[f'[JOINT_{i}]']['I'] = f'c0_i_{i}'
+			iniDict[f'[JOINT_{i}]']['D'] = f'c0_d_{i}'
+			iniDict[f'[JOINT_{i}]']['FF0'] = f'c0_ff0_{i}'
+			iniDict[f'[JOINT_{i}]']['FF1'] = f'c0_ff1_{i}'
+			iniDict[f'[JOINT_{i}]']['FF2'] = f'c0_ff2_{i}'
+			iniDict[f'[JOINT_{i}]']['DEADBAND'] = f'c0_deadband_{i}'
+			iniDict[f'[JOINT_{i}]']['BIAS'] = f'c0_bias_{i}'
+			iniDict[f'[JOINT_{i}]']['MAX_OUTPUT'] = f'c0_maxOutput_{i}'
+			iniDict[f'[JOINT_{i}]']['MAX_ERROR'] = f'c0_maxError_{i}'
+			iniDict[f'[JOINT_{i}]']['FERROR'] = f'c0_ferror_{i}'
+			iniDict[f'[JOINT_{i}]']['MIN_FERROR'] = f'c0_min_ferror_{i}'
+			iniDict[f'[JOINT_{i}]']['ENCODER_SCALE'] = f'c0_encoderScale_{i}'
+			iniDict[f'[JOINT_{i}]']['ANALOG_SCALE_MAX'] = f'c0_analogScaleMax_{i}'
+			iniDict[f'[JOINT_{i}]']['ANALOG_MIN_LIMIT'] = f'c0_analogMinLimit_{i}'
+			iniDict[f'[JOINT_{i}]']['ANALOG_MAX_LIMIT'] = f'c0_analogMaxLimit_{i}'
+
 
 		noUpdate = ['None', 'False', 'Select']
 
