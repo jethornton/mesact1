@@ -2,7 +2,7 @@ import os, subprocess
 from configparser import ConfigParser
 from PyQt5.QtGui import QPixmap
 
-from libmesact import loadini
+from libmesact import loadini2
 from libmesact import utilities
 
 def setup(parent):
@@ -111,7 +111,8 @@ def checkconfig(parent):
 				newuser(parent)
 		if config.has_option('STARTUP', 'CONFIG'):
 			if config['STARTUP']['CONFIG'] != 'False':
-				loadini.openini(parent, config['STARTUP']['CONFIG'].lower())
+				loadini = loadini2.openini()
+				loadini.getini(parent, config['STARTUP']['CONFIG'].lower())
 	else:
 		config = ConfigParser()
 		config.optionxform = str

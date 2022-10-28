@@ -38,6 +38,7 @@ from libmesact import buildmenus
 from libmesact import firmware
 from libmesact import card
 from libmesact import loadini
+from libmesact import loadini2
 from libmesact import updateini
 from libmesact import hal
 from libmesact import checkconfig
@@ -109,6 +110,7 @@ class MainWindow(QMainWindow):
 		buildmenus.build(self)
 		self.helpInfo = helptext.descriptions
 		self.updateini = updateini.updateini()
+		self.loadini = loadini2.openini()
 		self.extcmd = extcmd.extcmd()
 		self.ladderOptionsList = utilities.plcOptions()
 		self.setupConnections()
@@ -123,7 +125,7 @@ class MainWindow(QMainWindow):
 		self.actionEnglish.triggered.connect(partial(self.change_language, None))
 		self.actionGerman.triggered.connect(partial(self.change_language, 'eng-de'))
 		self.actionFrench.triggered.connect(partial(self.change_language, 'eng-fr'))
-		self.actionOpen.triggered.connect(partial(loadini.openini, self))
+		self.actionOpen.triggered.connect(partial(self.loadini.getini, self))
 		self.actionCheck.triggered.connect(partial(checkconfig.checkit, self))
 		self.actionBuild.triggered.connect(partial(buildconfig.build, self))
 		self.actionTabHelp.triggered.connect(partial(self.help, 0))
