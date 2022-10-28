@@ -23,7 +23,7 @@ def build(parent):
 	iniContents.append('\n[MESA]\n')
 	iniContents.append(f'VERSION = {parent.version}\n')
 	iniContents.append(f'BOARD = {parent.boardCB.currentData()}\n')
-	iniContents.append(f'FIRMWARE = {parent.firmwareCB.currentText()}\n')
+	iniContents.append(f'FIRMWARE = {parent.firmwareCB.currentData()}\n')
 	iniContents.append(f'CARD_0 = {parent.daughterCB_0.currentData()}\n')
 	iniContents.append(f'CARD_1 = {parent.daughterCB_1.currentData()}\n')
 
@@ -78,17 +78,13 @@ def build(parent):
 		iniContents.append(f'Geometry = {parent.coordinatesLB.text()[0:2]};{parent.coordinatesLB.text()[2:4]}\n')
 		iniContents.append('FOAM = 1\n')
 
-	# builed the [FILTER] section
-	if parent.filterExtensionLE.text() and parent.filterProgramLE.text():
-		iniContents.append('\n[FILTER]\n')
-		iniContents.append(f'PROGRAM_EXTENSION = {parent.filterExtensionLE.text()}\n')
-		ext = parent.filterExtensionLE.text().split(',')[0].strip('.')
-		iniContents.append(f'{ext} = {parent.filterProgramLE.text()}\n')
+	# build the [FILTER] section
+	#iniContents.append('\n[FILTER]\n')
 
 	# build the [KINS] section
 	iniContents.append('\n[KINS]\n')
 	if len(set(parent.coordinatesLB.text())) == len(parent.coordinatesLB.text()): # 1 joint for each axis
-		iniContents.append('KINEMATICS = {} coordinates={}\n'.format('trivkins', parent.coordinatesLB.text()))
+		iniContents.append(f'KINEMATICS = trivkins coordinates={parent.coordinatesLB.text()}\n')
 	else: # more than one joint per axis
 		iniContents.append(f'KINEMATICS = trivkins coordinates={parent.coordinatesLB.text()} kinstype=BOTH\n')
 	iniContents.append(f'JOINTS = {len(parent.coordinatesLB.text())}\n')
