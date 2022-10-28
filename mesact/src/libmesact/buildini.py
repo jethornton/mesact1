@@ -124,12 +124,12 @@ def build(parent):
 
 	# build the [HAL] section
 	iniContents.append('\n[HAL]\n')
-	#iniContents.append(f'HALFILE = {parent.configNameUnderscored}.hal\n')
-	iniContents.append('HALFILE = filelist.hal\n')
-	#if parent.ssCardCB.currentData():
-	#	iniContents.append('HALFILE = sserial.hal\n')
-	#if parent.customhalCB.isChecked():
-	#	iniContents.append('HALFILE = custom.hal\n')
+	iniContents.append(f'HALFILE = {parent.configNameUnderscored}.hal\n')
+	#iniContents.append('HALFILE = filelist.hal\n')
+	if parent.ssCardCB.currentData():
+		iniContents.append('HALFILE = sserial.hal\n')
+	if parent.customhalCB.isChecked():
+		iniContents.append('HALFILE = custom.hal\n')
 	if parent.postguiCB.isChecked():
 		iniContents.append('POSTGUI_HALFILE = postgui.hal\n')
 	if parent.shutdownCB.isChecked():
@@ -138,7 +138,7 @@ def build(parent):
 
 	# build the [HALUI] section
 	iniContents.append('\n[HALUI]\n')
-	for i in range(3):
+	for i in range(6):
 		if getattr(parent, f"mdiCmdLE_{i}").text():
 			iniContents.append(f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n')
 

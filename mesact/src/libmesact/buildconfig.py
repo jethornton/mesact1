@@ -51,6 +51,13 @@ def build(parent):
 	else:
 		buildini.build(parent)
 
+	#buildini.build(parent)
+	buildhal.build(parent)
+	buildio.build(parent)
+	buildmisc.build(parent)
+	buildss.build(parent)
+
+	'''
 	# build halfiles.hal
 	halfiles = []
 	halfiles.append(f'source {os.path.join(parent.configNameUnderscored + ".hal")}')
@@ -62,11 +69,7 @@ def build(parent):
 
 	with open(os.path.join(parent.configPath, 'filelist' + '.hal'), 'w') as f:
 		f.write('\n'.join(halfiles))
+	'''
 
-	#buildini.build(parent)
-	buildhal.build(parent)
-	buildio.build(parent)
-	buildmisc.build(parent)
-	buildss.build(parent)
 
 
