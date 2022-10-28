@@ -3739,6 +3739,9 @@ QGroupBox::title {
         </layout>
        </widget>
        <widget class="QGroupBox" name="groupBox_104">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="geometry">
          <rect>
           <x>500</x>
@@ -3748,15 +3751,18 @@ QGroupBox::title {
          </rect>
         </property>
         <property name="title">
-         <string>Program Filter</string>
+         <string>Program Filters</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_210">
-         <item row="1" column="0">
+         <item row="2" column="0">
           <widget class="QLabel" name="label_1311">
            <property name="text">
-            <string>Program</string>
+            <string>File</string>
            </property>
           </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="filterFileLE"/>
          </item>
          <item row="0" column="0">
           <widget class="QLabel" name="label_1309">
@@ -3765,11 +3771,18 @@ QGroupBox::title {
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="filterProgramLE"/>
-         </item>
          <item row="0" column="1">
-          <widget class="QLineEdit" name="filterExtensionLE"/>
+          <widget class="QLineEdit" name="filterExtLE"/>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="filterDescLE"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_1387">
+           <property name="text">
+            <string>Description</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
