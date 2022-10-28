@@ -97,8 +97,8 @@ def loadini(parent, iniFile, config):
 		key = config['FILTER']['PROGRAM_EXTENSION'].split(',')[0].strip('.')
 		iniList.append(['FILTER', key, 'filterProgramLE'])
 
-	if config.has_option('HALUI', 'MDI'):
-		iniList.append(['HALUI', 'MDI', 'mdiCmdLE'])
+	if config.has_option('HALUI', 'MDI_COMMAND'):
+		iniList.append(['HALUI', 'MDI_COMMAND', 'mdiCmdLE_0'])
 
 
 	iniList.append(['EMCMOT', 'SERVO_PERIOD', 'servoPeriodSB'])
