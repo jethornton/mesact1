@@ -1,3 +1,9 @@
+mesact (1.0.0) unstable; urgency=medium
+
+  * Extra sections, key-values, comments preserved in the ini file
+
+ -- John Thornton <jt@gnipsel.com>  Sat, 29 Oct 2022 08:36:58 -0500
+
 mesact (0.7.4) unstable; urgency=medium
 
   * Add E-Stop Chain

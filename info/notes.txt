@@ -50,7 +50,7 @@ Append a new entry to the current changelog
 dch --append
 
 To change the version
-dch -v 0.7.4
+dch -v 1.0.0
 
 change to released Note: you must either change something or use Ctrl o to save.
 dch --release
