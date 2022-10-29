@@ -16,7 +16,7 @@ Download the `PC deb <https://github.com/jethornton/mesact/raw/master/mesact_1.0
 Or use wget from a terminal
 ::
 
-	wget https://github.com/jethornton/mesact/raw/master/mesact_0.7.4_amd64.deb
+	wget https://github.com/jethornton/mesact/raw/master/mesact_1.0.0_amd64.deb
 
 Raspberry `Pi 4 32 bit deb <https://github.com/jethornton/mesact/raw/master/mesact_1.0.0_armhf.deb>`_
 Raspberry `Pi 4 64 bit deb <https://github.com/jethornton/mesact/raw/master/mesact_1.0.0_arm64.deb>`_
