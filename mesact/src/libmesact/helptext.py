@@ -92,6 +92,8 @@ Limits are in user units.
 Velocity is user units per second, Acceleration is user units per second per second
 
 PID Settings
+Default PID settings are driven by the Thread Period on the Options Tab.
+If you change the Thread Period generate new PID values.
 P = Proportional  P = (Commanded - Measured) * Pgain. 
 I = Integral  I(new) = I(old) + Igain * (Commanded - Measured). 
 D = Derivative  D = Dgain * (New_measured - Old_Measured)
