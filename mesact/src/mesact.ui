@@ -45,7 +45,7 @@ QGroupBox::title {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>7</number>
       </property>
       <property name="movable">
        <bool>false</bool>
@@ -4216,34 +4216,18 @@ Machine Tab</string>
                <property name="spacing">
                 <number>5</number>
                </property>
-               <item row="2" column="3">
-                <widget class="QLineEdit" name="c0_maxOutput_0">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>25</height>
-                  </size>
-                 </property>
+               <item row="2" column="2">
+                <widget class="QLabel" name="label_222">
                  <property name="text">
-                  <string/>
+                  <string>Max Output</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_216">
-                 <property name="text">
-                  <string>I</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="3">
-                <widget class="QLineEdit" name="c0_bias_0">
+               <item row="0" column="3">
+                <widget class="QLineEdit" name="c0_deadband_0">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -4265,26 +4249,6 @@ Machine Tab</string>
                    <width>0</width>
                    <height>25</height>
                   </size>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_214">
-                 <property name="text">
-                  <string>Deadband</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QLabel" name="label_221">
-                 <property name="text">
-                  <string>Bias</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -4323,8 +4287,8 @@ Machine Tab</string>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="1">
-                <widget class="QLineEdit" name="c0_d_0">
+               <item row="1" column="3">
+                <widget class="QLineEdit" name="c0_bias_0">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -4339,20 +4303,43 @@ Machine Tab</string>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="0">
-                <widget class="QLabel" name="label_220">
+               <item row="3" column="2">
+                <widget class="QLabel" name="label_183">
                  <property name="text">
-                  <string>FF2</string>
+                  <string>Max Error</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_217">
+                 <property name="text">
+                  <string>D</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="2">
-                <widget class="QLabel" name="label_222">
+               <item row="2" column="3">
+                <widget class="QLineEdit" name="c0_maxOutput_0">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>25</height>
+                  </size>
+                 </property>
                  <property name="text">
-                  <string>Max Output</string>
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLabel" name="label_221">
+                 <property name="text">
+                  <string>Bias</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -4369,57 +4356,8 @@ Machine Tab</string>
                  </property>
                 </widget>
                </item>
-               <item row="3" column="2">
-                <widget class="QLabel" name="label_183">
-                 <property name="text">
-                  <string>Max Error</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="3">
-                <widget class="QLineEdit" name="c0_deadband_0">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QLabel" name="label_217">
-                 <property name="text">
-                  <string>D</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="3" column="1">
                 <widget class="QLineEdit" name="c0_ff0_0">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QLineEdit" name="c0_i_0">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -4444,6 +4382,84 @@ Machine Tab</string>
                  </property>
                 </widget>
                </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_216">
+                 <property name="text">
+                  <string>I</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLineEdit" name="c0_ff1_0">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_220">
+                 <property name="text">
+                  <string>FF2</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="c0_i_0">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="c0_d_0">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_214">
+                 <property name="text">
+                  <string>Deadband</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
                <item row="5" column="3">
                 <widget class="QPushButton" name="c0_pidDefault_0">
                  <property name="minimumSize">
@@ -4461,22 +4477,6 @@ Machine Tab</string>
                 <widget class="QLabel" name="label_218">
                  <property name="text">
                   <string>FF0</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="1">
-                <widget class="QLineEdit" name="c0_ff1_0">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -29101,6 +29101,1182 @@ QToolButton {
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>configName</tabstop>
+  <tabstop>linearUnitsCB</tabstop>
+  <tabstop>trajMaxLinVelDSB</tabstop>
+  <tabstop>loadConfigCB</tabstop>
+  <tabstop>checkBoardPB</tabstop>
+  <tabstop>boardCB</tabstop>
+  <tabstop>ipAddressCB</tabstop>
+  <tabstop>daughterCB_0</tabstop>
+  <tabstop>daughterCB_1</tabstop>
+  <tabstop>firmwareCB</tabstop>
+  <tabstop>readpdPB</tabstop>
+  <tabstop>readhmidPB</tabstop>
+  <tabstop>flashPB</tabstop>
+  <tabstop>reloadPB</tabstop>
+  <tabstop>verifyPB</tabstop>
+  <tabstop>copyPB</tabstop>
+  <tabstop>backupCB</tabstop>
+  <tabstop>guiCB</tabstop>
+  <tabstop>positionOffsetCB</tabstop>
+  <tabstop>positionFeedbackCB</tabstop>
+  <tabstop>maxFeedOverrideSB</tabstop>
+  <tabstop>editorCB</tabstop>
+  <tabstop>minLinJogVelDSB</tabstop>
+  <tabstop>defLinJogVelDSB</tabstop>
+  <tabstop>maxLinJogVelDSB</tabstop>
+  <tabstop>minAngJogVelDSB</tabstop>
+  <tabstop>defAngJogVelDSB</tabstop>
+  <tabstop>maxAngJogVelDSB</tabstop>
+  <tabstop>customhalCB</tabstop>
+  <tabstop>postguiCB</tabstop>
+  <tabstop>shutdownCB</tabstop>
+  <tabstop>haluiCB</tabstop>
+  <tabstop>frontToolLatheRB</tabstop>
+  <tabstop>backToolLatheRB</tabstop>
+  <tabstop>foamRB</tabstop>
+  <tabstop>filterExtLE</tabstop>
+  <tabstop>filterDescLE</tabstop>
+  <tabstop>filterFileLE</tabstop>
+  <tabstop>mdiCmdLE_0</tabstop>
+  <tabstop>mdiCmdLE_1</tabstop>
+  <tabstop>mdiCmdLE_2</tabstop>
+  <tabstop>mdiCmdLE_3</tabstop>
+  <tabstop>mdiCmdLE_4</tabstop>
+  <tabstop>mdiCmdLE_5</tabstop>
+  <tabstop>c0_axisCB_0</tabstop>
+  <tabstop>c0_scale_0</tabstop>
+  <tabstop>c0_minLimit_0</tabstop>
+  <tabstop>c0_maxLimit_0</tabstop>
+  <tabstop>c0_maxVelocity_0</tabstop>
+  <tabstop>c0_maxAccel_0</tabstop>
+  <tabstop>c0_reverse_0</tabstop>
+  <tabstop>c0_pidDefault_0</tabstop>
+  <tabstop>c0_ferrorDefault_0</tabstop>
+  <tabstop>c0_analogDefault_0</tabstop>
+  <tabstop>c0_driveCB_0</tabstop>
+  <tabstop>c0_home_0</tabstop>
+  <tabstop>c0_homeOffset_0</tabstop>
+  <tabstop>c0_homeSearchVel_0</tabstop>
+  <tabstop>c0_homeLatchVel_0</tabstop>
+  <tabstop>c0_homeFinalVelocity_0</tabstop>
+  <tabstop>c0_homeSequence_0</tabstop>
+  <tabstop>c0_homeIgnoreLimits_0</tabstop>
+  <tabstop>c0_homeUseIndex_0</tabstop>
+  <tabstop>c0_homeSwitchShared_0</tabstop>
+  <tabstop>c0_encoderScale_0</tabstop>
+  <tabstop>c0_axisCB_1</tabstop>
+  <tabstop>c0_scale_1</tabstop>
+  <tabstop>c0_minLimit_1</tabstop>
+  <tabstop>c0_maxLimit_1</tabstop>
+  <tabstop>c0_maxVelocity_1</tabstop>
+  <tabstop>c0_maxAccel_1</tabstop>
+  <tabstop>c0_reverse_1</tabstop>
+  <tabstop>c0_pidDefault_1</tabstop>
+  <tabstop>c0_ferrorDefault_1</tabstop>
+  <tabstop>c0_analogDefault_1</tabstop>
+  <tabstop>c0_driveCB_1</tabstop>
+  <tabstop>c0_home_1</tabstop>
+  <tabstop>c0_homeOffset_1</tabstop>
+  <tabstop>c0_homeSearchVel_1</tabstop>
+  <tabstop>c0_homeLatchVel_1</tabstop>
+  <tabstop>c0_homeFinalVelocity_1</tabstop>
+  <tabstop>c0_homeSequence_1</tabstop>
+  <tabstop>c0_homeIgnoreLimits_1</tabstop>
+  <tabstop>c0_homeUseIndex_1</tabstop>
+  <tabstop>c0_homeSwitchShared_1</tabstop>
+  <tabstop>c0_encoderScale_1</tabstop>
+  <tabstop>c0_axisCB_2</tabstop>
+  <tabstop>c0_scale_2</tabstop>
+  <tabstop>c0_minLimit_2</tabstop>
+  <tabstop>c0_maxLimit_2</tabstop>
+  <tabstop>c0_maxVelocity_2</tabstop>
+  <tabstop>c0_maxAccel_2</tabstop>
+  <tabstop>c0_reverse_2</tabstop>
+  <tabstop>c0_pidDefault_2</tabstop>
+  <tabstop>c0_ferrorDefault_2</tabstop>
+  <tabstop>c0_analogDefault_2</tabstop>
+  <tabstop>c0_driveCB_2</tabstop>
+  <tabstop>c0_home_2</tabstop>
+  <tabstop>c0_homeOffset_2</tabstop>
+  <tabstop>c0_homeSearchVel_2</tabstop>
+  <tabstop>c0_homeLatchVel_2</tabstop>
+  <tabstop>c0_homeFinalVelocity_2</tabstop>
+  <tabstop>c0_homeSequence_2</tabstop>
+  <tabstop>c0_homeIgnoreLimits_2</tabstop>
+  <tabstop>c0_homeUseIndex_2</tabstop>
+  <tabstop>c0_homeSwitchShared_2</tabstop>
+  <tabstop>c0_encoderScale_2</tabstop>
+  <tabstop>c0_axisCB_3</tabstop>
+  <tabstop>c0_scale_3</tabstop>
+  <tabstop>c0_minLimit_3</tabstop>
+  <tabstop>c0_maxLimit_3</tabstop>
+  <tabstop>c0_maxVelocity_3</tabstop>
+  <tabstop>c0_maxAccel_3</tabstop>
+  <tabstop>c0_reverse_3</tabstop>
+  <tabstop>c0_pidDefault_3</tabstop>
+  <tabstop>c0_ferrorDefault_3</tabstop>
+  <tabstop>c0_analogDefault_3</tabstop>
+  <tabstop>c0_driveCB_3</tabstop>
+  <tabstop>c0_home_3</tabstop>
+  <tabstop>c0_homeOffset_3</tabstop>
+  <tabstop>c0_homeSearchVel_3</tabstop>
+  <tabstop>c0_homeLatchVel_3</tabstop>
+  <tabstop>c0_homeFinalVelocity_3</tabstop>
+  <tabstop>c0_homeSequence_3</tabstop>
+  <tabstop>machinePTE</tabstop>
+  <tabstop>c0_homeIgnoreLimits_3</tabstop>
+  <tabstop>c0_homeUseIndex_3</tabstop>
+  <tabstop>c0_homeSwitchShared_3</tabstop>
+  <tabstop>c0_encoderScale_3</tabstop>
+  <tabstop>c0_axisCB_4</tabstop>
+  <tabstop>c0_scale_4</tabstop>
+  <tabstop>c0_minLimit_4</tabstop>
+  <tabstop>c0_maxLimit_4</tabstop>
+  <tabstop>c0_maxVelocity_4</tabstop>
+  <tabstop>c0_maxAccel_4</tabstop>
+  <tabstop>c0_reverse_4</tabstop>
+  <tabstop>c0_pidDefault_4</tabstop>
+  <tabstop>c0_ferrorDefault_4</tabstop>
+  <tabstop>c0_analogDefault_4</tabstop>
+  <tabstop>c0_driveCB_4</tabstop>
+  <tabstop>c0_home_4</tabstop>
+  <tabstop>c0_homeOffset_4</tabstop>
+  <tabstop>c0_homeSearchVel_4</tabstop>
+  <tabstop>c0_homeLatchVel_4</tabstop>
+  <tabstop>c0_homeFinalVelocity_4</tabstop>
+  <tabstop>c0_homeSequence_4</tabstop>
+  <tabstop>c0_homeIgnoreLimits_4</tabstop>
+  <tabstop>c0_homeUseIndex_4</tabstop>
+  <tabstop>c0_homeSwitchShared_4</tabstop>
+  <tabstop>c0_encoderScale_4</tabstop>
+  <tabstop>c0_axisCB_5</tabstop>
+  <tabstop>c0_scale_5</tabstop>
+  <tabstop>c0_minLimit_5</tabstop>
+  <tabstop>c0_maxLimit_5</tabstop>
+  <tabstop>c0_maxVelocity_5</tabstop>
+  <tabstop>c0_maxAccel_5</tabstop>
+  <tabstop>c0_reverse_5</tabstop>
+  <tabstop>c0_pidDefault_5</tabstop>
+  <tabstop>c0_ferrorDefault_5</tabstop>
+  <tabstop>c0_analogDefault_5</tabstop>
+  <tabstop>c0_driveCB_5</tabstop>
+  <tabstop>c0_home_5</tabstop>
+  <tabstop>c0_homeOffset_5</tabstop>
+  <tabstop>c0_homeSearchVel_5</tabstop>
+  <tabstop>c0_homeLatchVel_5</tabstop>
+  <tabstop>c0_homeFinalVelocity_5</tabstop>
+  <tabstop>c0_homeSequence_5</tabstop>
+  <tabstop>c0_homeIgnoreLimits_5</tabstop>
+  <tabstop>c0_homeUseIndex_5</tabstop>
+  <tabstop>c0_homeSwitchShared_5</tabstop>
+  <tabstop>c0_encoderScale_5</tabstop>
+  <tabstop>inputPB_0</tabstop>
+  <tabstop>inputInvertCB_0</tabstop>
+  <tabstop>inputDebounceCB_0</tabstop>
+  <tabstop>inputPB_1</tabstop>
+  <tabstop>inputInvertCB_1</tabstop>
+  <tabstop>inputDebounceCB_1</tabstop>
+  <tabstop>inputPB_2</tabstop>
+  <tabstop>inputInvertCB_2</tabstop>
+  <tabstop>inputDebounceCB_2</tabstop>
+  <tabstop>inputPB_3</tabstop>
+  <tabstop>inputInvertCB_3</tabstop>
+  <tabstop>inputDebounceCB_3</tabstop>
+  <tabstop>inputPB_4</tabstop>
+  <tabstop>inputInvertCB_4</tabstop>
+  <tabstop>inputDebounceCB_4</tabstop>
+  <tabstop>inputPB_5</tabstop>
+  <tabstop>inputInvertCB_5</tabstop>
+  <tabstop>inputDebounceCB_5</tabstop>
+  <tabstop>inputPB_6</tabstop>
+  <tabstop>inputInvertCB_6</tabstop>
+  <tabstop>inputDebounceCB_6</tabstop>
+  <tabstop>inputPB_7</tabstop>
+  <tabstop>inputInvertCB_7</tabstop>
+  <tabstop>inputDebounceCB_7</tabstop>
+  <tabstop>inputPB_8</tabstop>
+  <tabstop>inputInvertCB_8</tabstop>
+  <tabstop>inputDebounceCB_8</tabstop>
+  <tabstop>inputPB_9</tabstop>
+  <tabstop>inputInvertCB_9</tabstop>
+  <tabstop>inputDebounceCB_9</tabstop>
+  <tabstop>inputPB_10</tabstop>
+  <tabstop>inputInvertCB_10</tabstop>
+  <tabstop>inputDebounceCB_10</tabstop>
+  <tabstop>inputPB_11</tabstop>
+  <tabstop>inputInvertCB_11</tabstop>
+  <tabstop>inputDebounceCB_11</tabstop>
+  <tabstop>inputPB_12</tabstop>
+  <tabstop>inputInvertCB_12</tabstop>
+  <tabstop>inputDebounceCB_12</tabstop>
+  <tabstop>inputPB_13</tabstop>
+  <tabstop>inputInvertCB_13</tabstop>
+  <tabstop>inputDebounceCB_13</tabstop>
+  <tabstop>inputPB_14</tabstop>
+  <tabstop>inputInvertCB_14</tabstop>
+  <tabstop>inputDebounceCB_14</tabstop>
+  <tabstop>inputPB_15</tabstop>
+  <tabstop>inputInvertCB_15</tabstop>
+  <tabstop>inputDebounceCB_15</tabstop>
+  <tabstop>inputPB_16</tabstop>
+  <tabstop>inputInvertCB_16</tabstop>
+  <tabstop>inputDebounceCB_16</tabstop>
+  <tabstop>inputPB_17</tabstop>
+  <tabstop>inputInvertCB_17</tabstop>
+  <tabstop>inputDebounceCB_17</tabstop>
+  <tabstop>inputPB_18</tabstop>
+  <tabstop>inputInvertCB_18</tabstop>
+  <tabstop>inputDebounceCB_18</tabstop>
+  <tabstop>inputPB_19</tabstop>
+  <tabstop>inputInvertCB_19</tabstop>
+  <tabstop>inputDebounceCB_19</tabstop>
+  <tabstop>inputPB_20</tabstop>
+  <tabstop>inputInvertCB_20</tabstop>
+  <tabstop>inputDebounceCB_20</tabstop>
+  <tabstop>inputPB_21</tabstop>
+  <tabstop>inputInvertCB_21</tabstop>
+  <tabstop>inputDebounceCB_21</tabstop>
+  <tabstop>inputPB_22</tabstop>
+  <tabstop>inputInvertCB_22</tabstop>
+  <tabstop>inputDebounceCB_22</tabstop>
+  <tabstop>inputPB_23</tabstop>
+  <tabstop>inputInvertCB_23</tabstop>
+  <tabstop>inputDebounceCB_23</tabstop>
+  <tabstop>inputPB_24</tabstop>
+  <tabstop>inputInvertCB_24</tabstop>
+  <tabstop>inputDebounceCB_24</tabstop>
+  <tabstop>inputPB_25</tabstop>
+  <tabstop>inputInvertCB_25</tabstop>
+  <tabstop>inputDebounceCB_25</tabstop>
+  <tabstop>inputPB_26</tabstop>
+  <tabstop>inputInvertCB_26</tabstop>
+  <tabstop>inputDebounceCB_26</tabstop>
+  <tabstop>inputPB_27</tabstop>
+  <tabstop>inputInvertCB_27</tabstop>
+  <tabstop>inputDebounceCB_27</tabstop>
+  <tabstop>inputPB_28</tabstop>
+  <tabstop>inputInvertCB_28</tabstop>
+  <tabstop>inputDebounceCB_28</tabstop>
+  <tabstop>inputPB_29</tabstop>
+  <tabstop>inputInvertCB_29</tabstop>
+  <tabstop>inputDebounceCB_29</tabstop>
+  <tabstop>inputPB_30</tabstop>
+  <tabstop>inputInvertCB_30</tabstop>
+  <tabstop>inputDebounceCB_30</tabstop>
+  <tabstop>inputPB_31</tabstop>
+  <tabstop>inputInvertCB_31</tabstop>
+  <tabstop>inputDebounceCB_31</tabstop>
+  <tabstop>outputPB_0</tabstop>
+  <tabstop>outputInvertCB_0</tabstop>
+  <tabstop>outputPB_1</tabstop>
+  <tabstop>outputInvertCB_1</tabstop>
+  <tabstop>outputPB_2</tabstop>
+  <tabstop>outputInvertCB_2</tabstop>
+  <tabstop>outputPB_3</tabstop>
+  <tabstop>outputInvertCB_3</tabstop>
+  <tabstop>outputPB_4</tabstop>
+  <tabstop>outputInvertCB_4</tabstop>
+  <tabstop>outputPB_5</tabstop>
+  <tabstop>outputInvertCB_5</tabstop>
+  <tabstop>outputPB_6</tabstop>
+  <tabstop>outputInvertCB_6</tabstop>
+  <tabstop>outputPB_7</tabstop>
+  <tabstop>outputInvertCB_7</tabstop>
+  <tabstop>outputPB_8</tabstop>
+  <tabstop>outputInvertCB_8</tabstop>
+  <tabstop>outputPB_9</tabstop>
+  <tabstop>outputInvertCB_9</tabstop>
+  <tabstop>outputPB_10</tabstop>
+  <tabstop>outputInvertCB_10</tabstop>
+  <tabstop>outputPB_11</tabstop>
+  <tabstop>outputInvertCB_11</tabstop>
+  <tabstop>outputPB_12</tabstop>
+  <tabstop>outputInvertCB_12</tabstop>
+  <tabstop>outputPB_13</tabstop>
+  <tabstop>outputInvertCB_13</tabstop>
+  <tabstop>outputPB_14</tabstop>
+  <tabstop>outputInvertCB_14</tabstop>
+  <tabstop>outputPB_15</tabstop>
+  <tabstop>outputInvertCB_15</tabstop>
+  <tabstop>spindleTypeCB</tabstop>
+  <tabstop>spindleFeedbackCB</tabstop>
+  <tabstop>spindlePwmTypeCB</tabstop>
+  <tabstop>pwmFrequencySB</tabstop>
+  <tabstop>spindleMinRpm</tabstop>
+  <tabstop>spindleMaxRpm</tabstop>
+  <tabstop>spindleMaxAccel</tabstop>
+  <tabstop>pidDefault_s</tabstop>
+  <tabstop>spindleStepScale</tabstop>
+  <tabstop>spindleStepTime</tabstop>
+  <tabstop>spindleStepSpace</tabstop>
+  <tabstop>spindleDirSetup</tabstop>
+  <tabstop>spindleDirHold</tabstop>
+  <tabstop>spindleStepInvert</tabstop>
+  <tabstop>spindleDirInvert</tabstop>
+  <tabstop>spindleDriveCB</tabstop>
+  <tabstop>ssCardCB</tabstop>
+  <tabstop>ss7i64in_0</tabstop>
+  <tabstop>ss7i64in_1</tabstop>
+  <tabstop>ss7i64in_2</tabstop>
+  <tabstop>ss7i64in_3</tabstop>
+  <tabstop>ss7i64in_4</tabstop>
+  <tabstop>ss7i64in_5</tabstop>
+  <tabstop>ss7i64in_6</tabstop>
+  <tabstop>ss7i64in_7</tabstop>
+  <tabstop>ss7i64in_8</tabstop>
+  <tabstop>ss7i64in_9</tabstop>
+  <tabstop>ss7i64in_10</tabstop>
+  <tabstop>ss7i64in_11</tabstop>
+  <tabstop>ss7i64in_12</tabstop>
+  <tabstop>ss7i64in_13</tabstop>
+  <tabstop>ss7i64in_14</tabstop>
+  <tabstop>ss7i64in_15</tabstop>
+  <tabstop>ss7i64in_16</tabstop>
+  <tabstop>ss7i64in_17</tabstop>
+  <tabstop>ss7i64in_18</tabstop>
+  <tabstop>ss7i64in_19</tabstop>
+  <tabstop>ss7i64in_20</tabstop>
+  <tabstop>ss7i64in_21</tabstop>
+  <tabstop>ss7i64in_22</tabstop>
+  <tabstop>ss7i64in_23</tabstop>
+  <tabstop>ss7i64out_0</tabstop>
+  <tabstop>ss7i64out_1</tabstop>
+  <tabstop>ss7i64out_2</tabstop>
+  <tabstop>ss7i64out_3</tabstop>
+  <tabstop>ss7i64out_4</tabstop>
+  <tabstop>ss7i64out_5</tabstop>
+  <tabstop>ss7i64out_6</tabstop>
+  <tabstop>ss7i64out_7</tabstop>
+  <tabstop>ss7i64out_8</tabstop>
+  <tabstop>ss7i64out_9</tabstop>
+  <tabstop>ss7i64out_10</tabstop>
+  <tabstop>ss7i64out_11</tabstop>
+  <tabstop>ss7i64out_12</tabstop>
+  <tabstop>ss7i64out_13</tabstop>
+  <tabstop>ss7i64out_14</tabstop>
+  <tabstop>ss7i64out_15</tabstop>
+  <tabstop>ss7i64out_16</tabstop>
+  <tabstop>ss7i64out_17</tabstop>
+  <tabstop>ss7i64out_18</tabstop>
+  <tabstop>ss7i64out_19</tabstop>
+  <tabstop>ss7i64out_20</tabstop>
+  <tabstop>ss7i64out_21</tabstop>
+  <tabstop>ss7i64out_22</tabstop>
+  <tabstop>ss7i64out_23</tabstop>
+  <tabstop>c1_homeIgnoreLimits_1</tabstop>
+  <tabstop>c1_homeSequence_1</tabstop>
+  <tabstop>c1_homeSwitchShared_1</tabstop>
+  <tabstop>c1_homeLatchVel_1</tabstop>
+  <tabstop>c1_homeUseIndex_1</tabstop>
+  <tabstop>c1_home_1</tabstop>
+  <tabstop>c1_homeSearchVel_1</tabstop>
+  <tabstop>c1_homeFinalVelocity_1</tabstop>
+  <tabstop>c1_analogDefault_1</tabstop>
+  <tabstop>c1_analogScaleMax_1</tabstop>
+  <tabstop>c1_analogMinLimit_1</tabstop>
+  <tabstop>c1_analogMaxLimit_1</tabstop>
+  <tabstop>c1_encoderScale_1</tabstop>
+  <tabstop>c1_stepTime_1</tabstop>
+  <tabstop>c1_StepInvert_1</tabstop>
+  <tabstop>c1_stepSpace_1</tabstop>
+  <tabstop>c1_dirSetup_1</tabstop>
+  <tabstop>c1_DirInvert_1</tabstop>
+  <tabstop>c1_dirHold_1</tabstop>
+  <tabstop>c1_driveCB_1</tabstop>
+  <tabstop>c1_min_ferror_1</tabstop>
+  <tabstop>c1_ferror_1</tabstop>
+  <tabstop>c1_ferrorDefault_1</tabstop>
+  <tabstop>c1_minLimit_2</tabstop>
+  <tabstop>c1_maxLimit_2</tabstop>
+  <tabstop>c1_maxVelocity_2</tabstop>
+  <tabstop>c1_axisCB_2</tabstop>
+  <tabstop>c1_maxAccel_2</tabstop>
+  <tabstop>c1_reverse_2</tabstop>
+  <tabstop>c1_scale_2</tabstop>
+  <tabstop>c1_maxOutput_2</tabstop>
+  <tabstop>c1_p_2</tabstop>
+  <tabstop>c1_ff1_2</tabstop>
+  <tabstop>c1_i_2</tabstop>
+  <tabstop>c1_pidDefault_2</tabstop>
+  <tabstop>c1_d_2</tabstop>
+  <tabstop>c1_deadband_2</tabstop>
+  <tabstop>c1_ff0_2</tabstop>
+  <tabstop>c1_bias_2</tabstop>
+  <tabstop>c1_maxError_2</tabstop>
+  <tabstop>c1_ff2_2</tabstop>
+  <tabstop>c1_homeOffset_2</tabstop>
+  <tabstop>c1_homeIgnoreLimits_2</tabstop>
+  <tabstop>c1_homeSequence_2</tabstop>
+  <tabstop>c1_homeSwitchShared_2</tabstop>
+  <tabstop>c1_homeLatchVel_2</tabstop>
+  <tabstop>c1_homeUseIndex_2</tabstop>
+  <tabstop>c1_home_2</tabstop>
+  <tabstop>c1_homeSearchVel_2</tabstop>
+  <tabstop>c1_homeFinalVelocity_2</tabstop>
+  <tabstop>c1_analogScaleMax_2</tabstop>
+  <tabstop>c1_analogMinLimit_2</tabstop>
+  <tabstop>c1_analogDefault_2</tabstop>
+  <tabstop>c1_analogMaxLimit_2</tabstop>
+  <tabstop>c1_encoderScale_2</tabstop>
+  <tabstop>c1_stepTime_2</tabstop>
+  <tabstop>c1_StepInvert_2</tabstop>
+  <tabstop>c1_stepSpace_2</tabstop>
+  <tabstop>c1_dirSetup_2</tabstop>
+  <tabstop>c1_DirInvert_2</tabstop>
+  <tabstop>c1_dirHold_2</tabstop>
+  <tabstop>c1_driveCB_2</tabstop>
+  <tabstop>c1_min_ferror_2</tabstop>
+  <tabstop>c1_ferror_2</tabstop>
+  <tabstop>c1_ferrorDefault_2</tabstop>
+  <tabstop>c1_maxOutput_3</tabstop>
+  <tabstop>c1_p_3</tabstop>
+  <tabstop>c1_ff1_3</tabstop>
+  <tabstop>c1_i_3</tabstop>
+  <tabstop>c1_pidDefault_3</tabstop>
+  <tabstop>c1_d_3</tabstop>
+  <tabstop>c1_deadband_3</tabstop>
+  <tabstop>c1_ff0_3</tabstop>
+  <tabstop>c1_bias_3</tabstop>
+  <tabstop>c1_maxError_3</tabstop>
+  <tabstop>c1_ff2_3</tabstop>
+  <tabstop>c1_homeOffset_3</tabstop>
+  <tabstop>c1_homeIgnoreLimits_3</tabstop>
+  <tabstop>c1_homeSequence_3</tabstop>
+  <tabstop>c1_homeSwitchShared_3</tabstop>
+  <tabstop>c1_homeLatchVel_3</tabstop>
+  <tabstop>c1_homeUseIndex_3</tabstop>
+  <tabstop>c1_home_3</tabstop>
+  <tabstop>c1_homeSearchVel_3</tabstop>
+  <tabstop>c1_homeFinalVelocity_3</tabstop>
+  <tabstop>c1_stepTime_3</tabstop>
+  <tabstop>c1_StepInvert_3</tabstop>
+  <tabstop>c1_stepSpace_3</tabstop>
+  <tabstop>c1_dirSetup_3</tabstop>
+  <tabstop>c1_DirInvert_3</tabstop>
+  <tabstop>c1_dirHold_3</tabstop>
+  <tabstop>c1_driveCB_3</tabstop>
+  <tabstop>c1_encoderScale_3</tabstop>
+  <tabstop>c1_analogDefault_3</tabstop>
+  <tabstop>c1_analogScaleMax_3</tabstop>
+  <tabstop>c1_analogMinLimit_3</tabstop>
+  <tabstop>c1_analogMaxLimit_3</tabstop>
+  <tabstop>c1_minLimit_3</tabstop>
+  <tabstop>c1_maxLimit_3</tabstop>
+  <tabstop>c1_maxVelocity_3</tabstop>
+  <tabstop>c1_axisCB_3</tabstop>
+  <tabstop>c1_maxAccel_3</tabstop>
+  <tabstop>c1_reverse_3</tabstop>
+  <tabstop>c1_scale_3</tabstop>
+  <tabstop>c1_min_ferror_3</tabstop>
+  <tabstop>c1_ferror_3</tabstop>
+  <tabstop>c1_ferrorDefault_3</tabstop>
+  <tabstop>c1_minLimit_4</tabstop>
+  <tabstop>c1_maxLimit_4</tabstop>
+  <tabstop>c1_maxVelocity_4</tabstop>
+  <tabstop>c1_axisCB_4</tabstop>
+  <tabstop>c1_maxAccel_4</tabstop>
+  <tabstop>c1_reverse_4</tabstop>
+  <tabstop>c1_scale_4</tabstop>
+  <tabstop>c1_maxOutput_4</tabstop>
+  <tabstop>c1_p_4</tabstop>
+  <tabstop>c1_ff1_4</tabstop>
+  <tabstop>c1_i_4</tabstop>
+  <tabstop>c1_pidDefault_4</tabstop>
+  <tabstop>c1_d_4</tabstop>
+  <tabstop>c1_deadband_4</tabstop>
+  <tabstop>c1_ff0_4</tabstop>
+  <tabstop>c1_bias_4</tabstop>
+  <tabstop>c1_maxError_4</tabstop>
+  <tabstop>c1_ff2_4</tabstop>
+  <tabstop>c1_homeOffset_4</tabstop>
+  <tabstop>c1_homeIgnoreLimits_4</tabstop>
+  <tabstop>c1_homeSequence_4</tabstop>
+  <tabstop>c1_homeSwitchShared_4</tabstop>
+  <tabstop>c1_homeLatchVel_4</tabstop>
+  <tabstop>c1_homeUseIndex_4</tabstop>
+  <tabstop>c1_home_4</tabstop>
+  <tabstop>c1_homeSearchVel_4</tabstop>
+  <tabstop>c1_homeFinalVelocity_4</tabstop>
+  <tabstop>c1_stepTime_4</tabstop>
+  <tabstop>c1_StepInvert_4</tabstop>
+  <tabstop>c1_stepSpace_4</tabstop>
+  <tabstop>c1_dirSetup_4</tabstop>
+  <tabstop>c1_DirInvert_4</tabstop>
+  <tabstop>c1_dirHold_4</tabstop>
+  <tabstop>c1_driveCB_4</tabstop>
+  <tabstop>c1_analogDefault_4</tabstop>
+  <tabstop>c1_analogMaxLimit_4</tabstop>
+  <tabstop>c1_analogScaleMax_4</tabstop>
+  <tabstop>c1_analogMinLimit_4</tabstop>
+  <tabstop>c1_min_ferror_4</tabstop>
+  <tabstop>c1_ferror_4</tabstop>
+  <tabstop>c1_ferrorDefault_4</tabstop>
+  <tabstop>c1_encoderScale_4</tabstop>
+  <tabstop>c1_minLimit_5</tabstop>
+  <tabstop>c1_maxLimit_5</tabstop>
+  <tabstop>c1_maxVelocity_5</tabstop>
+  <tabstop>c1_axisCB_5</tabstop>
+  <tabstop>c1_maxAccel_5</tabstop>
+  <tabstop>c1_reverse_5</tabstop>
+  <tabstop>c1_scale_5</tabstop>
+  <tabstop>c1_maxOutput_5</tabstop>
+  <tabstop>c1_p_5</tabstop>
+  <tabstop>c1_ff1_5</tabstop>
+  <tabstop>c1_i_5</tabstop>
+  <tabstop>c1_pidDefault_5</tabstop>
+  <tabstop>c1_d_5</tabstop>
+  <tabstop>c1_deadband_5</tabstop>
+  <tabstop>c1_ff0_5</tabstop>
+  <tabstop>c1_bias_5</tabstop>
+  <tabstop>c1_maxError_5</tabstop>
+  <tabstop>c1_ff2_5</tabstop>
+  <tabstop>c1_homeOffset_5</tabstop>
+  <tabstop>c1_homeIgnoreLimits_5</tabstop>
+  <tabstop>c1_homeSequence_5</tabstop>
+  <tabstop>c1_homeSwitchShared_5</tabstop>
+  <tabstop>c1_homeLatchVel_5</tabstop>
+  <tabstop>c1_homeUseIndex_5</tabstop>
+  <tabstop>c1_home_5</tabstop>
+  <tabstop>c1_homeSearchVel_5</tabstop>
+  <tabstop>c1_homeFinalVelocity_5</tabstop>
+  <tabstop>c1_analogDefault_5</tabstop>
+  <tabstop>c1_analogMaxLimit_5</tabstop>
+  <tabstop>c1_analogMinLimit_5</tabstop>
+  <tabstop>c1_analogScaleMax_5</tabstop>
+  <tabstop>c1_stepTime_5</tabstop>
+  <tabstop>c1_StepInvert_5</tabstop>
+  <tabstop>c1_stepSpace_5</tabstop>
+  <tabstop>c1_dirSetup_5</tabstop>
+  <tabstop>c1_DirInvert_5</tabstop>
+  <tabstop>c1_dirHold_5</tabstop>
+  <tabstop>c1_driveCB_5</tabstop>
+  <tabstop>c1_encoderScale_5</tabstop>
+  <tabstop>c1_min_ferror_5</tabstop>
+  <tabstop>c1_ferror_5</tabstop>
+  <tabstop>c1_ferrorDefault_5</tabstop>
+  <tabstop>c0_DirSetup_2</tabstop>
+  <tabstop>c0_ff2_5</tabstop>
+  <tabstop>c0_d_5</tabstop>
+  <tabstop>c0_DirInvert_5</tabstop>
+  <tabstop>c0_analogMaxLimit_2</tabstop>
+  <tabstop>c0_i_5</tabstop>
+  <tabstop>c0_analogMinLimit_5</tabstop>
+  <tabstop>c0_DirHold_5</tabstop>
+  <tabstop>c0_StepInvert_5</tabstop>
+  <tabstop>c0_StepTime_2</tabstop>
+  <tabstop>c0_p_5</tabstop>
+  <tabstop>c0_maxError_5</tabstop>
+  <tabstop>c0_DirSetup_5</tabstop>
+  <tabstop>c0_ff0_5</tabstop>
+  <tabstop>c0_analogScaleMax_5</tabstop>
+  <tabstop>c0_ff2_1</tabstop>
+  <tabstop>c0_deadband_5</tabstop>
+  <tabstop>c0_bias_5</tabstop>
+  <tabstop>c0_maxOutput_5</tabstop>
+  <tabstop>c0_ff1_5</tabstop>
+  <tabstop>c0_DirInvert_0</tabstop>
+  <tabstop>c0_analogScaleMax_2</tabstop>
+  <tabstop>c0_StepSpace_2</tabstop>
+  <tabstop>c0_analogMinLimit_2</tabstop>
+  <tabstop>c0_deadband_1</tabstop>
+  <tabstop>c0_DirHold_2</tabstop>
+  <tabstop>c0_ff1_0</tabstop>
+  <tabstop>c0_analogMaxLimit_5</tabstop>
+  <tabstop>c0_StepSpace_5</tabstop>
+  <tabstop>c0_StepTime_5</tabstop>
+  <tabstop>c0_d_0</tabstop>
+  <tabstop>c0_min_ferror_5</tabstop>
+  <tabstop>c0_min_ferror_2</tabstop>
+  <tabstop>c0_ff1_3</tabstop>
+  <tabstop>c0_ferror_2</tabstop>
+  <tabstop>c0_DirHold_1</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>c0_ff0_3</tabstop>
+  <tabstop>c0_StepSpace_1</tabstop>
+  <tabstop>c0_bias_0</tabstop>
+  <tabstop>c0_p_3</tabstop>
+  <tabstop>c0_analogMaxLimit_3</tabstop>
+  <tabstop>c0_maxError_3</tabstop>
+  <tabstop>c0_maxError_0</tabstop>
+  <tabstop>c0_DirSetup_1</tabstop>
+  <tabstop>c0_maxOutput_0</tabstop>
+  <tabstop>c0_StepSpace_3</tabstop>
+  <tabstop>c0_DirSetup_0</tabstop>
+  <tabstop>c0_ferror_3</tabstop>
+  <tabstop>c0_StepInvert_3</tabstop>
+  <tabstop>c0_StepTime_1</tabstop>
+  <tabstop>c0_DirInvert_3</tabstop>
+  <tabstop>c0_DirHold_3</tabstop>
+  <tabstop>boardTW</tabstop>
+  <tabstop>c0_StepInvert_0</tabstop>
+  <tabstop>c0_analogMinLimit_3</tabstop>
+  <tabstop>c0_d_1</tabstop>
+  <tabstop>c0_deadband_3</tabstop>
+  <tabstop>c0_analogMinLimit_0</tabstop>
+  <tabstop>c0_StepTime_3</tabstop>
+  <tabstop>c0_StepTime_0</tabstop>
+  <tabstop>c0_d_3</tabstop>
+  <tabstop>c0_min_ferror_0</tabstop>
+  <tabstop>c0_bias_3</tabstop>
+  <tabstop>c0_DirInvert_2</tabstop>
+  <tabstop>c0_analogMaxLimit_1</tabstop>
+  <tabstop>c0_analogScaleMax_1</tabstop>
+  <tabstop>c0_analogMinLimit_1</tabstop>
+  <tabstop>c0_i_3</tabstop>
+  <tabstop>c0_maxOutput_3</tabstop>
+  <tabstop>c0_ff2_3</tabstop>
+  <tabstop>c0_analogMaxLimit_0</tabstop>
+  <tabstop>c0_DirHold_0</tabstop>
+  <tabstop>c0_analogScaleMax_0</tabstop>
+  <tabstop>c0_analogScaleMax_3</tabstop>
+  <tabstop>c0_StepInvert_1</tabstop>
+  <tabstop>c0_DirSetup_3</tabstop>
+  <tabstop>c0_DirInvert_1</tabstop>
+  <tabstop>c0_min_ferror_3</tabstop>
+  <tabstop>c0_ff0_0</tabstop>
+  <tabstop>c0_p_1</tabstop>
+  <tabstop>c0_DirSetup_4</tabstop>
+  <tabstop>c0_StepTime_4</tabstop>
+  <tabstop>c0_DirInvert_4</tabstop>
+  <tabstop>c0_bias_1</tabstop>
+  <tabstop>c0_bias_4</tabstop>
+  <tabstop>c0_deadband_4</tabstop>
+  <tabstop>jointTabs_0</tabstop>
+  <tabstop>c0_maxOutput_2</tabstop>
+  <tabstop>c0_ff0_4</tabstop>
+  <tabstop>c0_ferror_4</tabstop>
+  <tabstop>c0_StepSpace_0</tabstop>
+  <tabstop>c0_d_2</tabstop>
+  <tabstop>scrollArea</tabstop>
+  <tabstop>c0_p_0</tabstop>
+  <tabstop>c0_deadband_2</tabstop>
+  <tabstop>c0_p_4</tabstop>
+  <tabstop>c0_ff2_2</tabstop>
+  <tabstop>c0_ff1_4</tabstop>
+  <tabstop>c0_deadband_0</tabstop>
+  <tabstop>c0_maxError_4</tabstop>
+  <tabstop>c0_ferror_0</tabstop>
+  <tabstop>c0_bias_2</tabstop>
+  <tabstop>c0_i_2</tabstop>
+  <tabstop>c0_ff0_2</tabstop>
+  <tabstop>c0_DirHold_4</tabstop>
+  <tabstop>tabWidget_3</tabstop>
+  <tabstop>c0_analogMinLimit_4</tabstop>
+  <tabstop>c0_i_0</tabstop>
+  <tabstop>c0_d_4</tabstop>
+  <tabstop>c0_StepInvert_4</tabstop>
+  <tabstop>c0_ff0_1</tabstop>
+  <tabstop>c0_min_ferror_1</tabstop>
+  <tabstop>c0_ferror_1</tabstop>
+  <tabstop>c0_i_4</tabstop>
+  <tabstop>c0_maxOutput_4</tabstop>
+  <tabstop>c0_ff2_4</tabstop>
+  <tabstop>c0_p_2</tabstop>
+  <tabstop>c0_ff1_2</tabstop>
+  <tabstop>c0_maxOutput_1</tabstop>
+  <tabstop>c0_analogScaleMax_4</tabstop>
+  <tabstop>c0_analogMaxLimit_4</tabstop>
+  <tabstop>c0_StepSpace_4</tabstop>
+  <tabstop>c0_ff1_1</tabstop>
+  <tabstop>c0_min_ferror_4</tabstop>
+  <tabstop>c0_ff2_0</tabstop>
+  <tabstop>c0_i_1</tabstop>
+  <tabstop>c0_maxError_2</tabstop>
+  <tabstop>c1_i_0</tabstop>
+  <tabstop>p_s</tabstop>
+  <tabstop>i_s</tabstop>
+  <tabstop>d_s</tabstop>
+  <tabstop>ff0_s</tabstop>
+  <tabstop>ff1_s</tabstop>
+  <tabstop>ff2_s</tabstop>
+  <tabstop>deadband_s</tabstop>
+  <tabstop>bias_s</tabstop>
+  <tabstop>maxError_s</tabstop>
+  <tabstop>maxOutput_s</tabstop>
+  <tabstop>spindleEncoderScale</tabstop>
+  <tabstop>c1_maxOutput_0</tabstop>
+  <tabstop>c1_p_0</tabstop>
+  <tabstop>c1_ff1_0</tabstop>
+  <tabstop>c0_ferror_5</tabstop>
+  <tabstop>c0_maxError_1</tabstop>
+  <tabstop>c1_ff2_0</tabstop>
+  <tabstop>c1_ff0_0</tabstop>
+  <tabstop>c1_deadband_0</tabstop>
+  <tabstop>c1_homeOffset_0</tabstop>
+  <tabstop>c1_d_0</tabstop>
+  <tabstop>c1_bias_0</tabstop>
+  <tabstop>c1_maxError_0</tabstop>
+  <tabstop>c1_pidDefault_0</tabstop>
+  <tabstop>spindlePTE</tabstop>
+  <tabstop>c0_StepInvert_2</tabstop>
+  <tabstop>jointTabs_1</tabstop>
+  <tabstop>c1_homeIgnoreLimits_0</tabstop>
+  <tabstop>buildSserialCB</tabstop>
+  <tabstop>plainTextEdit</tabstop>
+  <tabstop>plainTextEdit_2</tabstop>
+  <tabstop>c1_maxOutput_1</tabstop>
+  <tabstop>c1_p_1</tabstop>
+  <tabstop>c1_ff1_1</tabstop>
+  <tabstop>c1_i_1</tabstop>
+  <tabstop>c1_pidDefault_1</tabstop>
+  <tabstop>c1_d_1</tabstop>
+  <tabstop>c1_deadband_1</tabstop>
+  <tabstop>c1_ff0_1</tabstop>
+  <tabstop>c1_bias_1</tabstop>
+  <tabstop>c1_maxError_1</tabstop>
+  <tabstop>c1_ff2_1</tabstop>
+  <tabstop>c1_homeOffset_1</tabstop>
+  <tabstop>c1_stepTime_0</tabstop>
+  <tabstop>c1_StepInvert_0</tabstop>
+  <tabstop>c1_stepSpace_0</tabstop>
+  <tabstop>c1_dirSetup_0</tabstop>
+  <tabstop>c1_DirInvert_0</tabstop>
+  <tabstop>c1_dirHold_0</tabstop>
+  <tabstop>c1_driveCB_0</tabstop>
+  <tabstop>c1_minLimit_0</tabstop>
+  <tabstop>c1_maxLimit_0</tabstop>
+  <tabstop>c1_maxVelocity_0</tabstop>
+  <tabstop>c1_axisCB_0</tabstop>
+  <tabstop>c1_maxAccel_0</tabstop>
+  <tabstop>c1_homeSequence_0</tabstop>
+  <tabstop>c1_homeSwitchShared_0</tabstop>
+  <tabstop>c1_homeLatchVel_0</tabstop>
+  <tabstop>c1_homeUseIndex_0</tabstop>
+  <tabstop>c1_home_0</tabstop>
+  <tabstop>c1_homeSearchVel_0</tabstop>
+  <tabstop>c1_homeFinalVelocity_0</tabstop>
+  <tabstop>c1_analogMaxLimit_0</tabstop>
+  <tabstop>c1_analogMinLimit_0</tabstop>
+  <tabstop>c1_analogScaleMax_0</tabstop>
+  <tabstop>c1_analogDefault_0</tabstop>
+  <tabstop>c1_encoderScale_0</tabstop>
+  <tabstop>c1_reverse_0</tabstop>
+  <tabstop>c1_scale_0</tabstop>
+  <tabstop>c1_min_ferror_0</tabstop>
+  <tabstop>c1_ferror_0</tabstop>
+  <tabstop>c1_ferrorDefault_0</tabstop>
+  <tabstop>c1_minLimit_1</tabstop>
+  <tabstop>c1_maxLimit_1</tabstop>
+  <tabstop>c1_maxVelocity_1</tabstop>
+  <tabstop>c1_axisCB_1</tabstop>
+  <tabstop>c1_maxAccel_1</tabstop>
+  <tabstop>c1_reverse_1</tabstop>
+  <tabstop>c1_scale_1</tabstop>
+  <tabstop>ss7i69in_0</tabstop>
+  <tabstop>ss7i69in_1</tabstop>
+  <tabstop>ss7i69in_2</tabstop>
+  <tabstop>ss7i69in_3</tabstop>
+  <tabstop>ss7i69in_4</tabstop>
+  <tabstop>ss7i69in_5</tabstop>
+  <tabstop>ss7i69in_6</tabstop>
+  <tabstop>ss7i69in_7</tabstop>
+  <tabstop>ss7i69in_8</tabstop>
+  <tabstop>ss7i69in_9</tabstop>
+  <tabstop>ss7i69in_10</tabstop>
+  <tabstop>ss7i69in_11</tabstop>
+  <tabstop>ss7i69in_12</tabstop>
+  <tabstop>ss7i69in_13</tabstop>
+  <tabstop>ss7i69in_14</tabstop>
+  <tabstop>ss7i69in_15</tabstop>
+  <tabstop>ss7i69in_16</tabstop>
+  <tabstop>ss7i69in_17</tabstop>
+  <tabstop>ss7i69in_18</tabstop>
+  <tabstop>ss7i69in_19</tabstop>
+  <tabstop>ss7i69in_20</tabstop>
+  <tabstop>ss7i69in_21</tabstop>
+  <tabstop>ss7i69in_22</tabstop>
+  <tabstop>ss7i69in_23</tabstop>
+  <tabstop>ss7i69out_12</tabstop>
+  <tabstop>ss7i69out_13</tabstop>
+  <tabstop>ss7i69out_14</tabstop>
+  <tabstop>ss7i69out_15</tabstop>
+  <tabstop>ss7i69out_16</tabstop>
+  <tabstop>ss7i69out_17</tabstop>
+  <tabstop>ss7i69out_18</tabstop>
+  <tabstop>ss7i69out_19</tabstop>
+  <tabstop>ss7i69out_20</tabstop>
+  <tabstop>ss7i69out_21</tabstop>
+  <tabstop>ss7i69out_22</tabstop>
+  <tabstop>ss7i69out_23</tabstop>
+  <tabstop>ss7i69out_0</tabstop>
+  <tabstop>ss7i69out_1</tabstop>
+  <tabstop>ss7i69out_2</tabstop>
+  <tabstop>ss7i69out_3</tabstop>
+  <tabstop>ss7i69out_4</tabstop>
+  <tabstop>ss7i69out_5</tabstop>
+  <tabstop>ss7i69out_6</tabstop>
+  <tabstop>ss7i69out_7</tabstop>
+  <tabstop>ss7i69out_8</tabstop>
+  <tabstop>ss7i69out_9</tabstop>
+  <tabstop>ss7i69out_10</tabstop>
+  <tabstop>ss7i69out_11</tabstop>
+  <tabstop>ss7i70in_0</tabstop>
+  <tabstop>ss7i70in_1</tabstop>
+  <tabstop>ss7i70in_2</tabstop>
+  <tabstop>ss7i70in_3</tabstop>
+  <tabstop>ss7i70in_4</tabstop>
+  <tabstop>ss7i70in_5</tabstop>
+  <tabstop>ss7i70in_6</tabstop>
+  <tabstop>ss7i70in_7</tabstop>
+  <tabstop>ss7i70in_8</tabstop>
+  <tabstop>ss7i70in_9</tabstop>
+  <tabstop>ss7i70in_10</tabstop>
+  <tabstop>ss7i70in_11</tabstop>
+  <tabstop>ss7i70in_12</tabstop>
+  <tabstop>ss7i70in_13</tabstop>
+  <tabstop>ss7i70in_14</tabstop>
+  <tabstop>ss7i70in_15</tabstop>
+  <tabstop>ss7i70in_16</tabstop>
+  <tabstop>ss7i70in_17</tabstop>
+  <tabstop>ss7i70in_18</tabstop>
+  <tabstop>ss7i70in_19</tabstop>
+  <tabstop>ss7i70in_20</tabstop>
+  <tabstop>ss7i70in_21</tabstop>
+  <tabstop>ss7i70in_22</tabstop>
+  <tabstop>ss7i70in_23</tabstop>
+  <tabstop>ss7i70in_36</tabstop>
+  <tabstop>ss7i70in_37</tabstop>
+  <tabstop>ss7i70in_38</tabstop>
+  <tabstop>ss7i70in_39</tabstop>
+  <tabstop>ss7i70in_40</tabstop>
+  <tabstop>ss7i70in_41</tabstop>
+  <tabstop>ss7i70in_42</tabstop>
+  <tabstop>ss7i70in_43</tabstop>
+  <tabstop>ss7i70in_44</tabstop>
+  <tabstop>ss7i70in_45</tabstop>
+  <tabstop>ss7i70in_46</tabstop>
+  <tabstop>ss7i70in_47</tabstop>
+  <tabstop>ss7i70in_24</tabstop>
+  <tabstop>ss7i70in_25</tabstop>
+  <tabstop>ss7i70in_26</tabstop>
+  <tabstop>ss7i70in_27</tabstop>
+  <tabstop>ss7i70in_28</tabstop>
+  <tabstop>ss7i70in_29</tabstop>
+  <tabstop>ss7i70in_30</tabstop>
+  <tabstop>ss7i70in_31</tabstop>
+  <tabstop>ss7i70in_32</tabstop>
+  <tabstop>ss7i70in_33</tabstop>
+  <tabstop>ss7i70in_34</tabstop>
+  <tabstop>ss7i70in_35</tabstop>
+  <tabstop>ss7i71out_12</tabstop>
+  <tabstop>ss7i71out_13</tabstop>
+  <tabstop>ss7i71out_14</tabstop>
+  <tabstop>ss7i71out_15</tabstop>
+  <tabstop>ss7i71out_16</tabstop>
+  <tabstop>ss7i71out_17</tabstop>
+  <tabstop>ss7i71out_18</tabstop>
+  <tabstop>ss7i71out_19</tabstop>
+  <tabstop>ss7i71out_20</tabstop>
+  <tabstop>ss7i71out_21</tabstop>
+  <tabstop>ss7i71out_22</tabstop>
+  <tabstop>ss7i71out_23</tabstop>
+  <tabstop>ss7i71out_36</tabstop>
+  <tabstop>ss7i71out_37</tabstop>
+  <tabstop>ss7i71out_38</tabstop>
+  <tabstop>ss7i71out_39</tabstop>
+  <tabstop>ss7i71out_40</tabstop>
+  <tabstop>ss7i71out_41</tabstop>
+  <tabstop>ss7i71out_42</tabstop>
+  <tabstop>ss7i71out_43</tabstop>
+  <tabstop>ss7i71out_44</tabstop>
+  <tabstop>ss7i71out_45</tabstop>
+  <tabstop>ss7i71out_46</tabstop>
+  <tabstop>ss7i71out_47</tabstop>
+  <tabstop>ss7i71out_24</tabstop>
+  <tabstop>ss7i71out_25</tabstop>
+  <tabstop>ss7i71out_26</tabstop>
+  <tabstop>ss7i71out_27</tabstop>
+  <tabstop>ss7i71out_28</tabstop>
+  <tabstop>ss7i71out_29</tabstop>
+  <tabstop>ss7i71out_30</tabstop>
+  <tabstop>ss7i71out_31</tabstop>
+  <tabstop>ss7i71out_32</tabstop>
+  <tabstop>ss7i71out_33</tabstop>
+  <tabstop>ss7i71out_34</tabstop>
+  <tabstop>ss7i71out_35</tabstop>
+  <tabstop>ss7i71out_0</tabstop>
+  <tabstop>ss7i71out_1</tabstop>
+  <tabstop>ss7i71out_2</tabstop>
+  <tabstop>ss7i71out_3</tabstop>
+  <tabstop>ss7i71out_4</tabstop>
+  <tabstop>ss7i71out_5</tabstop>
+  <tabstop>ss7i71out_6</tabstop>
+  <tabstop>ss7i71out_7</tabstop>
+  <tabstop>ss7i71out_8</tabstop>
+  <tabstop>ss7i71out_9</tabstop>
+  <tabstop>ss7i71out_10</tabstop>
+  <tabstop>ss7i71out_11</tabstop>
+  <tabstop>ss7i72out_0</tabstop>
+  <tabstop>ss7i72out_1</tabstop>
+  <tabstop>ss7i72out_2</tabstop>
+  <tabstop>ss7i72out_3</tabstop>
+  <tabstop>ss7i72out_4</tabstop>
+  <tabstop>ss7i72out_5</tabstop>
+  <tabstop>ss7i72out_6</tabstop>
+  <tabstop>ss7i72out_7</tabstop>
+  <tabstop>ss7i72out_8</tabstop>
+  <tabstop>ss7i72out_9</tabstop>
+  <tabstop>ss7i72out_10</tabstop>
+  <tabstop>ss7i72out_11</tabstop>
+  <tabstop>ss7i72out_12</tabstop>
+  <tabstop>ss7i72out_13</tabstop>
+  <tabstop>ss7i72out_14</tabstop>
+  <tabstop>ss7i72out_15</tabstop>
+  <tabstop>ss7i72out_16</tabstop>
+  <tabstop>ss7i72out_17</tabstop>
+  <tabstop>ss7i72out_18</tabstop>
+  <tabstop>ss7i72out_19</tabstop>
+  <tabstop>ss7i72out_20</tabstop>
+  <tabstop>ss7i72out_21</tabstop>
+  <tabstop>ss7i72out_22</tabstop>
+  <tabstop>ss7i72out_23</tabstop>
+  <tabstop>ss7i72out_36</tabstop>
+  <tabstop>ss7i72out_37</tabstop>
+  <tabstop>ss7i72out_38</tabstop>
+  <tabstop>ss7i72out_39</tabstop>
+  <tabstop>ss7i72out_40</tabstop>
+  <tabstop>ss7i72out_41</tabstop>
+  <tabstop>ss7i72out_42</tabstop>
+  <tabstop>ss7i72out_43</tabstop>
+  <tabstop>ss7i72out_44</tabstop>
+  <tabstop>ss7i72out_45</tabstop>
+  <tabstop>ss7i72out_46</tabstop>
+  <tabstop>ss7i72out_47</tabstop>
+  <tabstop>ss7i72out_24</tabstop>
+  <tabstop>ss7i72out_25</tabstop>
+  <tabstop>ss7i72out_26</tabstop>
+  <tabstop>ss7i72out_27</tabstop>
+  <tabstop>ss7i72out_28</tabstop>
+  <tabstop>ss7i72out_29</tabstop>
+  <tabstop>ss7i72out_30</tabstop>
+  <tabstop>ss7i72out_31</tabstop>
+  <tabstop>ss7i72out_32</tabstop>
+  <tabstop>ss7i72out_33</tabstop>
+  <tabstop>ss7i72out_34</tabstop>
+  <tabstop>ss7i72out_35</tabstop>
+  <tabstop>ss7i73_keypadCB</tabstop>
+  <tabstop>ss7i73lcdCB</tabstop>
+  <tabstop>ss7i73in_0</tabstop>
+  <tabstop>ss7i73in_1</tabstop>
+  <tabstop>ss7i73in_2</tabstop>
+  <tabstop>ss7i73in_3</tabstop>
+  <tabstop>ss7i73in_4</tabstop>
+  <tabstop>ss7i73in_5</tabstop>
+  <tabstop>ss7i73in_6</tabstop>
+  <tabstop>ss7i73in_7</tabstop>
+  <tabstop>ss7i73in_8</tabstop>
+  <tabstop>ss7i73in_9</tabstop>
+  <tabstop>ss7i73in_10</tabstop>
+  <tabstop>ss7i73in_11</tabstop>
+  <tabstop>ss7i73in_12</tabstop>
+  <tabstop>ss7i73in_13</tabstop>
+  <tabstop>ss7i73in_14</tabstop>
+  <tabstop>ss7i73in_15</tabstop>
+  <tabstop>ss7i73out_0</tabstop>
+  <tabstop>ss7i73out_1</tabstop>
+  <tabstop>ss7i73key_0</tabstop>
+  <tabstop>ss7i73key_1</tabstop>
+  <tabstop>ss7i73key_2</tabstop>
+  <tabstop>ss7i73key_3</tabstop>
+  <tabstop>ss7i73key_4</tabstop>
+  <tabstop>ss7i73key_5</tabstop>
+  <tabstop>ss7i73key_6</tabstop>
+  <tabstop>ss7i73key_7</tabstop>
+  <tabstop>ss7i73key_8</tabstop>
+  <tabstop>ss7i73key_9</tabstop>
+  <tabstop>ss7i73key_10</tabstop>
+  <tabstop>ss7i73key_11</tabstop>
+  <tabstop>ss7i73key_12</tabstop>
+  <tabstop>ss7i73key_13</tabstop>
+  <tabstop>ss7i73key_14</tabstop>
+  <tabstop>ss7i73key_15</tabstop>
+  <tabstop>ss7i73lcd_0</tabstop>
+  <tabstop>ss7i73lcd_1</tabstop>
+  <tabstop>ss7i73lcd_2</tabstop>
+  <tabstop>ss7i73lcd_3</tabstop>
+  <tabstop>ss7i73lcd_4</tabstop>
+  <tabstop>ss7i73lcd_5</tabstop>
+  <tabstop>ss7i73lcd_6</tabstop>
+  <tabstop>ss7i73lcd_7</tabstop>
+  <tabstop>ss7i73lcd_8</tabstop>
+  <tabstop>ss7i73lcd_9</tabstop>
+  <tabstop>ss7i73lcd_10</tabstop>
+  <tabstop>ss7i73lcd_11</tabstop>
+  <tabstop>ss7i84out_8</tabstop>
+  <tabstop>ss7i84out_9</tabstop>
+  <tabstop>ss7i84out_10</tabstop>
+  <tabstop>ss7i84out_11</tabstop>
+  <tabstop>ss7i84out_12</tabstop>
+  <tabstop>ss7i84out_13</tabstop>
+  <tabstop>ss7i84out_14</tabstop>
+  <tabstop>ss7i84out_15</tabstop>
+  <tabstop>ss7i84out_0</tabstop>
+  <tabstop>ss7i84out_1</tabstop>
+  <tabstop>ss7i84out_2</tabstop>
+  <tabstop>ss7i84out_3</tabstop>
+  <tabstop>ss7i84out_4</tabstop>
+  <tabstop>ss7i84out_5</tabstop>
+  <tabstop>ss7i84out_6</tabstop>
+  <tabstop>ss7i84out_7</tabstop>
+  <tabstop>ss7i84in_0</tabstop>
+  <tabstop>ss7i84in_1</tabstop>
+  <tabstop>ss7i84in_2</tabstop>
+  <tabstop>ss7i84in_3</tabstop>
+  <tabstop>ss7i84in_4</tabstop>
+  <tabstop>ss7i84in_5</tabstop>
+  <tabstop>ss7i84in_6</tabstop>
+  <tabstop>ss7i84in_7</tabstop>
+  <tabstop>ss7i84in_8</tabstop>
+  <tabstop>ss7i84in_9</tabstop>
+  <tabstop>ss7i84in_10</tabstop>
+  <tabstop>ss7i84in_11</tabstop>
+  <tabstop>ss7i84in_12</tabstop>
+  <tabstop>ss7i84in_13</tabstop>
+  <tabstop>ss7i84in_14</tabstop>
+  <tabstop>ss7i84in_15</tabstop>
+  <tabstop>ss7i84in_16</tabstop>
+  <tabstop>ss7i84in_17</tabstop>
+  <tabstop>ss7i84in_18</tabstop>
+  <tabstop>ss7i84in_19</tabstop>
+  <tabstop>ss7i84in_20</tabstop>
+  <tabstop>ss7i84in_21</tabstop>
+  <tabstop>ss7i84in_22</tabstop>
+  <tabstop>ss7i84in_23</tabstop>
+  <tabstop>ss7i84in_24</tabstop>
+  <tabstop>ss7i84in_25</tabstop>
+  <tabstop>ss7i84in_26</tabstop>
+  <tabstop>ss7i84in_27</tabstop>
+  <tabstop>ss7i84in_28</tabstop>
+  <tabstop>ss7i84in_29</tabstop>
+  <tabstop>ss7i84in_30</tabstop>
+  <tabstop>ss7i84in_31</tabstop>
+  <tabstop>ss7i87in_0</tabstop>
+  <tabstop>ss7i87in_1</tabstop>
+  <tabstop>ss7i87in_2</tabstop>
+  <tabstop>ss7i87in_3</tabstop>
+  <tabstop>ss7i87in_4</tabstop>
+  <tabstop>ss7i87in_5</tabstop>
+  <tabstop>ss7i87in_6</tabstop>
+  <tabstop>ss7i87in_7</tabstop>
+  <tabstop>functionCountSB_0</tabstop>
+  <tabstop>functionCountSB_1</tabstop>
+  <tabstop>functionCountSB_3</tabstop>
+  <tabstop>functionCountSB_2</tabstop>
+  <tabstop>halAddPTE</tabstop>
+  <tabstop>halPin_0</tabstop>
+  <tabstop>halFunctionCB_3</tabstop>
+  <tabstop>halPin_5</tabstop>
+  <tabstop>halPin_1</tabstop>
+  <tabstop>halFunctionCB_0</tabstop>
+  <tabstop>halSignalLE_4</tabstop>
+  <tabstop>halSignalLE_0</tabstop>
+  <tabstop>halSignalLE_2</tabstop>
+  <tabstop>halSignalLE_5</tabstop>
+  <tabstop>halPin_4</tabstop>
+  <tabstop>halSignalLE_1</tabstop>
+  <tabstop>halPin_2</tabstop>
+  <tabstop>halPin_3</tabstop>
+  <tabstop>inputPinPB_0</tabstop>
+  <tabstop>halFunctionCB_1</tabstop>
+  <tabstop>halFunctionCB_5</tabstop>
+  <tabstop>halSignalLE_3</tabstop>
+  <tabstop>halFunctionCB_2</tabstop>
+  <tabstop>halFunctionCB_4</tabstop>
+  <tabstop>outputPinPB_0</tabstop>
+  <tabstop>inputPinPB_1</tabstop>
+  <tabstop>inputPinPB_2</tabstop>
+  <tabstop>inputPinPB_3</tabstop>
+  <tabstop>inputPinPB_4</tabstop>
+  <tabstop>inputPinPB_5</tabstop>
+  <tabstop>outputPinPB_1</tabstop>
+  <tabstop>outputPinPB_2</tabstop>
+  <tabstop>outputPinPB_3</tabstop>
+  <tabstop>outputPinPB_4</tabstop>
+  <tabstop>outputPinPB_5</tabstop>
+  <tabstop>plainTextEdit_3</tabstop>
+  <tabstop>buildHalPB</tabstop>
+  <tabstop>halPTE</tabstop>
+  <tabstop>toolChangerTypeCB</tabstop>
+  <tabstop>debugCB</tabstop>
+  <tabstop>manualToolChangeCB</tabstop>
+  <tabstop>splashScreenSB</tabstop>
+  <tabstop>introGraphicLE</tabstop>
+  <tabstop>readmePTE</tabstop>
+  <tabstop>servoPeriodSB</tabstop>
+  <tabstop>pyvcpCB</tabstop>
+  <tabstop>gladevcpCB</tabstop>
+  <tabstop>noforcehomingCB</tabstop>
+  <tabstop>newUserCB</tabstop>
+  <tabstop>checkMesaflashCB</tabstop>
+  <tabstop>numDioSB</tabstop>
+  <tabstop>numSpindlesSB</tabstop>
+  <tabstop>numAioSB</tabstop>
+  <tabstop>numJointSB</tabstop>
+  <tabstop>numExtraJointsSB</tabstop>
+  <tabstop>ladderGB</tabstop>
+  <tabstop>ladderWordsSB</tabstop>
+  <tabstop>ladderTimersSB</tabstop>
+  <tabstop>ladderRungsSB</tabstop>
+  <tabstop>ladderInputsSB</tabstop>
+  <tabstop>iecTimerSB</tabstop>
+  <tabstop>ladderOutputsSB</tabstop>
+  <tabstop>ladderSectionsSB</tabstop>
+  <tabstop>ladderExpresionsSB</tabstop>
+  <tabstop>ladderBitsSB</tabstop>
+  <tabstop>ladderMonostablesSB</tabstop>
+  <tabstop>ladderCountersSB</tabstop>
+  <tabstop>ladderSymbolsSB</tabstop>
+  <tabstop>ladderS32InputsSB</tabstop>
+  <tabstop>ladderS32OuputsSB</tabstop>
+  <tabstop>ladderFloatInputsSB</tabstop>
+  <tabstop>ladderFloatOutputsSB</tabstop>
+  <tabstop>tabWidget_2</tabstop>
+  <tabstop>scrollArea_4</tabstop>
+  <tabstop>cardPinsPB</tabstop>
+  <tabstop>pinsPTE</tabstop>
+  <tabstop>tabWidget_4</tabstop>
+  <tabstop>copyInfoPB</tabstop>
+  <tabstop>nicPB</tabstop>
+  <tabstop>cpuPB</tabstop>
+  <tabstop>motherboardPB</tabstop>
+  <tabstop>infoPTE</tabstop>
+  <tabstop>calculateServoPB</tabstop>
+  <tabstop>servoThreadTmaxPB</tabstop>
+  <tabstop>cpuSpeedPB</tabstop>
+  <tabstop>cpuSpeedLE</tabstop>
+  <tabstop>cpuSpeedCB</tabstop>
+  <tabstop>readTmaxPB</tabstop>
+  <tabstop>readtmaxLE</tabstop>
+  <tabstop>writeTmaxPB</tabstop>
+  <tabstop>writetmaxLE</tabstop>
+  <tabstop>calcNicPB</tabstop>
+  <tabstop>latencyTestShowCB</tabstop>
+  <tabstop>latencyTestNoBaseCB</tabstop>
+  <tabstop>latencyTestPB</tabstop>
+  <tabstop>checkBox</tabstop>
+  <tabstop>scrollArea_3</tabstop>
+  <tabstop>tmaxPTE</tabstop>
+  <tabstop>ethernetPTE</tabstop>
+  <tabstop>comboBoardDocsCB</tabstop>
+  <tabstop>OpenManPB_3</tabstop>
+  <tabstop>cardTabs</tabstop>
+  <tabstop>pwmgensCB</tabstop>
+  <tabstop>mainBoardDocsCB</tabstop>
+  <tabstop>dauCardDocsCB</tabstop>
+  <tabstop>otherDocsCB</tabstop>
+  <tabstop>ssWiringPTE</tabstop>
+  <tabstop>encodersCB</tabstop>
+  <tabstop>ssCardDocsCB</tabstop>
+  <tabstop>OpenManPB_0</tabstop>
+  <tabstop>OpenManPB_1</tabstop>
+  <tabstop>tabWidget_5</tabstop>
+  <tabstop>stepgensCB</tabstop>
+  <tabstop>OpenManPB_2</tabstop>
+  <tabstop>OpenManPB_4</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
  <buttongroups>
