@@ -266,16 +266,13 @@ def build(parent):
 			iniContents.append(f'MAX_ACCEL_RPM = {parent.spindleMaxAccel.value()}\n')
 			iniContents.append(f'MAX_ACCEL_RPS = {parent.spindleMaxRpss.text()}\n')
 
-	iniContents.append('\n# Everything below this line is only used to\n')
-	iniContents.append('# setup the Configuration Tool when loading the ini.\n')
-
 	# build the [INPUTS] section from pushbuttons
 	iniContents.append('\n[INPUTS]\n')
 	iniContents.append('# DO NOT change the inputs they are used by the configuration tool\n')
 	for i in range(32):
-		iniContents.append(f'INPUT_{i} = {getattr(parent, "inputPB_" + str(i)).text()}\n')
-		iniContents.append(f'INPUT_INVERT_{i} = {getattr(parent, "inputInvertCB_" + str(i)).isChecked()}\n')
-		iniContents.append(f'INPUT_SLOW_{i} = {getattr(parent, "inputDebounceCB_" + str(i)).isChecked()}\n')
+		iniContents.append(f'INPUT_{i} = {getattr(parent, "inputPB_{i}").text()}\n')
+		iniContents.append(f'INPUT_INVERT_{i} = {getattr(parent, "inputInvertCB_{i}").isChecked()}\n')
+		iniContents.append(f'INPUT_SLOW_{i} = {getattr(parent, "inputDebounceCB_{i}").isChecked()}\n')
 
 	# build the [OUTPUTS] section from pushbuttons
 	iniContents.append('\n[OUTPUTS]\n')
