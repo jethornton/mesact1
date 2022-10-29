@@ -56,13 +56,13 @@ def build(parent):
 	iniContents.append(f'POSITION_FEEDBACK = {parent.positionFeedbackCB.currentData()}\n')
 	iniContents.append(f'MAX_FEED_OVERRIDE = {parent.maxFeedOverrideSB.value()}\n')
 	if set('XYZUVW')&set(parent.coordinatesLB.text()):
-		iniContents.append(f'MIN_LINEAR_VELOCITY = {parent.minLinJogVelDSB.value()}\n')
-		iniContents.append(f'DEFAULT_LINEAR_VELOCITY = {parent.defLinJogVelDSB.value()}\n')
-		iniContents.append(f'MAX_LINEAR_VELOCITY = {parent.maxLinJogVelDSB.value()}\n')
+		iniContents.append(f'MIN_LINEAR_VELOCITY = {parent.minLinJogVelDSB.value():.1f}\n')
+		iniContents.append(f'DEFAULT_LINEAR_VELOCITY = {parent.defLinJogVelDSB.value():.1f}\n')
+		iniContents.append(f'MAX_LINEAR_VELOCITY = {parent.maxLinJogVelDSB.value():.1f}\n')
 	if set('ABC')&set(parent.coordinatesLB.text()):
-		iniContents.append(f'MIN_ANGULAR_VELOCITY = {parent.minAngJogVelDSB.value()}\n')
-		iniContents.append(f'DEFAULT_ANGULAR_VELOCITY = {parent.defAngJogVelDSB.value()}\n')
-		iniContents.append(f'MAX_ANGULAR_VELOCITY = {parent.maxAngJogVelDSB.value()}\n')
+		iniContents.append(f'MIN_ANGULAR_VELOCITY = {parent.minAngJogVelDSB.value():.1f}\n')
+		iniContents.append(f'DEFAULT_ANGULAR_VELOCITY = {parent.defAngJogVelDSB.value():.1f}\n')
+		iniContents.append(f'MAX_ANGULAR_VELOCITY = {parent.maxAngJogVelDSB.value():.1f}\n')
 
 	iniContents.append('CYCLE_TIME = 0.1\n')
 	iniContents.append(f'INTRO_GRAPHIC = {parent.introGraphicLE.text()}\n')
@@ -116,7 +116,7 @@ def build(parent):
 	iniContents.append(f'COORDINATES = {parent.coordinatesLB.text()}\n')
 	iniContents.append(f'LINEAR_UNITS = {parent.linearUnitsCB.currentData()}\n')
 	iniContents.append('ANGULAR_UNITS = degree\n')
-	iniContents.append(f'MAX_LINEAR_VELOCITY = {parent.trajMaxLinVelDSB.value()}\n')
+	iniContents.append(f'MAX_LINEAR_VELOCITY = {parent.trajMaxLinVelDSB.value():.1f}\n')
 	if parent.noforcehomingCB.isChecked():
 		iniContents.append(f'NO_FORCE_HOMING = 0\n')
 	else:
