@@ -70,6 +70,7 @@ def checkit(parent):
 		if parent.coordinatesLB.text() not in foamAxes:
 			tabError = True
 			configErrors.append('\tFoam axes must be one of XYUV, XYZA or XYUZ')
+
 	# program filter checks to be added
 
 	mdi_commands = []
@@ -80,6 +81,10 @@ def checkit(parent):
 		if mdi_commands[-1] != len(mdi_commands)-1:
 			tabError = True
 			configErrors.append('\tMDI Commands must be in sequence starting with 0')
+
+	if parent.mdiCmdLE_0 and not parent.haluiCB.isChecked():
+		tabError = True
+		configErrors.append('\tThe Hal User Interface must be enabled for MDI Commands')
 
 	if tabError:
 		configErrors.insert(nextHeader, 'Display Tab:')
