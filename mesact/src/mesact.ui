@@ -3786,7 +3786,7 @@ QGroupBox::title {
          </item>
         </layout>
        </widget>
-       <widget class="QGroupBox" name="groupBox_88">
+       <widget class="QGroupBox" name="mdiCommandsGB">
         <property name="geometry">
          <rect>
           <x>500</x>
@@ -3797,6 +3797,12 @@ QGroupBox::title {
         </property>
         <property name="title">
          <string>MDI Commands</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
         </property>
         <layout class="QGridLayout" name="gridLayout_211">
          <item row="1" column="1">
@@ -3869,6 +3875,52 @@ QGroupBox::title {
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_6">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>510</y>
+          <width>201</width>
+          <height>156</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>HAL Options</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_51">
+         <property name="topMargin">
+          <number>15</number>
+         </property>
+         <item row="4" column="0">
+          <widget class="QCheckBox" name="haluiCB">
+           <property name="text">
+            <string>Halui User Interface</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QCheckBox" name="customhalCB">
+           <property name="text">
+            <string>Custom HAL File</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QCheckBox" name="shutdownCB">
+           <property name="text">
+            <string>Shutdown HAL File</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QCheckBox" name="postguiCB">
+           <property name="text">
+            <string>Post GUI HAL File</string>
            </property>
           </widget>
          </item>
@@ -26367,46 +26419,6 @@ Copy HAL Add Functions and HAL to custom.hal</string>
         <string>Options</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_205">
-        <item row="2" column="0" rowspan="2">
-         <widget class="QGroupBox" name="groupBox_6">
-          <property name="title">
-           <string>HAL Options</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_51">
-           <property name="topMargin">
-            <number>15</number>
-           </property>
-           <item row="4" column="0">
-            <widget class="QCheckBox" name="haluiCB">
-             <property name="text">
-              <string>Halui User Interface</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QCheckBox" name="customhalCB">
-             <property name="text">
-              <string>Custom HAL File</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QCheckBox" name="shutdownCB">
-             <property name="text">
-              <string>Shutdown HAL File</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QCheckBox" name="postguiCB">
-             <property name="text">
-              <string>Post GUI HAL File</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
         <item row="0" column="2">
          <widget class="QGroupBox" name="groupBox_98">
           <property name="title">
