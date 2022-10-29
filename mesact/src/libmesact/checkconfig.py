@@ -82,7 +82,7 @@ def checkit(parent):
 			tabError = True
 			configErrors.append('\tMDI Commands must be in sequence starting with 0')
 
-	if parent.mdiCmdLE_0 and not parent.haluiCB.isChecked():
+	if parent.mdiCmdLE_0.text() and not parent.haluiCB.isChecked():
 		tabError = True
 		configErrors.append('\tThe Hal User Interface must be enabled for MDI Commands')
 
