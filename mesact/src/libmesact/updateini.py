@@ -173,6 +173,11 @@ class updateini:
 		'''
 
 		# [HALUI]
+		if parent.haluiCB.isChecked() and '[HALUI]' not in self.sections:
+			section = '[HALUI]'
+			index = self.sections['[HAL]'][1]
+			self.insert_section(index, section)
+
 		if '[HALUI]' in self.sections:
 			index = self.sections['[HALUI]']
 			#print(index)
