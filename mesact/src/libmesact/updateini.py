@@ -156,8 +156,12 @@ class updateini:
 		for item in traj:
 			self.update_key(item[0], item[1], item[2])
 
-		'''
+
 		# [HAL]
+		if parent.haluiCB.isChecked():
+			self.update_key('HAL', 'HALUI', 'halui')
+
+		'''
 		hal = [
 		['HAL', 'HALFILE', f'filelist.hal'],
 		]
