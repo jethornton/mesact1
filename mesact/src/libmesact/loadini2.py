@@ -114,10 +114,15 @@ class openini:
 		# build the [RS274NGC] section
 		# build the [EMCMOT] section
 		# build the [TASK] section
-		# build the [TRAJ] section
 		'''
 
-		# build the [HAL] section
+		# load the [TRAJ] section
+		iniDict['[TRAJ]'] = {}
+		iniDict['[TRAJ]']['LINEAR_UNITS'] = 'linearUnitsCB'
+		iniDict['[TRAJ]']['MAX_LINEAR_VELOCITY'] = 'trajMaxLinVelDSB'
+
+
+		# load the [HAL] section
 
 		# load the [HALUI] section
 		start = self.sections['[HALUI]'][0]
@@ -173,46 +178,91 @@ class openini:
 			iniDict[f'[JOINT_{i}]']['ANALOG_MIN_LIMIT'] = f'c0_analogMinLimit_{i}'
 			iniDict[f'[JOINT_{i}]']['ANALOG_MAX_LIMIT'] = f'c0_analogMaxLimit_{i}'
 
-		'''
+		# load the [SPINDLE_0] section
+		iniDict['[SPINDLE_0]'] = {}
+		iniDict['[SPINDLE_0]']['SPINDLE_TYPE'] = 'spindleTypeCB'
+		iniDict['[SPINDLE_0]']['ENCODER_SCALE'] = 'spindleEncoderScale'
+		iniDict['[SPINDLE_0]']['SCALE'] = 'spindleStepScale'
+		iniDict['[SPINDLE_0]']['SPINDLE_PWM_TYPE'] = 'spindlePwmTypeCB'
+		iniDict['[SPINDLE_0]']['PWM_FREQUENCY'] = 'pwmFrequencySB'
+		iniDict['[SPINDLE_0]']['MAX_RPM'] = 'spindleMaxRpm'
+		iniDict['[SPINDLE_0]']['MIN_RPM'] = 'spindleMinRpm'
+		iniDict['[SPINDLE_0]']['DEADBAND'] = 'deadband_s'
+		iniDict['[SPINDLE_0]']['FEEDBACK'] = 'spindleFeedbackCB'
+		iniDict['[SPINDLE_0]']['P'] = 'p_s'
+		iniDict['[SPINDLE_0]']['I'] = 'i_s'
+		iniDict['[SPINDLE_0]']['D'] = 'd_s'
+		iniDict['[SPINDLE_0]']['FF0'] = 'ff0_s'
+		iniDict['[SPINDLE_0]']['FF1'] = 'ff1_s'
+		iniDict['[SPINDLE_0]']['FF2'] = 'ff2_s'
+		iniDict['[SPINDLE_0]']['BIAS'] = 'bias_s'
+		iniDict['[SPINDLE_0]']['MAX_ERROR'] = 'maxError_s'
+		iniDict['[SPINDLE_0]']['MAX_OUTPUT'] = 'maxOutput_s'
+		iniDict['[SPINDLE_0]']['DRIVE'] = 'spindleDriveCB'
+		iniDict['[SPINDLE_0]']['STEPLEN'] = 'spindleStepTime'
+		iniDict['[SPINDLE_0]']['STEPSPACE'] = 'spindleStepSpace'
+		iniDict['[SPINDLE_0]']['DIRSETUP'] = 'spindleDirSetup'
+		iniDict['[SPINDLE_0]']['DIRHOLD'] = 'spindleDirHold'
+		iniDict['[SPINDLE_0]']['STEP_INVERT'] = 'spindleStepInvert'
+		iniDict['[SPINDLE_0]']['DIR_INVERT'] = 'spindleDirInvert'
+		iniDict['[SPINDLE_0]']['MAX_ACCEL_RPM'] = 'spindleMaxAccel'
+
 		# load the [INPUTS] section
 		iniDict['[INPUTS]'] = {}
 		for i in range(32):
-			iniDict['[INPUTS]'][f'[INPUT_{i}]'] = f'inputPB_{i}'
-			iniDict['[INPUTS]'][f'[INPUT_INVERT_{i}]'] = f'inputInvertCB_{i}'
-			iniDict['[INPUTS]'][f'[INPUT_SLOW_{i}]'] = f'inputDebounceCB_{i}'
-		'''
+			iniDict['[INPUTS]'][f'INPUT_{i}'] = f'inputPB_{i}'
+			iniDict['[INPUTS]'][f'INPUT_INVERT_{i}'] = f'inputInvertCB_{i}'
+			iniDict['[INPUTS]'][f'INPUT_SLOW_{i}'] = f'inputDebounceCB_{i}'
+
+		# load the [OUTPUTS] section
+		iniDict['[OUTPUTS]'] = {}
+		for i in range(16):
+			iniDict['[OUTPUTS]'][f'OUTPUT_{i}'] = f'outputPB_{i}'
+			iniDict['[OUTPUTS]'][f'OUTPUT_INVERT_{i}'] = f'outputInvertCB_{i}'
+
+		# load the [OPTIONS] section
+		iniDict['[OPTIONS]'] = {}
+		iniDict['[OPTIONS]']['LOAD_CONFIG'] = 'loadConfigCB'
+		iniDict['[OPTIONS]']['INTRO_GRAPHIC'] = 'introGraphicLE'
+		iniDict['[OPTIONS]']['INTRO_GRAPHIC_TIME'] = 'splashScreenSB'
+		iniDict['[OPTIONS]']['MANUAL_TOOL_CHANGE'] = 'manualToolChangeCB'
+		iniDict['[OPTIONS]']['CUSTOM_HAL'] = 'customhalCB'
+		iniDict['[OPTIONS]']['POST_GUI_HAL'] = 'postguiCB'
+		iniDict['[OPTIONS]']['SHUTDOWN_HAL'] = 'shutdownCB'
+		iniDict['[OPTIONS]']['HALUI'] = 'haluiCB'
+		iniDict['[OPTIONS]']['PYVCP'] = 'pyvcpCB'
+		iniDict['[OPTIONS]']['GLADEVCP'] = 'gladevcpCB'
+		iniDict['[OPTIONS]']['LADDER'] = 'ladderGB'
+		#iniDict['[OPTIONS]']['LADDER_RUNGS'] = 'ladderRungsSB'
+		iniDict['[OPTIONS]']['BACKUP'] = 'backupCB'
+
+
+
 
 
 
 		noUpdate = ['None', 'False', 'Select']
 
-		#for key, value in iniDict.items():
-		#	print(key, value)
 		section = ''
 		for line in self.content:
 			if line.startswith('['):
 				section = line.strip()
 			elif section in iniDict:
 				if len(line.strip()) > 0  and not line.startswith('#'):
-					#print(line)
 					i, v = line.split('=')
 					item = i.strip()
 					value = v.strip()
-					#print(section,item,value)
 					if item in iniDict[section]:
 						obj = iniDict[section][item]
 					else:
 						obj = False
-					#print(section, item, obj, value)
 					if obj and value not in noUpdate:
 						if isinstance(getattr(parent, obj), QComboBox):
-							#index = getattr(parent, item[2]).findData(config[item[0]][item[1]])
 							if getattr(parent, obj).findData(value) >= 0:
 								index = getattr(parent, obj).findData(value)
 							elif getattr(parent, obj).findText(value) >= 0:
 								index = getattr(parent, obj).findText(value)
 							if index >= 0:
-								#print(obj, value)
 								getattr(parent, obj).setCurrentIndex(index)
 						elif isinstance(getattr(parent, obj), QLabel):
 							getattr(parent, obj).setText(value)
@@ -228,17 +278,8 @@ class openini:
 							getattr(parent, obj).setChecked(booleanDict[value.lower()])
 						elif isinstance(getattr(parent, obj), QGroupBox):
 							getattr(parent, obj).setChecked(booleanDict[value.lower()])
-
-
-		'''
-		section = 'MESA'
-		print(iniDict)
-		for i in range(start +1 , end):
-			key, value = self.content[i].split('=')
-			#print(key.strip(), value.strip())
-			item = iniDict[section][key.strip()]
-			print(item, value.strip())
-		'''
+						elif isinstance(getattr(parent, obj), QPushButton):
+							getattr(parent, obj).setText(value)
 
 	def get_sections(self):
 		self.sections = {}
