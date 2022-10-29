@@ -511,7 +511,7 @@ class updateini:
 
 	def write_ini(self, parent):
 		# TESTING
-		self.iniFile = '/home/john/linuxcnc/configs/7i96s/test.ini'
+		#self.iniFile = '/home/john/linuxcnc/configs/7i96s/test.ini'
 		with open(self.iniFile, 'w') as outfile:
 			outfile.write(''.join(self.content))
 		parent.machinePTE.appendPlainText(f'Updated {self.iniFile}')
