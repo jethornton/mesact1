@@ -233,16 +233,28 @@ class openini:
 		iniDict['[OPTIONS]']['PYVCP'] = 'pyvcpCB'
 		iniDict['[OPTIONS]']['GLADEVCP'] = 'gladevcpCB'
 		iniDict['[OPTIONS]']['LADDER'] = 'ladderGB'
-		#iniDict['[OPTIONS]']['LADDER_RUNGS'] = 'ladderRungsSB'
 		iniDict['[OPTIONS]']['BACKUP'] = 'backupCB'
 
-
-
-
-
+		# load the [PLC] section
+		iniDict['[PLC]'] = {}
+		iniDict['[PLC]']['LADDER_RUNGS'] = 'ladderRungsSB'
+		iniDict['[PLC]']['LADDER_BITS'] = 'ladderBitsSB'
+		iniDict['[PLC]']['LADDER_WORDS'] = 'ladderWordsSB'
+		iniDict['[PLC]']['LADDER_TIMERS'] = 'ladderTimersSB'
+		iniDict['[PLC]']['LADDER_IEC_TIMERS'] = 'iecTimerSB'
+		iniDict['[PLC]']['LADDER_MONOSTABLES'] = 'ladderMonostablesSB'
+		iniDict['[PLC]']['LADDER_COUNTERS'] = 'ladderCountersSB'
+		iniDict['[PLC]']['LADDER_HAL_INPUTS'] = 'ladderInputsSB'
+		iniDict['[PLC]']['LADDER_HAL_OUTPUTS'] = 'ladderOutputsSB'
+		iniDict['[PLC]']['LADDER_EXPRESSIONS'] = 'ladderExpresionsSB'
+		iniDict['[PLC]']['LADDER_SECTIONS'] = 'ladderSectionsSB'
+		iniDict['[PLC]']['LADDER_SYMBOLS'] = 'ladderSymbolsSB'
+		iniDict['[PLC]']['LADDER_S32_INPUTS'] = 'ladderS32InputsSB'
+		iniDict['[PLC]']['LADDER_S32_OUTPUTS'] = 'ladderS32OuputsSB'
+		iniDict['[PLC]']['LADDER_FLOAT_INPUTS'] = 'ladderFloatInputsSB'
+		iniDict['[PLC]']['LADDER_FLOAT_OUTPUTS'] = 'ladderFloatOutputsSB'
 
 		noUpdate = ['None', 'False', 'Select']
-
 		section = ''
 		for line in self.content:
 			if line.startswith('['):
