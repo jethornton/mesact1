@@ -122,9 +122,14 @@ class openini:
 		# load the [HALUI] section
 		start = self.sections['[HALUI]'][0]
 		end = self.sections['[HALUI]'][1]
-		for i, item in enumerate(self.content[start:end]):
-			if item.strip():
-				getattr(parent, f'mdiCmdLE_{i}').setText(item.split('=')[1])
+		mdicmd = []
+		for item in self.content[start:end]:
+			if item != '\n':
+				item = item.split('=')
+				item = item[1].strip()
+				mdicmd.append(item)
+		for i, item in enumerate(mdicmd):
+				getattr(parent, f'mdiCmdLE_{i}').setText(item)
 
 		# load the [JOINT] sections
 		for i in range(6):
@@ -168,6 +173,16 @@ class openini:
 			iniDict[f'[JOINT_{i}]']['ANALOG_MIN_LIMIT'] = f'c0_analogMinLimit_{i}'
 			iniDict[f'[JOINT_{i}]']['ANALOG_MAX_LIMIT'] = f'c0_analogMaxLimit_{i}'
 
+		'''
+		# load the [INPUTS] section
+		iniDict['[INPUTS]'] = {}
+		for i in range(32):
+			iniDict['[INPUTS]'][f'[INPUT_{i}]'] = f'inputPB_{i}'
+			iniDict['[INPUTS]'][f'[INPUT_INVERT_{i}]'] = f'inputInvertCB_{i}'
+			iniDict['[INPUTS]'][f'[INPUT_SLOW_{i}]'] = f'inputDebounceCB_{i}'
+		'''
+
+
 
 		noUpdate = ['None', 'False', 'Select']
 
@@ -177,40 +192,42 @@ class openini:
 		for line in self.content:
 			if line.startswith('['):
 				section = line.strip()
-			elif section in iniDict and line != '\n':
-				i, v = line.split('=')
-				item = i.strip()
-				value = v.strip()
-				#print(section,item,value)
-				if item in iniDict[section]:
-					obj = iniDict[section][item]
-				else:
-					obj = False
-				#print(section, item, obj, value)
-				if obj and value not in noUpdate:
-					if isinstance(getattr(parent, obj), QComboBox):
-						#index = getattr(parent, item[2]).findData(config[item[0]][item[1]])
-						if getattr(parent, obj).findData(value) >= 0:
-							index = getattr(parent, obj).findData(value)
-						elif getattr(parent, obj).findText(value) >= 0:
-							index = getattr(parent, obj).findText(value)
-						if index >= 0:
-							#print(obj, value)
-							getattr(parent, obj).setCurrentIndex(index)
-					elif isinstance(getattr(parent, obj), QLabel):
-						getattr(parent, obj).setText(value)
-					elif isinstance(getattr(parent, obj), QLineEdit):
-						getattr(parent, obj).setText(value)
-					elif isinstance(getattr(parent, obj), QSpinBox):
-						getattr(parent, obj).setValue(abs(int(value)))
-					elif isinstance(getattr(parent, obj), QDoubleSpinBox):
-						getattr(parent, obj).setValue(float(value))
-					elif isinstance(getattr(parent, obj), QCheckBox):
-						getattr(parent, obj).setChecked(booleanDict[value.lower()])
-					elif isinstance(getattr(parent, obj), QRadioButton):
-						getattr(parent, obj).setChecked(booleanDict[value.lower()])
-					elif isinstance(getattr(parent, obj), QGroupBox):
-						getattr(parent, obj).setChecked(booleanDict[value.lower()])
+			elif section in iniDict:
+				if len(line.strip()) > 0  and not line.startswith('#'):
+					#print(line)
+					i, v = line.split('=')
+					item = i.strip()
+					value = v.strip()
+					#print(section,item,value)
+					if item in iniDict[section]:
+						obj = iniDict[section][item]
+					else:
+						obj = False
+					#print(section, item, obj, value)
+					if obj and value not in noUpdate:
+						if isinstance(getattr(parent, obj), QComboBox):
+							#index = getattr(parent, item[2]).findData(config[item[0]][item[1]])
+							if getattr(parent, obj).findData(value) >= 0:
+								index = getattr(parent, obj).findData(value)
+							elif getattr(parent, obj).findText(value) >= 0:
+								index = getattr(parent, obj).findText(value)
+							if index >= 0:
+								#print(obj, value)
+								getattr(parent, obj).setCurrentIndex(index)
+						elif isinstance(getattr(parent, obj), QLabel):
+							getattr(parent, obj).setText(value)
+						elif isinstance(getattr(parent, obj), QLineEdit):
+							getattr(parent, obj).setText(value)
+						elif isinstance(getattr(parent, obj), QSpinBox):
+							getattr(parent, obj).setValue(abs(int(value)))
+						elif isinstance(getattr(parent, obj), QDoubleSpinBox):
+							getattr(parent, obj).setValue(float(value))
+						elif isinstance(getattr(parent, obj), QCheckBox):
+							getattr(parent, obj).setChecked(booleanDict[value.lower()])
+						elif isinstance(getattr(parent, obj), QRadioButton):
+							getattr(parent, obj).setChecked(booleanDict[value.lower()])
+						elif isinstance(getattr(parent, obj), QGroupBox):
+							getattr(parent, obj).setChecked(booleanDict[value.lower()])
 
 
 		'''
