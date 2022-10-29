@@ -442,7 +442,7 @@ class updateini:
 			# If [PLC] section does not exist insert it after [OPTIONS] section
 			if '[PLC]' not in self.sections:
 				index = self.sections['[OPTIONS]'][1]
-				self.insert_section(self, index, '[PLC]')
+				self.insert_section(index, '[PLC]')
 				#self.content.insert(index, '[PLC]\n')
 				#self.content.insert(index, '\n')
 				#self.get_sections() # update section start/end
