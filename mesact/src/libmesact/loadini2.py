@@ -121,7 +121,6 @@ class openini:
 		iniDict['[TRAJ]']['LINEAR_UNITS'] = 'linearUnitsCB'
 		iniDict['[TRAJ]']['MAX_LINEAR_VELOCITY'] = 'trajMaxLinVelDSB'
 
-
 		# load the [HAL] section
 
 		# load the [HALUI] section
