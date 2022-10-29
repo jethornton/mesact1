@@ -134,13 +134,15 @@ def build(parent):
 		iniContents.append('POSTGUI_HALFILE = postgui.hal\n')
 	if parent.shutdownCB.isChecked():
 		iniContents.append('SHUTDOWN = shutdown.hal\n')
-	iniContents.append('HALUI = halui\n')
+	if parent.haluiCB.isChecked():
+		iniContents.append('HALUI = halui\n')
 
 	# build the [HALUI] section
-	iniContents.append('\n[HALUI]\n')
-	for i in range(6):
-		if getattr(parent, f"mdiCmdLE_{i}").text():
-			iniContents.append(f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n')
+	if parent.haluiCB.isChecked():
+		iniContents.append('\n[HALUI]\n')
+		for i in range(6):
+			if getattr(parent, f"mdiCmdLE_{i}").text():
+				iniContents.append(f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n')
 
 	# build the axes
 	if parent.cardTabs.isTabEnabled(0):
@@ -270,9 +272,9 @@ def build(parent):
 	iniContents.append('\n[INPUTS]\n')
 	iniContents.append('# DO NOT change the inputs they are used by the configuration tool\n')
 	for i in range(32):
-		iniContents.append(f'INPUT_{i} = {getattr(parent, "inputPB_{i}").text()}\n')
-		iniContents.append(f'INPUT_INVERT_{i} = {getattr(parent, "inputInvertCB_{i}").isChecked()}\n')
-		iniContents.append(f'INPUT_SLOW_{i} = {getattr(parent, "inputDebounceCB_{i}").isChecked()}\n')
+		iniContents.append(f'INPUT_{i} = {getattr(parent, f"inputPB_{i}").text()}\n')
+		iniContents.append(f'INPUT_INVERT_{i} = {getattr(parent, f"inputInvertCB_{i}").isChecked()}\n')
+		iniContents.append(f'INPUT_SLOW_{i} = {getattr(parent, f"inputDebounceCB_{i}").isChecked()}\n')
 
 	# build the [OUTPUTS] section from pushbuttons
 	iniContents.append('\n[OUTPUTS]\n')
