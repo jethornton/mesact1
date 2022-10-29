@@ -87,7 +87,7 @@ def checkit(parent):
 		configErrors.append('\tThe Hal User Interface must be enabled for MDI Commands')
 
 	if tabError:
-		configErrors.insert(nextHeader, 'Display Tab:')
+		configErrors.insert(nextHeader, 'Settings Tab:')
 		nextHeader = len(configErrors)
 		tabError = False
 	# end of Settings Tab
