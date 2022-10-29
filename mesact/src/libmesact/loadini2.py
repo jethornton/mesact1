@@ -254,6 +254,19 @@ class openini:
 		iniDict['[PLC]']['LADDER_FLOAT_INPUTS'] = 'ladderFloatInputsSB'
 		iniDict['[PLC]']['LADDER_FLOAT_OUTPUTS'] = 'ladderFloatOutputsSB'
 
+		if '[SSERIAL]' in self.sections:
+			iniDict['[SSERIAL]'] = {}
+			start = self.sections['[SSERIAL]'][0]
+			end = self.sections['[SSERIAL]'][1]
+			for i, j in enumerate(range(start, end)):
+				line = self.content[j].split('=')
+				key = line[0].strip()
+				value = line[1].strip()
+				if key == 'SS_CARD':
+					iniDict['[SSERIAL]']['SS_CARD'] = 'ssCardCB'
+				else:
+					iniDict['[SSERIAL]'][key] = key
+
 		noUpdate = ['None', 'False', 'Select']
 		section = ''
 		for line in self.content:
