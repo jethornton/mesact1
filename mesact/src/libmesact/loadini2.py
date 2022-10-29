@@ -125,16 +125,17 @@ class openini:
 		# load the [HAL] section
 
 		# load the [HALUI] section
-		start = self.sections['[HALUI]'][0]
-		end = self.sections['[HALUI]'][1]
-		mdicmd = []
-		for item in self.content[start:end]:
-			if item != '\n':
-				item = item.split('=')
-				item = item[1].strip()
-				mdicmd.append(item)
-		for i, item in enumerate(mdicmd):
-				getattr(parent, f'mdiCmdLE_{i}').setText(item)
+		if '[HALUI]' in self.sections:
+			start = self.sections['[HALUI]'][0]
+			end = self.sections['[HALUI]'][1]
+			mdicmd = []
+			for item in self.content[start:end]:
+				if item != '\n':
+					item = item.split('=')
+					item = item[1].strip()
+					mdicmd.append(item)
+			for i, item in enumerate(mdicmd):
+					getattr(parent, f'mdiCmdLE_{i}').setText(item)
 
 		# load the [JOINT] sections
 		for i in range(6):
