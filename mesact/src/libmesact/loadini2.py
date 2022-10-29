@@ -37,29 +37,10 @@ class openini:
 					parent.errorMsgOk('Can not open a PNCconf ini file!', 'Incompatable File')
 					return
 			parent.machinePTE.appendPlainText(f'Loading {iniFile}')
+			self.loadini(parent, iniFile)
 		else:
 			parent.machinePTE.appendPlainText('Open File Cancled')
 			iniFile = ''
-		'''
-		if config.read(iniFile):
-			if config.has_option('MESA', 'VERSION'):
-				iniVersion = config['MESA']['VERSION']
-				if iniVersion == parent.version:
-					loadini(parent, iniFile, config)
-					loadReadMe(parent, configsDir, configName)
-				else:
-					msg = (f'The ini file version is {iniVersion}\n'
-						f'The Configuration Tool version is {parent.version}\n'
-						'Try and open the ini?')
-					if parent.errorMsg(msg, 'Version Difference'):
-						loadini(parent, iniFile, config)
-						loadReadMe(parent, configsDir, configName)
-			else:
-				msg = ('This ini was not created with the\n'
-					'Mesa Configuration Tool!')
-				parent.errorMsgOk(msg, 'Incompatable File')
-		'''
-		self.loadini(parent, iniFile)
 
 	def loadini(self, parent, iniFile):
 		booleanDict = {'true': True, 'yes': True, '1': True,
