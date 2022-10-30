@@ -36,9 +36,9 @@ class openini:
 				if 'PNCconf' in contents:
 					parent.errorMsgOk('Can not open a PNCconf ini file!', 'Incompatable File')
 					return
-			
 			parent.machinePTE.appendPlainText(f'Loading {iniFile}')
 			self.loadini(parent, iniFile)
+			self.loadReadMe(parent, configName)
 		else:
 			parent.machinePTE.appendPlainText('Open File Cancled')
 			iniFile = ''
@@ -303,4 +303,12 @@ class openini:
 			if previous:
 				self.sections[previous][1] = value[0] - 2
 			previous = key
+
+	def loadReadMe(self, parent, configName):
+		configsDir = os.path.expanduser('~/linuxcnc/configs')
+		readmeFile = os.path.join(configsDir, configName, 'README')
+		if os.path.isfile(readmeFile):
+			with open(readmeFile) as f:
+				contents = f.read()
+			parent.readmePTE.appendPlainText(contents)
 
