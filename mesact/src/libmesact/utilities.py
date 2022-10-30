@@ -100,7 +100,6 @@ def checkmesaflash(parent, required = None):
 		parent.reloadPB.setEnabled(False)
 		parent.verifyPB.setEnabled(False)
 
-
 def firmwareChanged(parent):
 	if parent.firmwareCB.currentData():
 		board = parent.board
