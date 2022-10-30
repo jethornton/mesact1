@@ -9,6 +9,7 @@ and 7i98.
    :maxdepth: 2
    :caption: Contents:
 
+   description
    install
    basic
    machine
