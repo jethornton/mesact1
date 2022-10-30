@@ -107,7 +107,6 @@ def firmwareChanged(parent):
 			daughters = getattr(firmware, f'd{parent.board}')(parent)
 			if parent.firmwareCB.currentText() in daughters:
 				cards = daughters[parent.firmwareCB.currentText()]
-				print(cards)
 				parent.daughterCB_0.clear()
 				if cards[0]:
 					parent.daughterCB_0.addItem('Select', False)
@@ -116,6 +115,11 @@ def firmwareChanged(parent):
 				if cards[1]:
 					parent.daughterCB_1.addItem('Select', False)
 					parent.daughterCB_1.addItem(cards[1], cards[1])
+			else:
+				parent.daughterCB_0.clear()
+				parent.daughterCB_1.clear()
+
+
 		# might combine these
 		elif  parent.boardCB.currentData() in parent.allInOneBoards:
 			daughters = getattr(firmware, f'd{parent.board}')(parent)
