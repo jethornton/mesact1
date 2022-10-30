@@ -5,10 +5,10 @@ src/libmesact/*.py usr/lib/python3/dist-packages/libmesact
 src/firmware/5i24/*.* usr/lib/libmesact/5i24
 src/firmware/5i25/*.* usr/lib/libmesact/5i25
 src/firmware/7i76e/*.* usr/lib/libmesact/7i76e
-src/firmware/7i80db-16/*.* usr/lib/libmesact/7i80db-16
-src/firmware/7i80db-25/*.* usr/lib/libmesact/7i80db-25
-src/firmware/7i80hd-16/*.* usr/lib/libmesact/7i80hd-16
-src/firmware/7i80hd-25/*.* usr/lib/libmesact/7i80hd-25
+src/firmware/7i80db16/*.* usr/lib/libmesact/7i80db16
+src/firmware/7i80db25/*.* usr/lib/libmesact/7i80db25
+src/firmware/7i80hd16/*.* usr/lib/libmesact/7i80hd16
+src/firmware/7i80hd25/*.* usr/lib/libmesact/7i80hd25
 src/firmware/7i92/*.* usr/lib/libmesact/7i92
 src/firmware/7i93/*.* usr/lib/libmesact/7i93
 src/firmware/7i95/*.* usr/lib/libmesact/7i95
