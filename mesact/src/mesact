@@ -38,7 +38,7 @@ from libmesact import buildmenus
 from libmesact import firmware
 from libmesact import card
 from libmesact import loadini
-from libmesact import loadini2
+#from libmesact import loadini2
 from libmesact import updateini
 from libmesact import hal
 from libmesact import checkconfig
@@ -110,7 +110,7 @@ class MainWindow(QMainWindow):
 		buildmenus.build(self)
 		self.helpInfo = helptext.descriptions
 		self.updateini = updateini.updateini()
-		self.loadini = loadini2.openini()
+		self.loadini = loadini.openini()
 		self.extcmd = extcmd.extcmd()
 		self.ladderOptionsList = utilities.plcOptions()
 		self.setupConnections()
