@@ -1,6 +1,9 @@
 import os
+
 from PyQt5.QtWidgets import (QFileDialog, QLabel, QLineEdit, QSpinBox,
 	QDoubleSpinBox, QCheckBox, QGroupBox, QComboBox, QPushButton, QRadioButton)
+
+from libmesact import utilities
 
 class openini:
 	def __init__(self):
@@ -46,13 +49,26 @@ class openini:
 	def loadini(self, parent, iniFile):
 		booleanDict = {'true': True, 'yes': True, '1': True,
 			'false': False, 'no': False, '0': False,}
-		self.iniFile = iniFile
 		iniDict = {}
-		with open(self.iniFile,'r') as file:
+		with open(iniFile,'r') as file:
 			self.content = file.readlines() # create a list of the ini file
 		self.get_sections()
-		#start = self.sections['[MESA]'][0]
-		#end = self.sections['[MESA]'][1]
+		start = self.sections['[MESA]'][0]
+		end = self.sections['[MESA]'][1]
+		for line in self.content[start:end]:
+			if line.startswith('VERSION'):
+				key, value = line.split('=')
+				iniVersion = value.strip()
+				if parent.version != iniVersion:
+					msg = (f'The ini file version is {iniVersion}\n'
+						f'The Configuration Tool version is {parent.version}\n'
+						'Save a Backup and try and open the ini?')
+					if not parent.errorMsg(msg, 'Version Difference'):
+						print('Open Cancled')
+						return
+					else:
+						path, filename = os.path.split(iniFile)
+						utilities.backupFiles(parent, path)
 
 		iniDict['[MESA]'] = {}
 		iniDict['[MESA]']['VERSION'] = None

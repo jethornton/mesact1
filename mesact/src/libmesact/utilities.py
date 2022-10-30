@@ -682,14 +682,16 @@ def ss7i73Changed(parent):
 			add_menu(outputs, menu)
 			button.setMenu(menu)
 
-def backupFiles(parent):
-	if not os.path.exists(parent.configPath):
+def backupFiles(parent, configPath=None):
+	if not configPath:
+		configPath = parent.configPath
+	if not os.path.exists(configPath):
 		parent.machinePTE.setPlainText('Nothing to Back Up')
 		return
-	backupDir = os.path.join(parent.configPath, 'backups')
+	backupDir = os.path.join(configPath, 'backups')
 	if not os.path.exists(backupDir):
 		os.mkdir(backupDir)
-	p1 = subprocess.Popen(['find',parent.configPath,'-maxdepth','1','-type','f','-print'], stdout=subprocess.PIPE)
+	p1 = subprocess.Popen(['find',configPath,'-maxdepth','1','-type','f','-print'], stdout=subprocess.PIPE)
 	backupFile = os.path.join(backupDir, f'{datetime.now():%m-%d-%y-%H:%M:%S}')
 	p2 = subprocess.Popen(['zip','-j',backupFile,'-@'], stdin=p1.stdout, stdout=subprocess.PIPE)
 	p1.stdout.close()
