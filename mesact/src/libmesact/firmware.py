@@ -46,7 +46,7 @@ def o7i76e(parent):
 	}
 	return options
 
-def d7i80db_16(parent):
+def d7i80db16(parent):
 	daughters = {
 	'7i80db_16_7i76x1_7i85sx2D.bit':['7i76', '7i85s'],
 	'7i80db_16_7i76x3D.bit':['7i76', '7i76'],
@@ -64,7 +64,7 @@ def o7i80db_16(parent):
 	}
 	return options
 
-def d7i80db_25(parent):
+def d7i80db25(parent):
 	daughters = {
 	'7i80db_25_7i74x4.bit':[False, False],
 	'7i80db_25_7i76x2_7i74x2.bit':['7i76', '7i76'],
@@ -82,13 +82,13 @@ def d7i80db_25(parent):
 		}
 	return daughters
 
-def o7i80db_25(parent):
+def o7i80db25(parent):
 	# options stepgens, pwmgens, qcount
 	options = {
 	}
 	return options
 
-def d7i80hd_16(parent):
+def d7i80hd16(parent):
 	daughters = {
 	'7i80hd_16_st12.bit':['7i47', '7i47'],
 	'7i80hd_16_sv12.bit':['7i33', '7i33'],
@@ -99,13 +99,13 @@ def d7i80hd_16(parent):
 		}
 	return daughters
 
-def o7i80hd_16(parent):
+def o7i80hd16(parent):
 	# options stepgens, pwmgens, qcount
 	options = {
 	}
 	return options
 
-def d7i80hd_25(parent):
+def d7i80hd25(parent):
 	daughters = {
 	'7i80hd_25_st12.bit':['7i47', '7i47'],
 	'7i80hd_25_st18.bit':['7i47', '7i47'],
@@ -120,7 +120,7 @@ def d7i80hd_25(parent):
 		}
 	return daughters
 
-def o7i80hd_25(parent):
+def o7i80hd25(parent):
 	# options stepgens, pwmgens, qcount
 	options = {
 	}

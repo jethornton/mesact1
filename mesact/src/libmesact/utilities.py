@@ -108,6 +108,7 @@ def firmwareChanged(parent):
 			daughters = getattr(firmware, f'd{parent.board}')(parent)
 			if parent.firmwareCB.currentText() in daughters:
 				cards = daughters[parent.firmwareCB.currentText()]
+				print(cards)
 				parent.daughterCB_0.clear()
 				if cards[0]:
 					parent.daughterCB_0.addItem('Select', False)
