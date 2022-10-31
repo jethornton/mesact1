@@ -10,6 +10,7 @@ src/firmware/7i80db25/*.* usr/lib/libmesact/7i80db25
 src/firmware/7i80hd16/*.* usr/lib/libmesact/7i80hd16
 src/firmware/7i80hd25/*.* usr/lib/libmesact/7i80hd25
 src/firmware/7i92/*.* usr/lib/libmesact/7i92
+src/firmware/7i92t/*.* usr/lib/libmesact/7i92t
 src/firmware/7i93/*.* usr/lib/libmesact/7i93
 src/firmware/7i95/*.* usr/lib/libmesact/7i95
 src/firmware/7i96/*.* usr/lib/libmesact/7i96
