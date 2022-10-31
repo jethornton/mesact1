@@ -1,3 +1,9 @@
+mesact (1.1.0) unstable; urgency=medium
+
+  * Add support for Mesa 7i92T board
+
+ -- John Thornton <jt@gnipsel.com>  Mon, 31 Oct 2022 07:01:45 -0500
+
 mesact (1.0.0) unstable; urgency=medium
 
   * Extra sections, key-values, comments preserved in the ini file
