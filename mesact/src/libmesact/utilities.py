@@ -166,6 +166,8 @@ def firmwareChanged(parent):
 						parent.encodersCB.addItem(f'{i}', f'{i}')
 	else:
 		parent.machinePTE.clear()
+		parent.daughterCB_0.clear()
+		parent.daughterCB_1.clear()
 
 def connectorChanged(parent):
 	if parent.connectorCB.currentText() == 'P1':

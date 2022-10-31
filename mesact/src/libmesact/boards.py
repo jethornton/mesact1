@@ -392,6 +392,39 @@ def boardChanged(parent):
 			parent.ssNotesGB.setEnabled(False)
 			parent.ssWiringPTE.clear()
 
+		elif parent.boardCB.currentData() == '7i92t':
+			parent.boardType = 'eth'
+			parent.cardType_0 = ''
+			parent.mainTabs.setTabEnabled(3, False)
+			parent.mainTabs.setTabEnabled(4, False)
+			parent.boardTW.setTabText(0, '7i92T')
+			parent.ipAddressCB.setEnabled(True)
+			pixmap = QPixmap(os.path.join(parent.image_path, '7i92t-card.png'))
+			parent.boardLB.setPixmap(pixmap)
+			#pixmap = QPixmap(os.path.join(parent.image_path, '7i92t-schematic-0.png'))
+			#parent.schematicLB_0.setPixmap(pixmap)
+			parent.schematicLB_0.clear()
+			parent.daughterLB_0.setText('P1')
+			parent.daughterLB_1.setText('P2')
+			parent.stepgensCB.clear()
+			parent.stepgensCB.addItem('N/A', False)
+			parent.pwmgensCB.clear()
+			parent.pwmgensCB.addItem('N/A', False)
+			parent.encodersCB.clear()
+			parent.encodersCB.addItem('N/A', False)
+			# Smart Serial
+			parent.ssWiring_0.setText('')
+			parent.ssWiring_1.setText('')
+			parent.ssWiring_2.setText('')
+			parent.ssWiring_3.setText('')
+			parent.ssWiring_4.setText('')
+			parent.ssWiring_5.setText('')
+			parent.ssWiring_6.setText('')
+			parent.ssNotesGB.setTitle('')
+			parent.ssWiringGB.setEnabled(False)
+			parent.ssNotesGB.setEnabled(False)
+			parent.ssWiringPTE.clear()
+
 		elif parent.boardCB.currentData() == '7i93':
 			parent.boardType = 'eth'
 			parent.cardType_0 = ''
@@ -523,7 +556,7 @@ def boardChanged(parent):
 			parent.boardLB.setPixmap(pixmap)
 			pixmap = QPixmap(os.path.join(parent.image_path, '7i96-schematic-0.png'))
 			parent.schematicLB_0.setPixmap(pixmap)
-			parent.schematicLB_0.clear()
+			#parent.schematicLB_0.clear()
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('N/A')
 			parent.stepgensCB.clear()

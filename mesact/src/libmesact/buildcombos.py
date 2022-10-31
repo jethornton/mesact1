@@ -20,6 +20,7 @@ def build(parent):
 	['7i80HD-16', '7i80hd16'],
 	['7i80HD-25', '7i80hd16'],
 	['7i92', '7i92'],
+	['7i92T', '7i92t'],
 	['7i93', '7i93'],
 	['7i95', '7i95'],
 	['7i96', '7i96'],
@@ -227,6 +228,7 @@ def build(parent):
 	['7i80HD', '7i80hdman.pdf'],
 	['7i90HD', '7i90hdman.pdf'],
 	['7i92', '7i92man.pdf'],
+	['7i92T', '7i92tman.pdf'],
 	['7i93', '7i93man.pdf'],
 	['7i98', '7i98man.pdf'],
 	]

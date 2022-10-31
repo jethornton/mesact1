@@ -160,6 +160,39 @@ def io7i92(parent):
 	}
 	return pinmap
 
+'''
+7i92t_g540d.bin
+7i92t_mx3660d.bin
+7i92t_mx4660d.bin
+'''
+
+def d7i92t(parent):
+	daughters = {
+	'7i92t_7i76_7i74d.bin':['7i76', False],
+	'7i92t_7i76x2d.bin':['7i76', '7i76'],
+	'7i92t_7i77_7i74d.bin':['7i77', False],
+	'7i92t_7i77x2d.bin':['7i77', '7i77'],
+		}
+	return daughters
+
+def o7i92t(parent):
+	# options stepgens, pwmgens, qcount
+	options = {
+	'7i92t_7i76_7i74d.bin':[False, False, False],
+	'7i92t_7i76x2d.bin':[False, False, False],
+	'7i92t_7i77_7i74d.bin':[False, False, False],
+	'7i92t_7i77x2d.bin':[False, False, False],
+	}
+	return options
+
+def io7i92t(parent):
+	# pinmap firmware:[gpio, pin]
+	pinmap = {
+	'7i92_5ABOBx2D.bit':[['1','14'], False, 2],
+	}
+	return pinmap
+
+
 def d7i93(parent):
 	pass
 	daughters = {
