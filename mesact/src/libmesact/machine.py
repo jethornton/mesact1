@@ -25,7 +25,7 @@ def daughterCardChanged(parent):
 		stepper = ['7i76', '7i78']
 		servo = ['7i77']
 		cardType = {'7i33': 'servo', '7i47s': 'step', '7i47': 'step', '7i76': 'step', '7i77': 'servo',
-		'7i78': 'step', '7i85': 'servo', '7i85s': 'step', '5ABOB': 'step'}
+		'7i78': 'step', '7i85': 'step', '7i85s': 'step', '5ABOB': 'step'}
 
 		if parent.sender().currentData() == '7i76':
 			spinnotes = ('SPINDLE INTERFACE\n'
