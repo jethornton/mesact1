@@ -69,7 +69,7 @@ def nicCalc(parent):
 		tMax = readtmax + writetmax
 		cpuSpeed = float(cpuSpeedText) * parent.cpuSpeedCB.currentData()
 		packetTime = tMax / cpuSpeed
-		parent.packetTimeLB.setText('{:.1%}'.format(packetTime))
+		parent.packetTimeLB.setText(f'{packetTime:.1%}')
 	else:
 		errorText = []
 		if parent.cpuSpeedLE.text() == '':

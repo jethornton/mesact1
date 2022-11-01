@@ -687,7 +687,7 @@ def boardChanged(parent):
 			for i in range(10):
 				halInputs.append(f'hm2_7i96s.0.inm.00.input-{i:02}')
 			for i in range(6):
-				button = getattr(parent, "inputPinPB_{}".format(i))
+				button = getattr(parent, f'inputPinPB_{i}')
 				menu = QMenu()
 				menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
 				add_menu(halInputs, menu)
@@ -699,7 +699,7 @@ def boardChanged(parent):
 			for i in range(4,6):
 				halOutputs.append(f'hm2_7i96s.0.outm.00.out-{i:02}')
 			for i in range(6):
-				button = getattr(parent, "outputPinPB_{}".format(i))
+				button = getattr(parent, f'outputPinPB_{i}')
 				menu = QMenu()
 				menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
 				add_menu(halOutputs, menu)

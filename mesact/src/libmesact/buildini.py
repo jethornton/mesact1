@@ -289,7 +289,7 @@ def build(parent):
 	iniContents.append(f'LOAD_CONFIG = {parent.loadConfigCB.isChecked()}\n')
 	iniContents.append(f'INTRO_GRAPHIC = {parent.introGraphicLE.text()}\n')
 	iniContents.append(f'INTRO_GRAPHIC_TIME = {parent.splashScreenSB.value()}\n')
-	iniContents.append(f'MANUAL_TOOL_CHANGE = {parent.manualToolChangeCB.isChecked()}\n'.format())
+	iniContents.append(f'MANUAL_TOOL_CHANGE = {parent.manualToolChangeCB.isChecked()}\n')
 	iniContents.append(f'CUSTOM_HAL = {parent.customhalCB.isChecked()}\n')
 	iniContents.append(f'POST_GUI_HAL = {parent.postguiCB.isChecked()}\n')
 	iniContents.append(f'SHUTDOWN_HAL = {parent.shutdownCB.isChecked()}\n')
