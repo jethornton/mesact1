@@ -40,22 +40,7 @@ def setup(parent):
 		else:
 			parent.emcVersionLB.setText(version)
 
-	try:
-		mf = subprocess.check_output('mesaflash', encoding='UTF-8')
-		if len(mf) > 0:
-			parent.mesaflashVersionLB.setText(mf.split()[2])
-	except FileNotFoundError as error:
-		parent.mesaflashVersionLB.setText('Not Installed')
-	parent.mainTabs.setTabEnabled(3, False)
-	parent.mainTabs.setTabEnabled(4, False)
-	parent.cardTabs.setTabEnabled(1, False)
-	parent.spindleGB.setEnabled(False)
-	parent.spindlepwmGB.setEnabled(False)
-	parent.spindlepidGB.setEnabled(False)
-	parent.minAngJogVelDSB.setEnabled(False)
-	parent.defAngJogVelDSB.setEnabled(False)
-	parent.maxAngJogVelDSB.setEnabled(False)
-	parent.spindleStepgenGB.setEnabled(False)
+	utilities.checkmesaflash(parent)
 
 	pixmap = QPixmap(os.path.join(parent.lib_path, '7i76.png'))
 	parent.card7i76LB.setPixmap(pixmap)
@@ -122,32 +107,8 @@ def checkconfig(parent):
 		with open(os.path.expanduser('~/.config/measct/mesact.conf'), 'w') as configfile:
 			config.write(configfile)
 		parent.checkMesaflashCB.setChecked(True)
-		checkmf(parent)
 		parent.newUserCB.setChecked(True)
 		newuser(parent)
-
-def checkmf(parent):
-	# only check to see if it's installed here mesaflashVersionLB
-	try:
-		subprocess.check_output('mesaflash', encoding='UTF-8')
-	except FileNotFoundError:
-		#parent.errorMsgOk(('Mesaflash not found go to\n'
-		#	'https://github.com/LinuxCNC/mesaflash\n'
-		#	'for installation instructions.'), 'Notice! Can Not Flash Firmware')
-		t = ('Mesaflash not found go to\n'
-			'https://github.com/LinuxCNC/mesaflash\n'
-			'for installation instructions.\n'
-			'This check can be turned off\n'
-			'in the Options tab')
-		parent.errorMsgOk(t,'Mesaflash')
-		#parent.machinePTE.appendPlainText(t)
-		parent.firmwareCB.setEnabled(False)
-		parent.readpdPB.setEnabled(False)
-		parent.readhmidPB.setEnabled(False)
-		parent.flashPB.setEnabled(False)
-		parent.reloadPB.setEnabled(False)
-		parent.verifyPB.setEnabled(False)
-		parent.statusbar.showMessage('Mesaflash not found!')
 
 def newuser(parent):
 	msg = ('If this is your first time using the '
@@ -158,7 +119,6 @@ def newuser(parent):
 		'Options Tab in the Startup Box'
 	)
 	parent.infoMsgOk(msg, 'Greetings')
-
 
 def getpref(parent):
 	pass
