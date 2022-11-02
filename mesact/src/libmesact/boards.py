@@ -638,7 +638,7 @@ def boardChanged(parent):
 				getattr(parent, f'c0_analogGB_{i}').setVisible(False)
 				getattr(parent, f'c0_encoderGB_{i}').setVisible(False)
 			parent.machinePTE.clear()
-			parent.machinePTE.appendPlainText('The 7i96S requires LinuxCNC Uspace 2.9 Febuary 24, 2022 or newer!')
+			parent.machinePTE.appendPlainText('The 7i96S requires LinuxCNC Uspace 2.8.4 or 2.9 Febuary 24, 2022 or newer!')
 			parent.machinePTE.appendPlainText(f'Firmware is optional for {parent.board} all in one boards')
 			parent.machinePTE.appendPlainText(f'Default firmware for {parent.board} is 7i96s_d.bin')
 			utilities.checkmesaflash(parent, '3.4.3')
