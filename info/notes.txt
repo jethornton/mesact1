@@ -4,7 +4,9 @@ git checkout -b ini4 origin/ini4
 sudo apt install devscripts
 
 make html
-latexmk needs to be installed to build pfd docs
+
+sudo apt install texlive-latex-extra
+sudo apt install latexmk
 make latexpdf
 
 Qt Designer
