@@ -38,7 +38,6 @@ from libmesact import buildmenus
 from libmesact import firmware
 from libmesact import card
 from libmesact import loadini
-#from libmesact import loadini2
 from libmesact import updateini
 from libmesact import hal
 from libmesact import checkconfig
