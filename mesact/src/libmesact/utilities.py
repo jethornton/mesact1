@@ -63,6 +63,7 @@ def isNumber(s):
 
 def checkmesaflash(parent, required=None, board=None):
 	flashOk = True
+	installed = False
 	try:
 		mf = subprocess.check_output('mesaflash', encoding='UTF-8')
 		if len(mf) > 0:
@@ -77,7 +78,7 @@ def checkmesaflash(parent, required=None, board=None):
 		parent.machinePTE.appendPlainText(t)
 		parent.statusbar.showMessage('Mesaflash not found!')
 
-	if required:
+	if required and installed:
 		ivers = installed.split('.')
 		rvers = required.split('.')
 		items = len(ivers)
