@@ -127,7 +127,6 @@ def firmwareChanged(parent):
 				parent.daughterCB_0.clear()
 				parent.daughterCB_1.clear()
 
-
 		# might combine these
 		elif  parent.boardCB.currentData() in parent.allInOneBoards:
 			daughters = getattr(firmware, f'd{parent.board}')(parent)
@@ -142,6 +141,9 @@ def firmwareChanged(parent):
 					if cards[1]:
 						parent.daughterCB_1.addItem('Select', False)
 						parent.daughterCB_1.addItem(cards[1], cards[1])
+				else:
+					parent.daughterCB_0.clear()
+					parent.daughterCB_1.clear()
 
 		path = os.path.splitext(parent.firmwareCB.currentData())[0]
 		pinfile = os.path.join(path + '.pin')
