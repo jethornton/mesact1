@@ -81,6 +81,7 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
+			utilities.checkmesaflash(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -120,6 +121,7 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
+			utilities.checkmesaflash(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -181,6 +183,7 @@ def boardChanged(parent):
 			parent.spindleTypeCB.addItem('Digital', 'digital')
 			for i in range(parent.axes):
 				parent.spindleTypeCB.addItem(f'Stepgen {i}', f'stepgen_{i}')
+			utilities.checkmesaflash(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('TB3')
 			parent.ssWiring_1.setText('15')
@@ -235,6 +238,7 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
+			utilities.checkmesaflash(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -266,6 +270,7 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
+			utilities.checkmesaflash(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -307,6 +312,7 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
+			utilities.checkmesaflash(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -348,6 +354,7 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
+			utilities.checkmesaflash(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -379,6 +386,7 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
+			utilities.checkmesaflash(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -412,8 +420,7 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
-			utilities.checkmesaflash(parent, '3.4.4')
-
+			utilities.checkmesaflash(parent, '3.4.4', '7i92T')
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -445,6 +452,7 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
+			utilities.checkmesaflash(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -510,6 +518,7 @@ def boardChanged(parent):
 			parent.spindleTypeCB.addItem('Digital', 'digital')
 			for i in range(parent.axes):
 				parent.spindleTypeCB.addItem(f'Stepgen {i}', f'stepgen_{i}')
+			utilities.checkmesaflash(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('TB4')
 			parent.ssWiring_1.setText('13, 19')
@@ -580,6 +589,7 @@ def boardChanged(parent):
 			parent.spindleTypeCB.addItem('Digital', 'digital')
 			for i in range(parent.axes):
 				parent.spindleTypeCB.addItem(f'Stepgen {i}', f'stepgen_{i}')
+			utilities.checkmesaflash(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('TB2')
 			parent.ssWiring_1.setText('15')
@@ -643,14 +653,13 @@ def boardChanged(parent):
 			parent.machinePTE.appendPlainText('The 7i96S requires LinuxCNC Uspace 2.8.4 or 2.9 Febuary 24, 2022 or newer!')
 			parent.machinePTE.appendPlainText(f'Firmware is optional for {parent.board} all in one boards')
 			parent.machinePTE.appendPlainText(f'Default firmware for {parent.board} is 7i96s_d.bin')
-			utilities.checkmesaflash(parent, '3.4.3')
-
 			parent.spindleTypeCB.clear()
 			parent.spindleTypeCB.addItem('None', False)
 			parent.spindleTypeCB.addItem('Analog', 'analog')
 			parent.spindleTypeCB.addItem('Digital', 'digital')
 			for i in range(parent.axes):
 				parent.spindleTypeCB.addItem(f'Stepgen {i}', f'stepgen_{i}')
+			utilities.checkmesaflash(parent, '3.4.3', '7i96S')
 			# Smart Serial
 			parent.ssWiring_0.setText('TB2')
 			parent.ssWiring_1.setText('15')
@@ -752,6 +761,7 @@ def boardChanged(parent):
 				getattr(parent, f'c0_stepgenGB_{i}').setVisible(False)
 				getattr(parent, f'c0_analogGB_{i}').setVisible(True)
 				getattr(parent, f'c0_encoderGB_{i}').setVisible(True)
+			utilities.checkmesaflash(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('TB2')
 			parent.ssWiring_1.setText('13, 14')

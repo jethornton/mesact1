@@ -61,44 +61,52 @@ def isNumber(s):
 	except ValueError:
 		return False
 
-def checkmesaflash(parent, required = None):
+def checkmesaflash(parent, required=None, board=None):
 	flashOk = True
 	try:
-		subprocess.check_output('mesaflash', encoding='UTF-8')
-		if required != None:
-			t = (f'Mesaflash version installed is less than {required}\n'
-				f'The Mesa 7i96S requires Mesaflash {required} or later.\n'
-				'Go to https://github.com/LinuxCNC/mesaflash\n'
-				'for installation/update instructions.')
-			try:
-				version = subprocess.check_output(['mesaflash', '--version'], encoding='UTF-8')[-6:]
-				if int(version.replace('.', '')) >= int(required.replace('.', '')):
-					parent.machinePTE.appendPlainText(f'Mesaflash Version: {version}')
-				else:
-					parent.errorMsgOk(t, 'Mesaflash Version')
-					parent.machinePTE.appendPlainText(t)
-					flashOk = False
-			except:
-				parent.errorMsgOk(t, 'Mesaflash Version')
-				parent.machinePTE.appendPlainText(t)
-				flashOk = False
-	except FileNotFoundError:
-		#parent.errorMsgOk(('Mesaflash not found go to\n'
-		#	'https://github.com/LinuxCNC/mesaflash\n'
-		#	'for installation instructions.'), 'Notice! Can Not Flash Firmware')
-		t = ('Mesaflash not found go to\n'
-			'https://github.com/LinuxCNC/mesaflash\n'
-			'for installation instructions.')
+		mf = subprocess.check_output('mesaflash', encoding='UTF-8')
+		if len(mf) > 0:
+			installed = mf.split()[2]
+			parent.mesaflashVersionLB.setText(installed)
+	except FileNotFoundError as error:
+		flashOk = False
+		parent.mesaflashVersionLB.setText('Not Installed')
+		t = ('Mesaflash not found! Flashing and reading cards is not possible.\n'
+			'Either install from the Synaptic Package Manager or go to\n'
+			'https://github.com/LinuxCNC/mesaflash for installation instructions.')
 		parent.machinePTE.appendPlainText(t)
 		parent.statusbar.showMessage('Mesaflash not found!')
 
-	if not flashOk:
+	if required:
+		ivers = installed.split('.')
+		rvers = required.split('.')
+		items = len(ivers)
+		for i in range(items):
+			if ivers[i] < rvers[i]:
+				flashOk = False
+				t = (f'The Mesa {board} requires Mesaflash {required} or later.\n'
+					f'The installed version of Mesaflash is {installed}\n'
+					'Try updating the PC with sudo apt update in a terminal\n'
+					'or go to https://github.com/LinuxCNC/mesaflash\n'
+					'for installation/update instructions.')
+				parent.errorMsgOk(t, 'Mesaflash Version')
+				parent.machinePTE.appendPlainText(t)
+
+	if flashOk:
+		parent.firmwareCB.setEnabled(True)
+		parent.readhmidPB.setEnabled(True)
+		parent.readpdPB.setEnabled(True)
+		parent.flashPB.setEnabled(True)
+		parent.reloadPB.setEnabled(True)
+		parent.verifyPB.setEnabled(True)
+	else:
 		parent.firmwareCB.setEnabled(False)
 		parent.readhmidPB.setEnabled(False)
 		parent.readpdPB.setEnabled(False)
 		parent.flashPB.setEnabled(False)
 		parent.reloadPB.setEnabled(False)
 		parent.verifyPB.setEnabled(False)
+
 
 def firmwareChanged(parent):
 	if parent.firmwareCB.currentData():
