@@ -32,10 +32,20 @@ Highlights
 
 *	Add a VCP Panel
 
-*	Add and configure the Classicladder PLC
+*	Add and configure the Classicladder PLC options
 
 *	Get Motherboard, CPU, and NIC information about the PC
 
 *	Test the Thread Period
 
 *	Check the configuration for errors at any time during the creation
+
+*	Load a configuration at startup
+
+*	Create a backup of the entire configuration directory with a date and time stamp
+
+*	Board layout image of all the daughter boards as well as the selected board
+
+*	Wiring diagram for the Smart Serial connection
+
+*	HAL funtion assistant to help create custom HAL code

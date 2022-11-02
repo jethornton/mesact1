@@ -17,5 +17,6 @@ and 7i98.
    display
    axes
    io
-   
+   spindle
+   hal
 
