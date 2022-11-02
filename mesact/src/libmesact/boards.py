@@ -412,6 +412,8 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
+			utilities.checkmesaflash(parent, '3.4.4')
+
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
