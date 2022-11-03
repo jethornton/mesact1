@@ -89,7 +89,7 @@ def checkconfig(parent):
 		if config.has_option('NAGS', 'MESAFLASH'):
 			if config['NAGS']['MESAFLASH'] == 'True':
 				parent.checkMesaflashCB.setChecked(True)
-				checkmf(parent)
+				utilities.checkmesaflash(parent)
 		if config.has_option('NAGS', 'NEWUSER'):
 			if config['NAGS']['NEWUSER'] == 'True':
 				parent.newUserCB.setChecked(True)
