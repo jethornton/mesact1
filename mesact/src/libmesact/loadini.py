@@ -274,7 +274,6 @@ class openini:
 				section = line.strip()
 			elif section in iniDict:
 				if len(line.strip()) > 0  and not line.strip().startswith('#'):
-					print(line.strip())
 					i, v = line.split('=')
 					item = i.strip()
 					value = v.strip()
