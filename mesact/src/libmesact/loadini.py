@@ -258,7 +258,7 @@ class openini:
 			end = self.sections['[SSERIAL]'][1]
 			for i, j in enumerate(range(start, end)):
 				line = self.content[j].strip()
-				if len(line.strip()) > 0  and not line.startswith('#'):
+				if len(line.strip()) > 0 and line.startswith('ss'):
 					line = self.content[j].split('=')
 					key = line[0].strip()
 					value = line[1].strip()
