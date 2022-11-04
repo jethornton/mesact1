@@ -1,0 +1,13 @@
+7i96s_7i85sd.bin
+5 Axes of Step and Direction
+1 Encoder Input
+1 Smart Serial Port
+11 Inputs 6 Outputs
+
+P1 Daughter Card 7i85S
+8 Channel Differential Ouputs
+can be used as
+4 Step & Direction Outputs
+or
+4 PWM & Direction Outputs
+4 Encoder Inputs

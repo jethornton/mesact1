@@ -1,0 +1,8 @@
+7i96s_7i74d.bin
+5 Axes of Step and Direction
+1 Encoder Input
+1 Smart Serial Port
+11 Inputs 6 Outputs
+
+P1 Daughter Card 7i74
+8 Port Smart Serial
