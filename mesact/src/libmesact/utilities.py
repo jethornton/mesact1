@@ -1,6 +1,5 @@
 import os, subprocess, requests
-from packaging import version
-from functools import partial
+
 from datetime import datetime
 
 from PyQt5.QtWidgets import QMessageBox, QApplication, QInputDialog, QLineEdit
@@ -49,9 +48,6 @@ def maxVelChanged(parent):
 			parent.mlvPerMinLB.setText(F'{val * 60:.1f} in/min')
 	else:
 		parent.mlvPerMinLB.setText('')
-
-#def createError(parent):
-#	os.makedirs(os.path.expanduser('~/.config/measct'))
 
 def isNumber(s):
 	try:
@@ -169,7 +165,6 @@ def firmwareChanged(parent):
 			parent.firmwareDescPTE.clear()
 			parent.firmwareDescPTE.setPlainText(f'No description file found\nfor {parent.firmwareCB.currentText()}')
 
-
 		options = getattr(firmware, f'o{board}')(parent)
 		# options stepgens, pwmgens, qcount
 		if options:
@@ -235,7 +230,6 @@ def updateAxisInfo(parent):
 		getattr(parent, f'{card}_distanceJoint_' + joint).setText(f'{accelDistance:.2f} {parent.linearUnitsCB.currentData()}')
 		stepRate = scale * maxVelocity
 		getattr(parent, f'{card}_stepRateJoint_' + joint).setText(f'{abs(stepRate):.0f} pulses')
-
 
 def axisChanged(parent):
 	connector = parent.sender().objectName()[:3]
