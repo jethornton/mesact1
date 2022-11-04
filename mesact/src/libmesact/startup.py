@@ -40,8 +40,7 @@ def setup(parent):
 		else:
 			parent.emcVersionLB.setText(version)
 
-	utilities.checkmesaflash(parent)
-
+	parent.configNameLE.setFocus()
 	pixmap = QPixmap(os.path.join(parent.lib_path, '7i76.png'))
 	parent.card7i76LB.setPixmap(pixmap)
 	pixmap = QPixmap(os.path.join(parent.lib_path, '7i77.png'))
