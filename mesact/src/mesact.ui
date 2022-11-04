@@ -266,7 +266,7 @@ QGroupBox::title {
              <widget class="QPlainTextEdit" name="firmwareDescPTE">
               <property name="maximumSize">
                <size>
-                <width>250</width>
+                <width>225</width>
                 <height>16777215</height>
                </size>
               </property>
@@ -448,7 +448,7 @@ QGroupBox::title {
             <widget class="QComboBox" name="linearUnitsCB"/>
            </item>
            <item row="1" column="3" colspan="3">
-            <widget class="QLineEdit" name="configName">
+            <widget class="QLineEdit" name="configNameLE">
              <property name="toolTip">
               <string>Any combination of letters and digits
 including the dash and underscore.
@@ -29125,7 +29125,7 @@ QToolButton {
   </action>
  </widget>
  <tabstops>
-  <tabstop>configName</tabstop>
+  <tabstop>configNameLE</tabstop>
   <tabstop>linearUnitsCB</tabstop>
   <tabstop>trajMaxLinVelDSB</tabstop>
   <tabstop>loadConfigCB</tabstop>

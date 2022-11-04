@@ -136,7 +136,7 @@ class MainWindow(QMainWindow):
 		self.timer.timeout.connect(partial(updates.clearProgressBar, self))
 
 		# Machine Tab
-		self.configName.textChanged[str].connect(partial(machine.configNameChanged, self))
+		self.configNameLE.textChanged[str].connect(partial(machine.configNameChanged, self))
 		self.linearUnitsCB.currentIndexChanged.connect(partial(utilities.unitsChanged, self))
 		self.trajMaxLinVelDSB.valueChanged.connect(partial(utilities.maxVelChanged, self))
 		self.loadConfigCB.clicked.connect(partial(settings.update_value, self))

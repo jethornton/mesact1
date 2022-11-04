@@ -8,7 +8,7 @@ def checkit(parent):
 
 	# check the Machine Tab for errors
 	# check to see if a daughter card is selected for that type
-	if not parent.configName.text():
+	if not parent.configNameLE.text():
 		tabError = True
 		configErrors.append('\tA configuration name must be entered')
 	if not parent.linearUnitsCB.currentData():

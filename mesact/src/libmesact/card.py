@@ -241,11 +241,11 @@ def getCardPins(parent):
 
 
 def savePins(parent):
-	if parent.configName.text() == '':
+	if parent.configNameLE.text() == '':
 		parent.errorMsgOk('A Configuration\nmust be loaded', 'Error')
 		return
 	if not "0x48414c32" in subprocess.getoutput('ipcs'):
-		parent.errorMsgOk(f'LinuxCNC must be running\nthe {parent.configName.text()} configuration', 'Error')
+		parent.errorMsgOk(f'LinuxCNC must be running\nthe {parent.configNameLE.text()} configuration', 'Error')
 		return
 	parent.results = subprocess.getoutput('halcmd show pin')
 	fp = os.path.join(parent.configPath, parent.configNameUnderscored + '-pins.txt')
@@ -254,11 +254,11 @@ def savePins(parent):
 	parent.statusbar.showMessage(f'Pins saved to {fp}')
 
 def saveSignals(parent):
-	if parent.configName.text() == '':
+	if parent.configNameLE.text() == '':
 		parent.errorMsgOk('A Configuration\nmust be loaded', 'Error')
 		return
 	if not "0x48414c32" in subprocess.getoutput('ipcs'):
-		parent.errorMsgOk(f'LinuxCNC must be running\nthe {parent.configName.text()} configuration', 'Error')
+		parent.errorMsgOk(f'LinuxCNC must be running\nthe {parent.configNameLE.text()} configuration', 'Error')
 		return
 	parent.results = subprocess.getoutput('halcmd show sig')
 	fp = os.path.join(parent.configPath, parent.configNameUnderscored + '-sigs.txt')
@@ -267,11 +267,11 @@ def saveSignals(parent):
 	parent.statusbar.showMessage(f'Signals saved to {fp}')
 
 def saveParameters(parent):
-	if parent.configName.text() == '':
+	if parent.configNameLE.text() == '':
 		parent.errorMsgOk('A Configuration\nmust be loaded', 'Error')
 		return
 	if not "0x48414c32" in subprocess.getoutput('ipcs'):
-		parent.errorMsgOk(f'LinuxCNC must be running\nthe {parent.configName.text()} configuration', 'Error')
+		parent.errorMsgOk(f'LinuxCNC must be running\nthe {parent.configNameLE.text()} configuration', 'Error')
 		return
 	parent.results = subprocess.getoutput('halcmd show parameter')
 	fp = os.path.join(parent.configPath, parent.configNameUnderscored + '-parameters.txt')

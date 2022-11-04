@@ -78,7 +78,7 @@ class openini:
 		iniDict['[MESA]']['CARD_1'] = 'daughterCB_1'
 
 		iniDict['[EMC]'] = {}
-		iniDict['[EMC]']['MACHINE'] = 'configName'
+		iniDict['[EMC]']['MACHINE'] = 'configNameLE'
 		iniDict['[EMC]']['DEBUG'] = 'debugCB'
 
 		iniDict['[HM2]'] = {}

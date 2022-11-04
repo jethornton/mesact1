@@ -28,7 +28,7 @@ class updateini:
 
 		emc = [
 		['EMC', 'VERSION', f'{parent.emcVersion}'],
-		['EMC', 'MACHINE', f'{parent.configName.text()}'],
+		['EMC', 'MACHINE', f'{parent.configNameLE.text()}'],
 		['EMC', 'DEBUG', f'{parent.debugCB.currentData()}']
 		]
 		for item in emc:

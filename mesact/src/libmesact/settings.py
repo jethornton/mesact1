@@ -14,7 +14,7 @@ def update(parent):
 	config['NAGS']['NEWUSER'] = f'{parent.newUserCB.isChecked()}'
 	config.add_section('STARTUP')
 	if parent.loadConfigCB.isChecked():
-		config['STARTUP']['CONFIG'] = parent.configName.text()
+		config['STARTUP']['CONFIG'] = parent.configNameLE.text()
 	else:
 		config['STARTUP']['CONFIG'] = 'False'
 	with open(configPath, 'w') as cf:
@@ -29,7 +29,7 @@ def update_value(parent):
 	# check to see what type of object it is to get correct value
 	if isinstance(parent.sender(), QCheckBox):
 		if sender == 'loadConfigCB' and parent.sender().isChecked():
-			value = parent.configName.text()
+			value = parent.configNameLE.text()
 		else:
 			value = f'{parent.sender().isChecked()}'
 
@@ -49,7 +49,7 @@ def update_value(parent):
 			config['NAGS']['NEWUSER'] = f'{parent.newUserCB.isChecked()}'
 			config.add_section('STARTUP')
 			if parent.loadConfigCB.isChecked():
-				config['STARTUP']['CONFIG'] = parent.configName.text()
+				config['STARTUP']['CONFIG'] = parent.configNameLE.text()
 			else:
 				config['STARTUP']['CONFIG'] = 'False'
 		with open(configPath, 'w') as cf:

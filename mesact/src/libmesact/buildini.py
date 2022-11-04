@@ -30,7 +30,7 @@ def build(parent):
 	# build the [EMC] section
 	iniContents.append('\n[EMC]\n')
 	iniContents.append(f'VERSION = {parent.emcVersion}\n')
-	iniContents.append(f'MACHINE = {parent.configName.text()}\n')
+	iniContents.append(f'MACHINE = {parent.configNameLE.text()}\n')
 	iniContents.append(f'DEBUG = {parent.debugCB.currentData()}\n')
 
 	# build the [HM2] section
