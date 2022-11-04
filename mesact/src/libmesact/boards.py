@@ -31,6 +31,7 @@ def boardChanged(parent):
 
 		# firmware combobox
 		parent.firmwareCB.clear()
+		parent.firmwareDescPTE.clear()
 		path = os.path.join(parent.firmware_path, parent.boardCB.currentData())
 		files = sorted([entry.path for entry in os.scandir(path) if entry.is_file()])
 		bitFiles = False
