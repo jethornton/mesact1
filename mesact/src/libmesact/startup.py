@@ -2,7 +2,6 @@ import os, subprocess
 from configparser import ConfigParser
 from PyQt5.QtGui import QPixmap
 
-from libmesact import loadini
 from libmesact import utilities
 
 def setup(parent):
@@ -84,8 +83,7 @@ def readconfig(parent):
 				newuser(parent)
 		if config.has_option('STARTUP', 'CONFIG'):
 			if config['STARTUP']['CONFIG'] != 'False':
-				loadini = loadini.openini()
-				loadini.getini(parent, config['STARTUP']['CONFIG'].lower())
+				parent.loadini.getini(parent, config['STARTUP']['CONFIG'].lower())
 		if config.has_option('TOOLS', 'FIRMWARE'):
 			if config['TOOLS']['FIRMWARE'] != 'False':
 				parent.enableMesaflashCB.setChecked(True)
