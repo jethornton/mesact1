@@ -234,6 +234,8 @@ Help Text for PLC Tab
 
 Classicladder PLC will add a basic PLC to the configuration. You can also set
 the number of components that Classicladder starts with.
+
+Edit the Classicladder PLC in the GUI like Axis.
 """
 text_12 = """
 Help Text for Pins Tab
