@@ -28940,13 +28940,18 @@ try increasing the thread period.</string>
            <attribute name="title">
             <string>Ethernet</string>
            </attribute>
-           <layout class="QGridLayout" name="gridLayout_193">
-            <item row="0" column="0">
-             <widget class="QPlainTextEdit" name="ethernetPTE">
-              <property name="plainText">
-               <string>1. Remove any PCI or USB NIC's
-2. Open a terminal and type in ip link show
-3. Find the ID of the NIC something like enp2s0
+           <widget class="QPlainTextEdit" name="ethernetPTE">
+            <property name="geometry">
+             <rect>
+              <x>9</x>
+              <y>9</y>
+              <width>431</width>
+              <height>221</height>
+             </rect>
+            </property>
+            <property name="plainText">
+             <string>1. Remove any PCI or USB NIC's
+2. Click IP and NIC Info to get current settings
 4. In a terminal edit /etc/network/interfaces with sudo nano /etc/network/interfaces
 5. Add the following using your NIC ID
 auto enp2s0
@@ -28955,10 +28960,33 @@ auto enp2s0
           netmask 255.255.255.0
 6. Ctrl X, Yes, Enter
 </string>
-              </property>
-             </widget>
-            </item>
-           </layout>
+            </property>
+           </widget>
+           <widget class="QGroupBox" name="groupBox_88">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>510</y>
+              <width>561</width>
+              <height>211</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>IP Information</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_193">
+             <item row="0" column="0">
+              <widget class="QPlainTextEdit" name="ipInfoPTE"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="getipPB">
+               <property name="text">
+                <string>IP and NIC Info</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </widget>
          </widget>
         </item>

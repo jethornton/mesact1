@@ -13,7 +13,7 @@ Store Connector used for building config
 
 """
 VERSION = '1.1.0'
-BUILD_DATE = '11/3/2022'
+BUILD_DATE = '11/5/2022'
 
 import sys, os, traceback
 from functools import partial
@@ -224,6 +224,7 @@ class MainWindow(QMainWindow):
 		self.servoThreadTmaxPB.clicked.connect(partial(pcinfo.readServoTmax, self))
 		self.calculateServoPB.clicked.connect(partial(pcinfo.calcServoPercent, self))
 		self.latencyTestPB.clicked.connect(partial(tools.runLatencyHisogram, self))
+		self.getipPB.clicked.connect(partial(pcinfo.ipInfo, self))
 
 		# Options Tab
 		#self.checkMesaflashCB.clicked.connect(partial(settings.update_value, self))
