@@ -5,21 +5,6 @@ from PyQt5.QtWidgets import (QFileDialog, QLabel, QLineEdit, QSpinBox,
 
 # Do all config settings here.
 
-def update(parent):
-	configPath = os.path.expanduser('~/.config/measct/mesact.conf')
-	config = ConfigParser()
-	config.optionxform = str
-	config.add_section('NAGS')
-	config['NAGS']['MESAFLASH'] = f'{parent.checkMesaflashCB.isChecked()}'
-	config['NAGS']['NEWUSER'] = f'{parent.newUserCB.isChecked()}'
-	config.add_section('STARTUP')
-	if parent.loadConfigCB.isChecked():
-		config['STARTUP']['CONFIG'] = parent.configNameLE.text()
-	else:
-		config['STARTUP']['CONFIG'] = 'False'
-	with open(configPath, 'w') as cf:
-		config.write(cf)
-
 def update_value(parent):
 	configPath = os.path.expanduser('~/.config/measct/mesact.conf')
 	sender = parent.sender().objectName()

@@ -18,17 +18,7 @@ def add_menu(data, menu_obj):
 		action = menu_obj.addAction(data)
 		action.setIconVisibleInMenu(False)
 
-def boardChanged(parent):
-	if parent.boardCB.currentData():
-		parent.machinePTE.clear()
-		parent.daughterCB_0.clear()
-		parent.daughterCB_1.clear()
-		parent.board = parent.boardCB.currentData()
-		if parent.boardCB.currentData() == '7i76e':
-			parent.device = '7i76e-16'
-		else:
-			parent.device = parent.boardCB.currentData()
-
+def loadFirmware(parent):
 		# firmware combobox
 		parent.firmwareCB.clear()
 		parent.firmwareDescPTE.clear()
@@ -44,18 +34,27 @@ def boardChanged(parent):
 				bitFiles = True
 				break
 
-		for file in files:
-			if os.path.splitext(file)[1] in extensions:
-				parent.firmwareCB.addItem(os.path.basename(file), file)
-
 		if bitFiles:
+			for file in files:
+				if os.path.splitext(file)[1] in extensions:
+					parent.firmwareCB.addItem(os.path.basename(file), file)
 			parent.machinePTE.appendPlainText(f'Firmware for {parent.boardCB.currentText()} Loaded')
 			parent.machinePTE.appendPlainText('Select Firmware for Daughter Cards')
-			parent.machinePTE.appendPlainText('Not all Firmware has a dictionary entry for Daughter Cards')
-			parent.machinePTE.appendPlainText('\nIF YOU ARE NEW OPEN THE DOCUMENTS AND READ BASIC USAGE!')
+			parent.machinePTE.appendPlainText('Not all Firmware has a dictionary entry for Daughter Cards\n')
 		else:
 			parent.machinePTE.appendPlainText(f'No Firmware found {parent.boardCB.currentText()}!')
-			parent.machinePTE.appendPlainText(f'No Daughter Cards are available for {parent.boardCB.currentText()}')
+			parent.machinePTE.appendPlainText(f'No Daughter Cards are available for {parent.boardCB.currentText()}\n')
+
+def boardChanged(parent):
+	if parent.boardCB.currentData():
+		parent.machinePTE.clear()
+		parent.daughterCB_0.clear()
+		parent.daughterCB_1.clear()
+		parent.board = parent.boardCB.currentData()
+		if parent.boardCB.currentData() == '7i76e':
+			parent.device = '7i76e-16'
+		else:
+			parent.device = parent.boardCB.currentData()
 
 		if parent.boardCB.currentData() == '5i24': # DOUBLE CHECK THE SETTINGS
 			parent.boardType = 'pci'
@@ -82,7 +81,9 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
-			utilities.checkmesaflash(parent)
+			if parent.enableMesaflashCB.isChecked():
+				if utilities.checkmesaflash(parent):
+					loadFirmware(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -95,7 +96,6 @@ def boardChanged(parent):
 			parent.ssWiringGB.setEnabled(False)
 			parent.ssNotesGB.setEnabled(False)
 			parent.ssWiringPTE.clear()
-
 
 		if parent.boardCB.currentData() == '5i25':
 			parent.boardType = 'pci'
@@ -122,7 +122,9 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
-			utilities.checkmesaflash(parent)
+			if parent.enableMesaflashCB.isChecked():
+				if utilities.checkmesaflash(parent):
+					loadFirmware(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -140,7 +142,7 @@ def boardChanged(parent):
 		elif parent.boardCB.currentData() == '7i76e':
 			parent.machinePTE.appendPlainText('Field Power is required for the I/O')
 			parent.machinePTE.appendPlainText(f'Firmware is optional for {parent.board} all in one boards')
-			parent.machinePTE.appendPlainText('Default Firmware is 7i76e_7i76x1D.bit')
+			parent.machinePTE.appendPlainText('Default Firmware is 7i76e_7i76x1D.bit\n')
 			parent.boardType = 'eth'
 			parent.cardType_0 = 'step'
 			parent.axes = 5
@@ -184,7 +186,9 @@ def boardChanged(parent):
 			parent.spindleTypeCB.addItem('Digital', 'digital')
 			for i in range(parent.axes):
 				parent.spindleTypeCB.addItem(f'Stepgen {i}', f'stepgen_{i}')
-			utilities.checkmesaflash(parent)
+			if parent.enableMesaflashCB.isChecked():
+				if utilities.checkmesaflash(parent):
+					loadFirmware(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('TB3')
 			parent.ssWiring_1.setText('15')
@@ -239,7 +243,9 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
-			utilities.checkmesaflash(parent)
+			if parent.enableMesaflashCB.isChecked():
+				if utilities.checkmesaflash(parent):
+					loadFirmware(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -271,7 +277,9 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
-			utilities.checkmesaflash(parent)
+			if parent.enableMesaflashCB.isChecked():
+				if utilities.checkmesaflash(parent):
+					loadFirmware(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -313,7 +321,9 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
-			utilities.checkmesaflash(parent)
+			if parent.enableMesaflashCB.isChecked():
+				if utilities.checkmesaflash(parent):
+					loadFirmware(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -355,7 +365,9 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
-			utilities.checkmesaflash(parent)
+			if parent.enableMesaflashCB.isChecked():
+				if utilities.checkmesaflash(parent):
+					loadFirmware(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -387,7 +399,9 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
-			utilities.checkmesaflash(parent)
+			if parent.enableMesaflashCB.isChecked():
+				if utilities.checkmesaflash(parent):
+					loadFirmware(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -410,8 +424,6 @@ def boardChanged(parent):
 			parent.ipAddressCB.setEnabled(True)
 			pixmap = QPixmap(os.path.join(parent.image_path, '7i92t-card.png'))
 			parent.boardLB.setPixmap(pixmap)
-			#pixmap = QPixmap(os.path.join(parent.image_path, '7i92t-schematic-0.png'))
-			#parent.schematicLB_0.setPixmap(pixmap)
 			parent.schematicLB_0.clear()
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
@@ -421,7 +433,9 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
-			utilities.checkmesaflash(parent, '3.4.4', '7i92T')
+			if parent.enableMesaflashCB.isChecked():
+				if utilities.checkmesaflash(parent, '3.4.4', '7i92T'):
+					loadFirmware(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -453,7 +467,9 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
-			utilities.checkmesaflash(parent)
+			if parent.enableMesaflashCB.isChecked():
+				if utilities.checkmesaflash(parent):
+					loadFirmware(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('')
 			parent.ssWiring_1.setText('')
@@ -470,7 +486,7 @@ def boardChanged(parent):
 		# 6 axes of step & dir 24 isolated inputs 6 isolated outputs
 		elif parent.boardCB.currentData() == '7i95':
 			parent.machinePTE.appendPlainText(f'Firmware is optional for {parent.board} all in one boards')
-			parent.machinePTE.appendPlainText('Default Firmware is 7i95_d.bit')
+			parent.machinePTE.appendPlainText('Default Firmware is 7i95_d.bit\n')
 			parent.boardType = 'eth'
 			parent.cardType_0 = 'step'
 			parent.axes = 6
@@ -519,7 +535,9 @@ def boardChanged(parent):
 			parent.spindleTypeCB.addItem('Digital', 'digital')
 			for i in range(parent.axes):
 				parent.spindleTypeCB.addItem(f'Stepgen {i}', f'stepgen_{i}')
-			utilities.checkmesaflash(parent)
+			if parent.enableMesaflashCB.isChecked():
+				if utilities.checkmesaflash(parent):
+					loadFirmware(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('TB4')
 			parent.ssWiring_1.setText('13, 19')
@@ -539,7 +557,7 @@ def boardChanged(parent):
 		elif parent.boardCB.currentData() == '7i96':
 			parent.machinePTE.appendPlainText('Field Power is required for the I/O')
 			parent.machinePTE.appendPlainText(f'Firmware is optional for {parent.board} all in one boards')
-			parent.machinePTE.appendPlainText('Default Firmware is 7i96_7i76d.bit')
+			parent.machinePTE.appendPlainText('Default Firmware is 7i96_7i76d.bit\n')
 			parent.boardType = 'eth'
 			parent.cardType_0 = 'step'
 			parent.axes = 5
@@ -590,7 +608,9 @@ def boardChanged(parent):
 			parent.spindleTypeCB.addItem('Digital', 'digital')
 			for i in range(parent.axes):
 				parent.spindleTypeCB.addItem(f'Stepgen {i}', f'stepgen_{i}')
-			utilities.checkmesaflash(parent)
+			if parent.enableMesaflashCB.isChecked():
+				if utilities.checkmesaflash(parent):
+					loadFirmware(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('TB2')
 			parent.ssWiring_1.setText('15')
@@ -653,14 +673,16 @@ def boardChanged(parent):
 			parent.machinePTE.clear()
 			parent.machinePTE.appendPlainText('The 7i96S requires LinuxCNC Uspace 2.8.4 or 2.9 Febuary 24, 2022 or newer!')
 			parent.machinePTE.appendPlainText(f'Firmware is optional for {parent.board} all in one boards')
-			parent.machinePTE.appendPlainText(f'Default firmware for {parent.board} is 7i96s_d.bin')
+			parent.machinePTE.appendPlainText(f'Default firmware for {parent.board} is 7i96s_d.bin\n')
 			parent.spindleTypeCB.clear()
 			parent.spindleTypeCB.addItem('None', False)
 			parent.spindleTypeCB.addItem('Analog', 'analog')
 			parent.spindleTypeCB.addItem('Digital', 'digital')
 			for i in range(parent.axes):
 				parent.spindleTypeCB.addItem(f'Stepgen {i}', f'stepgen_{i}')
-			utilities.checkmesaflash(parent, '3.4.3', '7i96S')
+			if parent.enableMesaflashCB.isChecked():
+				if utilities.checkmesaflash(parent, '3.4.3', '7i96S'):
+					loadFirmware(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('TB2')
 			parent.ssWiring_1.setText('15')
@@ -762,7 +784,9 @@ def boardChanged(parent):
 				getattr(parent, f'c0_stepgenGB_{i}').setVisible(False)
 				getattr(parent, f'c0_analogGB_{i}').setVisible(True)
 				getattr(parent, f'c0_encoderGB_{i}').setVisible(True)
-			utilities.checkmesaflash(parent)
+			if parent.enableMesaflashCB.isChecked():
+				if utilities.checkmesaflash(parent):
+					loadFirmware(parent)
 			# Smart Serial
 			parent.ssWiring_0.setText('TB2')
 			parent.ssWiring_1.setText('13, 14')
@@ -794,6 +818,10 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
+			if parent.enableMesaflashCB.isChecked():
+				if utilities.checkmesaflash(parent):
+					loadFirmware(parent)
+
 
 	else: # No Board Selected
 		parent.board = ''

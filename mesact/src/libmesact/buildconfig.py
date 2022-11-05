@@ -18,8 +18,6 @@ def build(parent):
 	if parent.backupCB.isChecked():
 		utilities.backupFiles(parent)
 
-	settings.update(parent)
-
 	# check for linuxcnc paths
 	if not os.path.exists(os.path.expanduser('~/linuxcnc')):
 		try:

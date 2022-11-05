@@ -57,20 +57,30 @@ def isNumber(s):
 	except ValueError:
 		return False
 
+def firmwareTools(parent):
+	parent.machinePTE.clear()
+	if parent.enableMesaflashCB.isChecked():
+		if checkmesaflash(parent):
+			parent.firmwareGB.setEnabled(True)
+	else:
+		parent.firmwareGB.setEnabled(False)
+
 def checkmesaflash(parent, required=None, board=None):
-	flashOk = True
 	installed = False
+	flashOk = False
 	try:
 		mf = subprocess.check_output('mesaflash', encoding='UTF-8')
 		if len(mf) > 0:
 			installed = mf.split()[2]
 			parent.mesaflashVersionLB.setText(installed)
+			parent.firmwareGB.setEnabled(True)
+			flashOk = True
 	except FileNotFoundError as error:
-		flashOk = False
+		parent.firmwareGB.setEnabled(False)
 		parent.mesaflashVersionLB.setText('Not Installed')
 		t = ('Mesaflash not found! Flashing and reading cards is not possible.\n'
 			'Either install from the Synaptic Package Manager or go to\n'
-			'https://github.com/LinuxCNC/mesaflash for installation instructions.')
+			'https://github.com/LinuxCNC/mesaflash for installation instructions.\n')
 		parent.machinePTE.appendPlainText(t)
 		parent.statusbar.showMessage('Mesaflash not found!')
 
@@ -86,24 +96,11 @@ def checkmesaflash(parent, required=None, board=None):
 					'Try updating the PC with sudo apt update in a terminal\n'
 					'or go to https://github.com/LinuxCNC/mesaflash\n'
 					'for installation/update instructions.')
-				parent.errorMsgOk(t, 'Mesaflash Version')
 				parent.machinePTE.appendPlainText(t)
+				parent.firmwareGB.setEnabled(False)
+				parent.errorMsgOk(t, 'Mesaflash Version')
 
-	if flashOk:
-		parent.firmwareCB.setEnabled(True)
-		parent.readhmidPB.setEnabled(True)
-		parent.readpdPB.setEnabled(True)
-		parent.flashPB.setEnabled(True)
-		parent.reloadPB.setEnabled(True)
-		parent.verifyPB.setEnabled(True)
-	else:
-		parent.firmwareCB.setEnabled(False)
-		parent.readhmidPB.setEnabled(False)
-		parent.readpdPB.setEnabled(False)
-		parent.flashPB.setEnabled(False)
-		parent.reloadPB.setEnabled(False)
-		parent.verifyPB.setEnabled(False)
-
+	return flashOk
 
 def firmwareChanged(parent):
 	if parent.firmwareCB.currentData():

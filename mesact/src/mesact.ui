@@ -382,16 +382,6 @@ QGroupBox::title {
              </property>
             </widget>
            </item>
-           <item row="5" column="3">
-            <widget class="QLabel" name="coordinatesLB">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
            <item row="4" column="3">
             <widget class="QDoubleSpinBox" name="trajMaxLinVelDSB">
              <property name="minimumSize">
@@ -484,7 +474,17 @@ Spaces are replaced with underscore.</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="0" colspan="2">
+           <item row="3" column="5">
+            <widget class="QLabel" name="coordinatesLB">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="4">
             <widget class="QLabel" name="label_10">
              <property name="text">
               <string>Coordinates</string>
@@ -494,11 +494,27 @@ Spaces are replaced with underscore.</string>
              </property>
             </widget>
            </item>
+           <item row="5" column="0" colspan="4">
+            <widget class="QCheckBox" name="enableMesaflashCB">
+             <property name="text">
+              <string>Enable Firmware Tools</string>
+             </property>
+             <property name="Section" stdset="0">
+              <string>TOOLS</string>
+             </property>
+             <property name="Option" stdset="0">
+              <string>FIRMWARE</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
         <item row="3" column="1" colspan="2">
-         <widget class="QGroupBox" name="gridGroupBox_3">
+         <widget class="QGroupBox" name="firmwareGB">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="styleSheet">
            <string notr="true">QGroupBox {
     font: bold;

@@ -115,7 +115,6 @@ class MainWindow(QMainWindow):
 		self.setupConnections()
 		self.show()
 		startup.setup(self)
-		startup.checkconfig(self)
 
 	def setupConnections(self):
 
@@ -151,7 +150,8 @@ class MainWindow(QMainWindow):
 		self.reloadPB.clicked.connect(partial(card.reloadCard, self))
 		self.verifyPB.clicked.connect(partial(card.verifyCard, self))
 		self.copyPB.clicked.connect(partial(utilities.copyOutput, self))
-		# self.errorTestPB.clicked.connect(partial(utilities.createError, self))
+		self.enableMesaflashCB.clicked.connect(partial(utilities.firmwareTools, self))
+		self.enableMesaflashCB.clicked.connect(partial(settings.update_value, self))
 
 		# Display Tab
 		self.minLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
@@ -226,7 +226,7 @@ class MainWindow(QMainWindow):
 		self.latencyTestPB.clicked.connect(partial(tools.runLatencyHisogram, self))
 
 		# Options Tab
-		self.checkMesaflashCB.clicked.connect(partial(settings.update_value, self))
+		#self.checkMesaflashCB.clicked.connect(partial(settings.update_value, self))
 		self.newUserCB.clicked.connect(partial(settings.update_value, self))
 
 	def change_language(self, translationFile = None):

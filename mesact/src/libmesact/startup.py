@@ -14,17 +14,21 @@ def setup(parent):
 		config.add_section('MESACT')
 		config['MESACT']['VERSION'] = f'{parent.version}'
 		config.add_section('NAGS')
-		config['NAGS']['MESAFLASH'] = 'True'
+		#config['NAGS']['MESAFLASH'] = 'True'
 		config['NAGS']['NEWUSER'] = 'True'
 		config.add_section('STARTUP')
 		config['STARTUP']['CONFIG'] = 'False'
+		config.add_section('TOOLS')
+		config['TOOLS']['FIRMWARE'] = 'False'
 		configPath = os.path.expanduser('~/.config/measct/mesact.conf')
 		with open(configPath, 'w') as cf:
 			config.write(cf)
-	# update config file
-	if os.path.isfile(os.path.expanduser('~/.config/measct/mesact.conf')):
-		pass
+		parent.newUserCB.setChecked(True)
+		newuser(parent)
+	else: # .config/measct/mesact.conf exists then read it
+		readconfig(parent)
 
+	# get emc version if installed
 	parent.emcVersionLB.clear()
 	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
 	if emc:
@@ -40,6 +44,7 @@ def setup(parent):
 		else:
 			parent.emcVersionLB.setText(version)
 
+	# load card images
 	parent.configNameLE.setFocus()
 	pixmap = QPixmap(os.path.join(parent.lib_path, '7i76.png'))
 	parent.card7i76LB.setPixmap(pixmap)
@@ -66,29 +71,13 @@ def setup(parent):
 	pixmap = QPixmap(os.path.join(parent.image_path, '7i88-card.png'))
 	parent.card7i88LB.setPixmap(pixmap)
 
-def checkconfig(parent):
+def readconfig(parent):
 	config = ConfigParser()
 	config.optionxform = str
 	configPath = os.path.expanduser('~/.config/measct/mesact.conf')
 	if os.path.isfile(os.path.expanduser('~/.config/measct/mesact.conf')):
 		rebuild = False
 		config.read(os.path.expanduser('~/.config/measct/mesact.conf'))
-		if config.has_option('NAGS', 'mesaflash'):
-			config.remove_option('NAGS', 'mesaflash')
-			rebuild = True
-		if config.has_option('NAGS', 'newuser'):
-			config.remove_option('NAGS', 'newuser')
-			rebuild = True
-		if rebuild:
-			config['NAGS']['MESAFLASH'] = 'True'
-			config['NAGS']['NEWUSER'] = 'True'
-			with open(configPath, 'w') as cf:
-				config.write(cf)
-
-		if config.has_option('NAGS', 'MESAFLASH'):
-			if config['NAGS']['MESAFLASH'] == 'True':
-				parent.checkMesaflashCB.setChecked(True)
-				utilities.checkmesaflash(parent)
 		if config.has_option('NAGS', 'NEWUSER'):
 			if config['NAGS']['NEWUSER'] == 'True':
 				parent.newUserCB.setChecked(True)
@@ -97,17 +86,10 @@ def checkconfig(parent):
 			if config['STARTUP']['CONFIG'] != 'False':
 				loadini = loadini.openini()
 				loadini.getini(parent, config['STARTUP']['CONFIG'].lower())
-	else:
-		config = ConfigParser()
-		config.optionxform = str
-		config.add_section('NAGS')
-		config['NAGS']['MESAFLASH'] = 'True'
-		config['NAGS']['NEWUSER'] = 'True'
-		with open(os.path.expanduser('~/.config/measct/mesact.conf'), 'w') as configfile:
-			config.write(configfile)
-		parent.checkMesaflashCB.setChecked(True)
-		parent.newUserCB.setChecked(True)
-		newuser(parent)
+		if config.has_option('TOOLS', 'FIRMWARE'):
+			if config['TOOLS']['FIRMWARE'] != 'False':
+				parent.enableMesaflashCB.setChecked(True)
+				utilities.checkmesaflash(parent)
 
 def newuser(parent):
 	msg = ('If this is your first time using the '
