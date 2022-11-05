@@ -1,4 +1,5 @@
 import os
+from configparser import ConfigParser
 
 from PyQt5.QtWidgets import (QFileDialog, QLabel, QLineEdit, QSpinBox,
 	QDoubleSpinBox, QCheckBox, QGroupBox, QComboBox, QPushButton, QRadioButton)
@@ -305,6 +306,24 @@ class openini:
 							getattr(parent, obj).setChecked(booleanDict[value.lower()])
 						elif isinstance(getattr(parent, obj), QPushButton):
 							getattr(parent, obj).setText(value)
+
+		# update the mesact.conf file
+		configPath = os.path.expanduser('~/.config/measct/mesact.conf')
+		config = ConfigParser()
+		config.optionxform = str
+		config.read(configPath)
+		if config.has_option('NAGS', 'NEWUSER'):
+			if parent.newUserCB.isChecked():
+				config['NAGS']['NEWUSER'] = 'True'
+		if config.has_option('STARTUP', 'CONFIG'):
+			if parent.loadConfigCB.isChecked():
+				config['STARTUP']['CONFIG'] = parent.configNameLE.text().lower()
+		if config.has_option('TOOLS', 'FIRMWARE'):
+			if parent.enableMesaflashCB.isChecked():
+				config['TOOLS']['FIRMWARE'] = 'True'
+		with open(configPath, 'w') as cf:
+			config.write(cf)
+
 
 	def get_sections(self):
 		self.sections = {}
