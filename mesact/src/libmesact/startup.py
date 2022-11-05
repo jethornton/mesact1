@@ -13,7 +13,6 @@ def setup(parent):
 		config.add_section('MESACT')
 		config['MESACT']['VERSION'] = f'{parent.version}'
 		config.add_section('NAGS')
-		#config['NAGS']['MESAFLASH'] = 'True'
 		config['NAGS']['NEWUSER'] = 'True'
 		config.add_section('STARTUP')
 		config['STARTUP']['CONFIG'] = 'False'

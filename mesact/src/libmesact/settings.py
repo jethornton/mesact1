@@ -30,7 +30,6 @@ def update_value(parent):
 			config.set(section, option, value)
 		else: # config file does not exist
 			config.add_section('NAGS')
-			config['NAGS']['MESAFLASH'] = f'{parent.checkMesaflashCB.isChecked()}'
 			config['NAGS']['NEWUSER'] = f'{parent.newUserCB.isChecked()}'
 			config.add_section('STARTUP')
 			if parent.loadConfigCB.isChecked():
