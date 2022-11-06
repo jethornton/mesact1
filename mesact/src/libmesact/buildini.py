@@ -248,8 +248,8 @@ def build(parent):
 			iniContents.append(f'BIAS = {parent.bias_s.value():.1f}\n')
 			iniContents.append(f'DEADBAND = {parent.deadband_s.value():.1f}\n')
 			iniContents.append(f'MAX_ERROR = {parent.maxError_s.value():.1f}\n')
-			iniContents.append(f'MAX_OUTPUT = {parent.maxOutput_s.value():.1f}\n')
-			iniContents.append(f'OUTPUT_TYPE = {parent.maxOutput_s.value():.1f}\n')
+			iniContents.append(f'MAX_OUTPUT = {parent.maxOutput_s.value()}\n')
+			iniContents.append(f'OUTPUT_TYPE = {parent.maxOutput_s.value()}\n')
 			iniContents.append(f'ENCODER_SCALE = {parent.spindleEncoderScale.value():.1f}\n')
 
 		if parent.spindleTypeCB.currentData()[:7] == 'stepgen':
