@@ -643,6 +643,10 @@ PIN file format</string>
           <layout class="QGridLayout" name="gridLayout_66">
            <item row="0" column="0">
             <widget class="QCheckBox" name="backupCB">
+             <property name="toolTip">
+              <string>Create a backup copy of files
+before building configuration files</string>
+             </property>
              <property name="text">
               <string>Enable</string>
              </property>
@@ -18992,7 +18996,7 @@ max speed</string>
         </property>
         <property name="geometry">
          <rect>
-          <x>410</x>
+          <x>400</x>
           <y>10</y>
           <width>361</width>
           <height>221</height>
@@ -19197,23 +19201,6 @@ max speed</string>
            </property>
           </widget>
          </item>
-         <item row="9" column="3">
-          <widget class="QDoubleSpinBox" name="spindleEncoderScale">
-           <property name="decimals">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <double>25000.000000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="9" column="2">
-          <widget class="QLabel" name="label_178">
-           <property name="text">
-            <string>Encoder Scale</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </widget>
        <widget class="QGroupBox" name="spindleGB">
@@ -19223,9 +19210,9 @@ max speed</string>
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>240</y>
+          <y>250</y>
           <width>331</width>
-          <height>181</height>
+          <height>171</height>
          </rect>
         </property>
         <property name="title">
@@ -19350,15 +19337,22 @@ max speed</string>
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>40</y>
+          <y>30</y>
           <width>281</width>
-          <height>91</height>
+          <height>121</height>
          </rect>
         </property>
         <property name="title">
          <string>Spindle</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_131">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>Output</string>
+           </property>
+          </widget>
+         </item>
          <item row="1" column="0">
           <widget class="QLabel" name="label_34">
            <property name="text">
@@ -19372,10 +19366,20 @@ max speed</string>
          <item row="1" column="1">
           <widget class="QComboBox" name="spindleFeedbackCB"/>
          </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_8">
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_178">
            <property name="text">
-            <string>Output</string>
+            <string>Encoder Scale</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QDoubleSpinBox" name="spindleEncoderScale">
+           <property name="decimals">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <double>25000.000000000000000</double>
            </property>
           </widget>
          </item>
@@ -19599,7 +19603,7 @@ max speed</string>
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>140</y>
+          <y>160</y>
           <width>281</width>
           <height>91</height>
          </rect>
@@ -29850,7 +29854,6 @@ QToolButton {
   <tabstop>bias_s</tabstop>
   <tabstop>maxError_s</tabstop>
   <tabstop>maxOutput_s</tabstop>
-  <tabstop>spindleEncoderScale</tabstop>
   <tabstop>c1_maxOutput_0</tabstop>
   <tabstop>c1_p_0</tabstop>
   <tabstop>c1_ff1_0</tabstop>
