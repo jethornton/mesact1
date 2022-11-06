@@ -152,6 +152,7 @@ class MainWindow(QMainWindow):
 		self.copyPB.clicked.connect(partial(utilities.copyOutput, self))
 		self.enableMesaflashCB.clicked.connect(partial(utilities.firmwareTools, self))
 		self.enableMesaflashCB.clicked.connect(partial(settings.update_value, self))
+		self.backupCB.clicked.connect(partial(utilities.backup, self))
 
 		# Display Tab
 		self.minLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))

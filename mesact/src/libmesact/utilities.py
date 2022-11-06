@@ -65,6 +65,10 @@ def firmwareTools(parent):
 	else:
 		parent.firmwareGB.setEnabled(False)
 
+def backup(parent):
+	if parent.backupCB.isChecked():
+		parent.statusbar.showMessage('Build the Configuration to Save Backup Status')
+
 def checkmesaflash(parent, required=None, board=None):
 	installed = False
 	flashOk = False
