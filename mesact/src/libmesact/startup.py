@@ -83,6 +83,7 @@ def readconfig(parent):
 		if config.has_option('STARTUP', 'CONFIG'):
 			if config['STARTUP']['CONFIG'] != 'False':
 				parent.loadini.getini(parent, config['STARTUP']['CONFIG'].lower())
+				parent.loadConfigCB.setChecked(True)
 		if config.has_option('TOOLS', 'FIRMWARE'):
 			if config['TOOLS']['FIRMWARE'] != 'False':
 				parent.enableMesaflashCB.setChecked(True)
