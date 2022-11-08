@@ -13,9 +13,10 @@ Store Connector used for building config
 
 """
 VERSION = '1.1.0'
-BUILD_DATE = '11/5/2022'
+BUILD_DATE = '11/8/2022'
 
 import sys, os, traceback
+from traceback import StackSummary
 from functools import partial
 
 from PyQt5.QtCore import QTimer
@@ -302,33 +303,22 @@ class MainWindow(QMainWindow):
 				dialog.ui.helpPTE.setPlainText(self.helpInfo(self.mainTabs.currentIndex()))
 		dialog.exec_()
 
-	def excepthook(self, exception_type, exception_value, tb):
-		while tb:
-			filename = os.path.basename(tb.tb_frame.f_code.co_filename)
-			name = tb.tb_frame.f_code.co_name
-			line_no = tb.tb_lineno
-			local_vars = tb.tb_frame.f_locals
-			tb = tb.tb_next
-		print(f'File {filename} line {line_no}, in function {name}')
-		print(f'Error: {exception_value}')
-		print(f'{traceback.format_exception(exception_type, exception_value, tb)}')
-		error = traceback.format_exception(exception_type, exception_value, tb)[0].split(None, 1)[1]
-		msg = (f'Mesact Version: {VERSION} Build Date: {BUILD_DATE}\n\n'
-		f'A Program Error Occurred in {filename} line {line_no}\n'
-		f'Error: {error}\n'
-		'Please file an issue at\n'
-		'https://github.com/jethornton/mesact/issues\n')
+	def excepthook(self, exc_type, exc_value, tb):
+		# extract the stack summary
+		summary = traceback.extract_tb(tb)
+		for frame_summary in summary:
+			filename = frame_summary.filename
+			frame_summary.filename = os.path.relpath(filename)
 
-		text = "".join(traceback.format_exception(exception_type, exception_value, tb))
-		self.mainTabs.setCurrentIndex(0)
-		self.machinePTE.clear()
-		self.machinePTE.appendPlainText('PROGRAM ERROR')
-		self.machinePTE.appendPlainText(msg)
-		msg = msg + (
-		'\nIf the program crashes copy the error\n'
-		'from this popup.')
+		# rebuild the traceback and build the error message
+		msg = f'Mesact Version: {VERSION} Build Date: {BUILD_DATE}\n'
+		msg += ''.join(traceback.format_list(StackSummary.from_list(summary)))
+		msg += f'{exc_type.__name__}\n'
+		msg += f'{exc_value}\n'
+		msg += 'Please file an issue at\n'
+		msg += 'https://github.com/jethornton/mesact/issues'
+		print(msg)
 		self.errorMsgOk(msg, 'PROGRAM ERROR' )
-
 
 def main():
 	app = QApplication(sys.argv)
