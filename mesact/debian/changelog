@@ -1,3 +1,9 @@
+mesact (1.1.1) unstable; urgency=medium
+
+  * Improved error reporting with excepthook and various bug fixes
+
+ -- John Thornton <dev@gnipsel.com>  Tue, 08 Nov 2022 06:27:59 -0600
+
 mesact (1.1.0) unstable; urgency=medium
 
   * Add support for Mesa 7i92T board

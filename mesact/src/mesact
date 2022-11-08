@@ -12,7 +12,7 @@ you can configure the daughter card, but not the 7i97, which, is weird.
 Store Connector used for building config
 
 """
-VERSION = '1.1.0'
+VERSION = '1.1.1'
 BUILD_DATE = '11/8/2022'
 
 import sys, os, traceback
