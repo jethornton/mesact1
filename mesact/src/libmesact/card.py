@@ -1,6 +1,6 @@
 import os, sys, subprocess
 from subprocess import Popen, PIPE
-from PyQt5.QtWidgets import QInputDialog, QLineEdit, QDialogButtonBox
+from PyQt5.QtWidgets import QInputDialog, QLineEdit, QDialogButtonBox, qApp
 from libmesact import functions
 
 def getPassword(parent):
@@ -125,6 +125,9 @@ def flashCard(parent):
 		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to flash the {parent.board}', 'Error')
 		return
 	if parent.firmwareCB.currentData():
+		parent.machinePTE.clear()
+		parent.machinePTE.setPlainText(f'Flashing: {parent.device}')
+		qApp.processEvents()
 		firmware = os.path.join(parent.lib_path, parent.firmwareCB.currentData())
 		if parent.boardType == 'eth':
 			if check_ip(parent):
@@ -236,7 +239,6 @@ def getCardPins(parent):
 			f.write(f'loadrt hm2_eth board_ip={parent.ipAddressCB.currentText()}\n')
 			f.write('quit')
 
-	print(f'returncode {p.returncode}')
 	getResults(parent, prompt, p.returncode)
 
 
