@@ -1,0 +1,10 @@
+P1 Gecko G540
+5 Step/Dir
+1 PWM
+1 Encoder
+
+P2 Gecko G540
+5 Step/Dir
+1 PWM
+1 Encoder
+
