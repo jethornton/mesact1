@@ -39,6 +39,8 @@ def getResults(parent, prompt, result):
 	parent.machinePTE.appendPlainText(output)
 
 def checkCard(parent):
+	if not parent.device:
+		parent.errorMsgOk(f'A board must be selected', 'Error')
 	prompt = None
 	board = parent.device
 	if functions.check_emc():
