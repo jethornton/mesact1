@@ -3,4 +3,4 @@
 # Genreate the qm file used by the translator
 lrelease -nounfinished libmesact/eng-de.ts libmesact/eng-de.qm
 #lrelease -nounfinished libmesact/eng-es.ts libmesact/eng-es.qm
-lrelease -nounfinished libmesact/eng-fr.ts libmesact/eng-fr.qm
+#lrelease -nounfinished libmesact/eng-fr.ts libmesact/eng-fr.qm

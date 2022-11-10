@@ -1,6 +1,7 @@
 #!/bin/bash
 
+# Depends on pyqt5-dev-tools
 pyuic5 mesact.ui -o libmesact/ui_mesact.py
 pylupdate5 libmesact/ui_mesact.py  -ts libmesact/eng-de.ts
 #pylupdate5 libmesact/ui_mesact.py  -ts libmesact/eng-es.ts
-pylupdate5 libmesact/ui_mesact.py  -ts libmesact/eng-fr.ts
+#pylupdate5 libmesact/ui_mesact.py  -ts libmesact/eng-fr.ts

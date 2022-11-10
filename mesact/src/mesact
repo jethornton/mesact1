@@ -29,7 +29,7 @@ from PyQt5 import uic
 # disable cache usage
 sys.dont_write_bytecode = True
 
-#from libmesact.ui_mesact import Ui_mainWindow
+from libmesact.ui_mesact import Ui_mainWindow
 from libmesact import startup
 from libmesact import machine
 from libmesact import boards
@@ -65,12 +65,12 @@ class VersionError(QMainWindow):
 		msgBox.exec()
 		sys.exit()
 
-#class MainWindow(QMainWindow, Ui_mainWindow): < for Translations
-class MainWindow(QMainWindow):
+class MainWindow(QMainWindow, Ui_mainWindow):
+#class MainWindow(QMainWindow):
 	def __init__(self):
 		super().__init__()
-		#self.setupUi(self) # needed to load Ui_MainWindow < for Translations
-		#self.trans = QtCore.QTranslator(self) < for Translations
+		self.setupUi(self) # needed to load Ui_MainWindow < for Translations
+		self.trans = QtCore.QTranslator(self)
 		if os.path.split(sys.argv[0])[0] == '/usr/bin':
 			self.lib_path = '/usr/lib/libmesact'
 			self.firmware_path = '/usr/lib/libmesact'
@@ -123,7 +123,7 @@ class MainWindow(QMainWindow):
 		# for Translations
 		self.actionEnglish.triggered.connect(partial(self.change_language, None))
 		self.actionGerman.triggered.connect(partial(self.change_language, 'eng-de'))
-		self.actionFrench.triggered.connect(partial(self.change_language, 'eng-fr'))
+		#self.actionFrench.triggered.connect(partial(self.change_language, 'eng-fr'))
 		self.actionOpen.triggered.connect(partial(self.loadini.getini, self))
 		self.actionCheck.triggered.connect(partial(checkconfig.checkit, self))
 		self.actionBuild.triggered.connect(partial(buildconfig.build, self))
@@ -233,6 +233,7 @@ class MainWindow(QMainWindow):
 		self.newUserCB.clicked.connect(partial(settings.update_value, self))
 
 	def change_language(self, translationFile = None):
+		'''
 		text = ('After spending hundreds of hours figuring out translations.\n'
 						'Nothing has been translated in over four months\n'
 						'\nTranslations increase my workload so if nothing is going\n'
@@ -249,8 +250,7 @@ class MainWindow(QMainWindow):
 		else:
 			QtWidgets.QApplication.instance().removeTranslator(self.trans)
 			self.retranslateUi(self)
-	'''
-	
+
 	def errorMsg(self, text, title=None):
 		msgBox = QMessageBox()
 		msgBox.setIcon(QMessageBox.Warning)

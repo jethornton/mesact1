@@ -29031,7 +29031,6 @@ auto enp2s0
     </property>
     <addaction name="actionEnglish"/>
     <addaction name="actionGerman"/>
-    <addaction name="actionFrench"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
