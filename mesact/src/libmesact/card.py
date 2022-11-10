@@ -23,31 +23,26 @@ def check_emc():
 		return False
 '''
 
-def check_mesaflash():
-	if subprocess.call(['which', 'mesaflash']) == 0:
-		return True
-	else:
-		return False
-
-def getResults(parent, prompt, result):
+def getResults(parent, prompt, result, task=None):
+	#print(parent.sender().objectName())
 	if result == 0:
 		output = prompt[0]
+		outcome = 'Success'
 	else:
 		output = prompt[1]
+		outcome = 'Failed'
 	parent.machinePTE.clear()
-	parent.machinePTE.setPlainText(f'Return Code: {result}')
-	parent.machinePTE.appendPlainText(output)
+	parent.machinePTE.setPlainText(f'{task} returned: {outcome}\n')
+	parent.machinePTE.appendPlainText(f'{output}\n')
 
 def checkCard(parent):
 	if not parent.device:
 		parent.errorMsgOk(f'A board must be selected', 'Error')
+		return
 	prompt = None
 	board = parent.device
 	if functions.check_emc():
 		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {parent.board}', 'Error')
-		return
-	if not check_mesaflash():
-		parent.errorMsgOk(f'Mesaflash is not Installed', 'Error')
 		return
 
 	if parent.boardType == 'eth':
@@ -67,7 +62,7 @@ def checkCard(parent):
 				stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate(parent.password + '\n')
 	if prompt:
-		getResults(parent, prompt, p.returncode)
+		getResults(parent, prompt, p.returncode, 'Check IP')
 
 def readpd(parent):
 	prompt = None
@@ -92,7 +87,7 @@ def readpd(parent):
 				stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate(parent.password + '\n')
 	if prompt:
-		getResults(parent, prompt, p.returncode)
+		getResults(parent, prompt, p.returncode, 'Read Pretty Descriptions')
 
 def readhmid(parent):
 	prompt = None
@@ -118,7 +113,7 @@ def readhmid(parent):
 			prompt = p.communicate(parent.password + '\n')
 
 	if prompt:
-		getResults(parent, prompt, p.returncode)
+		getResults(parent, prompt, p.returncode, 'Read HMID')
 
 def flashCard(parent):
 	prompt = None
@@ -127,8 +122,9 @@ def flashCard(parent):
 		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to flash the {parent.board}', 'Error')
 		return
 	if parent.firmwareCB.currentData():
+		firmware = os.path.basename(parent.firmwareCB.currentData())
 		parent.machinePTE.clear()
-		parent.machinePTE.setPlainText(f'Flashing: {parent.device}')
+		parent.machinePTE.setPlainText(f'Flashing: {firmware} to {parent.device}')
 		qApp.processEvents()
 		firmware = os.path.join(parent.lib_path, parent.firmwareCB.currentData())
 		if parent.boardType == 'eth':
@@ -150,7 +146,7 @@ def flashCard(parent):
 				prompt = p.communicate(parent.password + '\n')
 
 		if prompt:
-			getResults(parent, prompt, p.returncode)
+			getResults(parent, prompt, p.returncode, 'Flash')
 
 	else:
 		parent.errorMsgOk('A firmware must be selected', 'Error!')
@@ -180,7 +176,8 @@ def reloadCard(parent):
 			prompt = p.communicate(parent.password + '\n')
 
 	if prompt:
-		getResults(parent, prompt, p.returncode)
+		getResults(parent, prompt, p.returncode, 'Reload Firmware')
+		parent.machinePTE.appendPlainText('Wait 30 seconds before Verifying the Firmware')
 
 def verifyCard(parent):
 	prompt = None
@@ -208,7 +205,7 @@ def verifyCard(parent):
 				prompt = p.communicate(parent.password + '\n')
 
 		if prompt:
-			getResults(parent, prompt, p.returncode)
+			getResults(parent, prompt, p.returncode, 'Verify Firmware')
 	else:
 		parent.errorMsgOk('A firmware must be selected', 'Error!')
 		return
@@ -241,7 +238,7 @@ def getCardPins(parent):
 			f.write(f'loadrt hm2_eth board_ip={parent.ipAddressCB.currentText()}\n')
 			f.write('quit')
 
-	getResults(parent, prompt, p.returncode)
+	getResults(parent, prompt, p.returncode, 'Get Card Pins')
 
 
 def savePins(parent):
