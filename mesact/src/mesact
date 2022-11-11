@@ -65,12 +65,12 @@ class VersionError(QMainWindow):
 		msgBox.exec()
 		sys.exit()
 
-class MainWindow(QMainWindow, Ui_mainWindow):
-#class MainWindow(QMainWindow):
+#class MainWindow(QMainWindow, Ui_mainWindow):
+class MainWindow(QMainWindow):
 	def __init__(self):
 		super().__init__()
-		self.setupUi(self) # needed to load Ui_MainWindow < for Translations
-		self.trans = QtCore.QTranslator(self)
+		#self.setupUi(self) # < needed to load Ui_MainWindow for Translations
+		#self.trans = QtCore.QTranslator(self) # < needed for Translations
 		if os.path.split(sys.argv[0])[0] == '/usr/bin':
 			self.lib_path = '/usr/lib/libmesact'
 			self.firmware_path = '/usr/lib/libmesact'
@@ -121,8 +121,8 @@ class MainWindow(QMainWindow, Ui_mainWindow):
 
 		# Menu Items
 		# for Translations
-		self.actionEnglish.triggered.connect(partial(self.change_language, None))
-		self.actionGerman.triggered.connect(partial(self.change_language, 'eng-de'))
+		#self.actionEnglish.triggered.connect(partial(self.change_language, None))
+		#self.actionGerman.triggered.connect(partial(self.change_language, 'eng-de'))
 		#self.actionFrench.triggered.connect(partial(self.change_language, 'eng-fr'))
 		self.actionOpen.triggered.connect(partial(self.loadini.getini, self))
 		self.actionCheck.triggered.connect(partial(checkconfig.checkit, self))

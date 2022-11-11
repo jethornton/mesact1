@@ -3770,49 +3770,59 @@ QGroupBox::title {
        </widget>
        <widget class="QGroupBox" name="groupBox_104">
         <property name="enabled">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <property name="geometry">
          <rect>
           <x>500</x>
-          <y>200</y>
+          <y>184</y>
           <width>341</width>
-          <height>125</height>
+          <height>151</height>
          </rect>
         </property>
         <property name="title">
-         <string>Program Filters</string>
+         <string>G code Extensions</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_210">
-         <item row="2" column="0">
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_1309">
+           <property name="text">
+            <string>File Extension 0</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
           <widget class="QLabel" name="label_1311">
            <property name="text">
-            <string>File</string>
+            <string>File Extension 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_1387">
+           <property name="text">
+            <string>File Extension 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="filterExtLE_0"/>
+         </item>
+         <item row="0" column="0" colspan="2">
+          <widget class="QLabel" name="label_1392">
+           <property name="frameShape">
+            <enum>QFrame::Box</enum>
+           </property>
+           <property name="text">
+            <string>File extensions to add to File Open in Axis</string>
            </property>
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QLineEdit" name="filterFileLE"/>
+          <widget class="QLineEdit" name="filterExtLE_1"/>
          </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_1309">
-           <property name="text">
-            <string>Extension</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="filterExtLE"/>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="filterDescLE"/>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="label_1387">
-           <property name="text">
-            <string>Description</string>
-           </property>
-          </widget>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="filterExtLE_2"/>
          </item>
         </layout>
        </widget>
@@ -29194,9 +29204,7 @@ QToolButton {
   <tabstop>frontToolLatheRB</tabstop>
   <tabstop>backToolLatheRB</tabstop>
   <tabstop>foamRB</tabstop>
-  <tabstop>filterExtLE</tabstop>
-  <tabstop>filterDescLE</tabstop>
-  <tabstop>filterFileLE</tabstop>
+  <tabstop>filterExtLE_0</tabstop>
   <tabstop>mdiCmdLE_0</tabstop>
   <tabstop>mdiCmdLE_1</tabstop>
   <tabstop>mdiCmdLE_2</tabstop>
