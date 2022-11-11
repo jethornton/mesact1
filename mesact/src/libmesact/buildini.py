@@ -79,7 +79,19 @@ def build(parent):
 		iniContents.append('FOAM = 1\n')
 
 	# build the [FILTER] section
-	#iniContents.append('\n[FILTER]\n')
+	#iniContents.append('\n[FILTER]\n') filterExtLE_0
+	ext_list = []
+	for i in range(3):
+		ext = getattr(parent, f'filterExtLE_{i}').text()
+		if ext:
+			if not ext.startswith('.'):
+				ext_list.append(f'.{ext}')
+			else:
+				ext_list.append(ext)
+	if ext_list:
+		iniContents.append('\n[FILTER]\n')
+		iniContents.append(f'PROGRAM_EXTENSION = {", ".join(ext_list)} # G code Files\n')
+		#print(','.join(ext_list))
 
 	# build the [KINS] section
 	iniContents.append('\n[KINS]\n')

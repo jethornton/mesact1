@@ -101,6 +101,23 @@ class updateini:
 		for item in display:
 			self.update_key(item[0], item[1], item[2])
 
+		# [FILTER]
+		if '[FILTER]' in self.sections:
+			index = self.sections['[FILTER]']
+			for i in range(index[0], index[1]):
+				if 'G code Files' in self.content[i]:
+					ext_list = []
+					for j in range(3):
+						ext = getattr(parent, f'filterExtLE_{j}').text()
+						if ext:
+							if not ext.startswith('.'):
+								ext_list.append(f'.{ext}')
+							else:
+								ext_list.append(ext)
+					if ext_list:
+						self.content[i] = f'PROGRAM_EXTENSION = {", ".join(ext_list)} # G code Files\n'
+
+		# [KINS]
 		if len(set(parent.coordinatesLB.text())) == len(parent.coordinatesLB.text()): # 1 joint for each axis
 			kins = [['KINS', 'KINEMATICS', f'trivkins coordinates={parent.coordinatesLB.text()}']]
 		else: # more than one joint per axis
@@ -156,25 +173,9 @@ class updateini:
 		for item in traj:
 			self.update_key(item[0], item[1], item[2])
 
-
 		# [HAL]
 		if parent.haluiCB.isChecked():
 			self.update_key('HAL', 'HALUI', 'halui')
-
-		'''
-		hal = [
-		['HAL', 'HALFILE', f'filelist.hal'],
-		]
-		if parent.postguiCB.isChecked():
-			hal.append('HAL', 'POSTGUI_HALFILE', 'postgui.hal')
-		if parent.shutdownCB.isChecked():
-			hal.append('HAL', 'SHUTDOWN', 'shutdown.hal')
-
-		hal.append(['HAL', 'HALUI', 'halui'])
-
-		for item in hal:
-			self.update_key(item[0], item[1], item[2])
-		'''
 
 		# [HALUI]
 		if parent.haluiCB.isChecked() and '[HALUI]' not in self.sections:
@@ -268,18 +269,12 @@ class updateini:
 					index = self.sections[last_joint][1]
 					if index:
 						self.insert_section(index, f'{tool_ja[key]}')
-						#self.content.insert(index, f'{tool_ja[key]}\n')
-						#self.content.insert(index, '\n')
-						#self.get_sections() # update section start/end
 				last_joint = key
 
 			for key, value in tool_ja.items(): # add missing joint after last axis
 				if key not in ini_ja.keys():
 					index = self.sections[value][1]
 					self.insert_section(index, f'{key}')
-					#self.content.insert(index, f'{key}\n')
-					#self.content.insert(index, '\n')
-					#self.get_sections() # update section start/end
 
 		elif len(tool_ja) < len(ini_ja): # joint removed
 			print('Joint Removed')
@@ -453,9 +448,6 @@ class updateini:
 			if '[PLC]' not in self.sections:
 				index = self.sections['[OPTIONS]'][1]
 				self.insert_section(index, '[PLC]')
-				#self.content.insert(index, '[PLC]\n')
-				#self.content.insert(index, '\n')
-				#self.get_sections() # update section start/end
 
 			for option in parent.ladderOptionsList:
 				#print('PLC', f'{getattr(parent, option).property("item")}', f'{getattr(parent, option).value()}')
@@ -472,9 +464,6 @@ class updateini:
 				else:
 					index = self.sections['[OPTIONS]'][1]
 				self.insert_section(index, '[SSERIAL]')
-				#self.content.insert(index, '[SSERIAL]\n')
-				#self.content.insert(index, '\n')
-				#self.get_sections() # update section start/end
 
 			self.update_key(f'SSERIAL', 'SS_CARD', parent.ssCardCB.currentText())
 
@@ -520,8 +509,6 @@ class updateini:
 		self.write_ini(parent)
 
 	def write_ini(self, parent):
-		# TESTING
-		#self.iniFile = '/home/john/linuxcnc/configs/7i96s/test.ini'
 		with open(self.iniFile, 'w') as outfile:
 			outfile.write(''.join(self.content))
 		parent.machinePTE.appendPlainText(f'Updated {self.iniFile}')
@@ -536,7 +523,6 @@ class updateini:
 		# set start and stop index for each section
 		previous = ''
 		for key, value in self.sections.items():
-			#print(key)
 			if previous:
 				self.sections[previous][1] = value[0] - 1
 			previous = key
@@ -545,8 +531,6 @@ class updateini:
 		found = False
 		start = self.sections[f'[{section}]'][0]
 		end = self.sections[f'[{section}]'][1]
-		#if section == 'AXIS_Z':
-		#	print(section, key, value, start, end)
 		for item in self.content[start:end]:
 			if item.split('=')[0].strip() == key:
 				index = self.content.index(item)
@@ -557,7 +541,6 @@ class updateini:
 				found = False
 		if not found:
 			self.content.insert(end, f'{key} = {value}\n')
-			#print(end, section, key, value)
 			self.get_sections() # update section start/end
 
 	def delete_key(self, section, key):

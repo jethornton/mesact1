@@ -104,16 +104,18 @@ class openini:
 		iniDict['[DISPLAY]']['BACK_TOOL_LATHE'] = 'backToolLatheRB'
 		iniDict['[DISPLAY]']['FOAM'] = 'foamRB'
 
-		'''
-		iniDict['[FILTER]'] = {}
-		iniDict['[FILTER]']['PROGRAM_EXTENSION'] = 'programFilterLE_0'
-		iniDict['[FILTER]']['PROGRAM_EXTENSION'] = 'programFilterLE_1'
-		# build the [KINS] section
-		# build the [EMCIO] section
-		# build the [RS274NGC] section
-		# build the [EMCMOT] section
-		# build the [TASK] section
-		'''
+		if '[FILTER]' in self.sections:
+			start = self.sections['[FILTER]'][0]
+			end = self.sections['[FILTER]'][1]
+			for item in self.content[start:end]:
+				if 'G code Files' in item:
+					extList = []
+					for word in item.split():
+						if word.startswith('.'):
+							extList.append(word.rstrip(','))
+					for i, item in enumerate(extList):
+						getattr(parent, f'filterExtLE_{i}').setText(item)
+					break
 
 		# load the [TRAJ] section
 		iniDict['[TRAJ]'] = {}
@@ -335,7 +337,6 @@ class openini:
 		# set start and stop index for each section
 		previous = ''
 		for key, value in self.sections.items():
-			#print(key)
 			if previous:
 				self.sections[previous][1] = value[0] - 2
 			previous = key
