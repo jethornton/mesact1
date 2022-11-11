@@ -1,7 +1,15 @@
 #!/bin/bash
 
 # Depends on pyqt5-dev-tools
+# Generate the py file
 pyuic5 mesact.ui -o libmesact/ui_mesact.py
+
+# Generate the ts file
 pylupdate5 libmesact/ui_mesact.py  -ts libmesact/eng-de.ts
 #pylupdate5 libmesact/ui_mesact.py  -ts libmesact/eng-es.ts
 #pylupdate5 libmesact/ui_mesact.py  -ts libmesact/eng-fr.ts
+
+# Genreate the qm file used by the translator
+lrelease -nounfinished libmesact/eng-de.ts libmesact/eng-de.qm
+#lrelease -nounfinished libmesact/eng-es.ts libmesact/eng-es.qm
+#lrelease -nounfinished libmesact/eng-fr.ts libmesact/eng-fr.qm
