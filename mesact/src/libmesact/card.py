@@ -23,16 +23,16 @@ def check_emc():
 		return False
 '''
 
-def getResults(parent, prompt, result, task=None):
+def getResults(parent, prompt, result, viewport, task=None):
 	if result == 0:
 		output = prompt[0]
 		outcome = 'Success'
 	else:
 		output = prompt[1]
 		outcome = 'Failed'
-	parent.machinePTE.clear()
-	parent.machinePTE.setPlainText(f'{task} returned: {outcome}\n')
-	parent.machinePTE.appendPlainText(f'{output}\n')
+	getattr(parent, viewport).clear()
+	getattr(parent, viewport).setPlainText(f'{task} returned: {outcome}\n')
+	getattr(parent, viewport).appendPlainText(f'{output}\n')
 
 def checkCard(parent):
 	if not parent.device:
@@ -62,7 +62,7 @@ def checkCard(parent):
 				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate(parent.password + '\n')
 	if prompt:
-		getResults(parent, prompt, p.returncode, 'Check IP')
+		getResults(parent, prompt, p.returncode, 'machinePTE', 'Check IP')
 
 def readpd(parent):
 	prompt = None
@@ -87,7 +87,7 @@ def readpd(parent):
 				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate(parent.password + '\n')
 	if prompt:
-		getResults(parent, prompt, p.returncode, 'Read Pretty Descriptions')
+		getResults(parent, prompt, p.returncode, 'machinePTE', 'Read Pretty Descriptions')
 
 def readhmid(parent):
 	prompt = None
@@ -113,7 +113,7 @@ def readhmid(parent):
 			prompt = p.communicate(parent.password + '\n')
 
 	if prompt:
-		getResults(parent, prompt, p.returncode, 'Read HMID')
+		getResults(parent, prompt, p.returncode, 'machinePTE', 'Read HMID')
 
 def flashCard(parent):
 	prompt = None
@@ -146,7 +146,7 @@ def flashCard(parent):
 				prompt = p.communicate(parent.password + '\n')
 
 		if prompt:
-			getResults(parent, prompt, p.returncode, 'Flash')
+			getResults(parent, prompt, p.returncode, 'machinePTE', 'Flash')
 
 	else:
 		parent.errorMsgOk('A firmware must be selected', 'Error!')
@@ -176,7 +176,7 @@ def reloadCard(parent):
 			prompt = p.communicate(parent.password + '\n')
 
 	if prompt:
-		getResults(parent, prompt, p.returncode, 'Reload Firmware')
+		getResults(parent, prompt, p.returncode, 'machinePTE', 'Reload Firmware')
 		parent.machinePTE.appendPlainText('Wait 30 seconds before Verifying the Firmware')
 
 def verifyCard(parent):
@@ -205,7 +205,7 @@ def verifyCard(parent):
 				prompt = p.communicate(parent.password + '\n')
 
 		if prompt:
-			getResults(parent, prompt, p.returncode, 'Verify Firmware')
+			getResults(parent, prompt, p.returncode, 'machinePTE', 'Verify Firmware')
 	else:
 		parent.errorMsgOk('A firmware must be selected', 'Error!')
 		return
@@ -235,10 +235,13 @@ def getCardPins(parent):
 	elif parent.boardType == 'pci':
 		with open('temp.hal', 'w') as f:
 			f.write('loadrt hostmot2\n')
-			f.write(f'loadrt hm2_eth board_ip={parent.ipAddressCB.currentText()}\n')
+			f.write(f'loadrt hm2_pci\n')
 			f.write('quit')
+		p = Popen(['halrun', '-f', 'temp.hal'], stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
+		prompt = p.communicate()
+		os.remove('temp.hal')
 
-	getResults(parent, prompt, p.returncode, 'Get Card Pins')
+	getResults(parent, prompt, p.returncode, 'pinsPTE', 'Get Card Pins')
 
 def savePins(parent):
 	if parent.configNameLE.text() == '':
