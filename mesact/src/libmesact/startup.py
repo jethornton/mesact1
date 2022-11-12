@@ -5,6 +5,18 @@ from PyQt5.QtGui import QPixmap
 from libmesact import utilities
 
 def setup(parent):
+	# setup tabs and group boxes
+	parent.mainTabs.setTabEnabled(3, False)
+	parent.mainTabs.setTabEnabled(4, False)
+	parent.cardTabs.setTabEnabled(1, False)
+	parent.spindleGB.setEnabled(False)
+	parent.spindlepwmGB.setEnabled(False)
+	parent.spindlepidGB.setEnabled(False)
+	parent.minAngJogVelDSB.setEnabled(False)
+	parent.defAngJogVelDSB.setEnabled(False)
+	parent.maxAngJogVelDSB.setEnabled(False)
+	parent.spindleStepgenGB.setEnabled(False)
+
 	# if the config file does not exist create it
 	if not os.path.isdir(os.path.expanduser('~/.config/measct')):
 		os.makedirs(os.path.expanduser('~/.config/measct'))
