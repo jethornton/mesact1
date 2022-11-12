@@ -1,5 +1,5 @@
 Source: mesact
-Maintainer: John Thornton <jt@gnipsel.com>
+Maintainer: John Thornton <dev@gnipsel.com>
 Build-Depends: debhelper (>= 11.0.0)
 Standards-Version: 4.5.1
 Section: utils
