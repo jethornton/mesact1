@@ -115,8 +115,8 @@ class MainWindow(QMainWindow, Ui_mainWindow): # < for Translations
 		self.extcmd = extcmd.extcmd()
 		self.ladderOptionsList = utilities.plcOptions()
 		self.setupConnections()
-		self.show()
 		startup.setup(self)
+		self.show()
 
 	def setupConnections(self):
 
