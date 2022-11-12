@@ -234,16 +234,6 @@ class MainWindow(QMainWindow, Ui_mainWindow): # < for Translations
 		self.newUserCB.clicked.connect(partial(settings.update_value, self))
 
 	def change_language(self, translationFile = None):
-		'''
-		text = ('After spending hundreds of hours figuring out translations.\n'
-						'Nothing has been translated in over four months\n'
-						'\nTranslations increase my workload so if nothing is going\n'
-						'to be translated it is not worth the extra effort on my part.\n'
-						'\nIf you want to translate this tool to your language\n'
-						'leave an issue at:\n'
-						'https://github.com/jethornton/mesact/issues')
-		self.errorMsgOk(text, 'Translations are Disabled')
-		'''
 		if translationFile is not None:
 			self.trans.load(os.path.join(self.lib_path, translationFile))
 			QtWidgets.QApplication.instance().installTranslator(self.trans)
