@@ -24,7 +24,6 @@ def check_emc():
 '''
 
 def getResults(parent, prompt, result, task=None):
-	#print(parent.sender().objectName())
 	if result == 0:
 		output = prompt[0]
 		outcome = 'Success'
@@ -48,7 +47,8 @@ def checkCard(parent):
 	if parent.boardType == 'eth':
 		if check_ip(parent):
 			ipAddress = parent.ipAddressCB.currentText()
-			p = Popen(['mesaflash', '--device', board, '--addr', ipAddress], stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+			p = Popen(['mesaflash', '--device', board, '--addr', ipAddress],
+				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate()
 		else:
 			return
@@ -59,7 +59,7 @@ def checkCard(parent):
 			parent.password = password
 		if parent.password != None:
 			p = Popen(['sudo', '-S', 'mesaflash', '--device', board],
-				stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate(parent.password + '\n')
 	if prompt:
 		getResults(parent, prompt, p.returncode, 'Check IP')
@@ -73,7 +73,7 @@ def readpd(parent):
 		if check_ip(parent):
 			ipAddress = parent.ipAddressCB.currentText()
 			p = Popen(['mesaflash', '--device', parent.device, '--addr', ipAddress, '--print-pd'],
-				stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate()
 		else:
 			return
@@ -84,7 +84,7 @@ def readpd(parent):
 			parent.password = password
 		if parent.password != None:
 			p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.device, '--print-pd'],
-				stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate(parent.password + '\n')
 	if prompt:
 		getResults(parent, prompt, p.returncode, 'Read Pretty Descriptions')
@@ -98,7 +98,7 @@ def readhmid(parent):
 		if check_ip(parent):
 			ipAddress = parent.ipAddressCB.currentText()
 			p = Popen(['mesaflash', '--device', parent.device, '--addr', ipAddress, '--readhmid'],
-				stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate()
 		else:
 			return
@@ -109,7 +109,7 @@ def readhmid(parent):
 			parent.password = password
 		if parent.password != None:
 			p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.device, '--readhmid'],
-				stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate(parent.password + '\n')
 
 	if prompt:
@@ -130,8 +130,8 @@ def flashCard(parent):
 		if parent.boardType == 'eth':
 			if check_ip(parent):
 				ipAddress = parent.ipAddressCB.currentText()
-				p = Popen(['mesaflash', '--device', parent.device, '--addr', ipAddress, '--write', firmware],
-					stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+				p = Popen(['mesaflash', '--device', parent.device, '--addr', ipAddress,
+					'--write', firmware], stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 				prompt = p.communicate()
 			else:
 				return
@@ -142,7 +142,7 @@ def flashCard(parent):
 				parent.password = password
 			if parent.password != None:
 				p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.device, '--write', firmware],
-					stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+					stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 				prompt = p.communicate(parent.password + '\n')
 
 		if prompt:
@@ -161,7 +161,7 @@ def reloadCard(parent):
 		if check_ip(parent):
 			ipAddress = parent.ipAddressCB.currentText()
 			p = Popen(['mesaflash', '--device', parent.device, '--addr', ipAddress, '--reload'],
-				stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate()
 		else:
 			return
@@ -172,7 +172,7 @@ def reloadCard(parent):
 			parent.password = password
 		if parent.password != None:
 			p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.device, '--reload'],
-				stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate(parent.password + '\n')
 
 	if prompt:
@@ -190,7 +190,7 @@ def verifyCard(parent):
 			if check_ip(parent):
 				ipAddress = parent.ipAddressCB.currentText()
 				p = Popen(['mesaflash', '--device', parent.device, '--addr', ipAddress, '--verify', firmware],
-					stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+					stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 				prompt = p.communicate()
 			else:
 				return
@@ -201,7 +201,7 @@ def verifyCard(parent):
 				parent.password = password
 			if parent.password != None:
 				p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.device, '--verify', firmware],
-					stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+					stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 				prompt = p.communicate(parent.password + '\n')
 
 		if prompt:
@@ -226,7 +226,7 @@ def getCardPins(parent):
 				f.write('loadrt hostmot2\n')
 				f.write(f'loadrt hm2_eth board_ip={parent.ipAddressCB.currentText()}\n')
 				f.write('quit')
-			p = Popen(['halrun', '-f', 'temp.hal'], stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+			p = Popen(['halrun', '-f', 'temp.hal'], stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate()
 			os.remove('temp.hal')
 		else:
@@ -239,7 +239,6 @@ def getCardPins(parent):
 			f.write('quit')
 
 	getResults(parent, prompt, p.returncode, 'Get Card Pins')
-
 
 def savePins(parent):
 	if parent.configNameLE.text() == '':
