@@ -14,7 +14,7 @@ class updateini:
 		self.get_sections()
 		if self.content[0].startswith('# This file'):
 			self.content[0] = ('# This file was updated with the Mesa Configuration'
-				f'Tool on {datetime.now().strftime("%b %d %Y %H:%M:%S")}\n')
+				f' Tool on {datetime.now().strftime("%b %d %Y %H:%M:%S")}\n')
 
 		mesa = [
 		['MESA', 'VERSION', f'{parent.version}'],
