@@ -1,0 +1,26 @@
+
+<pcw--home> JT-Shop: all Ethernet cards should have the DPLL setup at least for the stepgen
+* sensille tries to move the fpga to 10.10.10.10
+<sensille> i will add a wifi dongle later, that's easy
+<pcw--home> something like:setp [HMOT](CARD0).dpll.01.timer-us -50
+<pcw--home> setp [HMOT](CARD0).stepgen.timer-number 1
+<roycroft> the mesa experts are here now, so i'll leave further comments to them
+<JT-Shop> thanks pcw--home 
+<sensille> btw, what is dpll? i was wondering the other day. some clock sync between host and card?
+<JT-Shop> pcw--home, is dpll dependent on the firmware having a d at the end?
+<pcw--home> Yes, its basically as way to reduce sampling jitter
+<pcw--home> All Ethernet firmware should have the DPLL (some ancient firmware does not but it should be upgraded)
+<JT-Shop> ok thanks
+<pcw--home> Ethernet latency can be in the 100s of usec which causes large position sampling errors (a similar large bogus corrections)
+<pcw--home> The DPLL reduces the sampling error to about +-250 nsec
+* seb_kuzm1nsky is now known as seb_kuzminsky
+<sensille> no, host ethernet also stops working with the card on 10.10.10.10
+<sensille> ping: sendmsg: Operation not permitted
+<sensille> as soon as i stop halrun it works again
+<pcw--home> That's expected if you only have one Ethernet interface
+<pcw--home> The real time Ethernet interface cannot be shared
+<sensille> good to know. so why the recommendation to move the fpga to a different IP net? or should it be connected back to back?
+<pcw--home> On machines without slots, a USB Ethernet or WIFI  dongle is good for network access
+<pcw--home> There are issues if the IP ranges overlap
+<pcw--home> I would always use 10.10.10.10 (and a dedicated interface, so no switches)
+<pcw--home> (you can use switches if you have multiple FPGA cards)
