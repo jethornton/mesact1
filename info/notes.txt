@@ -1,8 +1,6 @@
 git fetch
 git checkout -b ini4 origin/ini4
 
-sudo apt install devscripts
-
 make html
 
 sudo apt install texlive-latex-extra
@@ -59,6 +57,7 @@ dch --release
 
 Dependencies to build a deb
 sudo apt install dh-python
+sudo apt install devscripts
 
 to build a deb from the top most directory
 debuild -us -uc
