@@ -62,8 +62,10 @@ def firmwareTools(parent):
 	if parent.enableMesaflashCB.isChecked():
 		if checkmesaflash(parent):
 			parent.firmwareGB.setEnabled(True)
+			parent.checkBoardPB.setEnabled(True)
 	else:
 		parent.firmwareGB.setEnabled(False)
+		parent.checkBoardPB.setEnabled(False)
 
 def backup(parent):
 	if parent.backupCB.isChecked():
@@ -78,9 +80,11 @@ def checkmesaflash(parent, required=None, board=None):
 			installed = mf.split()[2]
 			parent.mesaflashVersionLB.setText(installed)
 			parent.firmwareGB.setEnabled(True)
+			parent.checkBoardPB.setEnabled(True)
 			flashOk = True
 	except FileNotFoundError as error:
 		parent.firmwareGB.setEnabled(False)
+		parent.checkBoardPB.setEnabled(False)
 		parent.mesaflashVersionLB.setText('Not Installed')
 		t = ('Mesaflash not found! Flashing and reading cards is not possible.\n'
 			'Either install from the Synaptic Package Manager or go to\n'
@@ -102,6 +106,7 @@ def checkmesaflash(parent, required=None, board=None):
 					'for installation/update instructions.')
 				parent.machinePTE.appendPlainText(t)
 				parent.firmwareGB.setEnabled(False)
+				parent.checkBoardPB.setEnabled(False)
 				parent.errorMsgOk(t, 'Mesaflash Version')
 
 	return flashOk
