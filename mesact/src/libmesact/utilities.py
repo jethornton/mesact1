@@ -87,8 +87,10 @@ def checkmesaflash(parent, required=None, board=None):
 		parent.checkBoardPB.setEnabled(False)
 		parent.mesaflashVersionLB.setText('Not Installed')
 		t = ('Mesaflash not found! Flashing and reading cards is not possible.\n'
-			'Either install from the Synaptic Package Manager or go to\n'
-			'https://github.com/LinuxCNC/mesaflash for installation instructions.\n')
+			'Either install from the Synaptic Package Manager\n'
+			'or install with apt\nsudo apt install mesaflash\nor go to\n'
+			'https://github.com/LinuxCNC/mesaflash\n'
+			'to build and install the lastest mesaflash.\n')
 		parent.machinePTE.appendPlainText(t)
 		parent.statusbar.showMessage('Mesaflash not found!')
 
