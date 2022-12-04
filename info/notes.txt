@@ -10,6 +10,9 @@ make latexpdf
 Qt Designer
 sudo apt install qttools5-dev-tools
 
+update
+sudo apt install pyqt5-dev-tools
+
 http://tom-itx.no-ip.biz:81/~webpage/cnc/JT-SHOP/mesact/
 
 halrun
