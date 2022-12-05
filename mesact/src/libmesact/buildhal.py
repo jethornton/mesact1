@@ -3,6 +3,9 @@ from datetime import datetime
 
 def build(parent):
 	board = parent.boardCB.currentData()
+	aliasdict = {'7i92t': '7i92'}
+	if board in aliasdict:
+		board = aliasdict[board]
 	mainboards = ['5i25', '7i80hd', '7i80db', '7i92', '7i93', '7i98']
 	if parent.daughterCB_0.currentData():
 		card = parent.daughterCB_0.currentData()
