@@ -286,6 +286,7 @@ class openini:
 						obj = False
 					if obj and value not in noUpdate:
 						if isinstance(getattr(parent, obj), QComboBox):
+							index = 0
 							if getattr(parent, obj).findData(value) >= 0:
 								index = getattr(parent, obj).findData(value)
 							elif getattr(parent, obj).findText(value) >= 0:
