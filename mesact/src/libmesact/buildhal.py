@@ -86,6 +86,11 @@ def build(parent):
 		halContents.append(f'addf pid.{i}.do-pid-calcs servo-thread\n')
 	halContents.append(f'addf hm2_{board}.0.write servo-thread\n')
 
+	if parent.boardType == 'eth':
+		halContents.append('\n# DPLL ETHERNET TIMER\n')
+		halContents.append(f'setp hm2_{board}.0.dpll.01.timer-us -50\n')
+		halContents.append(f'setp hm2_{board}.0.stepgen.timer-number 1\n')
+
 	if parent.daughterCB_0.currentData():
 		port = '0'
 	elif parent.daughterCB_0.currentData():
