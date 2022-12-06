@@ -21,7 +21,7 @@ loadrt hm2_eth board_ip=10.10.10.10
 loadrt hm2_eth board_ip=10.10.10.10 config="num_stepgens=0 num_encoders=0 num_pwmgens=0"
 
 In another terminal
-halcmd show > 7i80HD-All.txt
+halcmd show > 7i92T-7i76-All.txt
 halcmd show all hm2 > 7i96S-pins.txt
 
 loadrt hm2_pci config="num_encoders=3 num_pwmgens=3 num_stepgens=3 sserial_port_0=0000"
