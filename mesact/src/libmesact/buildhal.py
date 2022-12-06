@@ -6,13 +6,13 @@ def build(parent):
 	aliasdict = {'7i92t': '7i92'}
 	if board in aliasdict:
 		board = aliasdict[board]
-	mainboards = ['5i25', '7i80hd', '7i80db', '7i92', '7i93', '7i98']
+	#mainboards = ['5i25', '7i80hd', '7i80db', '7i92', '7i93', '7i98']
 	if parent.daughterCB_0.currentData():
 		card = parent.daughterCB_0.currentData()
 	elif parent.daughterCB_1.currentData():
 		card = parent.daughterCB_1.currentData()
-	else:
-		card = parent.boardCB.currentData()
+	#else:
+	#	card = parent.boardCB.currentData()
 
 	#card = parent.cardCB.currentText()
 	#port = parent.analogPort
@@ -28,17 +28,17 @@ def build(parent):
 
 	# build the standard header
 	halContents.append('# kinematics\n')
-	halContents.append('loadrt [KINS]KINEMATICS\n\n')
+	halContents.append('loadrt [KINS](KINEMATICS)\n\n')
 	halContents.append('# motion controller\n')
-	halContents.append('loadrt [EMCMOT]EMCMOT ')
-	halContents.append('servo_period_nsec=[EMCMOT]SERVO_PERIOD ')
+	halContents.append('loadrt [EMCMOT](EMCMOT) ')
+	halContents.append('servo_period_nsec=[EMCMOT](SERVO_PERIOD) ')
 	# check for extra motion options
 	#parent.numDioSB
 	#parent.numAioSB
 	#parent.numSpindlesSB
 	#parent.numJointSB
 	#parent.numExtraJointsSB
-	halContents.append('num_joints=[KINS]JOINTS\n\n')
+	halContents.append('num_joints=[KINS](JOINTS)\n\n')
 	halContents.append('# standard components\n')
 	if parent.spindleTypeCB.currentData():
 		pids = len(parent.coordinatesLB.text()) + 1
@@ -72,27 +72,35 @@ def build(parent):
 		halContents.append('num_pwmgens=[HM2](PWMGENS)')
 	if config:
 		halContents.append('"\n')
-	
-	
+
+
 	# loadrt [HM2](DRIVER) config="num_encoders=1 num_pwmgens=0 num_stepgens=5 sserial_port_0=00xxxx"
 	#halContents.append('loadrt [HM2](DRIVER) ')
 
 
-	halContents.append(f'\nsetp hm2_{board}.0.watchdog.timeout_ns {parent.servoPeriodSB.value() * 5}\n')
+	halContents.append(f'\nsetp hm2_[MESA](BOARD).0.watchdog.timeout_ns {parent.servoPeriodSB.value() * 5}\n')
 	halContents.append('\n# THREADS\n')
-	halContents.append(f'addf hm2_{board}.0.read servo-thread\n')
+	halContents.append(f'addf hm2_[MESA](BOARD).0.read servo-thread\n')
 	halContents.append('addf motion-command-handler servo-thread\n')
 	halContents.append('addf motion-controller servo-thread\n')
 
-
 	for i in range(pids):
 		halContents.append(f'addf pid.{i}.do-pid-calcs servo-thread\n')
-	halContents.append(f'addf hm2_{board}.0.write servo-thread\n')
+	halContents.append(f'addf hm2_[MESA](BOARD).0.write servo-thread\n')
+
+	#print(f'board {parent.board}')
+	dpll = {'7i96':['stepgen', 'encoder'],
+		'7i96s':['stepgen', 'encoder'],}
+
 
 	if parent.boardType == 'eth':
-		halContents.append('\n# DPLL ETHERNET TIMER\n')
-		halContents.append(f'setp hm2_{board}.0.dpll.01.timer-us -50\n')
-		halContents.append(f'setp hm2_{board}.0.stepgen.timer-number 1\n')
+		halContents.append('\n# DPLL TIMER\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.dpll.01.timer-us -50\n')
+		if board in dpll:
+			if 'stepgen' in dpll[board]:
+				halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.timer-number 1\n')
+			if 'encoder' in dpll[board]:
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.timer-number 1\n')
 
 	if parent.daughterCB_0.currentData():
 		port = '0'
@@ -102,16 +110,16 @@ def build(parent):
 	for i in range(len(parent.coordinatesLB.text())):
 		halContents.append(f'\n# Joint {i}\n')
 		halContents.append(f'# PID Setup\n')
-		halContents.append(f'setp pid.{i}.Pgain [JOINT_{i}]P\n')
-		halContents.append(f'setp pid.{i}.Igain [JOINT_{i}]I\n')
-		halContents.append(f'setp pid.{i}.Dgain [JOINT_{i}]D\n')
-		halContents.append(f'setp pid.{i}.bias [JOINT_{i}]BIAS\n')
-		halContents.append(f'setp pid.{i}.FF0 [JOINT_{i}]FF0\n')
-		halContents.append(f'setp pid.{i}.FF1 [JOINT_{i}]FF1\n')
-		halContents.append(f'setp pid.{i}.FF2 [JOINT_{i}]FF2\n')
-		halContents.append(f'setp pid.{i}.deadband [JOINT_{i}]DEADBAND\n')
-		halContents.append(f'setp pid.{i}.maxoutput [JOINT_{i}]MAX_OUTPUT\n')
-		halContents.append(f'setp pid.{i}.maxerror [JOINT_{i}]MAX_ERROR\n')
+		halContents.append(f'setp pid.{i}.Pgain [JOINT_{i}](P)\n')
+		halContents.append(f'setp pid.{i}.Igain [JOINT_{i}](I)\n')
+		halContents.append(f'setp pid.{i}.Dgain [JOINT_{i}](D)\n')
+		halContents.append(f'setp pid.{i}.bias [JOINT_{i}](BIAS)\n')
+		halContents.append(f'setp pid.{i}.FF0 [JOINT_{i}](FF0)\n')
+		halContents.append(f'setp pid.{i}.FF1 [JOINT_{i}](FF1)\n')
+		halContents.append(f'setp pid.{i}.FF2 [JOINT_{i}](FF2)\n')
+		halContents.append(f'setp pid.{i}.deadband [JOINT_{i}](DEADBAND)\n')
+		halContents.append(f'setp pid.{i}.maxoutput [JOINT_{i}](MAX_OUTPUT)\n')
+		halContents.append(f'setp pid.{i}.maxerror [JOINT_{i}](MAX_ERROR)\n')
 		halContents.append(f'setp pid.{i}.error-previous-target true\n')
 
 		halContents.append('\n# joint enable chain\n')
@@ -129,32 +137,32 @@ def build(parent):
 				port = '0'
 
 			if getattr(parent, f'c{port}_StepInvert_{i}').isChecked():
-				halContents.append(f'setp hm2_{board}.0.stepgen.0{i}.step.invert_output True\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.step.invert_output True\n')
 			if getattr(parent, f'c{port}_DirInvert_{i}').isChecked():
-				halContents.append(f'setp hm2_{board}.0.stepgen.0{i}.direction.invert_output True\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.direction.invert_output True\n')
 
-			halContents.append(f'\nnet joint-{i}-enable => hm2_{board}.0.stepgen.0{i}.enable\n')
+			halContents.append(f'\nnet joint-{i}-enable => hm2_[MESA](BOARD).0.stepgen.0{i}.enable\n')
 
-			halContents.append(f'\nsetp hm2_{board}.0.stepgen.0{i}.dirsetup [JOINT_{i}]DIRSETUP\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{i}.dirhold [JOINT_{i}]DIRHOLD\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{i}.steplen [JOINT_{i}]STEPLEN\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{i}.stepspace [JOINT_{i}]STEPSPACE\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{i}.position-scale [JOINT_{i}]SCALE\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{i}.maxvel [JOINT_{i}]STEPGEN_MAX_VEL\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{i}.maxaccel [JOINT_{i}]STEPGEN_MAX_ACC\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{i}.step_type 0\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{i}.control-type 1\n\n')
+			halContents.append(f'\nsetp hm2_[MESA](BOARD).0.stepgen.0{i}.dirsetup [JOINT_{i}](DIRSETUP)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.dirhold [JOINT_{i}](DIRHOLD)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.steplen [JOINT_{i}](STEPLEN)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.stepspace [JOINT_{i}](STEPSPACE)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.position-scale [JOINT_{i}](SCALE)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.maxvel [JOINT_{i}](STEPGEN_MAX_VEL)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.maxaccel [JOINT_{i}](STEPGEN_MAX_ACC)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.step_type 0\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.control-type 1\n\n')
 
 			halContents.append('\n# position command and feedback\n')
 			halContents.append(f'net joint-{i}-pos-cmd <= joint.{i}.motor-pos-cmd\n')
 			halContents.append(f'net joint-{i}-pos-cmd => pid.{i}.command\n')
 
-			halContents.append(f'\nnet joint-{i}-pos-fb <= hm2_{board}.0.stepgen.0{i}.position-fb\n')
+			halContents.append(f'\nnet joint-{i}-pos-fb <= hm2_[MESA](BOARD).0.stepgen.0{i}.position-fb\n')
 			halContents.append(f'net joint-{i}-pos-fb => joint.{i}.motor-pos-fb\n')
 			halContents.append(f'net joint-{i}-pos-fb => pid.{i}.feedback\n')
 
 			halContents.append(f'\nnet joint.{i}.output <= pid.{i}.output\n')
-			halContents.append(f'net joint.{i}.output => hm2_{board}.0.stepgen.0{i}.velocity-cmd\n')
+			halContents.append(f'net joint.{i}.output => hm2_[MESA](BOARD).0.stepgen.0{i}.velocity-cmd\n')
 
 
 		#if parent.board in mainboards:
@@ -167,7 +175,7 @@ def build(parent):
 				halContents.append('\n# joint enable chain\n')
 				halContents.append(f'net joint-{i}-index-enable <=> pid.{i}.index-enable\n')
 				halContents.append(f'net joint-{i}-enable => pid.{i}.enable\n')
-				halContents.append(f'net joint-{i}-enable => hm2_{board}.0.pwmgen.0{i}.enable\n')
+				halContents.append(f'net joint-{i}-enable => hm2_[MESA](BOARD).0.pwmgen.0{i}.enable\n')
 
 				halContents.append('\n# position command and feedback\n')
 				halContents.append(f'net joint-{i}-pos-cmd => pid.{i}.command\n')
@@ -175,41 +183,41 @@ def build(parent):
 				halContents.append(f'net joint-{i}-output <= pid.{i}.output\n')
 
 				halContents.append('\n# PWM setup\n')
-				halContents.append(f'setp hm2_{board}.0.pwmgen.00.output-type 1 #PWM pin0\n')
-				halContents.append(f'setp hm2_{board}.0.pwmgen.00.offset-mode 1 # offset mode so 50% = 0\n')
-				halContents.append(f'setp hm2_{board}.0.pwmgen.00.scale [JOINT_0]SCALE\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.00.output-type 1 #PWM pin0\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.00.offset-mode 1 # offset mode so 50% = 0\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.00.scale [JOINT_0]SCALE\n')
 
 				halContents.append('\n# Encoder Setup\n')
-				halContents.append(f'setp hm2_{board}.0.encoder.0{i}.scale  [JOINT_0]ENCODER_SCALE\n')
-				halContents.append(f'setp hm2_{board}.0.encoder.0{i}.counter-mode 0\n')
-				halContents.append(f'setp hm2_{board}.0.encoder.0{i}.filter 1\n')
-				halContents.append(f'setp hm2_{board}.0.encoder.0{i}.index-invert 0\n')
-				halContents.append(f'setp hm2_{board}.0.encoder.0{i}.index-mask 0\n')
-				halContents.append(f'setp hm2_{board}.0.encoder.0{i}.index-mask-invert 0\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.scale  [JOINT_0](ENCODER_SCALE)\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.counter-mode 0\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.filter 1\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-invert 0\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask 0\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask-invert 0\n')
 
 				halContents.append('\n# Position Command and Feedback\n')
-				halContents.append(f'net joint-{i}-fb <= hm2_{board}.0.encoder.0{i}.position\n')
+				halContents.append(f'net joint-{i}-fb <= hm2_[MESA](BOARD).0.encoder.0{i}.position\n')
 				halContents.append(f'net joint-{i}-pos-cmd <= joint.{i}.motor-pos-cmd\n')
 
 			else:
 				#halContents.append('# amp enable\n')
-				halContents.append(f'net joint-0-enable => hm2_{board}.0.{card}.0.{port}.analogena\n')
+				halContents.append(f'net joint-0-enable => hm2_[MESA](BOARD).0.{card}.0.{port}.analogena\n')
 				halContents.append('\n# PWM setup\n')
-				halContents.append(f'setp hm2_{board}.0.{card}.0.{port}.analogout{i}-scalemax [JOINT_{i}]ANALOG_SCALE_MAX\n')
-				halContents.append(f'setp hm2_{board}.0.{card}.0.{port}.analogout{i}-minlim [JOINT_{i}]ANALOG_MIN_LIMIT\n')
-				halContents.append(f'setp hm2_{board}.0.{card}.0.{port}.analogout{i}-maxlim [JOINT_{i}]ANALOG_MAX_LIMIT\n\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-scalemax [JOINT_{i}](ANALOG_SCALE_MAX)\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-minlim [JOINT_{i}](ANALOG_MIN_LIMIT)\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-maxlim [JOINT_{i}](ANALOG_MAX_LIMIT)\n\n')
 
 				halContents.append('\n# Encoder Setup\n')
-				halContents.append(f'setp hm2_{board}.0.encoder.0{i}.scale  [JOINT_0]ENCODER_SCALE\n')
-				halContents.append(f'setp hm2_{board}.0.encoder.0{i}.counter-mode 0\n')
-				halContents.append(f'setp hm2_{board}.0.encoder.0{i}.filter 1\n')
-				halContents.append(f'setp hm2_{board}.0.encoder.0{i}.index-invert 0\n')
-				halContents.append(f'setp hm2_{board}.0.encoder.0{i}.index-mask 0\n')
-				halContents.append(f'setp hm2_{board}.0.encoder.0{i}.index-mask-invert 0\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.scale  [JOINT_0](ENCODER_SCALE)\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.counter-mode 0\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.filter 1\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-invert 0\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask 0\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask-invert 0\n')
 
 				halContents.append('\n# Position Command and Feedback\n')
-				halContents.append(f'net joint-{i}-fb <= hm2_{board}.0.encoder.0{i}.position\n')
-				halContents.append(f'net joint-{i}-output => hm2_{board}.0.{card}.0.{port}.analogout{i}\n')
+				halContents.append(f'net joint-{i}-fb <= hm2_[MESA](BOARD).0.encoder.0{i}.position\n')
+				halContents.append(f'net joint-{i}-output => hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}\n')
 				halContents.append(f'net joint-{i}-pos-cmd <= joint.{i}.motor-pos-cmd\n')
 
 				# halContents.append(f'\n')
@@ -236,27 +244,27 @@ def build(parent):
 
 		if parent.spindleTypeCB.currentData() == 'analog':
 			halContents.append('\n# Spindle Board Connections\n')
-			halContents.append(f'net spindle-on => hm2_{board}.0.pwmgen.00.enable\n')
-			halContents.append(f'net spindle-vel-cmd-rpm hm2_{board}.0.pwmgen.00.value\n')
-			halContents.append(f'setp hm2_{board}.0.pwmgen.00.scale [SPINDLE_0]MAX_RPM\n')
-			halContents.append(f'setp hm2_{board}.0.pwmgen.pwm_frequency [SPINDLE_0]PWM_FREQUENCY\n')
-			halContents.append(f'setp hm2_{board}.0.pwmgen.00.output-type [SPINDLE_0]SPINDLE_PWM_TYPE\n')
+			halContents.append(f'net spindle-on => hm2_[MESA](BOARD).0.pwmgen.00.enable\n')
+			halContents.append(f'net spindle-vel-cmd-rpm hm2_[MESA](BOARD).0.pwmgen.00.value\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.00.scale [SPINDLE_0]MAX_RPM\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.pwm_frequency [SPINDLE_0](PWM_FREQUENCY)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.00.output-type [SPINDLE_0](SPINDLE_PWM_TYPE)\n')
 
 		if parent.spindleTypeCB.currentData()[:7] == 'stepgen':
 			s = parent.spindleTypeCB.currentData()[-1]
-			halContents.append(f'\nnet spindle-on hm2_{board}.0.stepgen.0{s}.enable\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{s}.dirsetup [SPINDLE_0]DIRSETUP\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{s}.dirhold [SPINDLE_0]DIRHOLD\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{s}.steplen [SPINDLE_0]STEPLEN\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{s}.stepspace [SPINDLE_0]STEPSPACE\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{s}.position-scale [SPINDLE_0]SCALE\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{s}.position-scale [SPINDLE_0]SCALE\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{s}.maxvel [SPINDLE_0]MAX_RPS\n')
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{s}.maxaccel [SPINDLE_0]MAX_ACCEL_RPS\n')
+			halContents.append(f'\nnet spindle-on hm2_[MESA](BOARD).0.stepgen.0{s}.enable\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{s}.dirsetup [SPINDLE_0](DIRSETUP)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{s}.dirhold [SPINDLE_0](DIRHOLD)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{s}.steplen [SPINDLE_0](STEPLEN)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{s}.stepspace [SPINDLE_0](STEPSPACE)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{s}.position-scale [SPINDLE_0](SCALE)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{s}.position-scale [SPINDLE_0](SCALE)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{s}.maxvel [SPINDLE_0](MAX_RPS)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{s}.maxaccel [SPINDLE_0](MAX_ACCEL_RPS)\n')
 
 			# need to set scale and other stuff first
-			halContents.append(f'setp hm2_{board}.0.stepgen.0{s}.control-type 1\n\n')
-			halContents.append(f'net spindle-vel-cmd-rps =>  hm2_{board}.0.stepgen.0{s}.velocity-cmd\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{s}.control-type 1\n\n')
+			halContents.append(f'net spindle-vel-cmd-rps =>  hm2_[MESA](BOARD).0.stepgen.0{s}.velocity-cmd\n')
 
 			# net s-output <= spindle.0.speed−out
 			# hm2_7i96s.0.stepgen.04.velocity-cmd
@@ -266,34 +274,34 @@ def build(parent):
 		if board in encoder00:
 			s = pids - 1
 			halContents.append('# PID Setup\n')
-			halContents.append(f'setp pid.{s}.Pgain [SPINDLE_0]P\n')
-			halContents.append(f'setp pid.{s}.Igain [SPINDLE_0]I\n')
-			halContents.append(f'setp pid.{s}.Dgain [SPINDLE_0]D\n')
-			halContents.append(f'setp pid.{s}.bias [SPINDLE_0]BIAS\n')
-			halContents.append(f'setp pid.{s}.FF0 [SPINDLE_0]FF0\n')
-			halContents.append(f'setp pid.{s}.FF1 [SPINDLE_0]FF1\n')
-			halContents.append(f'setp pid.{s}.FF2 [SPINDLE_0]FF2\n')
-			halContents.append(f'setp pid.{s}.deadband [SPINDLE_0]DEADBAND\n')
-			halContents.append(f'setp pid.{s}.maxoutput [SPINDLE_0]MAX_OUTPUT\n')
+			halContents.append(f'setp pid.{s}.Pgain [SPINDLE_0](P)\n')
+			halContents.append(f'setp pid.{s}.Igain [SPINDLE_0](I)\n')
+			halContents.append(f'setp pid.{s}.Dgain [SPINDLE_0](D)\n')
+			halContents.append(f'setp pid.{s}.bias [SPINDLE_0](BIAS)\n')
+			halContents.append(f'setp pid.{s}.FF0 [SPINDLE_0](FF0)\n')
+			halContents.append(f'setp pid.{s}.FF1 [SPINDLE_0](FF1)\n')
+			halContents.append(f'setp pid.{s}.FF2 [SPINDLE_0](FF2)\n')
+			halContents.append(f'setp pid.{s}.deadband [SPINDLE_0](DEADBAND)\n')
+			halContents.append(f'setp pid.{s}.maxoutput [SPINDLE_0](MAX_OUTPUT)\n')
 			halContents.append(f'setp pid.{s}.error-previous-target true\n')
 
 			halContents.append('# Encoder Setup\n')
-			halContents.append(f'setp hm2_{board}.0.encoder.00.counter-mode 0\n')
-			halContents.append(f'setp hm2_{board}.0.encoder.00.filter 1\n')
-			halContents.append(f'setp hm2_{board}.0.encoder.00.index-invert 0\n')
-			halContents.append(f'setp hm2_{board}.0.encoder.00.index-mask 0\n')
-			halContents.append(f'setp hm2_{board}.0.encoder.00.index-mask-invert 0\n')
-			halContents.append(f'setp hm2_{board}.0.encoder.00.scale [SPINDLE_0]ENCODER_SCALE\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.00.counter-mode 0\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.00.filter 1\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.00.index-invert 0\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.00.index-mask 0\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.00.index-mask-invert 0\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.00.scale [SPINDLE_0](ENCODER_SCALE)\n')
 
 			halContents.append(f'\nnet spindle-index-enable <=> pid.{s}.index-enable\n')
-			halContents.append(f'net spindle-index-enable <=> hm2_{board}.0.encoder.00.index-enable\n')
+			halContents.append(f'net spindle-index-enable <=> hm2_[MESA](BOARD).0.encoder.00.index-enable\n')
 			halContents.append('net spindle-index-enable <=> spindle.0.index-enable\n')
 
 			halContents.append(f'\nnet spindle-vel-cmd-rpm => pid.{s}.command\n')
 			halContents.append(f'net spindle-vel-cmd-rpm <= spindle.0.speed-out\n')
 
 			halContents.append(f'\nnet spindle-vel-fb-rpm => pid.{s}.feedback\n')
-			halContents.append(f'net spindle-vel-fb-rpm <= hm2_{board}.0.encoder.00.velocity-rpm\n')
+			halContents.append(f'net spindle-vel-fb-rpm <= hm2_[MESA](BOARD).0.encoder.00.velocity-rpm\n')
 
 			#halContents.append(f'\nnet spindle-output <= pid.{s}.output\n')
 
