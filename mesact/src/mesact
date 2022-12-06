@@ -93,7 +93,7 @@ class MainWindow(QMainWindow, Ui_mainWindow): # < for Translations
 		self.statusBar().addPermanentWidget(self.progressBar)
 		self.configPath = ''
 		self.board = '' # main board
-		self.card = '' # daughter card
+		#self.card = '' # daughter card
 		self.boardType = '' # pci or eth
 		self.device = '' # needed for mesaflash
 		self.cardType_0 = '' # step or servo
