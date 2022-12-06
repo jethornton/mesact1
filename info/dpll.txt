@@ -1,7 +1,5 @@
 
 <pcw--home> JT-Shop: all Ethernet cards should have the DPLL setup at least for the stepgen
-* sensille tries to move the fpga to 10.10.10.10
-<sensille> i will add a wifi dongle later, that's easy
 <pcw--home> something like:setp [HMOT](CARD0).dpll.01.timer-us -50
 <pcw--home> setp [HMOT](CARD0).stepgen.timer-number 1
 <roycroft> the mesa experts are here now, so i'll leave further comments to them
@@ -13,10 +11,6 @@
 <JT-Shop> ok thanks
 <pcw--home> Ethernet latency can be in the 100s of usec which causes large position sampling errors (a similar large bogus corrections)
 <pcw--home> The DPLL reduces the sampling error to about +-250 nsec
-* seb_kuzm1nsky is now known as seb_kuzminsky
-<sensille> no, host ethernet also stops working with the card on 10.10.10.10
-<sensille> ping: sendmsg: Operation not permitted
-<sensille> as soon as i stop halrun it works again
 <pcw--home> That's expected if you only have one Ethernet interface
 <pcw--home> The real time Ethernet interface cannot be shared
 <sensille> good to know. so why the recommendation to move the fpga to a different IP net? or should it be connected back to back?
@@ -24,3 +18,32 @@
 <pcw--home> There are issues if the IP ranges overlap
 <pcw--home> I would always use 10.10.10.10 (and a dedicated interface, so no switches)
 <pcw--home> (you can use switches if you have multiple FPGA cards)
+
+
+<JT-Cave> pcw--home, the 7i92T flashed with 7i77 or 7i76 firmware and I don't see any 7i77 or 7i76 pins, is it totally different now?
+<pcw--home> It should be the same
+<pcw--home> 7I92T jumpers are different from 7I92 jumpers though
+<JT-Shop> ok
+<JT-Shop> so the hal pins only show up when a daughter card is connected and powered up? I know the I/O needs power to be seen...
+<pcw--home> Yes any sserial pins (with 7i76 or 7i77 on their name) need the daughterboard connected and powered to show up
+<pcw--home> in their name
+<JT-Shop> ok, I guess I never thought about that as I've always had the daughter card connected
+<pcw--home> Yeah, that's the tradeoff with dynamic card discovery
+<JT-Shop> what does setp hm2_[BOARD].0.stepgen.timer-number 1 do and is it needed for the 7i92T?
+<pcw--home> It sets the stepgen DPLL timer number to 1 (this should be in all Ethernet configurations)
+<pcw--home> (normally preceded by setp hm2_[BOARD].0.dpll.01.timer-us 50)
+<pcw--home> sorry (normally preceded by setp hm2_[BOARD].0.dpll.01.timer-us -50)
+<pcw--home> That sets dpll timer 1 to 50 usec before the nominal read time ( the minus on -50 means before )
+<pcw--home> this means all stepgen position feedback registers are sampled at at least 50 usec before linuxcnc reads them
+<pcw--home> This means if the host's Ethernet latency say adds 200 usec of delay occasionally it does not affect the feedback position
+<pcw--home> because is always sampled at the same time regardless of when linuxCNC gets around to reading it
+<pcw--home> (there are 4 DPLL timers and typically timer 1 is used for stepgens and quadrature encoders)
+<pcw--home> though its arbitrary. You might need a second timer for absolute encoders to accommodate their serial read times
+<pcw--home> and yet another for modules with write update timing
+<JT-Shop> ok, thanks
+<JT-Shop> and what do you use if it's a 7i77 daughter card?
+<pcw--home> setp hm2_[BOARD].0.encoder.timer-number 1
+<pcw--home> That's ok for any Ethernet card with an encoder
+<pcw--home> (we actually any card with an encoder that has a DPLL but PCI cards for example don't always have a DPLL)
+<JT-Shop> ok thanks
+<pcw--home> welcome
