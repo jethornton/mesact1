@@ -105,6 +105,7 @@ class MainWindow(QMainWindow, Ui_mainWindow): # < for Translations
 
 		self.password = None
 		self.newUser = None
+		self.loading = False
 		self.axes = 0
 		self.timer=QTimer()
 		buildcombos.build(self)

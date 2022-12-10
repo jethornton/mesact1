@@ -115,9 +115,9 @@ def checkmesaflash(parent, required=None, board=None):
 
 def firmwareChanged(parent):
 	if parent.firmwareCB.currentData():
-		board = parent.board
+		board = parent.boardCB.currentData()
 		if parent.boardCB.currentData() in parent.mainBoards:
-			daughters = getattr(firmware, f'd{parent.board}')(parent)
+			daughters = getattr(firmware, f'd{board}')(parent)
 			if parent.firmwareCB.currentText() in daughters:
 				cards = daughters[parent.firmwareCB.currentText()]
 				parent.daughterCB_0.clear()
@@ -134,7 +134,7 @@ def firmwareChanged(parent):
 
 		# might combine these
 		elif  parent.boardCB.currentData() in parent.allInOneBoards:
-			daughters = getattr(firmware, f'd{parent.board}')(parent)
+			daughters = getattr(firmware, f'd{board}')(parent)
 			if daughters:
 				if parent.firmwareCB.currentText() in daughters:
 					cards = daughters[parent.firmwareCB.currentText()]

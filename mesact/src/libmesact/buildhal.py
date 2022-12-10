@@ -101,6 +101,13 @@ def build(parent):
 				halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.timer-number 1\n')
 			if 'encoder' in dpll[board]:
 				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.timer-number 1\n')
+		if board == '7i92' and card:
+			if card == '7i76':
+				halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.timer-number 1\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.timer-number 1\n')
+			elif card == '7i77':
+				halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.timer-number 1\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.timer-number 1\n')
 
 	if parent.daughterCB_0.currentData():
 		port = '0'

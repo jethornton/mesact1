@@ -47,16 +47,17 @@ def loadFirmware(parent):
 
 def boardChanged(parent):
 	if parent.boardCB.currentData():
+		#print(f'Board {parent.boardCB.currentData()}')
 		parent.machinePTE.clear()
 		parent.daughterCB_0.clear()
 		parent.daughterCB_1.clear()
-		parent.board = parent.boardCB.currentData()
 		if parent.boardCB.currentData() == '7i76e':
 			parent.device = '7i76e-16'
 		else:
 			parent.device = parent.boardCB.currentData()
 
 		if parent.boardCB.currentData() == '5i24': # DOUBLE CHECK THE SETTINGS
+			parent.board = '5i24'
 			parent.boardType = 'pci'
 			parent.cardType_0 = ''
 			parent.mainTabs.setTabEnabled(3, False)
@@ -98,6 +99,7 @@ def boardChanged(parent):
 			parent.ssWiringPTE.clear()
 
 		if parent.boardCB.currentData() == '5i25':
+			parent.board = '5i25'
 			parent.boardType = 'pci'
 			parent.cardType_0 = ''
 			parent.mainTabs.setTabEnabled(3, False)
@@ -140,6 +142,7 @@ def boardChanged(parent):
 
 		# 5 axes of step & dir 32 sinking inputs and 16 sourcing outputs
 		elif parent.boardCB.currentData() == '7i76e':
+			parent.board = '7i76e'
 			parent.machinePTE.appendPlainText('Field Power is required for the I/O')
 			parent.machinePTE.appendPlainText(f'Firmware is optional for {parent.board} all in one boards')
 			parent.machinePTE.appendPlainText('Default Firmware is 7i76e_7i76x1D.bit\n')
@@ -226,6 +229,7 @@ def boardChanged(parent):
 			parent.spindlePTE.setPlainText(spinnotes)
 
 		elif parent.boardCB.currentData() == '7i80db-16':
+			parent.board = '7i80db-16'
 			parent.boardType = 'eth'
 			parent.cardType_0 = ''
 			parent.mainTabs.setTabEnabled(3, False)
@@ -261,6 +265,7 @@ def boardChanged(parent):
 
 
 		elif parent.boardCB.currentData() == '7i80db-25':
+			parent.board = '7i80db-25'
 			parent.boardType = 'eth'
 			parent.cardType_0 = ''
 			parent.mainTabs.setTabEnabled(3, False)
@@ -294,6 +299,7 @@ def boardChanged(parent):
 			parent.ssWiringPTE.clear()
 
 		elif parent.boardCB.currentData() == '7i80hd-16':
+			parent.board = '7i80hd-16'
 			parent.boardType = 'eth'
 			parent.cardType_0 = ''
 			parent.mainTabs.setTabEnabled(3, False)
@@ -338,6 +344,7 @@ def boardChanged(parent):
 			parent.ssWiringPTE.clear()
 
 		elif parent.boardCB.currentData() == '7i80hd-25':
+			parent.board = '7i80hd-25'
 			parent.boardType = 'eth'
 			parent.cardType_0 = ''
 			parent.mainTabs.setTabEnabled(3, False)
@@ -382,6 +389,7 @@ def boardChanged(parent):
 			parent.ssWiringPTE.clear()
 
 		elif parent.boardCB.currentData() == '7i92':
+			parent.board = '7i92'
 			parent.boardType = 'eth'
 			parent.cardType_0 = ''
 			parent.mainTabs.setTabEnabled(3, False)
@@ -416,6 +424,7 @@ def boardChanged(parent):
 			parent.ssWiringPTE.clear()
 
 		elif parent.boardCB.currentData() == '7i92t':
+			parent.board = '7i92'
 			parent.boardType = 'eth'
 			parent.cardType_0 = ''
 			parent.mainTabs.setTabEnabled(3, False)
@@ -433,7 +442,7 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
-			if parent.enableMesaflashCB.isChecked():
+			if parent.enableMesaflashCB.isChecked() or parent.loading:
 				if utilities.checkmesaflash(parent, '3.4.4', '7i92T'):
 					loadFirmware(parent)
 			# Smart Serial
@@ -450,6 +459,7 @@ def boardChanged(parent):
 			parent.ssWiringPTE.clear()
 
 		elif parent.boardCB.currentData() == '7i93':
+			parent.board = '7i93'
 			parent.boardType = 'eth'
 			parent.cardType_0 = ''
 			parent.mainTabs.setTabEnabled(3, False)
@@ -485,6 +495,7 @@ def boardChanged(parent):
 
 		# 6 axes of step & dir 24 isolated inputs 6 isolated outputs
 		elif parent.boardCB.currentData() == '7i95':
+			parent.board = '7i95'
 			parent.machinePTE.appendPlainText(f'Firmware is optional for {parent.board} all in one boards')
 			parent.machinePTE.appendPlainText('Default Firmware is 7i95_d.bit\n')
 			parent.boardType = 'eth'
@@ -555,6 +566,7 @@ def boardChanged(parent):
 
 		# 5 axes of step & dir 11 isolated inputs 6 isolated outputs
 		elif parent.boardCB.currentData() == '7i96':
+			parent.board = '7i96'
 			parent.machinePTE.appendPlainText('Field Power is required for the I/O')
 			parent.machinePTE.appendPlainText(f'Firmware is optional for {parent.board} all in one boards')
 			parent.machinePTE.appendPlainText('Default Firmware is 7i96_7i76d.bit\n')
@@ -627,6 +639,7 @@ def boardChanged(parent):
 
 		# 5 axes of step & dir 11 isolated inputs 6 isolated outputs
 		elif parent.boardCB.currentData() == '7i96s':
+			parent.board = '7i96s'
 			# load .bin files for this one
 			parent.boardType = 'eth'
 			parent.cardType_0 = 'step'
@@ -741,6 +754,7 @@ def boardChanged(parent):
 
 		# 6 axes of analog servo 16 isolated inputs 6 isolated outputs
 		elif parent.boardCB.currentData() == '7i97':
+			parent.board = '7i97'
 			parent.boardType = 'eth'
 			parent.cardType_0 = 'servo'
 			parent.axes = 6
@@ -802,6 +816,7 @@ def boardChanged(parent):
 			parent.ssWiringPTE.setPlainText(text)
 
 		elif parent.boardCB.currentData() == '7i98':
+			parent.board = '7i98'
 			parent.boardType = 'eth'
 			parent.cardType_0 = ''
 			parent.mainTabs.setTabEnabled(3, False)

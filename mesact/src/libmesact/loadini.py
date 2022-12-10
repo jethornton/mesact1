@@ -1,7 +1,7 @@
 import os
 from configparser import ConfigParser
 
-from PyQt5.QtWidgets import (QFileDialog, QLabel, QLineEdit, QSpinBox,
+from PyQt5.QtWidgets import (QApplication, QFileDialog, QLabel, QLineEdit, QSpinBox,
 	QDoubleSpinBox, QCheckBox, QGroupBox, QComboBox, QPushButton, QRadioButton)
 
 from libmesact import utilities
@@ -48,8 +48,7 @@ class openini:
 			iniFile = ''
 
 	def loadini(self, parent, iniFile):
-		booleanDict = {'true': True, 'yes': True, '1': True,
-			'false': False, 'no': False, '0': False,}
+		parent.loading = True
 		iniDict = {}
 		with open(iniFile,'r') as file:
 			self.content = file.readlines() # create a list of the ini file
@@ -71,38 +70,50 @@ class openini:
 						path, filename = os.path.split(iniFile)
 						utilities.backupFiles(parent, path)
 
-		iniDict['[MESA]'] = {}
-		iniDict['[MESA]']['VERSION'] = None
-		iniDict['[MESA]']['BOARD'] = 'boardCB'
-		iniDict['[MESA]']['FIRMWARE'] = 'firmwareCB'
-		iniDict['[MESA]']['CARD_0'] = 'daughterCB_0'
-		iniDict['[MESA]']['CARD_1'] = 'daughterCB_1'
+		mesa = [
+		['[MESA]', 'NAME', 'boardCB'],
+		['[MESA]', 'FIRMWARE', 'firmwareCB'],
+		['[MESA]', 'CARD_0', 'daughterCB_0'],
+		['[MESA]', 'CARD_1', 'daughterCB_1']
+		]
+		for item in mesa:
+			self.update(parent, item[0], item[1], item[2])
 
-		iniDict['[EMC]'] = {}
-		iniDict['[EMC]']['MACHINE'] = 'configNameLE'
-		iniDict['[EMC]']['DEBUG'] = 'debugCB'
+		emc = [
+		['[EMC]', 'MACHINE', 'configNameLE'],
+		['[EMC]', 'DEBUG', 'debugCB']
+		]
+		for item in emc:
+			self.update(parent, item[0], item[1], item[2])
 
-		iniDict['[HM2]'] = {}
-		iniDict['[HM2]']['IPADDRESS'] = 'ipAddressCB'
-		iniDict['[HM2]']['STEPGENS'] = 'stepgensCB'
-		iniDict['[HM2]']['PWMGENS'] = 'pwmgensCB'
-		iniDict['[HM2]']['ENCODERS'] = 'encodersCB'
+		hm2 = [
+		['[HM2]', 'IPADDRESS', 'ipAddressCB'],
+		['[HM2]', 'STEPGENS', 'stepgensCB'],
+		['[HM2]', 'PWMGENS', 'pwmgensCB'],
+		['[HM2]', 'ENCODERS', 'encodersCB']
+		]
+		for item in hm2:
+			self.update(parent, item[0], item[1], item[2])
 
-		iniDict['[DISPLAY]'] = {}
-		iniDict['[DISPLAY]']['DISPLAY'] = 'guiCB'
-		iniDict['[DISPLAY]']['EDITOR'] = 'editorCB'
-		iniDict['[DISPLAY]']['POSITION_OFFSET'] = 'positionOffsetCB'
-		iniDict['[DISPLAY]']['POSITION_FEEDBACK'] = 'positionFeedbackCB'
-		iniDict['[DISPLAY]']['MAX_FEED_OVERRIDE'] = 'maxFeedOverrideSB'
-		iniDict['[DISPLAY]']['MIN_VELOCITY'] = 'minLinJogVelDSB'
-		iniDict['[DISPLAY]']['DEFAULT_LINEAR_VELOCITY'] = 'defLinJogVelDSB'
-		iniDict['[DISPLAY]']['MAX_LINEAR_VELOCITY'] = 'maxLinJogVelDSB'
-		iniDict['[DISPLAY]']['MIN_ANGULAR_VELOCITY'] = 'minAngJogVelDSB'
-		iniDict['[DISPLAY]']['DEFAULT_ANGULAR_VELOCITY'] = 'defAngJogVelDSB'
-		iniDict['[DISPLAY]']['MAX_ANGULAR_VELOCITY'] = 'maxAngJogVelDSB'
-		iniDict['[DISPLAY]']['LATHE'] = 'frontToolLatheRB'
-		iniDict['[DISPLAY]']['BACK_TOOL_LATHE'] = 'backToolLatheRB'
-		iniDict['[DISPLAY]']['FOAM'] = 'foamRB'
+		display = [
+		['[DISPLAY]', 'DISPLAY', 'guiCB'],
+		['[DISPLAY]', 'EDITOR', 'editorCB'],
+		['[DISPLAY]', 'POSITION_OFFSET', 'positionOffsetCB'],
+		['[DISPLAY]', 'POSITION_FEEDBACK', 'positionFeedbackCB'],
+		['[DISPLAY]', 'MAX_FEED_OVERRIDE', 'maxFeedOverrideSB'],
+		['[DISPLAY]', 'MIN_VELOCITY', 'minLinJogVelDSB'],
+		['[DISPLAY]', 'DEFAULT_LINEAR_VELOCITY', 'defLinJogVelDSB'],
+		['[DISPLAY]', 'MAX_LINEAR_VELOCITY', 'maxLinJogVelDSB'],
+		['[DISPLAY]', 'MIN_ANGULAR_VELOCITY', 'minAngJogVelDSB'],
+		['[DISPLAY]', 'DEFAULT_ANGULAR_VELOCITY', 'defAngJogVelDSB'],
+		['[DISPLAY]', 'MAX_ANGULAR_VELOCITY', 'maxAngJogVelDSB'],
+		['[DISPLAY]', 'LATHE', 'frontToolLatheRB'],
+		['[DISPLAY]', 'BACK_TOOL_LATHE', 'backToolLatheRB'],
+		['[DISPLAY]', 'FOAM', 'foamRB'],
+		]
+
+		for item in display:
+			self.update(parent, item[0], item[1], item[2])
 
 		if '[FILTER]' in self.sections:
 			start = self.sections['[FILTER]'][0]
@@ -117,14 +128,14 @@ class openini:
 						getattr(parent, f'filterExtLE_{i}').setText(item)
 					break
 
-		# load the [TRAJ] section
-		iniDict['[TRAJ]'] = {}
-		iniDict['[TRAJ]']['LINEAR_UNITS'] = 'linearUnitsCB'
-		iniDict['[TRAJ]']['MAX_LINEAR_VELOCITY'] = 'trajMaxLinVelDSB'
+		traj = [
+		['[TRAJ]', 'LINEAR_UNITS', 'linearUnitsCB'],
+		['[TRAJ]', 'MAX_LINEAR_VELOCITY', 'trajMaxLinVelDSB'],
+		]
 
-		# load the [HAL] section
+		for item in traj:
+			self.update(parent, item[0], item[1], item[2])
 
-		# load the [HALUI] section
 		if '[HALUI]' in self.sections:
 			start = self.sections['[HALUI]'][0]
 			end = self.sections['[HALUI]'][1]
@@ -137,138 +148,161 @@ class openini:
 			for i, item in enumerate(mdicmd):
 					getattr(parent, f'mdiCmdLE_{i}').setText(item)
 
-		# load the [JOINT] sections
 		for i in range(6):
-			iniDict[f'[JOINT_{i}]'] = {}
-			iniDict[f'[JOINT_{i}]']['AXIS'] = f'c0_axisCB_{i}'
-			iniDict[f'[JOINT_{i}]']['DRIVE'] = f'c0_driveCB_{i}'
-			iniDict[f'[JOINT_{i}]']['STEP_INVERT'] = f'c0_StepInvert_{i}'
-			iniDict[f'[JOINT_{i}]']['DIR_INVERT'] = f'c0_DirInvert_{i}'
-			iniDict[f'[JOINT_{i}]']['STEPLEN'] = f'c0_StepTime_{i}'
-			iniDict[f'[JOINT_{i}]']['STEPSPACE'] = f'c0_StepSpace_{i}'
-			iniDict[f'[JOINT_{i}]']['DIRSETUP'] = f'c0_DirSetup_{i}'
-			iniDict[f'[JOINT_{i}]']['DIRHOLD'] = f'c0_DirHold_{i}'
-			iniDict[f'[JOINT_{i}]']['MIN_LIMIT'] = f'c0_minLimit_{i}'
-			iniDict[f'[JOINT_{i}]']['MAX_LIMIT'] = f'c0_maxLimit_{i}'
-			iniDict[f'[JOINT_{i}]']['MAX_VELOCITY'] = f'c0_maxVelocity_{i}'
-			iniDict[f'[JOINT_{i}]']['MAX_ACCELERATION'] = f'c0_maxAccel_{i}'
-			iniDict[f'[JOINT_{i}]']['SCALE'] = f'c0_scale_{i}'
-			iniDict[f'[JOINT_{i}]']['HOME'] = f'c0_home_{i}'
-			iniDict[f'[JOINT_{i}]']['HOME_OFFSET'] = f'c0_homeOffset_{i}'
-			iniDict[f'[JOINT_{i}]']['HOME_SEARCH_VEL'] = f'c0_homeSearchVel_{i}'
-			iniDict[f'[JOINT_{i}]']['HOME_LATCH_VEL'] = f'c0_homeLatchVel_{i}'
-			iniDict[f'[JOINT_{i}]']['HOME_FINAL_VEL'] = f'c0_homeFinalVelocity_{i}'
-			iniDict[f'[JOINT_{i}]']['HOME_USE_INDEX'] = f'c0_homeUseIndex_{i}'
-			iniDict[f'[JOINT_{i}]']['HOME_IGNORE_LIMITS'] = f'c0_homeIgnoreLimits_{i}'
-			iniDict[f'[JOINT_{i}]']['HOME_IS_SHARED'] = f'c0_homeSwitchShared_{i}'
-			iniDict[f'[JOINT_{i}]']['HOME_SEQUENCE'] = f'c0_homeSequence_{i}'
-			iniDict[f'[JOINT_{i}]']['P'] = f'c0_p_{i}'
-			iniDict[f'[JOINT_{i}]']['I'] = f'c0_i_{i}'
-			iniDict[f'[JOINT_{i}]']['D'] = f'c0_d_{i}'
-			iniDict[f'[JOINT_{i}]']['FF0'] = f'c0_ff0_{i}'
-			iniDict[f'[JOINT_{i}]']['FF1'] = f'c0_ff1_{i}'
-			iniDict[f'[JOINT_{i}]']['FF2'] = f'c0_ff2_{i}'
-			iniDict[f'[JOINT_{i}]']['DEADBAND'] = f'c0_deadband_{i}'
-			iniDict[f'[JOINT_{i}]']['BIAS'] = f'c0_bias_{i}'
-			iniDict[f'[JOINT_{i}]']['MAX_OUTPUT'] = f'c0_maxOutput_{i}'
-			iniDict[f'[JOINT_{i}]']['MAX_ERROR'] = f'c0_maxError_{i}'
-			iniDict[f'[JOINT_{i}]']['FERROR'] = f'c0_ferror_{i}'
-			iniDict[f'[JOINT_{i}]']['MIN_FERROR'] = f'c0_min_ferror_{i}'
-			iniDict[f'[JOINT_{i}]']['ENCODER_SCALE'] = f'c0_encoderScale_{i}'
-			iniDict[f'[JOINT_{i}]']['ANALOG_SCALE_MAX'] = f'c0_analogScaleMax_{i}'
-			iniDict[f'[JOINT_{i}]']['ANALOG_MIN_LIMIT'] = f'c0_analogMinLimit_{i}'
-			iniDict[f'[JOINT_{i}]']['ANALOG_MAX_LIMIT'] = f'c0_analogMaxLimit_{i}'
+			joint = [
+			[f'[JOINT_{i}]', 'AXIS', f'c0_axisCB_{i}'],
+			[f'[JOINT_{i}]', 'DRIVE', f'c0_driveCB_{i}'],
+			[f'[JOINT_{i}]', 'STEP_INVERT', f'c0_StepInvert_{i}'],
+			[f'[JOINT_{i}]', 'DIR_INVERT', f'c0_DirInvert_{i}'],
+			[f'[JOINT_{i}]', 'STEPLEN', f'c0_StepTime_{i}'],
+			[f'[JOINT_{i}]', 'STEPSPACE', f'c0_StepSpace_{i}'],
+			[f'[JOINT_{i}]', 'DIRSETUP', f'c0_DirSetup_{i}'],
+			[f'[JOINT_{i}]', 'DIRHOLD',  f'c0_DirHold_{i}'],
+			[f'[JOINT_{i}]', 'MIN_LIMIT', f'c0_minLimit_{i}'],
+			[f'[JOINT_{i}]', 'MAX_LIMIT',  f'c0_maxLimit_{i}'],
+			[f'[JOINT_{i}]', 'MAX_VELOCITY', f'c0_maxVelocity_{i}'],
+			[f'[JOINT_{i}]', 'MAX_ACCELERATION', f'c0_maxAccel_{i}'],
+			[f'[JOINT_{i}]', 'SCALE', f'c0_scale_{i}'],
+			[f'[JOINT_{i}]', 'HOME', f'c0_home_{i}'],
+			[f'[JOINT_{i}]', 'HOME_OFFSET', f'c0_homeOffset_{i}'],
+			[f'[JOINT_{i}]', 'HOME_SEARCH_VEL', f'c0_homeSearchVel_{i}'],
+			[f'[JOINT_{i}]', 'HOME_LATCH_VEL', f'c0_homeLatchVel_{i}'],
+			[f'[JOINT_{i}]', 'HOME_FINAL_VEL', f'c0_homeFinalVelocity_{i}'],
+			[f'[JOINT_{i}]', 'HOME_USE_INDEX', f'c0_homeUseIndex_{i}'],
+			[f'[JOINT_{i}]', 'HOME_IGNORE_LIMITS', f'c0_homeIgnoreLimits_{i}'],
+			[f'[JOINT_{i}]', 'HOME_IS_SHARED', f'c0_homeSwitchShared_{i}'],
+			[f'[JOINT_{i}]', 'HOME_SEQUENCE', f'c0_homeSequence_{i}'],
+			[f'[JOINT_{i}]', 'P', f'c0_p_{i}'],
+			[f'[JOINT_{i}]', 'I', f'c0_i_{i}'],
+			[f'[JOINT_{i}]', 'D', f'c0_d_{i}'],
+			[f'[JOINT_{i}]', 'FF0', f'c0_ff0_{i}'],
+			[f'[JOINT_{i}]', 'FF1', f'c0_ff1_{i}'],
+			[f'[JOINT_{i}]', 'FF2', f'c0_ff2_{i}'],
+			[f'[JOINT_{i}]', 'DEADBAND', f'c0_deadband_{i}'],
+			[f'[JOINT_{i}]', 'BIAS', f'c0_bias_{i}'],
+			[f'[JOINT_{i}]', 'MAX_OUTPUT', f'c0_maxOutput_{i}'],
+			[f'[JOINT_{i}]', 'MAX_ERROR', f'c0_maxError_{i}'],
+			[f'[JOINT_{i}]', 'FERROR', f'c0_ferror_{i}'],
+			[f'[JOINT_{i}]', 'MIN_FERROR', f'c0_min_ferror_{i}'],
+			[f'[JOINT_{i}]', 'ENCODER_SCALE', f'c0_encoderScale_{i}'],
+			[f'[JOINT_{i}]', 'ANALOG_SCALE_MAX', f'c0_analogScaleMax_{i}'],
+			[f'[JOINT_{i}]', 'ANALOG_MIN_LIMIT', f'c0_analogMinLimit_{i}'],
+			[f'[JOINT_{i}]', 'ANALOG_MAX_LIMIT', f'c0_analogMaxLimit_{i}'],
+			]
 
-		# load the [SPINDLE_0] section
-		iniDict['[SPINDLE_0]'] = {}
-		iniDict['[SPINDLE_0]']['SPINDLE_TYPE'] = 'spindleTypeCB'
-		iniDict['[SPINDLE_0]']['ENCODER_SCALE'] = 'spindleEncoderScale'
-		iniDict['[SPINDLE_0]']['SCALE'] = 'spindleStepScale'
-		iniDict['[SPINDLE_0]']['SPINDLE_PWM_TYPE'] = 'spindlePwmTypeCB'
-		iniDict['[SPINDLE_0]']['PWM_FREQUENCY'] = 'pwmFrequencySB'
-		iniDict['[SPINDLE_0]']['MAX_RPM'] = 'spindleMaxRpm'
-		iniDict['[SPINDLE_0]']['MIN_RPM'] = 'spindleMinRpm'
-		iniDict['[SPINDLE_0]']['DEADBAND'] = 'deadband_s'
-		iniDict['[SPINDLE_0]']['FEEDBACK'] = 'spindleFeedbackCB'
-		iniDict['[SPINDLE_0]']['P'] = 'p_s'
-		iniDict['[SPINDLE_0]']['I'] = 'i_s'
-		iniDict['[SPINDLE_0]']['D'] = 'd_s'
-		iniDict['[SPINDLE_0]']['FF0'] = 'ff0_s'
-		iniDict['[SPINDLE_0]']['FF1'] = 'ff1_s'
-		iniDict['[SPINDLE_0]']['FF2'] = 'ff2_s'
-		iniDict['[SPINDLE_0]']['BIAS'] = 'bias_s'
-		iniDict['[SPINDLE_0]']['MAX_ERROR'] = 'maxError_s'
-		iniDict['[SPINDLE_0]']['MAX_OUTPUT'] = 'maxOutput_s'
-		iniDict['[SPINDLE_0]']['DRIVE'] = 'spindleDriveCB'
-		iniDict['[SPINDLE_0]']['STEPLEN'] = 'spindleStepTime'
-		iniDict['[SPINDLE_0]']['STEPSPACE'] = 'spindleStepSpace'
-		iniDict['[SPINDLE_0]']['DIRSETUP'] = 'spindleDirSetup'
-		iniDict['[SPINDLE_0]']['DIRHOLD'] = 'spindleDirHold'
-		iniDict['[SPINDLE_0]']['STEP_INVERT'] = 'spindleStepInvert'
-		iniDict['[SPINDLE_0]']['DIR_INVERT'] = 'spindleDirInvert'
-		iniDict['[SPINDLE_0]']['MAX_ACCEL_RPM'] = 'spindleMaxAccel'
+			for item in joint:
+				self.update(parent, item[0], item[1], item[2])
 
-		# load the [INPUTS] section
-		iniDict['[INPUTS]'] = {}
+		spindle = [
+		['[SPINDLE_0]', 'SPINDLE_TYPE', 'spindleTypeCB'],
+		['[SPINDLE_0]', 'ENCODER_SCALE', 'spindleEncoderScale'],
+		['[SPINDLE_0]', 'SCALE', 'spindleStepScale'],
+		['[SPINDLE_0]', 'SPINDLE_PWM_TYPE', 'spindlePwmTypeCB'],
+		['[SPINDLE_0]', 'PWM_FREQUENCY', 'pwmFrequencySB'],
+		['[SPINDLE_0]', 'MAX_RPM', 'spindleMaxRpm'],
+		['[SPINDLE_0]', 'MIN_RPM', 'spindleMinRpm'],
+		['[SPINDLE_0]', 'DEADBAND', 'deadband_s'],
+		['[SPINDLE_0]', 'FEEDBACK', 'spindleFeedbackCB'],
+		['[SPINDLE_0]', 'P', 'p_s'],
+		['[SPINDLE_0]', 'I', 'i_s'],
+		['[SPINDLE_0]', 'D', 'd_s'],
+		['[SPINDLE_0]', 'FF0', 'ff0_s'],
+		['[SPINDLE_0]', 'FF1', 'ff1_s'],
+		['[SPINDLE_0]', 'FF2', 'ff2_s'],
+		['[SPINDLE_0]', 'BIAS', 'bias_s'],
+		['[SPINDLE_0]', 'MAX_ERROR', 'maxError_s'],
+		['[SPINDLE_0]', 'MAX_OUTPUT', 'maxOutput_s'],
+		['[SPINDLE_0]', 'DRIVE', 'spindleDriveCB'],
+		['[SPINDLE_0]', 'STEPLEN', 'spindleStepTime'],
+		['[SPINDLE_0]', 'STEPSPACE', 'spindleStepSpace'],
+		['[SPINDLE_0]', 'DIRSETUP', 'spindleDirSetup'],
+		['[SPINDLE_0]', 'DIRHOLD', 'spindleDirHold'],
+		['[SPINDLE_0]', 'STEP_INVERT', 'spindleStepInvert'],
+		['[SPINDLE_0]', 'DIR_INVERT', 'spindleDirInvert'],
+		['[SPINDLE_0]', 'MAX_ACCEL_RPM', 'spindleMaxAccel'],
+		]
+
+		for item in spindle:
+			self.update(parent, item[0], item[1], item[2])
+
 		for i in range(32):
-			iniDict['[INPUTS]'][f'INPUT_{i}'] = f'inputPB_{i}'
-			iniDict['[INPUTS]'][f'INPUT_INVERT_{i}'] = f'inputInvertCB_{i}'
-			iniDict['[INPUTS]'][f'INPUT_SLOW_{i}'] = f'inputDebounceCB_{i}'
+			inputs = [
+			['[INPUTS]', 'INPUT_{i}', f'inputPB_{i}'],
+			['[INPUTS]', 'INPUT_INVERT_{i}', f'inputInvertCB_{i}'],
+			['[INPUTS]', 'INPUT_SLOW_{i}', f'inputDebounceCB_{i}'],
+			]
 
-		# load the [OUTPUTS] section
-		iniDict['[OUTPUTS]'] = {}
+			for item in inputs:
+				self.update(parent, item[0], item[1], item[2])
+
 		for i in range(16):
-			iniDict['[OUTPUTS]'][f'OUTPUT_{i}'] = f'outputPB_{i}'
-			iniDict['[OUTPUTS]'][f'OUTPUT_INVERT_{i}'] = f'outputInvertCB_{i}'
+			outputs = [
+			['[OUTPUTS]', 'OUTPUT_{i}', f'outputPB_{i}'],
+			['[INPUTS]', 'OUTPUT_INVERT_{i}', f'outputInvertCB_{i}'],
+			]
 
-		# load the [OPTIONS] section
-		iniDict['[OPTIONS]'] = {}
-		iniDict['[OPTIONS]']['LOAD_CONFIG'] = 'loadConfigCB'
-		iniDict['[OPTIONS]']['INTRO_GRAPHIC'] = 'introGraphicLE'
-		iniDict['[OPTIONS]']['INTRO_GRAPHIC_TIME'] = 'splashScreenSB'
-		iniDict['[OPTIONS]']['MANUAL_TOOL_CHANGE'] = 'manualToolChangeCB'
-		iniDict['[OPTIONS]']['CUSTOM_HAL'] = 'customhalCB'
-		iniDict['[OPTIONS]']['POST_GUI_HAL'] = 'postguiCB'
-		iniDict['[OPTIONS]']['SHUTDOWN_HAL'] = 'shutdownCB'
-		iniDict['[OPTIONS]']['HALUI'] = 'haluiCB'
-		iniDict['[OPTIONS]']['PYVCP'] = 'pyvcpCB'
-		iniDict['[OPTIONS]']['GLADEVCP'] = 'gladevcpCB'
-		iniDict['[OPTIONS]']['LADDER'] = 'ladderGB'
-		iniDict['[OPTIONS]']['BACKUP'] = 'backupCB'
+			for item in outputs:
+				self.update(parent, item[0], item[1], item[2])
 
-		# load the [PLC] section
-		iniDict['[PLC]'] = {}
-		iniDict['[PLC]']['LADDER_RUNGS'] = 'ladderRungsSB'
-		iniDict['[PLC]']['LADDER_BITS'] = 'ladderBitsSB'
-		iniDict['[PLC]']['LADDER_WORDS'] = 'ladderWordsSB'
-		iniDict['[PLC]']['LADDER_TIMERS'] = 'ladderTimersSB'
-		iniDict['[PLC]']['LADDER_IEC_TIMERS'] = 'iecTimerSB'
-		iniDict['[PLC]']['LADDER_MONOSTABLES'] = 'ladderMonostablesSB'
-		iniDict['[PLC]']['LADDER_COUNTERS'] = 'ladderCountersSB'
-		iniDict['[PLC]']['LADDER_HAL_INPUTS'] = 'ladderInputsSB'
-		iniDict['[PLC]']['LADDER_HAL_OUTPUTS'] = 'ladderOutputsSB'
-		iniDict['[PLC]']['LADDER_EXPRESSIONS'] = 'ladderExpresionsSB'
-		iniDict['[PLC]']['LADDER_SECTIONS'] = 'ladderSectionsSB'
-		iniDict['[PLC]']['LADDER_SYMBOLS'] = 'ladderSymbolsSB'
-		iniDict['[PLC]']['LADDER_S32_INPUTS'] = 'ladderS32InputsSB'
-		iniDict['[PLC]']['LADDER_S32_OUTPUTS'] = 'ladderS32OuputsSB'
-		iniDict['[PLC]']['LADDER_FLOAT_INPUTS'] = 'ladderFloatInputsSB'
-		iniDict['[PLC]']['LADDER_FLOAT_OUTPUTS'] = 'ladderFloatOutputsSB'
+		options = [
+		['[OPTIONS]', 'LOAD_CONFIG', 'loadConfigCB'],
+		['[OPTIONS]', 'INTRO_GRAPHIC', 'introGraphicLE'],
+		['[OPTIONS]', 'INTRO_GRAPHIC_TIME', 'splashScreenSB'],
+		['[OPTIONS]', 'MANUAL_TOOL_CHANGE', 'manualToolChangeCB'],
+		['[OPTIONS]', 'CUSTOM_HAL', 'customhalCB'],
+		['[OPTIONS]', 'POST_GUI_HAL', 'postguiCB'],
+		['[OPTIONS]', 'SHUTDOWN_HAL', 'shutdownCB'],
+		['[OPTIONS]', 'HALUI', 'haluiCB'],
+		['[OPTIONS]', 'PYVCP', 'pyvcpCB'],
+		['[OPTIONS]', 'GLADEVCP', 'gladevcpCB'],
+		['[OPTIONS]', 'LADDER', 'ladderGB'],
+		['[OPTIONS]', 'BACKUP', 'backupCB'],
+		]
+
+		for item in options:
+			self.update(parent, item[0], item[1], item[2])
+
+		plc = [
+		['[PLC]','LADDER_RUNGS', 'ladderRungsSB'],
+		['[PLC]','LADDER_BITS', 'ladderBitsSB'],
+		['[PLC]','LADDER_WORDS', 'ladderWordsSB'],
+		['[PLC]','LADDER_TIMERS', 'ladderTimersSB'],
+		['[PLC]','LADDER_IEC_TIMERS', 'iecTimerSB'],
+		['[PLC]','LADDER_MONOSTABLES', 'ladderMonostablesSB'],
+		['[PLC]','LADDER_COUNTERS', 'ladderCountersSB'],
+		['[PLC]','LADDER_HAL_INPUTS', 'ladderInputsSB'],
+		['[PLC]','LADDER_HAL_OUTPUTS', 'ladderOutputsSB'],
+		['[PLC]','LADDER_EXPRESSIONS', 'ladderExpresionsSB'],
+		['[PLC]','LADDER_SECTIONS', 'ladderSectionsSB'],
+		['[PLC]','LADDER_SYMBOLS', 'ladderSymbolsSB'],
+		['[PLC]','LADDER_S32_INPUTS', 'ladderS32InputsSB'],
+		['[PLC]','LADDER_S32_OUTPUTS', 'ladderS32OuputsSB'],
+		['[PLC]','LADDER_FLOAT_INPUTS', 'ladderFloatInputsSB'],
+		['[PLC]','LADDER_FLOAT_OUTPUTS', 'ladderFloatOutputsSB'],
+		]
+
+		for item in plc:
+			self.update(parent, item[0], item[1], item[2])
 
 		if '[SSERIAL]' in self.sections:
-			iniDict['[SSERIAL]'] = {}
 			start = self.sections['[SSERIAL]'][0]
 			end = self.sections['[SSERIAL]'][1]
 			for i, j in enumerate(range(start, end)):
 				line = self.content[j].strip()
-				if len(line.strip()) > 0 and line.startswith('ss'):
+				if len(line.strip()) > 0 and '=' in line:
 					line = self.content[j].split('=')
 					key = line[0].strip()
 					value = line[1].strip()
 					if key == 'SS_CARD':
-						iniDict['[SSERIAL]']['SS_CARD'] = 'ssCardCB'
-					else:
-						iniDict['[SSERIAL]'][key] = key
+						self.update(parent, '[SSERIAL]', 'SS_CARD', 'ssCardCB')
+					elif key.startswith('ss'):
+						if value != 'Select':
+							self.update(parent, '[SSERIAL]', key, key)
+
+
+		return
+
+
 
 		noUpdate = ['None', 'False', 'Select']
 		section = ''
@@ -286,11 +320,13 @@ class openini:
 						obj = False
 					if obj and value not in noUpdate:
 						if isinstance(getattr(parent, obj), QComboBox):
+							#print(f'item {item} value {value} obj {obj}')
 							index = 0
 							if getattr(parent, obj).findData(value) >= 0:
 								index = getattr(parent, obj).findData(value)
 							elif getattr(parent, obj).findText(value) >= 0:
 								index = getattr(parent, obj).findText(value)
+							#print(f'{obj} {index}')
 							if index >= 0:
 								getattr(parent, obj).setCurrentIndex(index)
 						elif isinstance(getattr(parent, obj), QLabel):
@@ -326,6 +362,44 @@ class openini:
 				config['TOOLS']['FIRMWARE'] = 'True'
 		with open(configPath, 'w') as cf:
 			config.write(cf)
+
+		parent.loading = False
+
+	def update(self, parent, section, key, obj):
+		booleanDict = {'true': True, 'yes': True, '1': True,
+			'false': False, 'no': False, '0': False,}
+		if section in self.sections:
+			start = self.sections[section][0]
+			end = self.sections[section][1]
+			for item in self.content[start:end]:
+				if item.strip().startswith(key):
+					value = item.split('=')[1].strip()
+					if isinstance(getattr(parent, obj), QComboBox):
+						index = 0
+						if getattr(parent, obj).findData(value) >= 0:
+							index = getattr(parent, obj).findData(value)
+						elif getattr(parent, obj).findText(value) >= 0:
+							index = getattr(parent, obj).findText(value)
+						if index >= 0:
+							getattr(parent, obj).setCurrentIndex(index)
+					elif isinstance(getattr(parent, obj), QLabel):
+						getattr(parent, obj).setText(value)
+					elif isinstance(getattr(parent, obj), QLineEdit):
+						getattr(parent, obj).setText(value)
+					elif isinstance(getattr(parent, obj), QSpinBox):
+						getattr(parent, obj).setValue(abs(int(value)))
+					elif isinstance(getattr(parent, obj), QDoubleSpinBox):
+						getattr(parent, obj).setValue(float(value))
+					elif isinstance(getattr(parent, obj), QCheckBox):
+						getattr(parent, obj).setChecked(booleanDict[value.lower()])
+					elif isinstance(getattr(parent, obj), QRadioButton):
+						getattr(parent, obj).setChecked(booleanDict[value.lower()])
+					elif isinstance(getattr(parent, obj), QGroupBox):
+						getattr(parent, obj).setChecked(booleanDict[value.lower()])
+					elif isinstance(getattr(parent, obj), QPushButton):
+						getattr(parent, obj).setText(value)
+
+
 
 
 	def get_sections(self):

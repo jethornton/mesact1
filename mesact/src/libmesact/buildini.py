@@ -22,7 +22,8 @@ def build(parent):
 	# build the [MESA] section
 	iniContents.append('\n[MESA]\n')
 	iniContents.append(f'VERSION = {parent.version}\n')
-	iniContents.append(f'BOARD = {parent.boardCB.currentData()}\n')
+	iniContents.append(f'BOARD = {parent.board}\n')
+	iniContents.append(f'BOARD_NAME = {parent.boardCB.currentData()}\n')
 	iniContents.append(f'FIRMWARE = {parent.firmwareCB.currentData()}\n')
 	iniContents.append(f'CARD_0 = {parent.daughterCB_0.currentData()}\n')
 	iniContents.append(f'CARD_1 = {parent.daughterCB_1.currentData()}\n')
