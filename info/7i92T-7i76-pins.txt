@@ -1,0 +1,673 @@
+Loaded HAL Components:
+ID      Type  Name                                            PID   State
+    33  RT    hm2_eth                                               ready
+
+Component Pins:
+Owner   Type  Dir         Value  Name
+    33  s32   OUT    2098000000  hm2_7i92.0.0.debug
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-00
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-00-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-01
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-01-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-02
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-02-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-03
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-03-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-04
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-04-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-05
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-05-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-06
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-06-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-07
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-07-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-08
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-08-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-09
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-09-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-10
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-10-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-11
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-11-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-12
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-12-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-13
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-13-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-14
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-14-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-15
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-15-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-16
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-16-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-17
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-17-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-18
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-18-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-19
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-19-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-20
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-20-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-21
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-21-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-22
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-22-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-23
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-23-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-24
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-24-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-25
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-25-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-26
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-26-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-27
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-27-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-28
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-28-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-29
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-29-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-30
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-30-not
+    33  bit   OUT         FALSE  hm2_7i92.0.7i76.0.0.input-31
+    33  bit   OUT          TRUE  hm2_7i92.0.7i76.0.0.input-31-not
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-00
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-01
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-02
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-03
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-04
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-05
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-06
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-07
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-08
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-09
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-10
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-11
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-12
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-13
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-14
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.output-15
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.spindir
+    33  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.spinena
+    33  float IN              0  hm2_7i92.0.7i76.0.0.spinout
+    33  float IN            -50  hm2_7i92.0.dpll.01.timer-us
+    33  float IN            100  hm2_7i92.0.dpll.02.timer-us
+    33  float IN            100  hm2_7i92.0.dpll.03.timer-us
+    33  float IN            100  hm2_7i92.0.dpll.04.timer-us
+    33  float IN              1  hm2_7i92.0.dpll.base-freq-khz
+    33  u32   OUT    0x0000002A  hm2_7i92.0.dpll.ddsize
+    33  float OUT     -83.89479  hm2_7i92.0.dpll.phase-error-us
+    33  u32   IN     0x00400000  hm2_7i92.0.dpll.plimit
+    33  u32   OUT    0x00000018  hm2_7i92.0.dpll.prescale
+    33  u32   IN     0x000007D0  hm2_7i92.0.dpll.time-const
+    33  s32   OUT             0  hm2_7i92.0.encoder.00.count
+    33  s32   OUT             0  hm2_7i92.0.encoder.00.count-latched
+    33  bit   I/O         FALSE  hm2_7i92.0.encoder.00.index-enable
+    33  bit   OUT         FALSE  hm2_7i92.0.encoder.00.input-a
+    33  bit   OUT         FALSE  hm2_7i92.0.encoder.00.input-b
+    33  bit   OUT          TRUE  hm2_7i92.0.encoder.00.input-index
+    33  float OUT             0  hm2_7i92.0.encoder.00.position
+    33  float OUT             0  hm2_7i92.0.encoder.00.position-latched
+    33  bit   OUT         FALSE  hm2_7i92.0.encoder.00.quad-error
+    33  bit   IN          FALSE  hm2_7i92.0.encoder.00.quad-error-enable
+    33  s32   OUT             0  hm2_7i92.0.encoder.00.rawcounts
+    33  s32   OUT             0  hm2_7i92.0.encoder.00.rawlatch
+    33  bit   IN          FALSE  hm2_7i92.0.encoder.00.reset
+    33  float OUT             0  hm2_7i92.0.encoder.00.velocity
+    33  float OUT             0  hm2_7i92.0.encoder.00.velocity-rpm
+    33  s32   OUT             0  hm2_7i92.0.encoder.01.count
+    33  s32   OUT             0  hm2_7i92.0.encoder.01.count-latched
+    33  bit   I/O         FALSE  hm2_7i92.0.encoder.01.index-enable
+    33  bit   OUT          TRUE  hm2_7i92.0.encoder.01.input-a
+    33  bit   OUT          TRUE  hm2_7i92.0.encoder.01.input-b
+    33  bit   OUT         FALSE  hm2_7i92.0.encoder.01.input-index
+    33  float OUT             0  hm2_7i92.0.encoder.01.position
+    33  float OUT             0  hm2_7i92.0.encoder.01.position-latched
+    33  bit   OUT         FALSE  hm2_7i92.0.encoder.01.quad-error
+    33  bit   IN          FALSE  hm2_7i92.0.encoder.01.quad-error-enable
+    33  s32   OUT             0  hm2_7i92.0.encoder.01.rawcounts
+    33  s32   OUT             0  hm2_7i92.0.encoder.01.rawlatch
+    33  bit   IN          FALSE  hm2_7i92.0.encoder.01.reset
+    33  float OUT             0  hm2_7i92.0.encoder.01.velocity
+    33  float OUT             0  hm2_7i92.0.encoder.01.velocity-rpm
+    33  bit   IN          FALSE  hm2_7i92.0.encoder.hires-timestamp
+    33  u32   IN     0x017D7840  hm2_7i92.0.encoder.sample-frequency
+    33  s32   IN              1  hm2_7i92.0.encoder.timer-number
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.000.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.000.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.001.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.001.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.002.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.002.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.003.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.003.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.004.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.004.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.005.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.005.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.006.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.006.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.007.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.007.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.008.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.008.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.009.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.009.in_not
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.010.in
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.010.in_not
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.011.in
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.011.in_not
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.012.in
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.012.in_not
+    33  bit   IN          FALSE  hm2_7i92.0.gpio.012.out
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.013.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.013.in_not
+    33  bit   IN          FALSE  hm2_7i92.0.gpio.013.out
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.014.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.014.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.015.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.015.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.016.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.016.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.017.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.017.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.018.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.018.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.019.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.019.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.020.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.020.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.021.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.021.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.022.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.022.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.023.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.023.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.024.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.024.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.025.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.025.in_not
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.026.in
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.026.in_not
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.027.in
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.027.in_not
+    33  bit   IN          FALSE  hm2_7i92.0.gpio.027.out
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.028.in
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.028.in_not
+    33  bit   IN          FALSE  hm2_7i92.0.gpio.028.out
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.029.in
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.029.in_not
+    33  bit   IN          FALSE  hm2_7i92.0.gpio.029.out
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.030.in
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.030.in_not
+    33  bit   IN          FALSE  hm2_7i92.0.gpio.030.out
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.031.in
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.031.in_not
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.032.in
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.032.in_not
+    33  bit   OUT          TRUE  hm2_7i92.0.gpio.033.in
+    33  bit   OUT         FALSE  hm2_7i92.0.gpio.033.in_not
+    33  bit   IN          FALSE  hm2_7i92.0.led.CR01
+    33  bit   IN          FALSE  hm2_7i92.0.led.CR02
+    33  bit   IN          FALSE  hm2_7i92.0.led.CR03
+    33  bit   IN          FALSE  hm2_7i92.0.led.CR04
+    33  bit   OUT          TRUE  hm2_7i92.0.packet-error
+    33  bit   OUT          TRUE  hm2_7i92.0.packet-error-exceeded
+    33  s32   OUT            10  hm2_7i92.0.packet-error-level
+    33  u32   I/O    0x00000005  hm2_7i92.0.packet-error-total
+    33  s32   OUT             0  hm2_7i92.0.read-request.time
+    33  s32   OUT           111  hm2_7i92.0.read.time
+    33  u32   OUT    0x00000000  hm2_7i92.0.sserial.port-0.fault-count
+    33  u32   OUT    0x00000003  hm2_7i92.0.sserial.port-0.port_state
+    33  u32   OUT    0x00000000  hm2_7i92.0.sserial.port-0.port_state2
+    33  u32   OUT    0x00000000  hm2_7i92.0.sserial.port-0.port_state3
+    33  bit   IN           TRUE  hm2_7i92.0.sserial.port-0.run
+    33  bit   IN           TRUE  hm2_7i92.0.stepgen.00.control-type
+    33  s32   OUT             0  hm2_7i92.0.stepgen.00.counts
+    33  float OUT             0  hm2_7i92.0.stepgen.00.dbg_err_at_match
+    33  float OUT             0  hm2_7i92.0.stepgen.00.dbg_ff_vel
+    33  float OUT             0  hm2_7i92.0.stepgen.00.dbg_pos_minus_prev_cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.00.dbg_s_to_match
+    33  s32   OUT             0  hm2_7i92.0.stepgen.00.dbg_step_rate
+    33  float OUT             0  hm2_7i92.0.stepgen.00.dbg_vel_error
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.00.enable <== joint-0-enable
+    33  float IN              0  hm2_7i92.0.stepgen.00.position-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.00.position-fb ==> joint-0-pos-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.00.position-reset
+    33  float IN              0  hm2_7i92.0.stepgen.00.velocity-cmd <== joint.0.output
+    33  float OUT             0  hm2_7i92.0.stepgen.00.velocity-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.01.control-type
+    33  s32   OUT             0  hm2_7i92.0.stepgen.01.counts
+    33  float OUT             0  hm2_7i92.0.stepgen.01.dbg_err_at_match
+    33  float OUT             0  hm2_7i92.0.stepgen.01.dbg_ff_vel
+    33  float OUT             0  hm2_7i92.0.stepgen.01.dbg_pos_minus_prev_cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.01.dbg_s_to_match
+    33  s32   OUT             0  hm2_7i92.0.stepgen.01.dbg_step_rate
+    33  float OUT             0  hm2_7i92.0.stepgen.01.dbg_vel_error
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.01.enable
+    33  float IN              0  hm2_7i92.0.stepgen.01.position-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.01.position-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.01.position-reset
+    33  float IN              0  hm2_7i92.0.stepgen.01.velocity-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.01.velocity-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.02.control-type
+    33  s32   OUT             0  hm2_7i92.0.stepgen.02.counts
+    33  float OUT             0  hm2_7i92.0.stepgen.02.dbg_err_at_match
+    33  float OUT             0  hm2_7i92.0.stepgen.02.dbg_ff_vel
+    33  float OUT             0  hm2_7i92.0.stepgen.02.dbg_pos_minus_prev_cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.02.dbg_s_to_match
+    33  s32   OUT             0  hm2_7i92.0.stepgen.02.dbg_step_rate
+    33  float OUT             0  hm2_7i92.0.stepgen.02.dbg_vel_error
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.02.enable
+    33  float IN              0  hm2_7i92.0.stepgen.02.position-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.02.position-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.02.position-reset
+    33  float IN              0  hm2_7i92.0.stepgen.02.velocity-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.02.velocity-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.03.control-type
+    33  s32   OUT             0  hm2_7i92.0.stepgen.03.counts
+    33  float OUT             0  hm2_7i92.0.stepgen.03.dbg_err_at_match
+    33  float OUT             0  hm2_7i92.0.stepgen.03.dbg_ff_vel
+    33  float OUT             0  hm2_7i92.0.stepgen.03.dbg_pos_minus_prev_cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.03.dbg_s_to_match
+    33  s32   OUT             0  hm2_7i92.0.stepgen.03.dbg_step_rate
+    33  float OUT             0  hm2_7i92.0.stepgen.03.dbg_vel_error
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.03.enable
+    33  float IN              0  hm2_7i92.0.stepgen.03.position-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.03.position-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.03.position-reset
+    33  float IN              0  hm2_7i92.0.stepgen.03.velocity-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.03.velocity-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.04.control-type
+    33  s32   OUT             0  hm2_7i92.0.stepgen.04.counts
+    33  float OUT             0  hm2_7i92.0.stepgen.04.dbg_err_at_match
+    33  float OUT             0  hm2_7i92.0.stepgen.04.dbg_ff_vel
+    33  float OUT             0  hm2_7i92.0.stepgen.04.dbg_pos_minus_prev_cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.04.dbg_s_to_match
+    33  s32   OUT             0  hm2_7i92.0.stepgen.04.dbg_step_rate
+    33  float OUT             0  hm2_7i92.0.stepgen.04.dbg_vel_error
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.04.enable
+    33  float IN              0  hm2_7i92.0.stepgen.04.position-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.04.position-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.04.position-reset
+    33  float IN              0  hm2_7i92.0.stepgen.04.velocity-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.04.velocity-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.05.control-type
+    33  s32   OUT             0  hm2_7i92.0.stepgen.05.counts
+    33  float OUT             0  hm2_7i92.0.stepgen.05.dbg_err_at_match
+    33  float OUT             0  hm2_7i92.0.stepgen.05.dbg_ff_vel
+    33  float OUT             0  hm2_7i92.0.stepgen.05.dbg_pos_minus_prev_cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.05.dbg_s_to_match
+    33  s32   OUT             0  hm2_7i92.0.stepgen.05.dbg_step_rate
+    33  float OUT             0  hm2_7i92.0.stepgen.05.dbg_vel_error
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.05.enable
+    33  float IN              0  hm2_7i92.0.stepgen.05.position-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.05.position-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.05.position-reset
+    33  float IN              0  hm2_7i92.0.stepgen.05.velocity-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.05.velocity-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.06.control-type
+    33  s32   OUT             0  hm2_7i92.0.stepgen.06.counts
+    33  float OUT             0  hm2_7i92.0.stepgen.06.dbg_err_at_match
+    33  float OUT             0  hm2_7i92.0.stepgen.06.dbg_ff_vel
+    33  float OUT             0  hm2_7i92.0.stepgen.06.dbg_pos_minus_prev_cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.06.dbg_s_to_match
+    33  s32   OUT             0  hm2_7i92.0.stepgen.06.dbg_step_rate
+    33  float OUT             0  hm2_7i92.0.stepgen.06.dbg_vel_error
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.06.enable
+    33  float IN              0  hm2_7i92.0.stepgen.06.position-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.06.position-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.06.position-reset
+    33  float IN              0  hm2_7i92.0.stepgen.06.velocity-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.06.velocity-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.07.control-type
+    33  s32   OUT             0  hm2_7i92.0.stepgen.07.counts
+    33  float OUT             0  hm2_7i92.0.stepgen.07.dbg_err_at_match
+    33  float OUT             0  hm2_7i92.0.stepgen.07.dbg_ff_vel
+    33  float OUT             0  hm2_7i92.0.stepgen.07.dbg_pos_minus_prev_cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.07.dbg_s_to_match
+    33  s32   OUT             0  hm2_7i92.0.stepgen.07.dbg_step_rate
+    33  float OUT             0  hm2_7i92.0.stepgen.07.dbg_vel_error
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.07.enable
+    33  float IN              0  hm2_7i92.0.stepgen.07.position-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.07.position-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.07.position-reset
+    33  float IN              0  hm2_7i92.0.stepgen.07.velocity-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.07.velocity-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.08.control-type
+    33  s32   OUT             0  hm2_7i92.0.stepgen.08.counts
+    33  float OUT             0  hm2_7i92.0.stepgen.08.dbg_err_at_match
+    33  float OUT             0  hm2_7i92.0.stepgen.08.dbg_ff_vel
+    33  float OUT             0  hm2_7i92.0.stepgen.08.dbg_pos_minus_prev_cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.08.dbg_s_to_match
+    33  s32   OUT             0  hm2_7i92.0.stepgen.08.dbg_step_rate
+    33  float OUT             0  hm2_7i92.0.stepgen.08.dbg_vel_error
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.08.enable
+    33  float IN              0  hm2_7i92.0.stepgen.08.position-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.08.position-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.08.position-reset
+    33  float IN              0  hm2_7i92.0.stepgen.08.velocity-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.08.velocity-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.09.control-type
+    33  s32   OUT             0  hm2_7i92.0.stepgen.09.counts
+    33  float OUT             0  hm2_7i92.0.stepgen.09.dbg_err_at_match
+    33  float OUT             0  hm2_7i92.0.stepgen.09.dbg_ff_vel
+    33  float OUT             0  hm2_7i92.0.stepgen.09.dbg_pos_minus_prev_cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.09.dbg_s_to_match
+    33  s32   OUT             0  hm2_7i92.0.stepgen.09.dbg_step_rate
+    33  float OUT             0  hm2_7i92.0.stepgen.09.dbg_vel_error
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.09.enable
+    33  float IN              0  hm2_7i92.0.stepgen.09.position-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.09.position-fb
+    33  bit   IN          FALSE  hm2_7i92.0.stepgen.09.position-reset
+    33  float IN              0  hm2_7i92.0.stepgen.09.velocity-cmd
+    33  float OUT             0  hm2_7i92.0.stepgen.09.velocity-fb
+    33  s32   IN              1  hm2_7i92.0.stepgen.timer-number
+    33  bit   I/O         FALSE  hm2_7i92.0.watchdog.has_bit
+    33  s32   OUT             1  hm2_7i92.0.write.time
+
+Pin Aliases:
+ Alias                                            Original Name
+
+Signals:
+Type          Value  Name     (linked to)
+
+Parameters:
+Owner   Type  Dir         Value  Name
+    33  u32   RO     0x00000000  hm2_7i92.0.7i76.0.0.analogin0
+    33  u32   RO     0x00000000  hm2_7i92.0.7i76.0.0.analogin1
+    33  u32   RO     0x00000000  hm2_7i92.0.7i76.0.0.analogin2
+    33  u32   RO     0x00000000  hm2_7i92.0.7i76.0.0.analogin3
+    33  u32   RW     0x00000000  hm2_7i92.0.7i76.0.0.encmode0
+    33  u32   RW     0x00000000  hm2_7i92.0.7i76.0.0.encmode1
+    33  u32   RO     0x0000A480  hm2_7i92.0.7i76.0.0.fieldvoltage
+    33  u32   RW     0x00000001  hm2_7i92.0.7i76.0.0.hwrevision
+    33  u32   RW     0x00000009  hm2_7i92.0.7i76.0.0.nvbaudrate
+    33  u32   RW     0x00000000  hm2_7i92.0.7i76.0.0.nvencmode0
+    33  u32   RW     0x00000000  hm2_7i92.0.7i76.0.0.nvencmode1
+    33  u32   RW     0x10000B6A  hm2_7i92.0.7i76.0.0.nvunitnumber
+    33  u32   RW     0x00000032  hm2_7i92.0.7i76.0.0.nvwatchdogtimeout
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-00-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-01-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-02-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-03-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-04-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-05-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-06-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-07-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-08-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-09-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-10-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-11-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-12-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-13-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-14-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.output-15-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.spindir-invert
+    33  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.spinena-invert
+    33  float RW            100  hm2_7i92.0.7i76.0.0.spinout-maxlim
+    33  float RW              0  hm2_7i92.0.7i76.0.0.spinout-minlim
+    33  float RW            100  hm2_7i92.0.7i76.0.0.spinout-scalemax
+    33  u32   RW     0x0000000F  hm2_7i92.0.7i76.0.0.swrevision
+    33  bit   RW          FALSE  hm2_7i92.0.encoder.00.counter-mode
+    33  bit   RW           TRUE  hm2_7i92.0.encoder.00.filter
+    33  bit   RW          FALSE  hm2_7i92.0.encoder.00.index-invert
+    33  bit   RW          FALSE  hm2_7i92.0.encoder.00.index-mask
+    33  bit   RW          FALSE  hm2_7i92.0.encoder.00.index-mask-invert
+    33  float RW              1  hm2_7i92.0.encoder.00.scale
+    33  float RW            0.5  hm2_7i92.0.encoder.00.vel-timeout
+    33  bit   RW          FALSE  hm2_7i92.0.encoder.01.counter-mode
+    33  bit   RW           TRUE  hm2_7i92.0.encoder.01.filter
+    33  bit   RW          FALSE  hm2_7i92.0.encoder.01.index-invert
+    33  bit   RW          FALSE  hm2_7i92.0.encoder.01.index-mask
+    33  bit   RW          FALSE  hm2_7i92.0.encoder.01.index-mask-invert
+    33  float RW              1  hm2_7i92.0.encoder.01.scale
+    33  float RW            0.5  hm2_7i92.0.encoder.01.vel-timeout
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.012.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.012.is_opendrain
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.012.is_output
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.013.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.013.is_opendrain
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.013.is_output
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.027.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.027.is_opendrain
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.027.is_output
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.028.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.028.is_opendrain
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.028.is_output
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.029.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.029.is_opendrain
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.029.is_output
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.030.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.030.is_opendrain
+    33  bit   RW          FALSE  hm2_7i92.0.gpio.030.is_output
+    33  bit   RW           TRUE  hm2_7i92.0.io_error
+    33  s32   RO              1  hm2_7i92.0.packet-error-decrement
+    33  s32   RW              2  hm2_7i92.0.packet-error-increment
+    33  s32   RW             10  hm2_7i92.0.packet-error-limit
+    33  s32   RW             80  hm2_7i92.0.packet-read-timeout
+    33  s32   RW              0  hm2_7i92.0.read-request.tmax
+    33  bit   RO          FALSE  hm2_7i92.0.read-request.tmax-increased
+    33  s32   RW        2983014  hm2_7i92.0.read.tmax
+    33  bit   RO          FALSE  hm2_7i92.0.read.tmax-increased
+    33  bit   RW          FALSE  hm2_7i92.0.sserial.00.tx0.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.sserial.00.tx0.is_opendrain
+    33  u32   RW     0x00000001  hm2_7i92.0.sserial.port-0.fault-dec
+    33  u32   RW     0x0000000A  hm2_7i92.0.sserial.port-0.fault-inc
+    33  u32   RW     0x000000C8  hm2_7i92.0.sserial.port-0.fault-lim
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.00.direction.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.00.direction.is_opendrain
+    33  u32   RW     0x000000C8  hm2_7i92.0.stepgen.00.dirhold
+    33  u32   RW     0x000000C8  hm2_7i92.0.stepgen.00.dirsetup
+    33  float RW            1.2  hm2_7i92.0.stepgen.00.maxaccel
+    33  float RW            1.2  hm2_7i92.0.stepgen.00.maxvel
+    33  float RW              1  hm2_7i92.0.stepgen.00.position-scale
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.00.step.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.00.step.is_opendrain
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.00.step_type
+    33  u32   RW     0x000003E8  hm2_7i92.0.stepgen.00.steplen
+    33  u32   RW     0x000007D0  hm2_7i92.0.stepgen.00.stepspace
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.00.table-data-0
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.00.table-data-1
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.00.table-data-2
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.00.table-data-3
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.01.direction.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.01.direction.is_opendrain
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.01.dirhold
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.01.dirsetup
+    33  float RW              1  hm2_7i92.0.stepgen.01.maxaccel
+    33  float RW              0  hm2_7i92.0.stepgen.01.maxvel
+    33  float RW              1  hm2_7i92.0.stepgen.01.position-scale
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.01.step.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.01.step.is_opendrain
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.01.step_type
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.01.steplen
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.01.stepspace
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.01.table-data-0
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.01.table-data-1
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.01.table-data-2
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.01.table-data-3
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.02.direction.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.02.direction.is_opendrain
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.02.dirhold
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.02.dirsetup
+    33  float RW              1  hm2_7i92.0.stepgen.02.maxaccel
+    33  float RW              0  hm2_7i92.0.stepgen.02.maxvel
+    33  float RW              1  hm2_7i92.0.stepgen.02.position-scale
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.02.step.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.02.step.is_opendrain
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.02.step_type
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.02.steplen
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.02.stepspace
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.02.table-data-0
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.02.table-data-1
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.02.table-data-2
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.02.table-data-3
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.03.direction.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.03.direction.is_opendrain
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.03.dirhold
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.03.dirsetup
+    33  float RW              1  hm2_7i92.0.stepgen.03.maxaccel
+    33  float RW              0  hm2_7i92.0.stepgen.03.maxvel
+    33  float RW              1  hm2_7i92.0.stepgen.03.position-scale
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.03.step.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.03.step.is_opendrain
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.03.step_type
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.03.steplen
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.03.stepspace
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.03.table-data-0
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.03.table-data-1
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.03.table-data-2
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.03.table-data-3
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.04.direction.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.04.direction.is_opendrain
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.04.dirhold
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.04.dirsetup
+    33  float RW              1  hm2_7i92.0.stepgen.04.maxaccel
+    33  float RW              0  hm2_7i92.0.stepgen.04.maxvel
+    33  float RW              1  hm2_7i92.0.stepgen.04.position-scale
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.04.step.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.04.step.is_opendrain
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.04.step_type
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.04.steplen
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.04.stepspace
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.04.table-data-0
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.04.table-data-1
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.04.table-data-2
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.04.table-data-3
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.05.direction.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.05.direction.is_opendrain
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.05.dirhold
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.05.dirsetup
+    33  float RW              1  hm2_7i92.0.stepgen.05.maxaccel
+    33  float RW              0  hm2_7i92.0.stepgen.05.maxvel
+    33  float RW              1  hm2_7i92.0.stepgen.05.position-scale
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.05.step.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.05.step.is_opendrain
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.05.step_type
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.05.steplen
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.05.stepspace
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.05.table-data-0
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.05.table-data-1
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.05.table-data-2
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.05.table-data-3
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.06.direction.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.06.direction.is_opendrain
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.06.dirhold
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.06.dirsetup
+    33  float RW              1  hm2_7i92.0.stepgen.06.maxaccel
+    33  float RW              0  hm2_7i92.0.stepgen.06.maxvel
+    33  float RW              1  hm2_7i92.0.stepgen.06.position-scale
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.06.step.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.06.step.is_opendrain
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.06.step_type
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.06.steplen
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.06.stepspace
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.06.table-data-0
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.06.table-data-1
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.06.table-data-2
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.06.table-data-3
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.07.direction.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.07.direction.is_opendrain
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.07.dirhold
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.07.dirsetup
+    33  float RW              1  hm2_7i92.0.stepgen.07.maxaccel
+    33  float RW              0  hm2_7i92.0.stepgen.07.maxvel
+    33  float RW              1  hm2_7i92.0.stepgen.07.position-scale
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.07.step.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.07.step.is_opendrain
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.07.step_type
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.07.steplen
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.07.stepspace
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.07.table-data-0
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.07.table-data-1
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.07.table-data-2
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.07.table-data-3
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.08.direction.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.08.direction.is_opendrain
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.08.dirhold
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.08.dirsetup
+    33  float RW              1  hm2_7i92.0.stepgen.08.maxaccel
+    33  float RW              0  hm2_7i92.0.stepgen.08.maxvel
+    33  float RW              1  hm2_7i92.0.stepgen.08.position-scale
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.08.step.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.08.step.is_opendrain
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.08.step_type
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.08.steplen
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.08.stepspace
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.08.table-data-0
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.08.table-data-1
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.08.table-data-2
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.08.table-data-3
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.09.direction.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.09.direction.is_opendrain
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.09.dirhold
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.09.dirsetup
+    33  float RW              1  hm2_7i92.0.stepgen.09.maxaccel
+    33  float RW              0  hm2_7i92.0.stepgen.09.maxvel
+    33  float RW              1  hm2_7i92.0.stepgen.09.position-scale
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.09.step.invert_output
+    33  bit   RW          FALSE  hm2_7i92.0.stepgen.09.step.is_opendrain
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.09.step_type
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.09.steplen
+    33  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.09.stepspace
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.09.table-data-0
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.09.table-data-1
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.09.table-data-2
+    33  u32   RW     0x00000000  hm2_7i92.0.stepgen.09.table-data-3
+    33  u32   RW     0x004C4B40  hm2_7i92.0.watchdog.timeout_ns
+    33  s32   RW          25308  hm2_7i92.0.write.tmax
+    33  bit   RO          FALSE  hm2_7i92.0.write.tmax-increased
+
+Parameter Aliases:
+ Alias                                            Original Name
+ hm2_7i92.0.sserial.00.tx0.invert_output          hm2_7i92.0.gpio.010.invert_output
+ hm2_7i92.0.sserial.00.tx0.is_opendrain           hm2_7i92.0.gpio.010.is_opendrain
+ hm2_7i92.0.stepgen.00.direction.invert_output    hm2_7i92.0.gpio.000.invert_output
+ hm2_7i92.0.stepgen.00.direction.is_opendrain     hm2_7i92.0.gpio.000.is_opendrain
+ hm2_7i92.0.stepgen.00.step.invert_output         hm2_7i92.0.gpio.001.invert_output
+ hm2_7i92.0.stepgen.00.step.is_opendrain          hm2_7i92.0.gpio.001.is_opendrain
+ hm2_7i92.0.stepgen.01.direction.invert_output    hm2_7i92.0.gpio.002.invert_output
+ hm2_7i92.0.stepgen.01.direction.is_opendrain     hm2_7i92.0.gpio.002.is_opendrain
+ hm2_7i92.0.stepgen.01.step.invert_output         hm2_7i92.0.gpio.003.invert_output
+ hm2_7i92.0.stepgen.01.step.is_opendrain          hm2_7i92.0.gpio.003.is_opendrain
+ hm2_7i92.0.stepgen.02.direction.invert_output    hm2_7i92.0.gpio.004.invert_output
+ hm2_7i92.0.stepgen.02.direction.is_opendrain     hm2_7i92.0.gpio.004.is_opendrain
+ hm2_7i92.0.stepgen.02.step.invert_output         hm2_7i92.0.gpio.005.invert_output
+ hm2_7i92.0.stepgen.02.step.is_opendrain          hm2_7i92.0.gpio.005.is_opendrain
+ hm2_7i92.0.stepgen.03.direction.invert_output    hm2_7i92.0.gpio.006.invert_output
+ hm2_7i92.0.stepgen.03.direction.is_opendrain     hm2_7i92.0.gpio.006.is_opendrain
+ hm2_7i92.0.stepgen.03.step.invert_output         hm2_7i92.0.gpio.007.invert_output
+ hm2_7i92.0.stepgen.03.step.is_opendrain          hm2_7i92.0.gpio.007.is_opendrain
+ hm2_7i92.0.stepgen.04.direction.invert_output    hm2_7i92.0.gpio.008.invert_output
+ hm2_7i92.0.stepgen.04.direction.is_opendrain     hm2_7i92.0.gpio.008.is_opendrain
+ hm2_7i92.0.stepgen.04.step.invert_output         hm2_7i92.0.gpio.009.invert_output
+ hm2_7i92.0.stepgen.04.step.is_opendrain          hm2_7i92.0.gpio.009.is_opendrain
+ hm2_7i92.0.stepgen.05.direction.invert_output    hm2_7i92.0.gpio.017.invert_output
+ hm2_7i92.0.stepgen.05.direction.is_opendrain     hm2_7i92.0.gpio.017.is_opendrain
+ hm2_7i92.0.stepgen.05.step.invert_output         hm2_7i92.0.gpio.018.invert_output
+ hm2_7i92.0.stepgen.05.step.is_opendrain          hm2_7i92.0.gpio.018.is_opendrain
+ hm2_7i92.0.stepgen.06.direction.invert_output    hm2_7i92.0.gpio.019.invert_output
+ hm2_7i92.0.stepgen.06.direction.is_opendrain     hm2_7i92.0.gpio.019.is_opendrain
+ hm2_7i92.0.stepgen.06.step.invert_output         hm2_7i92.0.gpio.020.invert_output
+ hm2_7i92.0.stepgen.06.step.is_opendrain          hm2_7i92.0.gpio.020.is_opendrain
+ hm2_7i92.0.stepgen.07.direction.invert_output    hm2_7i92.0.gpio.021.invert_output
+ hm2_7i92.0.stepgen.07.direction.is_opendrain     hm2_7i92.0.gpio.021.is_opendrain
+ hm2_7i92.0.stepgen.07.step.invert_output         hm2_7i92.0.gpio.022.invert_output
+ hm2_7i92.0.stepgen.07.step.is_opendrain          hm2_7i92.0.gpio.022.is_opendrain
+ hm2_7i92.0.stepgen.08.direction.invert_output    hm2_7i92.0.gpio.023.invert_output
+ hm2_7i92.0.stepgen.08.direction.is_opendrain     hm2_7i92.0.gpio.023.is_opendrain
+ hm2_7i92.0.stepgen.08.step.invert_output         hm2_7i92.0.gpio.024.invert_output
+ hm2_7i92.0.stepgen.08.step.is_opendrain          hm2_7i92.0.gpio.024.is_opendrain
+ hm2_7i92.0.stepgen.09.direction.invert_output    hm2_7i92.0.gpio.025.invert_output
+ hm2_7i92.0.stepgen.09.direction.is_opendrain     hm2_7i92.0.gpio.025.is_opendrain
+ hm2_7i92.0.stepgen.09.step.invert_output         hm2_7i92.0.gpio.026.invert_output
+ hm2_7i92.0.stepgen.09.step.is_opendrain          hm2_7i92.0.gpio.026.is_opendrain
+
+Exported Functions:
+Owner   CodeAddr  Arg       FP   Users  Name
+ 00033  7f53a6345908  558967ae6f40  YES      1   hm2_7i92.0.read
+ 00033  7f53a6345891  558967ae6f40  YES      0   hm2_7i92.0.read-request
+ 00033  7f53a6345749  558967ae6f40  YES      1   hm2_7i92.0.write
+
+Realtime Threads:
+     Period  FP     Name               (     Time, Max-Time )
+
