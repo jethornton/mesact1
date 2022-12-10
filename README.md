@@ -20,8 +20,8 @@ ini file.
 
 The Mesa Configuration Tool requires Python 3.6 or newer to work.
 
-See the [documentation](https://gnipsel.com/linuxcnc/mesact/index.html) for installation and
-usage instructions.
+See the [documentation](https://gnipsel.com/linuxcnc/mesact/index.html) for
+installation and usage instructions.
 
 Note: The Mesa 7i96 requires LinuxCNC 2.8 Uspace or newer to work.
 [LinuxCNC 2.8](https://gnipsel.com/linuxcnc/uspace/debian10-emc.html)
@@ -35,5 +35,7 @@ different versions of Debian, LinuxCNC, Mesaflash.
 If I can help just one person then all the thousands of hours of beating my head
 against the desk, searching the internet for coding examples and all the coding
 done on this tool it is worth the effort.
+
+Older debs are stored in the release.
 
 JT
