@@ -21,7 +21,7 @@ loadrt hm2_eth board_ip=10.10.10.10
 loadrt hm2_eth board_ip=10.10.10.10 config="num_stepgens=0 num_encoders=0 num_pwmgens=0"
 
 In another terminal
-halcmd show > 7i92T-7i76-All.txt
+halcmd show all hm2 > 7i92T-7i76-pins.txt
 halcmd show all hm2 > 7i96S-pins.txt
 
 loadrt hm2_pci config="num_encoders=3 num_pwmgens=3 num_stepgens=3 sserial_port_0=0000"
@@ -34,7 +34,7 @@ sudo mesaflash --device 5i25 --readhmid > pinout.txt
 
 Or if you want the daughtercard pinout:
 
-mesaflash --device 7i92 --addr 10.10.10.10 --readhmid --dbname1 5abob > pinout.txt
+mesaflash --device 7i92t --addr 10.10.10.10 --readhmid --dbname1 7i76 > pinout.txt
 
 sudo mesaflash --device 5i24 --readhmid --dbname1 7i47s --dbname2 7i37 
 
