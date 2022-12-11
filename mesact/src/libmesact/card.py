@@ -35,11 +35,10 @@ def getResults(parent, prompt, result, viewport, task=None):
 	getattr(parent, viewport).appendPlainText(f'{output}\n')
 
 def checkCard(parent):
-	if not parent.device:
+	if not parent.board:
 		parent.errorMsgOk(f'A board must be selected', 'Error')
 		return
 	prompt = None
-	board = parent.device
 	if functions.check_emc():
 		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {parent.board}', 'Error')
 		return
@@ -47,7 +46,7 @@ def checkCard(parent):
 	if parent.boardType == 'eth':
 		if check_ip(parent):
 			ipAddress = parent.ipAddressCB.currentText()
-			p = Popen(['mesaflash', '--device', board, '--addr', ipAddress],
+			p = Popen(['mesaflash', '--device', parent.board, '--addr', ipAddress],
 				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate()
 		else:
@@ -58,7 +57,7 @@ def checkCard(parent):
 			password = getPassword(parent)
 			parent.password = password
 		if parent.password != None:
-			p = Popen(['sudo', '-S', 'mesaflash', '--device', board],
+			p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.board],
 				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate(parent.password + '\n')
 	if prompt:
@@ -72,7 +71,7 @@ def readpd(parent):
 	if parent.boardType == 'eth':
 		if check_ip(parent):
 			ipAddress = parent.ipAddressCB.currentText()
-			p = Popen(['mesaflash', '--device', parent.device, '--addr', ipAddress, '--print-pd'],
+			p = Popen(['mesaflash', '--device', parent.board, '--addr', ipAddress, '--print-pd'],
 				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate()
 		else:
@@ -83,7 +82,7 @@ def readpd(parent):
 			password = getPassword(parent)
 			parent.password = password
 		if parent.password != None:
-			p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.device, '--print-pd'],
+			p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.board, '--print-pd'],
 				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate(parent.password + '\n')
 	if prompt:
@@ -97,7 +96,7 @@ def readhmid(parent):
 	if parent.boardType == 'eth':
 		if check_ip(parent):
 			ipAddress = parent.ipAddressCB.currentText()
-			p = Popen(['mesaflash', '--device', parent.device, '--addr', ipAddress, '--readhmid'],
+			p = Popen(['mesaflash', '--device', parent.board, '--addr', ipAddress, '--readhmid'],
 				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate()
 		else:
@@ -108,7 +107,7 @@ def readhmid(parent):
 			password = getPassword(parent)
 			parent.password = password
 		if parent.password != None:
-			p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.device, '--readhmid'],
+			p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.board, '--readhmid'],
 				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate(parent.password + '\n')
 
@@ -124,13 +123,13 @@ def flashCard(parent):
 	if parent.firmwareCB.currentData():
 		firmware = os.path.basename(parent.firmwareCB.currentData())
 		parent.machinePTE.clear()
-		parent.machinePTE.setPlainText(f'Flashing: {firmware} to {parent.device}')
+		parent.machinePTE.setPlainText(f'Flashing: {firmware} to {parent.board}')
 		qApp.processEvents()
 		firmware = os.path.join(parent.lib_path, parent.firmwareCB.currentData())
 		if parent.boardType == 'eth':
 			if check_ip(parent):
 				ipAddress = parent.ipAddressCB.currentText()
-				p = Popen(['mesaflash', '--device', parent.device, '--addr', ipAddress,
+				p = Popen(['mesaflash', '--device', parent.board, '--addr', ipAddress,
 					'--write', firmware], stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 				prompt = p.communicate()
 			else:
@@ -141,7 +140,7 @@ def flashCard(parent):
 				password = getPassword(parent)
 				parent.password = password
 			if parent.password != None:
-				p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.device, '--write', firmware],
+				p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.board, '--write', firmware],
 					stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 				prompt = p.communicate(parent.password + '\n')
 
@@ -160,7 +159,7 @@ def reloadCard(parent):
 	if parent.boardType == 'eth':
 		if check_ip(parent):
 			ipAddress = parent.ipAddressCB.currentText()
-			p = Popen(['mesaflash', '--device', parent.device, '--addr', ipAddress, '--reload'],
+			p = Popen(['mesaflash', '--device', parent.board, '--addr', ipAddress, '--reload'],
 				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate()
 		else:
@@ -171,7 +170,7 @@ def reloadCard(parent):
 			password = getPassword(parent)
 			parent.password = password
 		if parent.password != None:
-			p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.device, '--reload'],
+			p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.board, '--reload'],
 				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate(parent.password + '\n')
 
@@ -189,7 +188,7 @@ def verifyCard(parent):
 		if parent.boardType == 'eth':
 			if check_ip(parent):
 				ipAddress = parent.ipAddressCB.currentText()
-				p = Popen(['mesaflash', '--device', parent.device, '--addr', ipAddress, '--verify', firmware],
+				p = Popen(['mesaflash', '--device', parent.board, '--addr', ipAddress, '--verify', firmware],
 					stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 				prompt = p.communicate()
 			else:
@@ -200,7 +199,7 @@ def verifyCard(parent):
 				password = getPassword(parent)
 				parent.password = password
 			if parent.password != None:
-				p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.device, '--verify', firmware],
+				p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.board, '--verify', firmware],
 					stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 				prompt = p.communicate(parent.password + '\n')
 
