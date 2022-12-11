@@ -729,6 +729,13 @@ def backupFiles(parent, configPath=None):
 	output = p2.communicate()[0]
 	parent.machinePTE.appendPlainText(output.decode())
 
+def cleanDir(parent, configPath):
+	with os.scandir(configPath) as i:
+		for entry in i:
+			if entry.is_file():
+				if entry.name.split('.')[-1] != 'ini':
+					os.remove(os.path.join(configPath, entry.name)) 
+
 def fileNew(parent):
 	parent.errorMsgOk('Close the Tool,\n Then open', 'Info!')
 

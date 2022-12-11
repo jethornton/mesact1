@@ -38,8 +38,25 @@ class openini:
 			with open(iniFile) as f:
 				contents = f.read()
 				if 'PNCconf' in contents:
-					parent.errorMsgOk('Can not open a PNCconf ini file!', 'Incompatable File')
-					return
+					msg = (f'The ini file is created with PNCconf!\n'
+						'Save a Backup and try and open the ini?')
+					if parent.errorMsg(msg, 'PNCconf File'):
+						path, filename = os.path.split(iniFile)
+						utilities.backupFiles(parent, path)
+						utilities.cleanDir(parent, path)
+					else:
+						return
+				elif 'Mesa' not in contents:
+					msg = (f'The ini file was is not created\n'
+						'with the Mesa Configuration Tool!\n'
+						'Save a Backup and try and open the ini?')
+					if parent.errorMsg(msg, 'Unknown File'):
+						path, filename = os.path.split(iniFile)
+						utilities.backupFiles(parent, path)
+						utilities.cleanDir(parent, path)
+					else:
+						return
+
 			parent.machinePTE.appendPlainText(f'Loading {iniFile}')
 			self.loadini(parent, iniFile)
 			self.loadReadMe(parent, configName)
@@ -53,22 +70,22 @@ class openini:
 		with open(iniFile,'r') as file:
 			self.content = file.readlines() # create a list of the ini file
 		self.get_sections()
-		start = self.sections['[MESA]'][0]
-		end = self.sections['[MESA]'][1]
-		for line in self.content[start:end]:
-			if line.startswith('VERSION'):
-				key, value = line.split('=')
-				iniVersion = value.strip()
-				if parent.version != iniVersion:
-					msg = (f'The ini file version is {iniVersion}\n'
-						f'The Configuration Tool version is {parent.version}\n'
-						'Save a Backup and try and open the ini?')
-					if not parent.errorMsg(msg, 'Version Difference'):
-						print('Open Cancled')
-						return
-					else:
-						path, filename = os.path.split(iniFile)
-						utilities.backupFiles(parent, path)
+		if '[MESA]' in self.sections:
+			start = self.sections['[MESA]'][0]
+			end = self.sections['[MESA]'][1]
+			for line in self.content[start:end]:
+				if line.startswith('VERSION'):
+					key, value = line.split('=')
+					iniVersion = value.strip()
+					if parent.version != iniVersion:
+						msg = (f'The ini file version is {iniVersion}\n'
+							f'The Configuration Tool version is {parent.version}\n'
+							'Save a Backup and try and open the ini?')
+						if parent.errorMsg(msg, 'Version Difference'):
+							path, filename = os.path.split(iniFile)
+							utilities.backupFiles(parent, path)
+						else:
+							return
 
 		mesa = [
 		['[MESA]', 'NAME', 'boardCB'],
