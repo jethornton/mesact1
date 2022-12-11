@@ -40,6 +40,8 @@ class openini:
 				line = f.readline()
 				if 'PNCconf' in line:
 					msg = (f'The ini file is created with PNCconf!\n'
+						'The files will be saved to a zip file then\n'
+						'the all the files in the directory will be DELETED\n'
 						'Save a Backup and try and open the ini?')
 					if parent.errorMsg(msg, 'PNCconf File'):
 						path, filename = os.path.split(self.iniFile)
@@ -51,6 +53,8 @@ class openini:
 				elif 'Mesa' not in line:
 					msg = (f'The ini file was is not created\n'
 						'with the Mesa Configuration Tool!\n'
+						'The files will be saved to a zip file then\n'
+						'the all the files in the directory will be DELETED\n'
 						'Save a Backup and try and open the ini?')
 					if parent.errorMsg(msg, 'Unknown File'):
 						path, filename = os.path.split(self.iniFile)
