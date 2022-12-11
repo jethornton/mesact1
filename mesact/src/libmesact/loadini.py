@@ -11,6 +11,7 @@ class openini:
 		super().__init__()
 		self.sections = {}
 		self.iniFile = ''
+		self.iniUnknown = False
 
 	def getini(self, parent, configName = ''):
 		parent.mainTabs.setCurrentIndex(0)
@@ -23,27 +24,28 @@ class openini:
 			fileName = QFileDialog.getOpenFileName(parent,
 			caption="Select Configuration INI File", directory=configsDir,
 			filter='*.ini', options=QFileDialog.DontUseNativeDialog,)
-			iniFile = fileName[0]
-			base = os.path.basename(iniFile)
+			self.iniFile = fileName[0]
+			base = os.path.basename(self.iniFile)
 			configName = os.path.splitext(base)[0]
 		else: # we passed a file name
 			configName = configName.replace(' ','_').lower()
 			configsDir = os.path.expanduser('~/linuxcnc/configs')
-			iniFile = os.path.join(configsDir, configName, configName + '.ini')
-			if not os.path.isfile(iniFile):
-				msg = f'File {iniFile} not found'
+			self.iniFile = os.path.join(configsDir, configName, configName + '.ini')
+			if not os.path.isfile(self.iniFile):
+				msg = f'File {self.iniFile} not found'
 				parent.errorMsgOk(msg, 'Not Found')
 				return
-		if iniFile:
-			with open(iniFile) as f:
+		if self.iniFile:
+			with open(self.iniFile) as f:
 				contents = f.read()
 				if 'PNCconf' in contents:
 					msg = (f'The ini file is created with PNCconf!\n'
 						'Save a Backup and try and open the ini?')
 					if parent.errorMsg(msg, 'PNCconf File'):
-						path, filename = os.path.split(iniFile)
+						path, filename = os.path.split(self.iniFile)
 						utilities.backupFiles(parent, path)
 						utilities.cleanDir(parent, path)
+						self.iniUnknown = True
 					else:
 						return
 				elif 'Mesa' not in contents[0]:
@@ -51,18 +53,19 @@ class openini:
 						'with the Mesa Configuration Tool!\n'
 						'Save a Backup and try and open the ini?')
 					if parent.errorMsg(msg, 'Unknown File'):
-						path, filename = os.path.split(iniFile)
+						path, filename = os.path.split(self.iniFile)
 						utilities.backupFiles(parent, path)
 						utilities.cleanDir(parent, path)
+						self.iniUnknown = True
 					else:
 						return
 
-			parent.machinePTE.appendPlainText(f'Loading {iniFile}')
-			self.loadini(parent, iniFile)
+			parent.machinePTE.appendPlainText(f'Loading {self.iniFile}')
+			self.loadini(parent, self.iniFile)
 			self.loadReadMe(parent, configName)
 		else:
 			parent.machinePTE.appendPlainText('Open File Cancled')
-			iniFile = ''
+			self.iniFile = ''
 
 	def loadini(self, parent, iniFile):
 		parent.loading = True
@@ -317,6 +320,28 @@ class openini:
 						if value != 'Select':
 							self.update(parent, '[SSERIAL]', key, key)
 
+		# update the mesact.conf file
+		configPath = os.path.expanduser('~/.config/measct/mesact.conf')
+		config = ConfigParser()
+		config.optionxform = str
+		config.read(configPath)
+		if config.has_option('NAGS', 'NEWUSER'):
+			if parent.newUserCB.isChecked():
+				config['NAGS']['NEWUSER'] = 'True'
+		if config.has_option('STARTUP', 'CONFIG'):
+			if parent.loadConfigCB.isChecked():
+				config['STARTUP']['CONFIG'] = parent.configNameLE.text().lower()
+		if config.has_option('TOOLS', 'FIRMWARE'):
+			if parent.enableMesaflashCB.isChecked():
+				config['TOOLS']['FIRMWARE'] = 'True'
+		with open(configPath, 'w') as cf:
+			config.write(cf)
+
+		parent.loading = False
+
+		if self.iniUnknown: # delete the ini file
+			os.remove(self.iniFile)
+
 
 		return
 
@@ -364,24 +389,6 @@ class openini:
 						elif isinstance(getattr(parent, obj), QPushButton):
 							getattr(parent, obj).setText(value)
 
-		# update the mesact.conf file
-		configPath = os.path.expanduser('~/.config/measct/mesact.conf')
-		config = ConfigParser()
-		config.optionxform = str
-		config.read(configPath)
-		if config.has_option('NAGS', 'NEWUSER'):
-			if parent.newUserCB.isChecked():
-				config['NAGS']['NEWUSER'] = 'True'
-		if config.has_option('STARTUP', 'CONFIG'):
-			if parent.loadConfigCB.isChecked():
-				config['STARTUP']['CONFIG'] = parent.configNameLE.text().lower()
-		if config.has_option('TOOLS', 'FIRMWARE'):
-			if parent.enableMesaflashCB.isChecked():
-				config['TOOLS']['FIRMWARE'] = 'True'
-		with open(configPath, 'w') as cf:
-			config.write(cf)
-
-		parent.loading = False
 
 	def update(self, parent, section, key, obj):
 		booleanDict = {'true': True, 'yes': True, '1': True,
