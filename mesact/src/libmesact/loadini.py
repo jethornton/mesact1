@@ -88,7 +88,7 @@ class openini:
 							return
 
 		mesa = [
-		['[MESA]', 'NAME', 'boardCB'],
+		['[MESA]', 'BOARD_NAME', 'boardCB'],
 		['[MESA]', 'FIRMWARE', 'firmwareCB'],
 		['[MESA]', 'CARD_0', 'daughterCB_0'],
 		['[MESA]', 'CARD_1', 'daughterCB_1']
