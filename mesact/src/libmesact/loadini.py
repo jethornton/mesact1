@@ -37,8 +37,8 @@ class openini:
 				return
 		if self.iniFile:
 			with open(self.iniFile) as f:
-				contents = f.read()
-				if 'PNCconf' in contents:
+				line = f.readline()
+				if 'PNCconf' in line:
 					msg = (f'The ini file is created with PNCconf!\n'
 						'Save a Backup and try and open the ini?')
 					if parent.errorMsg(msg, 'PNCconf File'):
@@ -48,7 +48,7 @@ class openini:
 						self.iniUnknown = True
 					else:
 						return
-				elif 'Mesa' not in contents[0]:
+				elif 'Mesa' not in line:
 					msg = (f'The ini file was is not created\n'
 						'with the Mesa Configuration Tool!\n'
 						'Save a Backup and try and open the ini?')
