@@ -46,7 +46,7 @@ class openini:
 						utilities.cleanDir(parent, path)
 					else:
 						return
-				elif 'Mesa' not in contents:
+				elif 'Mesa' not in contents[0]:
 					msg = (f'The ini file was is not created\n'
 						'with the Mesa Configuration Tool!\n'
 						'Save a Backup and try and open the ini?')
@@ -158,11 +158,12 @@ class openini:
 			end = self.sections['[HALUI]'][1]
 			mdicmd = []
 			for item in self.content[start:end]:
-				if item != '\n':
+				if item != '\n' and item.startswith('MDI_COMMAND'):
 					item = item.split('=')
 					item = item[1].strip()
 					mdicmd.append(item)
 			for i, item in enumerate(mdicmd):
+				if i <= 5:
 					getattr(parent, f'mdiCmdLE_{i}').setText(item)
 
 		for i in range(6):
