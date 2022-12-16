@@ -158,6 +158,27 @@ def firmwareChanged(parent):
 				data = file.read()
 			parent.machinePTE.clear()
 			parent.machinePTE.setPlainText(data)
+			if "7i92t" in pinfile:
+				gpio = []
+				with open(pinfile, 'r') as f:
+					for line in f:
+						if 'IOPort' in line:
+							lst = line.split()
+							if lst[1].isnumeric():
+								gpio.append(lst)
+				for i in range(34):
+					try:
+						getattr(parent, f'gpioPinLB_{i}').setText(gpio[i][0])
+						getattr(parent, f'gpioSecLB_{i}').setText(gpio[i][3])
+						if gpio[i][3] != 'None':
+							getattr(parent, f'gpioChanLB_{i}').setText(gpio[i][4])
+							getattr(parent, f'gpioFunctionLB_{i}').setText(gpio[i][5])
+							getattr(parent, f'gpioDirLB_{i}').setText(gpio[i][6])
+					except Exception as e:
+						parent.p1LB.setText('Error Loading Pins')
+						parent.p2LB.setText('Error Loading Pins')
+						print(e)
+
 		else:
 			parent.machinePTE.clear()
 			parent.machinePTE.setPlainText(f'No pin file found for {parent.firmwareCB.currentText()}')
