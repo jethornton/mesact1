@@ -424,7 +424,7 @@ def boardChanged(parent):
 			parent.ssWiringPTE.clear()
 
 		elif parent.boardCB.currentData() == '7i92t':
-			parent.board = '7i92'
+			parent.board = '7i92t'
 			parent.boardType = 'eth'
 			parent.cardType_0 = ''
 			parent.mainTabs.setTabEnabled(3, False)
@@ -678,7 +678,8 @@ def boardChanged(parent):
 			parent.pwmgensCB.clear()
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
-			parent.encodersCB.addItem('N/A', False)
+			for i in range(2, -1, -1):
+				parent.encodersCB.addItem(f'{i}', f'{i}')
 			for i in range(6):
 				getattr(parent, f'c0_stepgenGB_{i}').setVisible(True)
 				getattr(parent, f'c0_analogGB_{i}').setVisible(False)
