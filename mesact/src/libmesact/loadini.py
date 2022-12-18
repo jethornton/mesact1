@@ -72,6 +72,7 @@ class openini:
 			self.iniFile = ''
 
 	def loadini(self, parent, iniFile):
+		oldVersion = False
 		parent.loading = True
 		iniDict = {}
 		with open(iniFile,'r') as file:
@@ -91,15 +92,19 @@ class openini:
 						if parent.errorMsg(msg, 'Version Difference'):
 							path, filename = os.path.split(iniFile)
 							utilities.backupFiles(parent, path)
+							oldVersion = True
 						else:
 							return
 
-		mesa = [
-		['[MESA]', 'BOARD_NAME', 'boardCB'],
-		['[MESA]', 'FIRMWARE', 'firmwareCB'],
-		['[MESA]', 'CARD_0', 'daughterCB_0'],
-		['[MESA]', 'CARD_1', 'daughterCB_1']
-		]
+		mesa = []
+		if oldVersion:
+			mesa.append(['[MESA]', 'BOARD', 'boardCB'])
+		else:
+			mesa.append(['[MESA]', 'BOARD_NAME', 'boardCB'])
+		mesa.append(['[MESA]', 'FIRMWARE', 'firmwareCB'])
+		mesa.append(['[MESA]', 'CARD_0', 'daughterCB_0'])
+		mesa.append(['[MESA]', 'CARD_1', 'daughterCB_1'])
+
 		for item in mesa:
 			self.update(parent, item[0], item[1], item[2])
 
