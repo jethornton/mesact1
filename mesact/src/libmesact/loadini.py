@@ -96,6 +96,19 @@ class openini:
 						else:
 							return
 
+		# pncconf try and figure out what card and address
+		if '[HMOT]' in self.sections:
+			start = self.sections['[HMOT]'][0]
+			end = self.sections['[HMOT]'][1]
+			for item in self.content[start:end]:
+				if item.startswith('CARD0'):
+					key, value = item.split('=')
+					start = value.find('_') + 1
+					end = value.find('.')
+					data = value[start:end]
+					if parent.boardCB.findData(data) >= 0:
+						parent.boardCB.setCurrentIndex(parent.boardCB.findData(data))
+
 		mesa = []
 		if oldVersion:
 			mesa.append(['[MESA]', 'BOARD', 'boardCB'])
