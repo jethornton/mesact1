@@ -406,7 +406,7 @@ class openini:
 			start = self.sections[section][0]
 			end = self.sections[section][1]
 			for item in self.content[start:end]:
-				if item.strip().startswith(key):
+				if item.split('=')[0].strip() == key:
 					value = item.split('=')[1].strip()
 					if isinstance(getattr(parent, obj), QComboBox):
 						index = 0
