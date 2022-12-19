@@ -351,54 +351,6 @@ class openini:
 		if self.iniUnknown: # delete the ini file
 			os.remove(self.iniFile)
 
-
-		return
-
-
-
-		noUpdate = ['None', 'False', 'Select']
-		section = ''
-		for line in self.content:
-			if line.startswith('['):
-				section = line.strip()
-			elif section in iniDict:
-				if len(line.strip()) > 0  and not line.strip().startswith('#'):
-					i, v = line.split('=')
-					item = i.strip()
-					value = v.strip()
-					if item in iniDict[section]:
-						obj = iniDict[section][item]
-					else:
-						obj = False
-					if obj and value not in noUpdate:
-						if isinstance(getattr(parent, obj), QComboBox):
-							#print(f'item {item} value {value} obj {obj}')
-							index = 0
-							if getattr(parent, obj).findData(value) >= 0:
-								index = getattr(parent, obj).findData(value)
-							elif getattr(parent, obj).findText(value) >= 0:
-								index = getattr(parent, obj).findText(value)
-							#print(f'{obj} {index}')
-							if index >= 0:
-								getattr(parent, obj).setCurrentIndex(index)
-						elif isinstance(getattr(parent, obj), QLabel):
-							getattr(parent, obj).setText(value)
-						elif isinstance(getattr(parent, obj), QLineEdit):
-							getattr(parent, obj).setText(value)
-						elif isinstance(getattr(parent, obj), QSpinBox):
-							getattr(parent, obj).setValue(abs(int(value)))
-						elif isinstance(getattr(parent, obj), QDoubleSpinBox):
-							getattr(parent, obj).setValue(float(value))
-						elif isinstance(getattr(parent, obj), QCheckBox):
-							getattr(parent, obj).setChecked(booleanDict[value.lower()])
-						elif isinstance(getattr(parent, obj), QRadioButton):
-							getattr(parent, obj).setChecked(booleanDict[value.lower()])
-						elif isinstance(getattr(parent, obj), QGroupBox):
-							getattr(parent, obj).setChecked(booleanDict[value.lower()])
-						elif isinstance(getattr(parent, obj), QPushButton):
-							getattr(parent, obj).setText(value)
-
-
 	def update(self, parent, section, key, obj):
 		booleanDict = {'true': True, 'yes': True, '1': True,
 			'false': False, 'no': False, '0': False,}
@@ -432,9 +384,6 @@ class openini:
 						getattr(parent, obj).setChecked(booleanDict[value.lower()])
 					elif isinstance(getattr(parent, obj), QPushButton):
 						getattr(parent, obj).setText(value)
-
-
-
 
 	def get_sections(self):
 		self.sections = {}
