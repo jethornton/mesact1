@@ -3412,7 +3412,7 @@ Female</string>
           <x>500</x>
           <y>10</y>
           <width>341</width>
-          <height>171</height>
+          <height>111</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -3571,7 +3571,7 @@ QGroupBox::title {
          <rect>
           <x>10</x>
           <y>200</y>
-          <width>270</width>
+          <width>191</width>
           <height>60</height>
          </rect>
         </property>

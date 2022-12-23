@@ -1468,7 +1468,7 @@ class Ui_mainWindow(object):
         self.display = QtWidgets.QWidget()
         self.display.setObjectName("display")
         self.gridGroupBox_4 = QtWidgets.QGroupBox(self.display)
-        self.gridGroupBox_4.setGeometry(QtCore.QRect(500, 10, 341, 171))
+        self.gridGroupBox_4.setGeometry(QtCore.QRect(500, 10, 341, 111))
         self.gridGroupBox_4.setStyleSheet("QGroupBox {\n"
 "    font: bold;\n"
 "    border: 2px solid silver;\n"
@@ -1548,7 +1548,7 @@ class Ui_mainWindow(object):
         self.label_179.setObjectName("label_179")
         self.gridLayout_47.addWidget(self.label_179, 3, 2, 1, 1)
         self.groupBox_60 = QtWidgets.QGroupBox(self.display)
-        self.groupBox_60.setGeometry(QtCore.QRect(10, 200, 270, 60))
+        self.groupBox_60.setGeometry(QtCore.QRect(10, 200, 191, 60))
         self.groupBox_60.setObjectName("groupBox_60")
         self.gridLayout_45 = QtWidgets.QGridLayout(self.groupBox_60)
         self.gridLayout_45.setObjectName("gridLayout_45")
