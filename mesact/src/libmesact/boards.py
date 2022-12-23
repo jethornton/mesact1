@@ -51,10 +51,6 @@ def boardChanged(parent):
 		parent.machinePTE.clear()
 		parent.daughterCB_0.clear()
 		parent.daughterCB_1.clear()
-		if parent.boardCB.currentData() == '7i76e':
-			parent.device = '7i76e-16'
-		else:
-			parent.device = parent.boardCB.currentData()
 
 		if parent.boardCB.currentData() == '5i24': # DOUBLE CHECK THE SETTINGS
 			parent.board = '5i24'
