@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+import sys, os, traceback
+
+# disable cache usage
+sys.dont_write_bytecode = True
+
 """
 Depenencies
 python3-pyqt5
@@ -15,7 +20,6 @@ Store Connector used for building config
 VERSION = '1.1.2'
 BUILD_DATE = '11/12/2022'
 
-import sys, os, traceback
 from traceback import StackSummary
 from functools import partial
 
@@ -25,9 +29,6 @@ from PyQt5.QtWidgets import (QApplication, QMainWindow, QMessageBox,
 	QDialog, qApp, QProgressBar)
 from PyQt5.QtGui import QPixmap
 from PyQt5 import uic
-
-# disable cache usage
-sys.dont_write_bytecode = True
 
 from libmesact.ui_mesact import Ui_mainWindow
 from libmesact import startup
