@@ -1,7 +1,7 @@
 Source: mesact
 Maintainer: John Thornton <dev@gnipsel.com>
 Build-Depends: debhelper (>= 11.0.0)
-Standards-Version: 4.6.2
+Standards-Version: 4.6.1.0
 Section: utils
 Priority: optional
 Rules-Requires-Root: no
