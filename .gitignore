@@ -2,9 +2,9 @@
 *.xz
 *.build*
 *.changes
-mesact/debian/mesact/*
-mesact/debian/.debhelper/*
-mesact/debian/debhelper*
-mesact/debian/*.substvars
-mesact/debian/files
+debian/mesact/*
+debian/.debhelper/*
+debian/debhelper*
+debian/*.substvars
+debian/files
 docs/build
