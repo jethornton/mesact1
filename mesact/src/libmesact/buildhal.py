@@ -114,7 +114,8 @@ def build(parent):
 	elif parent.daughterCB_0.currentData():
 		port = '1'
 
-	for i in range(len(parent.coordinatesLB.text())):
+	joints = len(parent.coordinatesLB.text())
+	for i in range(joints):
 		halContents.append(f'\n# Joint {i}\n')
 		halContents.append(f'# PID Setup\n')
 		halContents.append(f'setp pid.{i}.Pgain [JOINT_{i}](P)\n')
@@ -250,12 +251,13 @@ def build(parent):
 			halContents.append('sets spindle-at-speed true\n')
 
 		if parent.spindleTypeCB.currentData() == 'analog':
+			i = joints + 1
 			halContents.append('\n# Spindle Board Connections\n')
-			halContents.append(f'net spindle-on => hm2_[MESA](BOARD).0.pwmgen.00.enable\n')
-			halContents.append(f'net spindle-vel-cmd-rpm hm2_[MESA](BOARD).0.pwmgen.00.value\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.00.scale [SPINDLE_0]MAX_RPM\n')
+			halContents.append(f'net spindle-on => hm2_[MESA](BOARD).0.pwmgen.0{i}.enable\n')
+			halContents.append(f'net spindle-vel-cmd-rpm hm2_[MESA](BOARD).0.pwmgen.0{i}.value\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{i}.scale [SPINDLE_0]MAX_RPM\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.pwm_frequency [SPINDLE_0](PWM_FREQUENCY)\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.00.output-type [SPINDLE_0](SPINDLE_PWM_TYPE)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{i}.output-type [SPINDLE_0](SPINDLE_PWM_TYPE)\n')
 
 		if parent.spindleTypeCB.currentData()[:7] == 'stepgen':
 			s = parent.spindleTypeCB.currentData()[-1]
