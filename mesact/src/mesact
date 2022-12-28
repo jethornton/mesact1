@@ -18,7 +18,7 @@ Store Connector used for building config
 
 """
 VERSION = '1.1.2'
-BUILD_DATE = '11/12/2022'
+BUILD_DATE = '12/28/2022'
 
 from traceback import StackSummary
 from functools import partial
