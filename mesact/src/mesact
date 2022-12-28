@@ -2,7 +2,7 @@
 
 import sys, os, traceback
 
-# disable cache usage
+# disable cache usage must be before any local imports
 sys.dont_write_bytecode = True
 
 """
