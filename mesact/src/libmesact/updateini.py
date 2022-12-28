@@ -393,6 +393,20 @@ class updateini:
 				self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.maxOutput_s.value())
 				self.update_key(f'SPINDLE_0', 'OUTPUT_TYPE', parent.maxOutput_s.value())
 				self.update_key(f'SPINDLE_0', 'ENCODER_SCALE', parent.spindleEncoderScale.value())
+			else: # remove the above from the ini
+				self.delete_key('SPINDLE_0', 'FEEDBACK')
+				self.delete_key('SPINDLE_0', 'P')
+				self.delete_key('SPINDLE_0', 'I')
+				self.delete_key('SPINDLE_0', 'D')
+				self.delete_key('SPINDLE_0', 'FF0')
+				self.delete_key('SPINDLE_0', 'FF1')
+				self.delete_key('SPINDLE_0', 'FF2')
+				self.delete_key('SPINDLE_0', 'BIAS')
+				self.delete_key('SPINDLE_0', 'DEADBAND')
+				self.delete_key('SPINDLE_0', 'MAX_ERROR')
+				self.delete_key('SPINDLE_0', 'MAX_OUTPUT')
+				self.delete_key('SPINDLE_0', 'OUTPUT_TYPE')
+				self.delete_key('SPINDLE_0', 'ENCODER_SCALE')
 
 			if parent.spindleTypeCB.currentData()[:7] == 'stepgen':
 				self.update_key(f'SPINDLE_0', 'DRIVE', parent.spindleDriveCB.currentText())
