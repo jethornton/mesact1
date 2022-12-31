@@ -1,9 +1,35 @@
-import os, requests, subprocess
+import os, requests, subprocess, tarfile
 import urllib.request
 
 from packaging import version
 
 from PyQt5.QtWidgets import QApplication, QFileDialog, QComboBox
+
+'''
+
+'''
+
+def downloadFirmware(parent):
+	board = parent.boardCB.currentData()
+	if board:
+		libpath = os.path.join(os.path.expanduser('~'), '.local/lib/libmesact')
+		if not os.path.exists(libpath):
+			os.makedirs(libpath)
+		firmware_url = f'https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/{board}.tar.xz'
+		destination = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/{board}.tar.xz')
+		#print(f'{libpath}\n{firmware_url}\n{destination}')
+		#print('Downloading')
+		download(parent, firmware_url, destination)
+		#print('Download Done')
+		with tarfile.open(destination) as f:
+			f.extractall(libpath)
+		if os.path.isfile(destination):
+			os.remove(destination)
+		# update firmware tab
+		#print(f'Download {firmware_url}\n{destination}')
+		# https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/5i24.tar.xz
+	else:
+		parent.infoMsgOk('Select a Board', 'Board')
 
 def checkUpdates(parent):
 	response = requests.get(f"https://api.github.com/repos/jethornton/mesact/releases/latest")
@@ -24,6 +50,7 @@ def downloadAmd64Deb(parent):
 		deburl = f'https://github.com/jethornton/mesact/releases/download/{repoVersion}/mesact_{repoVersion}_amd64.deb'
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
+		parent.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
 	else:
 		parent.statusbar.showMessage('Download Cancled')
 
@@ -38,6 +65,7 @@ def downloadArmhDeb(parent):
 		deburl = f'https://github.com/jethornton/mesact/releases/download/{repoVersion}/mesact_{repoVersion}_armhf.deb'
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
+		parent.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
 	else:
 		parent.statusbar.showMessage('Download Cancled')
 
@@ -52,6 +80,7 @@ def downloadArm64Deb(parent):
 		deburl = f'https://github.com/jethornton/mesact/releases/download/{repoVersion}/mesact_{repoVersion}_arm64.deb'
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
+		parent.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
 	else:
 		parent.statusbar.showMessage('Download Cancled')
 
@@ -67,11 +96,11 @@ def download(parent, down_url, save_loc):
 	urllib.request.urlretrieve(down_url, save_loc, Handle_Progress)
 	parent.progressBar.setValue(100)
 	parent.timer.start(1000)
+	#return True
 
 def clearProgressBar(parent):
 	parent.progressBar.setValue(0)
 	parent.statusbar.clearMessage()
-	parent.errorMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
 	parent.timer.stop()
 
 def showDocs(parent, pdfDoc):

@@ -1,6 +1,0 @@
-7i96s_d.bin Default Firmware
-5 Axes of Step and Direction
-1 Encoder Input
-1 Smart Serial Port
-11 Inputs 6 Outputs
-

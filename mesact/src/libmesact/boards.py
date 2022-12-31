@@ -22,28 +22,35 @@ def loadFirmware(parent):
 		# firmware combobox
 		parent.firmwareCB.clear()
 		parent.firmwareDescPTE.clear()
-		path = os.path.join(parent.firmware_path, parent.boardCB.currentData())
-		files = sorted([entry.path for entry in os.scandir(path) if entry.is_file()])
-		bitFiles = False
-		extensions = ['.bit', '.bin']
+		board = parent.boardCB.currentData()
+		path = os.path.join(parent.firmware_path, board)
+		#print(path)
+		if os.path.exists(path):
+			files = sorted([entry.path for entry in os.scandir(path) if entry.is_file()])
+			bitFiles = False
+			extensions = ['.bit', '.bin']
 
-		for file in files:
-			if os.path.splitext(file)[1] in extensions:
-				# might want to do ('Default', False) for 7i76e, 7i95, 7i96, 7i97
-				parent.firmwareCB.addItem('Select', False)
-				bitFiles = True
-				break
-
-		if bitFiles:
 			for file in files:
 				if os.path.splitext(file)[1] in extensions:
-					parent.firmwareCB.addItem(os.path.basename(file), file)
-			parent.machinePTE.appendPlainText(f'Firmware for {parent.boardCB.currentText()} Loaded')
-			parent.machinePTE.appendPlainText('Select Firmware for Daughter Cards')
-			parent.machinePTE.appendPlainText('Not all Firmware has a dictionary entry for Daughter Cards\n')
+					# might want to do ('Default', False) for 7i76e, 7i95, 7i96, 7i97
+					parent.firmwareCB.addItem('Select', False)
+					bitFiles = True
+					break
+
+			if bitFiles:
+				for file in files:
+					if os.path.splitext(file)[1] in extensions:
+						parent.firmwareCB.addItem(os.path.basename(file), file)
+				parent.machinePTE.appendPlainText(f'Firmware for {parent.boardCB.currentText()} Loaded')
+				parent.machinePTE.appendPlainText('Select Firmware for Daughter Cards')
+				parent.machinePTE.appendPlainText('Not all Firmware has a dictionary entry for Daughter Cards')
+
 		else:
-			parent.machinePTE.appendPlainText(f'No Firmware found {parent.boardCB.currentText()}!')
-			parent.machinePTE.appendPlainText(f'No Daughter Cards are available for {parent.boardCB.currentText()}\n')
+			msg = (f'No Firmware found for {board}\n'
+			'Use Download Firmware from the menu\n'
+			'to download and install the firmware\n'
+			f'to {os.path.expanduser("~")}/.local/lib/libmesact/{board}')
+			parent.machinePTE.setPlainText(msg)
 
 def boardChanged(parent):
 	if parent.boardCB.currentData():
@@ -830,9 +837,9 @@ def boardChanged(parent):
 			parent.pwmgensCB.addItem('N/A', False)
 			parent.encodersCB.clear()
 			parent.encodersCB.addItem('N/A', False)
-			if parent.enableMesaflashCB.isChecked():
-				if utilities.checkmesaflash(parent):
-					loadFirmware(parent)
+
+		if utilities.checkmesaflash(parent):
+			loadFirmware(parent)
 
 
 	else: # No Board Selected
