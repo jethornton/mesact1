@@ -12,7 +12,6 @@ class updateini:
 		self.iniFile = iniFile
 		with open(self.iniFile,'r') as file:
 			self.content = file.readlines() # create a list of the ini file
-		print(len(self.content))
 		self.get_sections()
 		if self.content[0].startswith('# This file'):
 			self.content[0] = ('# This file was updated with the Mesa Configuration'
@@ -372,8 +371,7 @@ class updateini:
 				self.get_sections() # update section start/end
 
 			self.update_key(f'SPINDLE_0', 'SPINDLE_TYPE', parent.spindleTypeCB.currentData())
-
-			if parent.spindlePwmTypeCB.currentData():
+			if parent.spindlePwmTypeCB.currentText() != 'Select':
 				self.update_key(f'SPINDLE_0', 'SPINDLE_PWM_TYPE', parent.spindlePwmTypeCB.currentData())
 				self.update_key(f'SPINDLE_0', 'PWM_FREQUENCY', parent.pwmFrequencySB.value())
 
@@ -556,12 +554,8 @@ class updateini:
 			if previous:
 				self.sections[previous][1] = value[0] - 1
 			previous = key
-		#for key, value in self.sections.items():
-		#	print(f'{key} {value}')
 
 	def update_key(self, section, key, value):
-		#if section == 'SPINDLE_0':
-		#	print(f'{section} {key} {value}')
 		found = False
 		start = self.sections[f'[{section}]'][0]
 		end = self.sections[f'[{section}]'][1]
@@ -574,25 +568,15 @@ class updateini:
 			else:
 				found = False
 		if not found:
-			#print(self.sections)
-			#print(f'{end} {key} = {value} {len(self.sections)}')
-			print(len(self.content))
+			print(f'{section} {key} {value}')
 			self.content.insert(end, f'{key} = {value}\n')
-			print(len(self.content))
-			#print(f'{end} {key} = {value} {len(self.sections)}')
-			print(f'{self.content[end]}')
 			self.get_sections() # update section start/end
-			#print(self.sections)
-			s = self.sections[f'[{section}]'][0]
-			e = self.sections[f'[{section}]'][1]
-			#for item in self.content[start:end]:
-			#	print(item)
 
 	def delete_key(self, section, key):
 		start = self.sections[f'[{section}]'][0]
 		end = self.sections[f'[{section}]'][1]
 		for item in self.content[start:end]:
-			if item.startswith(key):
+			if item.split('=')[0].strip() == key:
 				index = self.content.index(item)
 				del self.content[index]
 				self.get_sections() # update section start/end
