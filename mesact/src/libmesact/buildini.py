@@ -240,8 +240,8 @@ def build(parent):
 		iniContents.append(f'SPINDLE_TYPE = {parent.spindleTypeCB.currentData()}\n')
 		if parent.spindlePwmTypeCB.currentData():
 			iniContents.append(f'SPINDLE_PWM_TYPE = {parent.spindlePwmTypeCB.currentData()}\n')
-		if parent.spindleTypeCB.currentData() == 'analog':
 			iniContents.append(f'PWM_FREQUENCY = {parent.pwmFrequencySB.value()}\n')
+		if parent.spindleTypeCB.currentData() == 'analog':
 			iniContents.append(f'MAX_RPM = {parent.spindleMaxRpm.value()}\n')
 			iniContents.append(f'MIN_RPM = {parent.spindleMinRpm.value()}\n')
 

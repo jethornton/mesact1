@@ -4,6 +4,7 @@ from datetime import datetime
 class updateini:
 	def __init__(self):
 		super().__init__()
+		self.content = ''
 		self.sections = {}
 		self.iniFile = ''
 
@@ -11,6 +12,7 @@ class updateini:
 		self.iniFile = iniFile
 		with open(self.iniFile,'r') as file:
 			self.content = file.readlines() # create a list of the ini file
+		print(len(self.content))
 		self.get_sections()
 		if self.content[0].startswith('# This file'):
 			self.content[0] = ('# This file was updated with the Mesa Configuration'
@@ -373,9 +375,9 @@ class updateini:
 
 			if parent.spindlePwmTypeCB.currentData():
 				self.update_key(f'SPINDLE_0', 'SPINDLE_PWM_TYPE', parent.spindlePwmTypeCB.currentData())
+				self.update_key(f'SPINDLE_0', 'PWM_FREQUENCY', parent.pwmFrequencySB.value())
 
 			if parent.spindleTypeCB.currentData() == 'analog':
-				self.update_key(f'SPINDLE_0', 'PWM_FREQUENCY', parent.pwmFrequencySB.value())
 				self.update_key(f'SPINDLE_0', 'MAX_RPM', parent.spindleMaxRpm.value())
 				self.update_key(f'SPINDLE_0', 'MIN_RPM', parent.spindleMinRpm.value())
 
@@ -528,21 +530,38 @@ class updateini:
 			outfile.write(''.join(self.content))
 		parent.machinePTE.appendPlainText(f'Updated {self.iniFile}')
 
+	'''
+	def get_sections(self):
+		self.sections = {}
+		end = len(self.content)
+		last_section = None
+		for index, line in enumerate(self.content):
+			if line.strip().startswith('['):
+				self.sections[line.strip()] = [index, end]
+				last_section = line.strip()
+			if len(self.sections) > 0 and index < len(self.content):
+				self.sections[last_section][1] = index
+		#print(self.sections.items())
+	'''
+
 	def get_sections(self):
 		self.sections = {}
 		end = len(self.content)
 		for index, line in enumerate(self.content):
 			if line.strip().startswith('['):
 				self.sections[line.strip()] = [index, end]
-
 		# set start and stop index for each section
-		previous = ''
+		previous = None
 		for key, value in self.sections.items():
 			if previous:
 				self.sections[previous][1] = value[0] - 1
 			previous = key
+		#for key, value in self.sections.items():
+		#	print(f'{key} {value}')
 
 	def update_key(self, section, key, value):
+		#if section == 'SPINDLE_0':
+		#	print(f'{section} {key} {value}')
 		found = False
 		start = self.sections[f'[{section}]'][0]
 		end = self.sections[f'[{section}]'][1]
@@ -555,8 +574,19 @@ class updateini:
 			else:
 				found = False
 		if not found:
+			#print(self.sections)
+			#print(f'{end} {key} = {value} {len(self.sections)}')
+			print(len(self.content))
 			self.content.insert(end, f'{key} = {value}\n')
+			print(len(self.content))
+			#print(f'{end} {key} = {value} {len(self.sections)}')
+			print(f'{self.content[end]}')
 			self.get_sections() # update section start/end
+			#print(self.sections)
+			s = self.sections[f'[{section}]'][0]
+			e = self.sections[f'[{section}]'][1]
+			#for item in self.content[start:end]:
+			#	print(item)
 
 	def delete_key(self, section, key):
 		start = self.sections[f'[{section}]'][0]
