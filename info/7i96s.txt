@@ -1,1 +1,0 @@
-PCW The 7I96s with default firmware supports up to 4 MPGs using isolated inputs 0..7 

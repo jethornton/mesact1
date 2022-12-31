@@ -1,5 +1,0 @@
-That's correct for packetime ( on x86 NOT PI )
-
-packet time (well actually servo thread time) more than 70 % of servo thread period is probably not good
-
-the default RX packet time timeout is 80 % of the servo period
