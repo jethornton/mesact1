@@ -1,3 +1,9 @@
+mesact (1.2.0) unstable; urgency=medium
+
+  * Remove firmware from repository
+
+ -- John Thornton <dev@gnipsel.com>  Sat, 31 Dec 2022 06:56:02 -0600
+
 mesact (1.1.2) unstable; urgency=medium
 
   * Improve loading ini file for 7i92T boards
