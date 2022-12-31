@@ -31001,7 +31001,17 @@ auto enp2s0
     <addaction name="actionDocuments"/>
     <addaction name="actionCheckUpdates"/>
    </widget>
+   <widget class="QMenu" name="menuDownloads">
+    <property name="title">
+     <string>Downloads</string>
+    </property>
+    <addaction name="actionMesaCT_64bit"/>
+    <addaction name="actionMesaCT_32bit_Rpi4"/>
+    <addaction name="actionMesaCT_64bit_Rpi4"/>
+    <addaction name="actionFirmware"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuDownloads"/>
    <addaction name="menuConfig"/>
    <addaction name="menuLanguage"/>
    <addaction name="menuHelp"/>
@@ -31060,14 +31070,6 @@ QToolButton {
     <string>English</string>
    </property>
   </action>
-  <action name="actionFrench">
-   <property name="text">
-    <string>Français</string>
-   </property>
-   <property name="iconText">
-    <string>Français</string>
-   </property>
-  </action>
   <action name="actionGerman">
    <property name="text">
     <string>Deutsch</string>
@@ -31116,6 +31118,26 @@ QToolButton {
    </property>
    <property name="toolTip">
     <string>Deb for Raspberry Pi 4 64bit</string>
+   </property>
+  </action>
+  <action name="actionMesaCT_64bit">
+   <property name="text">
+    <string>MesaCT 64bit AMD</string>
+   </property>
+  </action>
+  <action name="actionMesaCT_32bit_Rpi4">
+   <property name="text">
+    <string>MesaCT 32bit Rpi4</string>
+   </property>
+  </action>
+  <action name="actionMesaCT_64bit_Rpi4">
+   <property name="text">
+    <string>MesaCT 64bit Rpi4</string>
+   </property>
+  </action>
+  <action name="actionFirmware">
+   <property name="text">
+    <string>Firmware</string>
    </property>
   </action>
  </widget>
