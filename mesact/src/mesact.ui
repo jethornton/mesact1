@@ -30971,9 +30971,6 @@ auto enp2s0
      <string>File</string>
     </property>
     <addaction name="actionOpen"/>
-    <addaction name="actionDlAmd64Deb"/>
-    <addaction name="actionDlArmhfDeb"/>
-    <addaction name="actionDlArm64Deb"/>
    </widget>
    <widget class="QMenu" name="menuConfig">
     <property name="title">
@@ -31001,9 +30998,9 @@ auto enp2s0
     <property name="title">
      <string>Downloads</string>
     </property>
-    <addaction name="actionMesaCT_64bit"/>
-    <addaction name="actionMesaCT_32bit_Rpi4"/>
-    <addaction name="actionMesaCT_64bit_Rpi4"/>
+    <addaction name="actionDlAmd64Deb"/>
+    <addaction name="actionDlArmhfDeb"/>
+    <addaction name="actionDlArm64Deb"/>
     <addaction name="actionFirmware"/>
    </widget>
    <addaction name="menuFile"/>
@@ -31084,22 +31081,6 @@ QToolButton {
     <string>Check for Updates</string>
    </property>
   </action>
-  <action name="actionDlAmd64Deb">
-   <property name="text">
-    <string>Download Amd64 Deb</string>
-   </property>
-   <property name="toolTip">
-    <string>Deb for Amd64 PC</string>
-   </property>
-  </action>
-  <action name="actionDlArmhfDeb">
-   <property name="text">
-    <string>Download Armhf Deb</string>
-   </property>
-   <property name="toolTip">
-    <string>Deb for Raspberry Pi 4 32bit</string>
-   </property>
-  </action>
   <action name="actionDocuments">
    <property name="text">
     <string>Documents</string>
@@ -31108,25 +31089,17 @@ QToolButton {
     <string>Open PDF Documents</string>
    </property>
   </action>
-  <action name="actionDlArm64Deb">
-   <property name="text">
-    <string>Download Arm64 Deb</string>
-   </property>
-   <property name="toolTip">
-    <string>Deb for Raspberry Pi 4 64bit</string>
-   </property>
-  </action>
-  <action name="actionMesaCT_64bit">
+  <action name="actionDlAmd64Deb">
    <property name="text">
     <string>MesaCT 64bit AMD</string>
    </property>
   </action>
-  <action name="actionMesaCT_32bit_Rpi4">
+  <action name="actionDlArmhfDeb">
    <property name="text">
     <string>MesaCT 32bit Rpi4</string>
    </property>
   </action>
-  <action name="actionMesaCT_64bit_Rpi4">
+  <action name="actionDlArm64Deb">
    <property name="text">
     <string>MesaCT 64bit Rpi4</string>
    </property>
