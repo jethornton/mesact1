@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_mainWindow(object):
     def setupUi(self, mainWindow):
         mainWindow.setObjectName("mainWindow")
-        mainWindow.resize(972, 820)
+        mainWindow.resize(972, 891)
         self.centralwidget = QtWidgets.QWidget(mainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -150,7 +150,7 @@ class Ui_mainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 930, 365))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 930, 460))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.scrollAreaWidgetContents)
         self.horizontalLayout.setObjectName("horizontalLayout")
@@ -13052,16 +13052,6 @@ class Ui_mainWindow(object):
         self.statusbar = QtWidgets.QStatusBar(mainWindow)
         self.statusbar.setObjectName("statusbar")
         mainWindow.setStatusBar(self.statusbar)
-        self.toolBar = QtWidgets.QToolBar(mainWindow)
-        self.toolBar.setStyleSheet("QToolBar{\n"
-"spacing: 5px;\n"
-"}\n"
-"QToolButton { \n"
-"    border: 1px solid #8f8f91;\n"
-"    border-radius: 6px;\n"
-"}")
-        self.toolBar.setObjectName("toolBar")
-        mainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar)
         self.actionOpen = QtWidgets.QAction(mainWindow)
         self.actionOpen.setObjectName("actionOpen")
         self.actionCheck = QtWidgets.QAction(mainWindow)
@@ -13103,10 +13093,6 @@ class Ui_mainWindow(object):
         self.menubar.addAction(self.menuConfig.menuAction())
         self.menubar.addAction(self.menuLanguage.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
-        self.toolBar.addAction(self.actionOpen)
-        self.toolBar.addAction(self.actionCheck)
-        self.toolBar.addAction(self.actionBuild)
-        self.toolBar.addAction(self.actionDocuments)
 
         self.retranslateUi(mainWindow)
         self.mainTabs.setCurrentIndex(0)
@@ -16980,7 +16966,6 @@ class Ui_mainWindow(object):
         self.menuLanguage.setTitle(_translate("mainWindow", "Language"))
         self.menuHelp.setTitle(_translate("mainWindow", "Help"))
         self.menuDownloads.setTitle(_translate("mainWindow", "Downloads"))
-        self.toolBar.setWindowTitle(_translate("mainWindow", "toolBar"))
         self.actionOpen.setText(_translate("mainWindow", "Open .ini File"))
         self.actionOpen.setToolTip(_translate("mainWindow", "Open an .ini File"))
         self.actionCheck.setText(_translate("mainWindow", "Check Config"))
