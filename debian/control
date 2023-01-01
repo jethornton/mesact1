@@ -1,9 +1,11 @@
 Source: mesact
 Maintainer: John Thornton <dev@gnipsel.com>
 Build-Depends: debhelper (>= 11.0.0)
-Standards-Version: 4.6.1.0
+Standards-Version: 4.6.2
 Section: utils
 Priority: optional
+Vcs-Browser: https://github.com/jethornton/mesact/
+Vcs-Git: https://github.com/jethornton/mesact/
 Rules-Requires-Root: no
 
 Package: mesact
@@ -12,11 +14,22 @@ Architecture: any
 Depends:  ${misc:Depends},
           python3 (>=3.6),
           python3-pyqt5,
-          zip,
           python3-packaging,
           python3-requests
 Suggests: linuxcnc-uspace,
-          mesaflash
+          mesaflash,
+          zip
 Description: Mesa Configuration Tools for LinuxCNC
- For 5i25/6i25, 7i76e, 7i80, 7i92, 7i95, 7i96, 7i97
- Mesa LinuxCNC motion control boards and daughter cards.
+ Between the program controling the execution of a CNC mill, CNC lathe
+ or a robot, and the powerful drivers that know how to turn a motor,
+ is some glue-hardware required that can trigger the drivers to step
+ or spin. 
+ .
+ It is not uncommon to see the parallel printer port being that trigger.
+ For higher frequencies, and with the confidence of a perfect clock without
+ the involvement of the computer's CPU, a small card may come to the assistance.
+ This may be microcontroller, or as it is for the Mesa cards, an FPGA.
+ .
+ This software knows how to configure LinuxCNC for using one of the 
+ 5i25/6i25, 7i76e, 7i80, 7i92, 7i95, 7i96, 7i97 Mesa LinuxCNC motion control
+ boards and daughter cards.
