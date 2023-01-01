@@ -5,6 +5,13 @@ from PyQt5.QtGui import QPixmap
 from libmesact import utilities
 
 def setup(parent):
+
+	try:
+		parent.resize(parent.settings.value('window size'))
+		parent.move(parent.settings.value('window position'))
+	except:
+		pass
+
 	# setup tabs and group boxes
 	parent.mainTabs.setTabEnabled(3, False)
 	parent.mainTabs.setTabEnabled(4, False)
