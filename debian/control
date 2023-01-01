@@ -23,13 +23,13 @@ Description: Mesa Configuration Tools for LinuxCNC
  Between the program controling the execution of a CNC mill, CNC lathe
  or a robot, and the powerful drivers that know how to turn a motor,
  is some glue-hardware required that can trigger the drivers to step
- or spin. 
+ or spin.
  .
  It is not uncommon to see the parallel printer port being that trigger.
  For higher frequencies, and with the confidence of a perfect clock without
  the involvement of the computer's CPU, a small card may come to the assistance.
  This may be microcontroller, or as it is for the Mesa cards, an FPGA.
  .
- This software knows how to configure LinuxCNC for using one of the 
- 5i25/6i25, 7i76e, 7i80, 7i92, 7i95, 7i96, 7i97 Mesa LinuxCNC motion control
- boards and daughter cards.
+ This software knows how to create configuration files used by LinuxCNC to
+ control 5i25/6i25, 7i76e, 7i80, 7i92, 7i95, 7i96, 7i97 and 7i98 Mesa
+ Electronics motion control boards, smart serial boards and daughter cards.
