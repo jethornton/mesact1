@@ -568,7 +568,6 @@ class updateini:
 			else:
 				found = False
 		if not found:
-			print(f'{section} {key} {value}')
 			self.content.insert(end, f'{key} = {value}\n')
 			self.get_sections() # update section start/end
 
