@@ -23,7 +23,7 @@ BUILD_DATE = '12/31/2022'
 from traceback import StackSummary
 from functools import partial
 
-from PyQt5.QtCore import QTimer
+from PyQt5.QtCore import QTimer, QSettings
 from PyQt5 import QtCore, uic, QtWidgets
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QMessageBox,
 	QDialog, qApp, QProgressBar)
@@ -53,6 +53,7 @@ from libmesact import helptext
 from libmesact.help import Ui_Dialog as helpDialog
 from libmesact.about import Ui_about as aboutDialog
 from libmesact.ui_mesact import Ui_mainWindow # < for Translations
+from libmesact import shutdown
 
 class VersionError(QMainWindow):
 	def __init__(self):
@@ -116,12 +117,12 @@ class MainWindow(QMainWindow, Ui_mainWindow): # < for Translations
 		self.loadini = loadini.openini()
 		self.extcmd = extcmd.extcmd()
 		self.ladderOptionsList = utilities.plcOptions()
+		self.settings = QSettings('CnC Machines', 'MesaCT')
 		self.setupConnections()
 		startup.setup(self)
 		self.show()
 
 	def setupConnections(self):
-
 		# Menu Items
 		# for Translations
 		self.actionEnglish.triggered.connect(partial(self.change_language, None))
@@ -313,6 +314,9 @@ class MainWindow(QMainWindow, Ui_mainWindow): # < for Translations
 		msg += 'https://github.com/jethornton/mesact/issues'
 		print(msg)
 		self.errorMsgOk(msg, 'PROGRAM ERROR' )
+
+	def closeEvent(self, event):
+		shutdown.save_settings(self)
 
 def main():
 	app = QApplication(sys.argv)
