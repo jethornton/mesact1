@@ -47,9 +47,12 @@ def loadFirmware(parent):
 
 		else:
 			msg = (f'No Firmware found for {board}\n'
-			'Use Download Firmware from the menu\n'
-			'to download and install the firmware\n'
-			f'to {os.path.expanduser("~")}/.local/lib/libmesact/{board}')
+			'Downloads > Firmware from the menu if you have an Internet connection\n'
+			'The firmware will be to downloaded and installed\n'
+			f'in {os.path.expanduser("~")}/.local/lib/libmesact/{board}.\n\n'
+			'If you do not have an Internet connection\nfrom another computer download from \n'
+			f'https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/{board}.tar.xz\n'
+			f'Extract the firmware to {os.path.expanduser("~")}/.local/lib/libmesact/{board}')
 			parent.machinePTE.setPlainText(msg)
 
 def boardChanged(parent):
