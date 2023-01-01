@@ -149,14 +149,21 @@ def build(parent):
 	['Encoder', 'encoder']
 	]
 
+	# 1(PWM & Dir), 2(Up & Down), 3 (PWM & DIr), and 4 (Dir & PWM)
+	# 1 (PWM on Out0 and Direction on Out1)
+	# 2 (Up on Out0 and Down on Out1)
+	# 3 (PDM mode, PDM on Out0 and Dir on Out1)
+	# 4 (Direction on Out0 and PWM on Out1, for locked antiphase). 
+
 	for item in spindleFeedback:
 		parent.spindleFeedbackCB.addItem(item[0], item[1])
 
 	spindlePwmType = [
 	['Select', False],
-	['Single Output', '0'],
-	['PWM/Dir', '1'],
-	['Up/Down', '2']
+	['PWM & Dir', '1'],
+	['Up & Down', '2'],
+	['PDM & Dir', '3'],
+	['Dir & PWM', '4'],
 	]
 
 	for item in spindlePwmType:
