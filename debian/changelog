@@ -1,3 +1,9 @@
+mesact (1.2.1) unstable; urgency=medium
+
+  * Remove Mesa documents from repository, get latest from Mesa
+
+ -- John Thornton <dev@gnipsel.com>  Mon, 02 Jan 2023 17:33:46 -0600
+
 mesact (1.2.0) unstable; urgency=medium
 
   * Remove firmware from repository
