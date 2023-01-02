@@ -2,5 +2,4 @@ mesact/src/mesact usr/bin
 mesact/src/mesact.ui usr/lib/libmesact
 mesact/src/images/*.png usr/lib/libmesact
 mesact/src/libmesact/*.py usr/lib/python3/dist-packages/libmesact
-mesact/src/manuals/*.* usr/lib/libmesact
 mesact/*.desktop usr/share/applications
