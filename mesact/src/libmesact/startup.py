@@ -1,8 +1,12 @@
 import os, subprocess
 from configparser import ConfigParser
-from PyQt5.QtGui import QPixmap
+from functools import partial
+
+from PyQt5.QtGui import QPixmap, QIcon
+from PyQt5.QtWidgets import QAction, QWidget
 
 from libmesact import utilities
+from libmesact import updates
 
 def setup(parent):
 
@@ -87,6 +91,21 @@ def setup(parent):
 	parent.card7i85sLB.setPixmap(pixmap)
 	pixmap = QPixmap(os.path.join(parent.image_path, '7i88-card.png'))
 	parent.card7i88LB.setPixmap(pixmap)
+
+
+	exitAction = QAction(QIcon.fromTheme('application-exit'), 'Exit', parent)
+	#exitAction.setShortcut('Ctrl+Q')
+	exitAction.setStatusTip('Exit application')
+	exitAction.triggered.connect(parent.close)
+	parent.menuFile.addAction(exitAction)
+
+	docsAction = QAction(QIcon.fromTheme('document-open'), 'Mesa Manuals', parent)
+	docsAction.setStatusTip('Download Mesa Documents')
+	#preferencesAction.triggered.connect(partial(menu.edit_preferences, parent))
+	docsAction.triggered.connect(partial(updates.downloadDocs, parent))
+	parent.menuDownloads.addAction(docsAction)
+
+
 
 def readconfig(parent):
 	config = ConfigParser()

@@ -78,14 +78,14 @@ class MainWindow(QMainWindow, Ui_mainWindow): # < for Translations
 			self.lib_path = '/usr/lib/libmesact'
 			self.firmware_path = f'{os.path.expanduser("~")}/.local/lib/libmesact'
 			self.image_path = '/usr/lib/libmesact'
-			self.docs_path = '/usr/lib/libmesact'
+			#self.docs_path = '/usr/lib/libmesact'
 			uic.loadUi(os.path.join(self.lib_path, 'mesact.ui'), self)
 		else:
 			srcPath = os.path.split(os.path.realpath(sys.argv[0]))[0]
 			self.lib_path = os.path.join(srcPath, 'libmesact')
 			self.firmware_path = f'{os.path.expanduser("~")}/.local/lib/libmesact'
 			self.image_path = os.path.join(srcPath, 'images')
-			self.docs_path = os.path.join(srcPath, 'manuals')
+			#self.docs_path = os.path.join(srcPath, 'manuals')
 			uic.loadUi(os.path.join(srcPath, 'mesact.ui'), self)
 		sys.excepthook = self.excepthook
 		self.version = VERSION

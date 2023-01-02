@@ -1,10 +1,22 @@
 import os, subprocess, requests
-
+import urllib.request
 from datetime import datetime
 
 from PyQt5.QtWidgets import QMessageBox, QApplication, QInputDialog, QLineEdit
 
 from libmesact import firmware
+
+def download(parent, down_url, save_loc):
+	def Handle_Progress(blocknum, blocksize, totalsize):
+		## calculate the progress
+		readed_data = blocknum * blocksize
+		if totalsize > 0:
+			download_percentage = readed_data * 100 / totalsize
+			parent.progressBar.setValue(int(download_percentage))
+			QApplication.processEvents()
+	urllib.request.urlretrieve(down_url, save_loc, Handle_Progress)
+	parent.progressBar.setValue(100)
+	parent.timer.start(1000)
 
 def getPassword(parent):
 	dialog = 'You need root privileges\nfor this operation.\nEnter your Password:'
