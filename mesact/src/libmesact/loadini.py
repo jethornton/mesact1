@@ -270,9 +270,9 @@ class openini:
 
 		for i in range(32):
 			inputs = [
-			['[INPUTS]', 'INPUT_{i}', f'inputPB_{i}'],
-			['[INPUTS]', 'INPUT_INVERT_{i}', f'inputInvertCB_{i}'],
-			['[INPUTS]', 'INPUT_SLOW_{i}', f'inputDebounceCB_{i}'],
+			['[INPUTS]', f'INPUT_{i}', f'inputPB_{i}'],
+			['[INPUTS]', f'INPUT_INVERT_{i}', f'inputInvertCB_{i}'],
+			['[INPUTS]', f'INPUT_SLOW_{i}', f'inputDebounceCB_{i}'],
 			]
 
 			for item in inputs:
@@ -280,8 +280,8 @@ class openini:
 
 		for i in range(16):
 			outputs = [
-			['[OUTPUTS]', 'OUTPUT_{i}', f'outputPB_{i}'],
-			['[INPUTS]', 'OUTPUT_INVERT_{i}', f'outputInvertCB_{i}'],
+			['[OUTPUTS]', f'OUTPUT_{i}', f'outputPB_{i}'],
+			['[OUTPUTS]', f'OUTPUT_INVERT_{i}', f'outputInvertCB_{i}'],
 			]
 
 			for item in outputs:
