@@ -690,7 +690,7 @@ before building configuration files</string>
             <item>
              <widget class="QTabWidget" name="boardTW">
               <property name="currentIndex">
-               <number>5</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_6">
                <attribute name="title">
@@ -1011,221 +1011,6 @@ before building configuration files</string>
                  </widget>
                 </item>
                </layout>
-              </widget>
-              <widget class="QWidget" name="tab_12">
-               <attribute name="title">
-                <string>Manuals</string>
-               </attribute>
-               <widget class="QComboBox" name="mainBoardDocsCB">
-                <property name="geometry">
-                 <rect>
-                  <x>10</x>
-                  <y>60</y>
-                  <width>200</width>
-                  <height>27</height>
-                 </rect>
-                </property>
-               </widget>
-               <widget class="QComboBox" name="dauCardDocsCB">
-                <property name="geometry">
-                 <rect>
-                  <x>460</x>
-                  <y>60</y>
-                  <width>200</width>
-                  <height>27</height>
-                 </rect>
-                </property>
-               </widget>
-               <widget class="QComboBox" name="otherDocsCB">
-                <property name="geometry">
-                 <rect>
-                  <x>670</x>
-                  <y>220</y>
-                  <width>201</width>
-                  <height>27</height>
-                 </rect>
-                </property>
-               </widget>
-               <widget class="QComboBox" name="ssCardDocsCB">
-                <property name="geometry">
-                 <rect>
-                  <x>680</x>
-                  <y>60</y>
-                  <width>200</width>
-                  <height>27</height>
-                 </rect>
-                </property>
-               </widget>
-               <widget class="QPushButton" name="OpenManPB_0">
-                <property name="geometry">
-                 <rect>
-                  <x>10</x>
-                  <y>100</y>
-                  <width>200</width>
-                  <height>27</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Open Manual</string>
-                </property>
-               </widget>
-               <widget class="QLabel" name="label_1125">
-                <property name="geometry">
-                 <rect>
-                  <x>10</x>
-                  <y>28</y>
-                  <width>200</width>
-                  <height>21</height>
-                 </rect>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::Box</enum>
-                </property>
-                <property name="text">
-                 <string>Main Board Manuals</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-               <widget class="QLabel" name="label_1126">
-                <property name="geometry">
-                 <rect>
-                  <x>460</x>
-                  <y>30</y>
-                  <width>200</width>
-                  <height>21</height>
-                 </rect>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::Box</enum>
-                </property>
-                <property name="text">
-                 <string>Daughter Card Manuals</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-               <widget class="QLabel" name="label_1127">
-                <property name="geometry">
-                 <rect>
-                  <x>680</x>
-                  <y>30</y>
-                  <width>200</width>
-                  <height>21</height>
-                 </rect>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::Box</enum>
-                </property>
-                <property name="text">
-                 <string>Smart Serial Card Manuals</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-               <widget class="QLabel" name="label_1128">
-                <property name="geometry">
-                 <rect>
-                  <x>670</x>
-                  <y>190</y>
-                  <width>201</width>
-                  <height>21</height>
-                 </rect>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::Box</enum>
-                </property>
-                <property name="text">
-                 <string>Misc. Manuals</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-               <widget class="QPushButton" name="OpenManPB_1">
-                <property name="geometry">
-                 <rect>
-                  <x>230</x>
-                  <y>100</y>
-                  <width>200</width>
-                  <height>27</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Open Manual</string>
-                </property>
-               </widget>
-               <widget class="QPushButton" name="OpenManPB_4">
-                <property name="geometry">
-                 <rect>
-                  <x>670</x>
-                  <y>260</y>
-                  <width>200</width>
-                  <height>27</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Open Manual</string>
-                </property>
-               </widget>
-               <widget class="QPushButton" name="OpenManPB_2">
-                <property name="geometry">
-                 <rect>
-                  <x>460</x>
-                  <y>100</y>
-                  <width>200</width>
-                  <height>27</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Open Manual</string>
-                </property>
-               </widget>
-               <widget class="QPushButton" name="OpenManPB_3">
-                <property name="geometry">
-                 <rect>
-                  <x>680</x>
-                  <y>100</y>
-                  <width>201</width>
-                  <height>27</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Open Manual</string>
-                </property>
-               </widget>
-               <widget class="QComboBox" name="comboBoardDocsCB">
-                <property name="geometry">
-                 <rect>
-                  <x>230</x>
-                  <y>60</y>
-                  <width>200</width>
-                  <height>27</height>
-                 </rect>
-                </property>
-               </widget>
-               <widget class="QLabel" name="label_1129">
-                <property name="geometry">
-                 <rect>
-                  <x>230</x>
-                  <y>30</y>
-                  <width>200</width>
-                  <height>21</height>
-                 </rect>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::Box</enum>
-                </property>
-                <property name="text">
-                 <string>All in One Manuals</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
               </widget>
              </widget>
             </item>
@@ -31689,22 +31474,12 @@ auto enp2s0
   <tabstop>scrollArea_3</tabstop>
   <tabstop>tmaxPTE</tabstop>
   <tabstop>ethernetPTE</tabstop>
-  <tabstop>comboBoardDocsCB</tabstop>
-  <tabstop>OpenManPB_3</tabstop>
   <tabstop>cardTabs</tabstop>
   <tabstop>pwmgensCB</tabstop>
-  <tabstop>mainBoardDocsCB</tabstop>
-  <tabstop>dauCardDocsCB</tabstop>
-  <tabstop>otherDocsCB</tabstop>
   <tabstop>ssWiringPTE</tabstop>
   <tabstop>encodersCB</tabstop>
-  <tabstop>ssCardDocsCB</tabstop>
-  <tabstop>OpenManPB_0</tabstop>
-  <tabstop>OpenManPB_1</tabstop>
   <tabstop>tabWidget_5</tabstop>
   <tabstop>stepgensCB</tabstop>
-  <tabstop>OpenManPB_2</tabstop>
-  <tabstop>OpenManPB_4</tabstop>
  </tabstops>
  <resources/>
  <connections/>

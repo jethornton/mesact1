@@ -175,11 +175,6 @@ class MainWindow(QMainWindow, Ui_mainWindow): # < for Translations
 		#self.foamRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
 
 		# Info Tab
-		self.OpenManPB_0.clicked.connect(partial(updates.showDocs, self, self.mainBoardDocsCB))
-		self.OpenManPB_1.clicked.connect(partial(updates.showDocs, self, self.comboBoardDocsCB))
-		self.OpenManPB_2.clicked.connect(partial(updates.showDocs, self, self.dauCardDocsCB))
-		self.OpenManPB_3.clicked.connect(partial(updates.showDocs, self, self.ssCardDocsCB))
-		self.OpenManPB_4.clicked.connect(partial(updates.showDocs, self, self.otherDocsCB))
 
 		# Axes Tab
 		for i in range(6):

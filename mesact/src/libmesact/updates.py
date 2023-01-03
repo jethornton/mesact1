@@ -94,11 +94,6 @@ def showDocs(parent, pdfDoc):
 	docPath = False
 	if isinstance(pdfDoc, str):
 		docPath = os.path.join(parent.lib_path, pdfDoc)
-	elif isinstance(pdfDoc, QComboBox):
-		if pdfDoc.currentData():
-			docPath = os.path.join(parent.docs_path, pdfDoc.currentData())
-		else:
-			parent.errorMsgOk('Select a Manual First!', 'Error')
 	if docPath:
 		subprocess.call(('xdg-open', docPath))
 

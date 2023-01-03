@@ -225,98 +225,6 @@ def build(parent):
 	for item in cpuSpeed:
 		parent.cpuSpeedCB.addItem(item[0], item[1])
 
-	mainBoardDocs = [
-	['Select', False],
-	['5i24', '5i24man.pdf'],
-	['5i25', '5i25man.pdf'],
-	['6i24', '6i24man.pdf'],
-	['6i25', '6i25man.pdf'],
-	['7i80DB', '7i80dbman.pdf'],
-	['7i80HD', '7i80hdman.pdf'],
-	['7i90HD', '7i90hdman.pdf'],
-	['7i92', '7i92man.pdf'],
-	['7i92T', '7i92tman.pdf'],
-	['7i93', '7i93man.pdf'],
-	['7i98', '7i98man.pdf'],
-	]
-
-	for item in mainBoardDocs:
-		parent.mainBoardDocsCB.addItem(item[0], item[1])
-
-	comboBoardDocs = [
-	['Select', False],
-	['7i76E', '7i76Eman.pdf'],
-	['7i95', '7i95man.pdf'],
-	['7i96', '7i96man.pdf'],
-	['7i96S', '7i96sman.pdf'],
-	['7i97', '7i97man.pdf']
-	]
-
-	for item in comboBoardDocs:
-		parent.comboBoardDocsCB.addItem(item[0], item[1])
-
-	dauCardDocs = [
-	['Select', False],
-	['7i33', '7i33man.pdf'],
-	['7i37', '7i37man.pdf'],
-	['7i44', '7i44man.pdf'],
-	['7i47', '7i47man.pdf'],
-	['7i48', '7i48man.pdf'],
-	['7i76', '7i76man.pdf'],
-	['7i77', '7i77man.pdf'],
-	['7i78', '7i78man.pdf'],
-	['7i85', '7i85man.pdf'],
-	['7i85s', '7i85sman.pdf'],
-	['7i88', '7i88man.pdf'],
-	['7i89', '7i89man.pdf']
-	]
-
-	for item in dauCardDocs:
-		parent.dauCardDocsCB.addItem(item[0], item[1])
-
-	ssCardDocs = [
-	['Select', False],
-	['7i64', '7i64man.pdf'],
-	['7i69', '7i69man.pdf'],
-	['7i70', '7i70man.pdf'],
-	['7i71', '7i71man.pdf'],
-	['7i72', '7i72man.pdf'],
-	['7i73', '7i73man.pdf'],
-	['7i73 Pins', '7i73_pin_tables.pdf'],
-	['7i74', '7i74man.pdf'],
-	['7i84', '7i84man.pdf'],
-	['7i87', '7i87man.pdf'],
-	]
-
-	for item in ssCardDocs:
-		parent.ssCardDocsCB.addItem(item[0], item[1])
-
-	otherDocs = [
-	['Select', False],
-	['7i77ISOL', '7i77isolman.pdf'],
-	['THCAD', 'thcadman.pdf'],
-	]
-
-	for item in otherDocs:
-		parent.otherDocsCB.addItem(item[0], item[1])
-
-	'''
-
-	daughterCards = [
-	['Select', False],
-	['7i76', '7i76'],
-	['7i77', '7i77'],
-	['7i78', '7i78'],
-	['7i85', '7i85'],
-	['7i85S', '7i85s'],
-	['7i88', '7i88'],
-	['7i89', '7i89'],
-	]
-	for item in daughterCards:
-		parent.daughterCB_0.addItem(item[0], item[1])
-		parent.daughterCB_1.addItem(item[0], item[1])
-
-	
 	# firmware combobox
 	# FIX ME add 5i25 firmware and load based on card see 7i80
 	parent.firmwareCB.addItem('Select', False)
@@ -325,4 +233,4 @@ def build(parent):
 	for file in files:
 		if os.path.splitext(file)[1] == '.bit':
 			parent.firmwareCB.addItem(os.path.basename(file), file)
-	'''
+
