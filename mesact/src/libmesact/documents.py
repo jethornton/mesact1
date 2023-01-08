@@ -41,133 +41,72 @@ class dialog(QDialog):
 
 	def docs(self):
 		docs = [
-			{'Main Boards':['5i24', '5i25', '6i24', '6i25', '7i80db', '7i80hd',
-				'7i90hd', '7i92', '7i92T', '7i93', '7i98']},
-			{'Combo Boards':['7i76e', '7i95', '7i96', '7i96S', '7i97', ]},
+			{'Main Boards':['5i24', '5i25', '6i24', '6i25', '7i80DB', '7i80HD',
+				'7i90HD', '7i92', '7i92T', '7i93', '7i98']},
+			{'Combo Boards':['7i76E', '7i95', '7i96', '7i96S', '7i97', ]},
 			{'Daughter Boards':['7i33', '7i37', '7i44', '7i47', '7i48', '7i76',
-				'7i77', '7i78', '7i85', '7i85s', '7i88', '7i89', ]},
+				'7i77', '7i78', '7i85', '7i85S', '7i88', '7i89', ]},
 			{'Smart Serial Boards':['7i64', '7i69', '7i70', '7i71', '7i72', '7i73',
 				'7i73 Pins', '7i74', '7i84', '7i87']},
-			{'Misc. Boards':['7i77isol', 'THCAD', 'THCAD2']},
+			{'Misc. Boards':['7i77ISOL', 'THCAD', 'THCAD2']},
 		]
-		links = {'':'',
-		'5i24':'http://www.mesanet.com/pdf/parallel/5i24man.pdf',
-		'5i25':'http://www.mesanet.com/pdf/parallel/man.pdf',
-		'6i24':'http://www.mesanet.com/pdf/parallel/man.pdf',
-		'6i25':'http://www.mesanet.com/pdf/parallel/man.pdf',
-		'7i80DB':'http://www.mesanet.com/pdf/parallel/man.pdf',
-		'7i80HD':'http://www.mesanet.com/pdf/parallel/man.pdf',
-		'7i90HD':'http://www.mesanet.com/pdf/parallel/man.pdf',
-		'7i92':'http://www.mesanet.com/pdf/parallel/man.pdf',
-		'7i92T':'http://www.mesanet.com/pdf/parallel/man.pdf',
-		'7i93':'http://www.mesanet.com/pdf/parallel/man.pdf',
-		'7i98':'http://www.mesanet.com/pdf/parallel/man.pdf',
-		'7i76E':'http://www.mesanet.com/pdf/parallel/7i76eman.pdf',
-		'7i95':'http://www.mesanet.com/pdf/parallel/7i95man.pdf',
-		'7i96':'http://www.mesanet.com/pdf/parallel/7i96man.pdf',
-		'7i96S':'http://www.mesanet.com/pdf/parallel/7i96sman.pdf',
-		'7i97':'http://www.mesanet.com/pdf/parallel/7i97man.pdf',
-		'7i33':'',
-		'7i37':'',
-		'7i44':'',
-		'7i47':'',
-		'7i48':'',
-		'7i76':'',
-		'7i77':'',
-		'7i78':'',
-		'7i85':'',
-		'7i85s':'',
-		'7i88':'',
-		'7i89':'',
-		'7i64':'',
-		'7i69':'',
-		'7i70':'',
-		'7i71':'',
-		'7i72':'',
-		'7i73':'',
-		'7i73 Pins':'',
-		'7i74':'',
-		'7i84':'',
-		'7i87':'',
-		'7i77ISOL':'http://www.mesanet.com/pdf/parallel/7i77isolman.pdf',
-		'THCAD':'',
-		'THCAD2':'',
 
-		}
 		button = self.manualsPB
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
 		self.add_menu(docs, menu)
 		button.setMenu(menu)
 
-		mainBoardDocs = [
-		['Select', False],
-		['5i24', '5i24man.pdf'],
-		['5i25', '5i25man.pdf'],
-		['6i24', '6i24man.pdf'],
-		['6i25', '6i25man.pdf'],
-		['7i80DB', '7i80dbman.pdf'],
-		['7i80HD', '7i80hdman.pdf'],
-		['7i90HD', '7i90hdman.pdf'],
-		['7i92', '7i92man.pdf'],
-		['7i92T', '7i92tman.pdf'],
-		['7i93', '7i93man.pdf'],
-		['7i98', '7i98man.pdf'],
-		]
-
-
-		comboBoardDocs = [
-		['Select', False],
-		['7i76E', '7i76Eman.pdf'],
-		['7i95', '7i95man.pdf'],
-		['7i96', '7i96man.pdf'],
-		['7i96S', '7i96sman.pdf'],
-		['7i97', '7i97man.pdf']
-		]
-
-
-		dauCardDocs = [
-		['Select', False],
-		['7i33', '7i33man.pdf'],
-		['7i37', '7i37man.pdf'],
-		['7i44', '7i44man.pdf'],
-		['7i47', '7i47man.pdf'],
-		['7i48', '7i48man.pdf'],
-		['7i76', '7i76man.pdf'],
-		['7i77', '7i77man.pdf'],
-		['7i78', '7i78man.pdf'],
-		['7i85', '7i85man.pdf'],
-		['7i85s', '7i85sman.pdf'],
-		['7i88', '7i88man.pdf'],
-		['7i89', '7i89man.pdf']
-		]
-
-		ssCardDocs = [
-		['Select', False],
-		['7i64', '7i64man.pdf'],
-		['7i69', '7i69man.pdf'],
-		['7i70', '7i70man.pdf'],
-		['7i71', '7i71man.pdf'],
-		['7i72', '7i72man.pdf'],
-		['7i73', '7i73man.pdf'],
-		['7i73 Pins', '7i73_pin_tables.pdf'],
-		['7i74', '7i74man.pdf'],
-		['7i84', '7i84man.pdf'],
-		['7i87', '7i87man.pdf'],
-		]
-
-
-		otherDocs = [
-		['Select', False],
-		['7i77ISOL', '7i77isolman.pdf'],
-		['THCAD', 'thcadman.pdf'],
-		]
 
 	def apply(self, parent):
+		pdfs = {'':'',
+		'5i24':'5i24man.pdf',
+		'5i25':'5i25man.pdf',
+		'6i24':'6i24man.pdf',
+		'6i25':'6i25man.pdf',
+		'7i80DB':'7i80dbman.pdf',
+		'7i80HD':'7i80hdman.pdf',
+		'7i90HD':'7i90hdman.pdf',
+		'7i92':'7i92man.pdf',
+		'7i92T':'7i92tman.pdf',
+		'7i93':'7i93man.pdf',
+		'7i98':'7i98man.pdf',
+		'7i76E':'7i76eman.pdf',
+		'7i95':'7i95man.pdf',
+		'7i96':'7i96man.pdf',
+		'7i96S':'7i96sman.pdf',
+		'7i97':'7i97man.pdf',
+		'7i33':'7i33man.pdf',
+		'7i37':'7i37man.pdf',
+		'7i44':'7i44man.pdf',
+		'7i47':'7i47man.pdf',
+		'7i48':'7i48man.pdf',
+		'7i76':'7i76man.pdf',
+		'7i77':'7i77man.pdf',
+		'7i78':'7i78man.pdf',
+		'7i85':'7i85man.pdf',
+		'7i85S':'7i85sman.pdf',
+		'7i88':'7i88man.pdf',
+		'7i89':'7i89man.pdf',
+		'7i64':'7i64man.pdf',
+		'7i69':'7i69man.pdf',
+		'7i70':'7i70man.pdf',
+		'7i71':'7i71man.pdf',
+		'7i72':'7i72man.pdf',
+		'7i73':'7i73man.pdf',
+		'7i73 Pins':'man.pdf',
+		'7i74':'7i74man.pdf',
+		'7i84':'7i84man.pdf',
+		'7i87':'7i87man.pdf',
+		'7i77ISOL':'7i77isolman.pdf',
+		'THCAD':'thcadman.pdf',
+		'THCAD2':'thcad2man.pdf',
+		}
+
 		destination = str(QFileDialog.getExistingDirectory(parent, "Select a Directory to Save to"))
 		if destination != '':
-			manual = self.manualsPB.text()
-			pdf_url = f'http://www.mesanet.com/pdf/parallel/{manual}man.pdf'
+			manual = pdfs[self.manualsPB.text()]
+			pdf_url = f'http://www.mesanet.com/pdf/parallel/{manual}'
 			pdf_location = f'{destination}/{manual}man.pdf'
 			print(pdf_location)
 			utilities.download(parent, pdf_url, pdf_location)
