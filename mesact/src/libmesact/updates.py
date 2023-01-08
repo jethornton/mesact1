@@ -6,9 +6,6 @@ from PyQt5.QtWidgets import QApplication, QFileDialog, QComboBox
 
 from libmesact import documents
 from libmesact import utilities
-'''
-
-'''
 
 def downloadFirmware(parent):
 	board = parent.boardCB.currentData()
@@ -20,7 +17,7 @@ def downloadFirmware(parent):
 		destination = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/{board}.tar.xz')
 		#print(f'{libpath}\n{firmware_url}\n{destination}')
 		#print('Downloading')
-		download(parent, firmware_url, destination)
+		utilities.download(parent, firmware_url, destination)
 		#print('Download Done')
 		with tarfile.open(destination) as f:
 			f.extractall(libpath)
