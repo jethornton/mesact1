@@ -113,7 +113,6 @@ class dialog(QDialog):
 			manual = pdfs[self.manualsPB.text()]
 			pdf_url = f'http://www.mesanet.com/pdf/{manual}'
 			pdf_location = f'{destination}/{self.manualsPB.text()}man.pdf'
-			print(pdf_location)
 			utilities.download(parent, pdf_url, pdf_location)
 			parent.statusbar.showMessage(f'{self.manualsPB.text()} selected')
 		self.close()
