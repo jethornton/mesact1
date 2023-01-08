@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import QApplication, QFileDialog, QComboBox
 
 from libmesact import documents
 from libmesact import utilities
+from libmesact import boards
 
 def downloadFirmware(parent):
 	board = parent.boardCB.currentData()
@@ -24,6 +25,7 @@ def downloadFirmware(parent):
 		if os.path.isfile(destination):
 			os.remove(destination)
 		# update firmware tab
+		boards.loadFirmware(parent)
 		#print(f'Download {firmware_url}\n{destination}')
 		# https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/5i24.tar.xz
 	else:
