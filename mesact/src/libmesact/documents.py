@@ -47,9 +47,10 @@ class dialog(QDialog):
 			{'Daughter Boards':['7i33', '7i37', '7i44', '7i47', '7i48', '7i76',
 				'7i77', '7i78', '7i85', '7i85S', '7i88', '7i89', ]},
 			{'Smart Serial Boards':['7i64', '7i69', '7i70', '7i71', '7i72', '7i73',
-				'7i73 Pins', '7i74', '7i84', '7i87']},
+				'7i74', '7i84', '7i87']},
 			{'Misc. Boards':['7i77ISOL', 'THCAD', 'THCAD2']},
 		]
+		# '7i73 Pins', 
 
 		button = self.manualsPB
 		menu = QMenu()
