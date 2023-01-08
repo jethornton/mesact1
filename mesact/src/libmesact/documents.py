@@ -60,54 +60,59 @@ class dialog(QDialog):
 
 	def apply(self, parent):
 		pdfs = {'':'',
-		'5i24':'5i24man.pdf',
-		'5i25':'5i25man.pdf',
-		'6i24':'6i24man.pdf',
-		'6i25':'6i25man.pdf',
-		'7i80DB':'7i80dbman.pdf',
-		'7i80HD':'7i80hdman.pdf',
-		'7i90HD':'7i90hdman.pdf',
-		'7i92':'7i92man.pdf',
-		'7i92T':'7i92tman.pdf',
-		'7i93':'7i93man.pdf',
-		'7i98':'7i98man.pdf',
-		'7i76E':'7i76eman.pdf',
-		'7i95':'7i95man.pdf',
-		'7i96':'7i96man.pdf',
-		'7i96S':'7i96sman.pdf',
-		'7i97':'7i97man.pdf',
-		'7i33':'7i33man.pdf',
-		'7i37':'7i37man.pdf',
-		'7i44':'7i44man.pdf',
-		'7i47':'7i47man.pdf',
-		'7i48':'7i48man.pdf',
-		'7i76':'7i76man.pdf',
-		'7i77':'7i77man.pdf',
-		'7i78':'7i78man.pdf',
-		'7i85':'7i85man.pdf',
-		'7i85S':'7i85sman.pdf',
-		'7i88':'7i88man.pdf',
-		'7i89':'7i89man.pdf',
-		'7i64':'7i64man.pdf',
-		'7i69':'7i69man.pdf',
-		'7i70':'7i70man.pdf',
-		'7i71':'7i71man.pdf',
-		'7i72':'7i72man.pdf',
-		'7i73':'7i73man.pdf',
-		'7i73 Pins':'man.pdf',
-		'7i74':'7i74man.pdf',
-		'7i84':'7i84man.pdf',
-		'7i87':'7i87man.pdf',
-		'7i77ISOL':'7i77isolman.pdf',
-		'THCAD':'thcadman.pdf',
-		'THCAD2':'thcad2man.pdf',
+		'5i24':'parallel/5i24man.pdf',
+		'5i25':'parallel/5i25man.pdf',
+		'6i24':'parallel/6i24man.pdf',
+		'6i25':'parallel/6i25man.pdf',
+		'7i80DB':'parallel/7i80dbman.pdf',
+		'7i80HD':'parallel/7i80hdman.pdf',
+		'7i90HD':'parallel/7i90hdman.pdf',
+		'7i92':'parallel/7i92man.pdf',
+		'7i92T':'parallel/7i92tman.pdf',
+		'7i93':'parallel/7i93man.pdf',
+		'7i98':'parallel/7i98man.pdf',
+		'7i76E':'parallel/7i76eman.pdf',
+		'7i95':'parallel/7i95man.pdf',
+		'7i96':'parallel/7i96man.pdf',
+		'7i96S':'parallel/7i96sman.pdf',
+		'7i97':'parallel/7i97man.pdf',
+		'7i33':'motion/7i33man.pdf',
+		'7i37':'parallel/7i37man.pdf',
+		'7i44':'parallel/7i44man.pdf',
+		'7i47':'parallel/7i47man.pdf',
+		'7i48':'motion/7i48man.pdf',
+		'7i76':'parallel/7i76man.pdf',
+		'7i77':'parallel/7i77man.pdf',
+		'7i77ISOL':'parallel/7i77isolman.pdf',
+		'7i78':'parallel/7i78man.pdf',
+		'7i85':'parallel/7i85man.pdf',
+		'7i85S':'parallel/7i85sman.pdf',
+		'7i88':'parallel/7i88man.pdf',
+		'7i89':'parallel/7i89man.pdf',
+		'7i64':'parallel/7i64man.pdf',
+		'7i69':'parallel/7i69man.pdf',
+		'7i70':'parallel/7i70man.pdf',
+		'7i71':'parallel/7i71man.pdf',
+		'7i72':'parallel/7i72man.pdf',
+		'7i73':'parallel/7i73man.pdf',
+
+		'7i74':'parallel/7i74man.pdf',
+		'7i84':'parallel/7i84man.pdf',
+		'7i87':'parallel/7i87man.pdf',
+		'THCAD':'parallel/thcadman.pdf',
+		'THCAD2':'parallel/thcad2man.pdf',
 		}
+
+		#		'7i73 Pins':'man.pdf',
+
+		# http://www.mesanet.com/pdf/motion/7i48man.pdf
+		# http://www.mesanet.com/pdf/motion/7i33man.pdf
 
 		destination = str(QFileDialog.getExistingDirectory(parent, "Select a Directory to Save to"))
 		if destination != '':
 			manual = pdfs[self.manualsPB.text()]
-			pdf_url = f'http://www.mesanet.com/pdf/parallel/{manual}'
-			pdf_location = f'{destination}/{manual}man.pdf'
+			pdf_url = f'http://www.mesanet.com/pdf/{manual}'
+			pdf_location = f'{destination}/{self.manualsPB.text()}man.pdf'
 			print(pdf_location)
 			utilities.download(parent, pdf_url, pdf_location)
 			parent.statusbar.showMessage(f'{self.manualsPB.text()} selected')
