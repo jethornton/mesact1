@@ -92,9 +92,16 @@ def clearProgressBar(parent):
 def showDocs(parent, pdfDoc):
 	docPath = False
 	if isinstance(pdfDoc, str):
-		docPath = os.path.join(parent.lib_path, pdfDoc)
+		docPath = os.path.join(parent.docs_path, pdfDoc)
 	if docPath:
 		subprocess.call(('xdg-open', docPath))
+
+def openDoc(parent):
+	if parent.installed:
+		doc = os.path.join(parent.docs_path, 'mesact.pdf.gz')
+	else:
+		doc = os.path.join(parent.docs_path, 'mesact.pdf')
+	subprocess.call(('xdg-open', doc))
 
 def downloadDocs(parent):
 	dialog = documents.dialog(parent)
