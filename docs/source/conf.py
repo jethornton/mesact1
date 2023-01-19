@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Mesa Configuration Tool'
-copyright = '2022, John Thornton'
+copyright = '2023, John Thornton'
 author = 'John Thornton'
 
 
