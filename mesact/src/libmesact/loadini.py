@@ -85,6 +85,8 @@ class openini:
 				if line.startswith('VERSION'):
 					key, value = line.split('=')
 					iniVersion = value.strip()
+					if tuple(map(int, (iniVersion.split('.')))) < (1,2,0):
+						oldVersion = True
 					if parent.version != iniVersion:
 						msg = (f'The ini file version is {iniVersion}\n'
 							f'The Configuration Tool version is {parent.version}\n'
