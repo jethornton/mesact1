@@ -188,9 +188,9 @@ def build(parent):
 				halContents.append(f'net joint-{i}-output <= pid.{i}.output\n')
 
 				halContents.append('\n# PWM setup\n')
-				halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.00.output-type 1 #PWM pin0\n')
-				halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.00.offset-mode 1 # offset mode so 50% = 0\n')
-				halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.00.scale [JOINT_0]SCALE\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{i}.output-type 1 #PWM pin0\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{i}.offset-mode 1 # offset mode so 50% = 0\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{i}.scale [JOINT_0]SCALE\n')
 
 				halContents.append('\n# Encoder Setup\n')
 				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.scale  [JOINT_0](ENCODER_SCALE)\n')
