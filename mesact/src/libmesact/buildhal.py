@@ -190,10 +190,10 @@ def build(parent):
 				halContents.append('\n# PWM setup\n')
 				halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{i}.output-type 1 #PWM pin0\n')
 				halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{i}.offset-mode 1 # offset mode so 50% = 0\n')
-				halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{i}.scale [JOINT_0]SCALE\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{i}.scale [JOINT_{i}]SCALE\n')
 
 				halContents.append('\n# Encoder Setup\n')
-				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.scale  [JOINT_0](ENCODER_SCALE)\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.scale  [JOINT_{i}](ENCODER_SCALE)\n')
 				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.counter-mode 0\n')
 				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.filter 1\n')
 				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-invert 0\n')
