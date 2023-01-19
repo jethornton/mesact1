@@ -180,9 +180,6 @@ def build(parent):
 			elif parent.cardType_1: port = '0'
 
 			if board == '7i97':
-				halContents.append('\n# joint enable chain\n')
-				halContents.append(f'net joint-{i}-index-enable <=> pid.{i}.index-enable\n')
-				halContents.append(f'net joint-{i}-enable => pid.{i}.enable\n')
 				halContents.append(f'net joint-{i}-enable => hm2_[MESA](BOARD).0.pwmgen.0{i}.enable\n')
 
 				halContents.append('\n# position command and feedback\n')
