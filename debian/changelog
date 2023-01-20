@@ -1,3 +1,9 @@
+mesact (1.2.2) unstable; urgency=medium
+
+  * Bugfix for 7i97 boards
+
+ -- John Thornton <dev@gnipsel.com>  Fri, 20 Jan 2023 07:24:07 -0600
+
 mesact (1.2.1) unstable; urgency=medium
 
   * Remove Mesa documents from repository, get latest from Mesa
