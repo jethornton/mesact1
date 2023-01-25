@@ -16,18 +16,13 @@ def downloadFirmware(parent):
 			os.makedirs(libpath)
 		firmware_url = f'https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/{board}.tar.xz'
 		destination = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/{board}.tar.xz')
-		#print(f'{libpath}\n{firmware_url}\n{destination}')
-		#print('Downloading')
 		utilities.download(parent, firmware_url, destination)
-		#print('Download Done')
 		with tarfile.open(destination) as f:
 			f.extractall(libpath)
 		if os.path.isfile(destination):
 			os.remove(destination)
 		# update firmware tab
 		boards.loadFirmware(parent)
-		#print(f'Download {firmware_url}\n{destination}')
-		# https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/5i24.tar.xz
 	else:
 		parent.infoMsgOk('Select a Board', 'Board')
 
@@ -106,6 +101,4 @@ def openDoc(parent):
 def downloadDocs(parent):
 	dialog = documents.dialog(parent)
 	dialog.exec()
-
-
 
