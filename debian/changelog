@@ -1,3 +1,9 @@
+mesact (1.2.3) unstable; urgency=medium
+
+  * Remove images that do not have a source file
+
+ -- John Thornton <dev@gnipsel.com>  Wed, 25 Jan 2023 07:32:49 -0600
+
 mesact (1.2.2) unstable; urgency=medium
 
   * Bugfix for 7i97 boards
@@ -13,31 +19,30 @@ mesact (1.2.1) unstable; urgency=medium
 mesact (1.2.0) unstable; urgency=medium
 
   * Remove firmware from repository
-  * Initial release (Closes: #1027457).
 
  -- John Thornton <dev@gnipsel.com>  Sat, 31 Dec 2022 06:56:02 -0600
 
-mesact (1.1.2) UNRELEASED; urgency=medium
+mesact (1.1.2) unstable; urgency=medium
 
   * Improve loading ini file for 7i92T boards
 
  -- John Thornton <dev@gnipsel.com>  Sat, 10 Dec 2022 08:25:12 -0600
 
-mesact (1.1.1) UNRELEASED; urgency=medium
+mesact (1.1.1) unstable; urgency=medium
 
   * Improved error reporting with excepthook and various bug fixes
 
  -- John Thornton <dev@gnipsel.com>  Tue, 08 Nov 2022 06:27:59 -0600
 
-mesact (1.1.0) UNRELEASED; urgency=medium
+mesact (1.1.0) unstable; urgency=medium
 
   * Add support for Mesa 7i92T board
 
  -- John Thornton <jt@gnipsel.com>  Mon, 31 Oct 2022 07:01:45 -0500
 
-mesact (1.0.0) UNRELEASED; urgency=medium
+mesact (1.0.0) unstable; urgency=medium
 
-  * Extra sections, key-values, comments preserved in the ini file
+  * Extra sections, key values, comments preserved in the ini file
 
  -- John Thornton <jt@gnipsel.com>  Sat, 29 Oct 2022 08:36:58 -0500
 
