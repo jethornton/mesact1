@@ -15,6 +15,7 @@ def setup(parent):
 		parent.move(parent.settings.value('window position'))
 	except:
 		pass
+	parent.configNameLE.setFocus()
 
 	# setup tabs and group boxes
 	parent.mainTabs.setTabEnabled(3, False)
@@ -65,34 +66,6 @@ def setup(parent):
 		else:
 			parent.emcVersionLB.setText(version)
 
-	# load card images
-	parent.configNameLE.setFocus()
-	pixmap = QPixmap(os.path.join(parent.lib_path, '7i76.png'))
-	parent.card7i76LB.setPixmap(pixmap)
-	pixmap = QPixmap(os.path.join(parent.lib_path, '7i77.png'))
-	parent.card7i77LB.setPixmap(pixmap)
-	pixmap = QPixmap(os.path.join(parent.image_path, '7i33-card.png'))
-	parent.card7i33LB.setPixmap(pixmap)
-	pixmap = QPixmap(os.path.join(parent.image_path, '7i37-card.png'))
-	parent.card7i37LB.setPixmap(pixmap)
-	pixmap = QPixmap(os.path.join(parent.image_path, '7i47-card.png'))
-	parent.card7i47LB.setPixmap(pixmap)
-	pixmap = QPixmap(os.path.join(parent.image_path, '7i48-card.png'))
-	parent.card7i48LB.setPixmap(pixmap)
-	pixmap = QPixmap(os.path.join(parent.image_path, '7i76-card.png'))
-	parent.card7i76LB.setPixmap(pixmap)
-	pixmap = QPixmap(os.path.join(parent.image_path, '7i77-card.png'))
-	parent.card7i77LB.setPixmap(pixmap)
-	pixmap = QPixmap(os.path.join(parent.image_path, '7i78-card.png'))
-	parent.card7i78LB.setPixmap(pixmap)
-	pixmap = QPixmap(os.path.join(parent.image_path, '7i85-card.png'))
-	parent.card7i85LB.setPixmap(pixmap)
-	pixmap = QPixmap(os.path.join(parent.image_path, '7i85s-card.png'))
-	parent.card7i85sLB.setPixmap(pixmap)
-	pixmap = QPixmap(os.path.join(parent.image_path, '7i88-card.png'))
-	parent.card7i88LB.setPixmap(pixmap)
-
-
 	exitAction = QAction(QIcon.fromTheme('application-exit'), 'Exit', parent)
 	#exitAction.setShortcut('Ctrl+Q')
 	exitAction.setStatusTip('Exit application')
@@ -104,7 +77,38 @@ def setup(parent):
 	#preferencesAction.triggered.connect(partial(menu.edit_preferences, parent))
 	docsAction.triggered.connect(partial(updates.downloadDocs, parent))
 	parent.menuDownloads.addAction(docsAction)
+	loadBoards(parent)
 
+def loadBoards(parent):
+	# load card images
+	if os.path.isdir(parent.image_path):
+		print(os.path.join(parent.image_path, '7i76.png'))
+		pixmap = QPixmap(os.path.join(parent.image_path, '7i76.png'))
+		parent.card7i76LB.setPixmap(pixmap)
+		pixmap = QPixmap(os.path.join(parent.image_path, '7i77.png'))
+		parent.card7i77LB.setPixmap(pixmap)
+		pixmap = QPixmap(os.path.join(parent.image_path, '7i33-card.png'))
+		parent.card7i33LB.setPixmap(pixmap)
+		pixmap = QPixmap(os.path.join(parent.image_path, '7i37-card.png'))
+		parent.card7i37LB.setPixmap(pixmap)
+		pixmap = QPixmap(os.path.join(parent.image_path, '7i47-card.png'))
+		parent.card7i47LB.setPixmap(pixmap)
+		pixmap = QPixmap(os.path.join(parent.image_path, '7i48-card.png'))
+		parent.card7i48LB.setPixmap(pixmap)
+		pixmap = QPixmap(os.path.join(parent.image_path, '7i76-card.png'))
+		parent.card7i76LB.setPixmap(pixmap)
+		pixmap = QPixmap(os.path.join(parent.image_path, '7i77-card.png'))
+		parent.card7i77LB.setPixmap(pixmap)
+		pixmap = QPixmap(os.path.join(parent.image_path, '7i78-card.png'))
+		parent.card7i78LB.setPixmap(pixmap)
+		pixmap = QPixmap(os.path.join(parent.image_path, '7i85-card.png'))
+		parent.card7i85LB.setPixmap(pixmap)
+		pixmap = QPixmap(os.path.join(parent.image_path, '7i85s-card.png'))
+		parent.card7i85sLB.setPixmap(pixmap)
+		pixmap = QPixmap(os.path.join(parent.image_path, '7i88-card.png'))
+		parent.card7i88LB.setPixmap(pixmap)
+	else:
+		parent.boardLB.setText('No Board Images Found\nDownloads > Board Images')
 
 
 def readconfig(parent):

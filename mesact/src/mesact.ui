@@ -30235,6 +30235,7 @@ auto enp2s0
     <addaction name="actionDlArmhfDeb"/>
     <addaction name="actionDlArm64Deb"/>
     <addaction name="actionFirmware"/>
+    <addaction name="actionBoardImages"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuDownloads"/>
@@ -30316,6 +30317,11 @@ auto enp2s0
   <action name="actionFirmware">
    <property name="text">
     <string>Firmware</string>
+   </property>
+  </action>
+  <action name="actionBoardImages">
+   <property name="text">
+    <string>Board Images</string>
    </property>
   </action>
  </widget>

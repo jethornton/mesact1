@@ -76,19 +76,17 @@ class MainWindow(QMainWindow, Ui_mainWindow): # < for Translations
 		self.trans = QtCore.QTranslator(self) # < needed for Translations
 		if os.path.split(sys.argv[0])[0] == '/usr/bin':
 			self.lib_path = '/usr/lib/libmesact'
-			self.firmware_path = f'{os.path.expanduser("~")}/.local/lib/libmesact'
-			self.image_path = '/usr/lib/libmesact'
 			self.docs_path = '/usr/share/doc/mesact'
 			self.installed = True
 			uic.loadUi(os.path.join(self.lib_path, 'mesact.ui'), self)
 		else:
 			srcPath = os.path.split(os.path.realpath(sys.argv[0]))[0]
 			self.lib_path = os.path.join(srcPath, 'libmesact')
-			self.firmware_path = f'{os.path.expanduser("~")}/.local/lib/libmesact'
-			self.image_path = os.path.join(srcPath, 'images')
 			self.docs_path = srcPath
 			self.installed = False
 			uic.loadUi(os.path.join(srcPath, 'mesact.ui'), self)
+		self.firmware_path = f'{os.path.expanduser("~")}/.local/lib/libmesact'
+		self.image_path = f'{os.path.expanduser("~")}/.local/lib/libmesact/boards'
 		sys.excepthook = self.excepthook
 		self.version = VERSION
 		self.emcVersion = '1.1'
@@ -140,6 +138,7 @@ class MainWindow(QMainWindow, Ui_mainWindow): # < for Translations
 		self.actionDlArm64Deb.triggered.connect(partial(updates.downloadArm64Deb, self))
 		self.actionFirmware.triggered.connect(partial(updates.downloadFirmware, self))
 		self.actionDocuments.triggered.connect(partial(updates.openDoc, self))
+		self.actionBoardImages.triggered.connect(partial(updates.boardImages, self))
 		self.timer.timeout.connect(partial(updates.clearProgressBar, self))
 
 		# Machine Tab

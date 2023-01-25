@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QApplication, QFileDialog, QComboBox
 from libmesact import documents
 from libmesact import utilities
 from libmesact import boards
+from libmesact import startup
 
 def downloadFirmware(parent):
 	board = parent.boardCB.currentData()
@@ -101,4 +102,16 @@ def openDoc(parent):
 def downloadDocs(parent):
 	dialog = documents.dialog(parent)
 	dialog.exec()
+
+def boardImages(parent):
+	libpath = os.path.join(os.path.expanduser('~'), '.local/lib/libmesact/boards')
+	boards_url = f'https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/boards.tar.xz'
+	destination = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/boards.tar.xz')
+	utilities.download(parent, boards_url, destination)
+	with tarfile.open(destination) as f:
+		f.extractall(libpath)
+	if os.path.isfile(destination):
+		os.remove(destination)
+	startup.loadBoards(parent)
+
 
