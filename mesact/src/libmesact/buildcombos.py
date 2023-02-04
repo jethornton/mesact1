@@ -225,12 +225,3 @@ def build(parent):
 	for item in cpuSpeed:
 		parent.cpuSpeedCB.addItem(item[0], item[1])
 
-	# firmware combobox
-	# FIX ME add 5i25 firmware and load based on card see 7i80
-	parent.firmwareCB.addItem('Select', False)
-	path = parent.firmware_path
-	files = sorted([entry.path for entry in os.scandir(path) if entry.is_file()])
-	for file in files:
-		if os.path.splitext(file)[1] == '.bit':
-			parent.firmwareCB.addItem(os.path.basename(file), file)
-
