@@ -12,14 +12,20 @@ Mesa Configuration Tool
 Use the Debian deb for installing the Mesa Configuration Tool!
 
 Latest Version of the Mesa Configuration Tool
+
 `PC 64 bit <https://github.com/jethornton/mesact/releases/download/1.2.3/mesact_1.2.3_amd64.deb>`_
+
 `Raspberry Pi 4 32 bit <https://github.com/jethornton/mesact/releases/download/1.2.3/mesact_1.2.3_armhf.deb>`_
+
 `Raspberry Pi 4 64 bit <https://github.com/jethornton/mesact/releases/download/1.2.3/mesact_1.2.3_arm64.deb>`_
 
-Previous Version of the Mesa Configuration Tool if you experiance growing pains with current
-`PC 64 bit Version 1.2.1 <https://github.com/jethornton/mesact/releases/download/1.2.2/mesact_1.2.2_amd64.deb>`_
-`Raspberry Pi 4 32 bit Version 1.2.1 <https://github.com/jethornton/mesact/releases/download/1.2.2/mesact_1.2.2_armhf.deb>`_
-`Raspberry Pi 4 64 bit Version 1.2.1 <https://github.com/jethornton/mesact/releases/download/1.2.2/mesact_1.2.2_arm64.deb>`_
+Previous Version of the Mesa Configuration Tool if you experiance growing pains with current version
+
+`PC 64 bit Version 1.2.2 <https://github.com/jethornton/mesact/releases/download/1.2.2/mesact_1.2.2_amd64.deb>`_
+
+`Raspberry Pi 4 32 bit Version 1.2.2 <https://github.com/jethornton/mesact/releases/download/1.2.2/mesact_1.2.2_armhf.deb>`_
+
+`Raspberry Pi 4 64 bit Version 1.2.2 <https://github.com/jethornton/mesact/releases/download/1.2.2/mesact_1.2.2_arm64.deb>`_
 
 Or use wget from a terminal
 ::
