@@ -13019,6 +13019,7 @@ class Ui_mainWindow(object):
         self.actionFirmware = QtWidgets.QAction(mainWindow)
         self.actionFirmware.setObjectName("actionFirmware")
         self.actionBoardImages = QtWidgets.QAction(mainWindow)
+        self.actionBoardImages.setCheckable(True)
         self.actionBoardImages.setObjectName("actionBoardImages")
         self.menuFile.addAction(self.actionOpen)
         self.menuConfig.addAction(self.actionCheck)

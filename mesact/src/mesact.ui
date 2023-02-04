@@ -30320,6 +30320,9 @@ auto enp2s0
    </property>
   </action>
   <action name="actionBoardImages">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Board Images</string>
    </property>
