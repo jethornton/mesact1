@@ -61,6 +61,13 @@ def boardChanged(parent):
 		parent.machinePTE.clear()
 		parent.daughterCB_0.clear()
 		parent.daughterCB_1.clear()
+		# stepgens, pwmgens, encoders depend on what firmware is loaded.
+		parent.stepgensCB.clear()
+		parent.stepgensCB.addItem('N/A', False)
+		parent.pwmgensCB.clear()
+		parent.pwmgensCB.addItem('N/A', False)
+		parent.encodersCB.clear()
+		parent.encodersCB.addItem('N/A', False)
 
 		if parent.boardCB.currentData() == '5i24': # DOUBLE CHECK THE SETTINGS
 			parent.board = '5i24'
@@ -82,12 +89,6 @@ def boardChanged(parent):
 			parent.boardInfoLB.setText(info)
 			parent.daughterLB_0.setText('P2')
 			parent.daughterLB_1.setText('P3')
-			parent.stepgensCB.clear()
-			parent.stepgensCB.addItem('N/A', False)
-			parent.pwmgensCB.clear()
-			parent.pwmgensCB.addItem('N/A', False)
-			parent.encodersCB.clear()
-			parent.encodersCB.addItem('N/A', False)
 			if parent.enableMesaflashCB.isChecked():
 				if utilities.checkmesaflash(parent):
 					loadFirmware(parent)
@@ -124,12 +125,6 @@ def boardChanged(parent):
 			parent.boardInfoLB.setText(info)
 			parent.daughterLB_0.setText('P2')
 			parent.daughterLB_1.setText('P3')
-			parent.stepgensCB.clear()
-			parent.stepgensCB.addItem('N/A', False)
-			parent.pwmgensCB.clear()
-			parent.pwmgensCB.addItem('N/A', False)
-			parent.encodersCB.clear()
-			parent.encodersCB.addItem('N/A', False)
 			if parent.enableMesaflashCB.isChecked():
 				if utilities.checkmesaflash(parent):
 					loadFirmware(parent)
@@ -176,14 +171,6 @@ def boardChanged(parent):
 			parent.schematicLB_0.setPixmap(pixmap)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
-			parent.stepgensCB.clear()
-			parent.stepgensCB.addItem('5', False)
-			for i in range(4, -1, -1):
-				parent.stepgensCB.addItem(f'{i}', f'{i}')
-			parent.pwmgensCB.clear()
-			parent.pwmgensCB.addItem('N/A', False)
-			parent.encodersCB.clear()
-			parent.encodersCB.addItem('N/A', False)
 			for i in range(6):
 				getattr(parent, f'c0_stepgenGB_{i}').setVisible(True)
 				getattr(parent, f'c0_analogGB_{i}').setVisible(False)
@@ -247,12 +234,6 @@ def boardChanged(parent):
 			parent.schematicLB_0.clear()
 			parent.daughterLB_0.setText('J2')
 			parent.daughterLB_1.setText('J3')
-			parent.stepgensCB.clear()
-			parent.stepgensCB.addItem('N/A', False)
-			parent.pwmgensCB.clear()
-			parent.pwmgensCB.addItem('N/A', False)
-			parent.encodersCB.clear()
-			parent.encodersCB.addItem('N/A', False)
 			if parent.enableMesaflashCB.isChecked():
 				if utilities.checkmesaflash(parent):
 					loadFirmware(parent)
@@ -283,11 +264,6 @@ def boardChanged(parent):
 			parent.daughterLB_0.setText('J2')
 			parent.daughterLB_1.setText('J3')
 			parent.stepgensCB.clear()
-			parent.stepgensCB.addItem('N/A', False)
-			parent.pwmgensCB.clear()
-			parent.pwmgensCB.addItem('N/A', False)
-			parent.encodersCB.clear()
-			parent.encodersCB.addItem('N/A', False)
 			if parent.enableMesaflashCB.isChecked():
 				if utilities.checkmesaflash(parent):
 					loadFirmware(parent)
@@ -327,12 +303,6 @@ def boardChanged(parent):
 			'BI = BISS\n'
 			'UA = UART\n')
 			parent.machinePTE.appendPlainText(instructions)
-			parent.stepgensCB.clear()
-			parent.stepgensCB.addItem('N/A', False)
-			parent.pwmgensCB.clear()
-			parent.pwmgensCB.addItem('N/A', False)
-			parent.encodersCB.clear()
-			parent.encodersCB.addItem('N/A', False)
 			if parent.enableMesaflashCB.isChecked():
 				if utilities.checkmesaflash(parent):
 					loadFirmware(parent)
@@ -372,12 +342,6 @@ def boardChanged(parent):
 			'BI = BISS\n'
 			'UA = UART\n')
 			parent.machinePTE.appendPlainText(instructions)
-			parent.stepgensCB.clear()
-			parent.stepgensCB.addItem('N/A', False)
-			parent.pwmgensCB.clear()
-			parent.pwmgensCB.addItem('N/A', False)
-			parent.encodersCB.clear()
-			parent.encodersCB.addItem('N/A', False)
 			if parent.enableMesaflashCB.isChecked():
 				if utilities.checkmesaflash(parent):
 					loadFirmware(parent)
@@ -407,12 +371,6 @@ def boardChanged(parent):
 			parent.schematicLB_0.clear()
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
-			parent.stepgensCB.clear()
-			parent.stepgensCB.addItem('N/A', False)
-			parent.pwmgensCB.clear()
-			parent.pwmgensCB.addItem('N/A', False)
-			parent.encodersCB.clear()
-			parent.encodersCB.addItem('N/A', False)
 			if parent.enableMesaflashCB.isChecked():
 				if utilities.checkmesaflash(parent):
 					loadFirmware(parent)
@@ -442,12 +400,6 @@ def boardChanged(parent):
 			parent.schematicLB_0.clear()
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
-			parent.stepgensCB.clear()
-			parent.stepgensCB.addItem('N/A', False)
-			parent.pwmgensCB.clear()
-			parent.pwmgensCB.addItem('N/A', False)
-			parent.encodersCB.clear()
-			parent.encodersCB.addItem('N/A', False)
 			if parent.enableMesaflashCB.isChecked() or parent.loading:
 				if utilities.checkmesaflash(parent, '3.4.4', '7i92T'):
 					loadFirmware(parent)
@@ -477,12 +429,6 @@ def boardChanged(parent):
 			parent.schematicLB_0.clear()
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
-			parent.stepgensCB.clear()
-			parent.stepgensCB.addItem('N/A', False)
-			parent.pwmgensCB.clear()
-			parent.pwmgensCB.addItem('N/A', False)
-			parent.encodersCB.clear()
-			parent.encodersCB.addItem('N/A', False)
 			if parent.enableMesaflashCB.isChecked():
 				if utilities.checkmesaflash(parent):
 					loadFirmware(parent)
@@ -533,14 +479,6 @@ def boardChanged(parent):
 			parent.schematicLB_0.clear()
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('N/A')
-			parent.stepgensCB.clear()
-			parent.stepgensCB.addItem('6', False)
-			for i in range(5, -1, -1):
-				parent.stepgensCB.addItem(f'{i}', f'{i}')
-			parent.pwmgensCB.clear()
-			parent.pwmgensCB.addItem('N/A', False)
-			parent.encodersCB.clear()
-			parent.encodersCB.addItem('N/A', False)
 			for i in range(6):
 				getattr(parent, f'c0_stepgenGB_{i}').setVisible(True)
 				getattr(parent, f'c0_analogGB_{i}').setVisible(False)
@@ -607,14 +545,6 @@ def boardChanged(parent):
 			#parent.schematicLB_0.clear()
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('N/A')
-			parent.stepgensCB.clear()
-			parent.stepgensCB.addItem('5', False)
-			for i in range(4, -1, -1):
-				parent.stepgensCB.addItem(f'{i}', f'{i}')
-			parent.pwmgensCB.clear()
-			parent.pwmgensCB.addItem('N/A', False)
-			parent.encodersCB.clear()
-			parent.encodersCB.addItem('N/A', False)
 			for i in range(6):
 				getattr(parent, f'c0_stepgenGB_{i}').setVisible(True)
 				getattr(parent, f'c0_analogGB_{i}').setVisible(False)
@@ -677,15 +607,6 @@ def boardChanged(parent):
 			parent.schematicLB_0.setPixmap(pixmap)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('N/A')
-			parent.stepgensCB.clear()
-			parent.stepgensCB.addItem('5', False)
-			for i in range(4, -1, -1):
-				parent.stepgensCB.addItem(f'{i}', f'{i}')
-			parent.pwmgensCB.clear()
-			parent.pwmgensCB.addItem('N/A', False)
-			parent.encodersCB.clear()
-			for i in range(2, -1, -1):
-				parent.encodersCB.addItem(f'{i}', f'{i}')
 			for i in range(6):
 				getattr(parent, f'c0_stepgenGB_{i}').setVisible(True)
 				getattr(parent, f'c0_analogGB_{i}').setVisible(False)
