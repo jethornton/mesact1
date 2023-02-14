@@ -105,6 +105,8 @@ def downloadDocs(parent):
 
 def boardImages(parent):
 	libpath = os.path.join(os.path.expanduser('~'), '.local/lib/libmesact/boards')
+	if not os.path.exists(libpath):
+		os.makedirs(libpath)
 	boards_url = f'https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/boards.tar.xz'
 	destination = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/boards.tar.xz')
 	utilities.download(parent, boards_url, destination)
