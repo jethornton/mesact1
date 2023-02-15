@@ -10,6 +10,10 @@ from libmesact import updates
 
 def setup(parent):
 
+	libpath = os.path.join(os.path.expanduser('~'), '.local/lib/libmesact/boards')
+	if not os.path.exists(libpath):
+		os.makedirs(libpath)
+
 	try:
 		parent.resize(parent.settings.value('window size'))
 		parent.move(parent.settings.value('window position'))
