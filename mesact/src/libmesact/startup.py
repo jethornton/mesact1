@@ -10,7 +10,7 @@ from libmesact import updates
 
 def setup(parent):
 
-	libpath = os.path.join(os.path.expanduser('~'), '.local/lib/libmesact/boards')
+	libpath = os.path.join(os.path.expanduser('~'), '.local/lib/libmesact')
 	if not os.path.exists(libpath):
 		os.makedirs(libpath)
 
@@ -86,7 +86,6 @@ def setup(parent):
 def loadBoards(parent):
 	# load card images
 	if os.path.isdir(parent.image_path):
-		print(os.path.join(parent.image_path, '7i76.png'))
 		pixmap = QPixmap(os.path.join(parent.image_path, '7i76.png'))
 		parent.card7i76LB.setPixmap(pixmap)
 		pixmap = QPixmap(os.path.join(parent.image_path, '7i77.png'))
