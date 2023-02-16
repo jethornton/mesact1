@@ -187,7 +187,6 @@ class updateini:
 
 		if '[HALUI]' in self.sections:
 			index = self.sections['[HALUI]']
-			#print(index)
 			if len(index) == 2:
 				ini_mdi = []
 				for i in range(index[0], index[1]):
@@ -198,7 +197,6 @@ class updateini:
 					mdi_text = f'{getattr(parent, f"mdiCmdLE_{i}").text()}'
 					if mdi_text:
 						tool_mdi.append(f'{getattr(parent, f"mdiCmdLE_{i}").text()}')
-				#print(len(tool_mdi))
 
 				if len(ini_mdi) == len(tool_mdi):
 					for i, j in enumerate(range(index[0] + 1, index[1])):
@@ -279,7 +277,6 @@ class updateini:
 					self.insert_section(index, f'{key}')
 
 		elif len(tool_ja) < len(ini_ja): # joint removed
-			print('Joint Removed')
 			for joint, axis in ini_ja.items():
 				if joint not in tool_ja:
 					self.delete_section(joint)
@@ -290,7 +287,6 @@ class updateini:
 		for i in range(6):
 			axis = getattr(parent, f'{card}_axisCB_{i}').currentData()
 			if axis and axis not in axes:
-				#print(axis)
 				axes.append(axis)
 				self.update_key(f'AXIS_{axis}', 'MIN_LIMIT', getattr(parent, f'{card}_minLimit_{i}').text())
 				self.update_key(f'AXIS_{axis}', 'MAX_LIMIT', getattr(parent, f'{card}_maxLimit_{i}').text())
@@ -465,7 +461,6 @@ class updateini:
 				self.insert_section(index, '[PLC]')
 
 			for option in parent.ladderOptionsList:
-				#print('PLC', f'{getattr(parent, option).property("item")}', f'{getattr(parent, option).value()}')
 				self.update_key('PLC', f'{getattr(parent, option).property("item")}', f'{getattr(parent, option).value()}')
 		else: # remove PLC section if it's in the ini file
 			if '[PLC]' in self.sections:
@@ -539,7 +534,6 @@ class updateini:
 				last_section = line.strip()
 			if len(self.sections) > 0 and index < len(self.content):
 				self.sections[last_section][1] = index
-		#print(self.sections.items())
 	'''
 
 	def get_sections(self):
@@ -579,9 +573,6 @@ class updateini:
 				index = self.content.index(item)
 				del self.content[index]
 				self.get_sections() # update section start/end
-
-	def replace_section(self, section):
-		print(section)
 
 	def insert_section(self, index, section):
 		self.content.insert(index, f'{section}\n')

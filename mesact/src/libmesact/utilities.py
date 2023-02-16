@@ -236,7 +236,6 @@ def connectorChanged(parent):
 		parent.analogPort = '1'
 
 def axisDisplayChanged(parent, radioButton):
-	#print(parent.sender().objectName())
 	for button in parent.axisButtonGroup.buttons():
 		if button is not radioButton:
 			button.setChecked(False)
@@ -411,7 +410,6 @@ def plcOptions():
 	'ladderS32OuputsSB', 'ladderFloatInputsSB', 'ladderFloatOutputsSB']
 
 def spindleChanged(parent):
-	#print(parent.axes)
 	if not parent.spindleTypeCB.currentData():
 		parent.spindleGB.setEnabled(False)
 		parent.spindlepwmGB.setEnabled(False)

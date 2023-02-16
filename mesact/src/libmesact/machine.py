@@ -16,9 +16,6 @@ def daughterCardChanged(parent):
 		# enable cardTabs(1)
 
 	if parent.sender().currentData():
-		#print(parent.sender().currentData())
-
-		#motherBoards = ['5i25', '7i80db', '7i80hd', '7i92', '7i93', '7i98']
 		axes = {'7i33': 0, '7i47s': 0, '7i47': 0, '7i76': 5, '7i77': 6, '7i78': 4,
 			'7i85': 4, '7i85s': 4, '5ABOB': 5}
 		inputs = {'7i33': 0, '7i47s': 0, '7i47': 0, '7i76': '32', '7i77': '32',

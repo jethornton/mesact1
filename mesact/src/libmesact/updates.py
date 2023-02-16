@@ -13,8 +13,6 @@ def downloadFirmware(parent):
 	board = parent.boardCB.currentData()
 	if board:
 		libpath = os.path.join(os.path.expanduser('~'), '.local/lib/libmesact')
-		if not os.path.exists(libpath):
-			os.makedirs(libpath)
 		firmware_url = f'https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/{board}.tar.xz'
 		destination = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/{board}.tar.xz')
 		utilities.download(parent, firmware_url, destination)

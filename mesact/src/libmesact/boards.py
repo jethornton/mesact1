@@ -24,7 +24,6 @@ def loadFirmware(parent):
 		parent.firmwareDescPTE.clear()
 		board = parent.boardCB.currentData()
 		path = os.path.join(parent.firmware_path, board)
-		#print(path)
 		if os.path.exists(path):
 			files = sorted([entry.path for entry in os.scandir(path) if entry.is_file()])
 			bitFiles = False
@@ -57,7 +56,6 @@ def loadFirmware(parent):
 
 def boardChanged(parent):
 	if parent.boardCB.currentData():
-		#print(f'Board {parent.boardCB.currentData()}')
 		parent.machinePTE.clear()
 		parent.daughterCB_0.clear()
 		parent.daughterCB_1.clear()

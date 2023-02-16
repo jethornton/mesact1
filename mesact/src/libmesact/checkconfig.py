@@ -177,15 +177,12 @@ def checkit(parent):
 				card = 'c0'
 			elif parent.daughterCB_1.currentData():
 				card = 'c1'
-				print('here')
 			else:
 				card = 'c0'
 			'''
 			card = 'c0'
 			for i in range(6): # Axes
-				#print(getattr(parent, f'{card}_axisCB_{i}').currentData())
 				if getattr(parent, f'{card}_axisCB_{i}').currentData():
-					#print(getattr(parent, f'{card}_axisCB_{i}').currentData())
 					if not getattr(parent, f'{card}_scale_{i}').text():
 						tabError = True
 						configErrors.append(f'\tThe Scale must be specified for Joint {i}')

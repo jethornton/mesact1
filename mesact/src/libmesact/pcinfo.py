@@ -15,8 +15,6 @@ arg2, "", dest=self.QPlainTextEdit)
 
 def ipInfo(parent):
 	ip = subprocess.check_output(['ip', '-br', 'addr', 'show'], encoding='UTF-8')
-	#print(ip.split())
-	#for addr in ip.split():
 	parent.ipInfoPTE.setPlainText(ip)
 
 def mbInfo(parent):
