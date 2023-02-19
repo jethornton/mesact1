@@ -163,7 +163,7 @@ class openini:
 			start = self.sections['[FILTER]'][0]
 			end = self.sections['[FILTER]'][1]
 			for item in self.content[start:end]:
-				if 'G code Files' in item:
+				if 'G-code Files' in item:
 					extList = []
 					for word in item.split():
 						if word.startswith('.'):

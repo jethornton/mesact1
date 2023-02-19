@@ -150,7 +150,7 @@
     </message>
     <message>
         <location filename="ui_mesact.py" line="14556"/>
-        <source>G code Editor</source>
+        <source>G-code Editor</source>
         <translation>G-Code Editor</translation>
     </message>
     <message>
@@ -3001,8 +3001,8 @@ Isolated</source>
     </message>
     <message>
         <location filename="ui_mesact.py" line="14564"/>
-        <source>G code Extensions</source>
-        <translation type="unfinished"></translation>
+        <source>G-code Extensions</source>
+        <translation type="G-Code Erweiterung"></translation>
     </message>
     <message>
         <location filename="ui_mesact.py" line="14565"/>

@@ -62,9 +62,9 @@ def build(parent):
 
 	gui = [
 		['Select', False],
-		['Axis', 'axis'],
-		['Gmoccapy', 'gmoccapy'],
-		['Tklinuxcnc', 'tklinuxcnc'],
+		['AXIS', 'axis'],
+		['GMOCCAPY', 'gmoccapy'],
+		['TkLinuxCNC', 'tklinuxcnc'],
 		['Touchy', 'touchy']
 		]
 

@@ -205,9 +205,9 @@ text_10 = """
 Help Text for Options Tab
 
 On Screen Prompt for Manual Tool Change
-	This option is if you run G code with more than one tool and the tools can be
+	This option is if you run G-code with more than one tool and the tools can be
 	preset like BT and Cat holders. If you have collet type like ER and R8 you
-	should not check this and you should only one tool per G code program and
+	should not check this and you should only one tool per G-code program and
 	touch it off before running the program.
 
 Hal User Interface
@@ -235,7 +235,7 @@ Help Text for PLC Tab
 Classicladder PLC will add a basic PLC to the configuration. You can also set
 the number of components that Classicladder starts with.
 
-Edit the Classicladder PLC in the GUI like Axis.
+Edit the Classicladder PLC in the GUI like AXIS.
 """
 text_12 = """
 Help Text for Pins Tab
