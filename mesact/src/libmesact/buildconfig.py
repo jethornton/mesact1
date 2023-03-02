@@ -1,4 +1,4 @@
-import os, traceback, configparser
+import os, traceback
 
 from libmesact import settings
 
