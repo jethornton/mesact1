@@ -88,7 +88,7 @@ def build(parent):
 				ext_list.append(ext)
 	if ext_list:
 		iniContents.append('\n[FILTER]\n')
-		iniContents.append(f'PROGRAM_EXTENSION = {", ".join(ext_list)} # G code Files\n')
+		iniContents.append(f'PROGRAM_EXTENSION = {", ".join(ext_list)} # G-code Files\n')
 
 	# build the [KINS] section
 	iniContents.append('\n[KINS]\n')

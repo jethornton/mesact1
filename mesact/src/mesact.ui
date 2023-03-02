@@ -3361,7 +3361,7 @@ QGroupBox::title {
          </rect>
         </property>
         <property name="title">
-         <string>G code Editor</string>
+         <string>G-code Editor</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_45">
          <item row="0" column="0">
@@ -3563,7 +3563,7 @@ QGroupBox::title {
          </rect>
         </property>
         <property name="title">
-         <string>G code Extensions</string>
+         <string>G-code Extensions</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_210">
          <item row="1" column="0">

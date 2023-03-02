@@ -107,7 +107,7 @@ class updateini:
 		if '[FILTER]' in self.sections:
 			index = self.sections['[FILTER]']
 			for i in range(index[0], index[1]):
-				if 'G code Files' in self.content[i]:
+				if 'G-code Files' in self.content[i]:
 					ext_list = []
 					for j in range(3):
 						ext = getattr(parent, f'filterExtLE_{j}').text()
@@ -117,7 +117,7 @@ class updateini:
 							else:
 								ext_list.append(ext)
 					if ext_list:
-						self.content[i] = f'PROGRAM_EXTENSION = {", ".join(ext_list)} # G code Files\n'
+						self.content[i] = f'PROGRAM_EXTENSION = {", ".join(ext_list)} # G-code Files\n'
 
 		# [KINS]
 		if len(set(parent.coordinatesLB.text())) == len(parent.coordinatesLB.text()): # 1 joint for each axis
