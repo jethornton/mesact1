@@ -134,6 +134,7 @@ def build(parent):
 	# build the [HAL] section
 	iniContents.append('\n[HAL]\n')
 	iniContents.append(f'HALFILE = {parent.configNameUnderscored}.hal\n')
+	iniContents.append('HALFILE = io.hal\n')
 	if parent.ssCardCB.currentData():
 		iniContents.append('HALFILE = sserial.hal\n')
 	if parent.customhalCB.isChecked():
