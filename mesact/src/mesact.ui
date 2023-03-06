@@ -3361,7 +3361,7 @@ QGroupBox::title {
          </rect>
         </property>
         <property name="title">
-         <string>G-code Editor</string>
+         <string>G code Editor</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_45">
          <item row="0" column="0">
@@ -3563,7 +3563,7 @@ QGroupBox::title {
          </rect>
         </property>
         <property name="title">
-         <string>G-code Extensions</string>
+         <string>G code Extensions</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_210">
          <item row="1" column="0">
@@ -18964,9 +18964,7 @@ max speed</string>
 At this time the Smart Serial Card
 will create a net with a signal name and you will have to add the input or output pin name or create simple I/O connections.
 
-The 7i83 and 7i87 are not currently supported.
-
-The Smart Serial Card configuration will not load from the ini file at this time.</string>
+The 7i83 and 7i87 are not currently supported.</string>
             </property>
            </widget>
            <widget class="QPlainTextEdit" name="plainTextEdit_2">
@@ -18979,15 +18977,12 @@ The Smart Serial Card configuration will not load from the ini file at this time
              </rect>
             </property>
             <property name="plainText">
-             <string>SSERIAL Wiring using a standard CAT5 Cable
-Pin 0 is at the bottom
-TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
-15	GND	4,5	BLUE, BLUE / WHITE
-16	RX+	6	GREEN
-17	RX-	3	GREEN / WHITE
-18	TX+	2	ORANGE
-19	TX-	1	ORANGE / WHITE
-20	+5V	7,8	BROWN / WHITE,BROWN</string>
+             <string>The Smart Serial Card Configuration is very new.
+
+At this time the Smart Serial Card
+will create a net with a signal name and you will have to add the input or output pin name or create simple I/O connections.
+
+The 7i83 and 7i87 are not currently supported.</string>
             </property>
            </widget>
           </widget>
