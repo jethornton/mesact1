@@ -30,9 +30,9 @@ Previous Version of the Mesa Configuration Tool if you experiance growing pains 
 Or use wget from a terminal
 ::
 
-	wget https://github.com/jethornton/mesact/releases/download/1.2.2/mesact_1.2.2_amd64.deb
-	wget https://github.com/jethornton/mesact/releases/download/1.2.2/mesact_1.2.2_armhf.deb
-	wget https://github.com/jethornton/mesact/releases/download/1.2.2/mesact_1.2.2_arm64.deb
+	wget https://github.com/jethornton/mesact/releases/download/1.2.2/mesact_1.2.3_amd64.deb
+	wget https://github.com/jethornton/mesact/releases/download/1.2.2/mesact_1.2.3_armhf.deb
+	wget https://github.com/jethornton/mesact/releases/download/1.2.2/mesact_1.2.3_arm64.deb
 
 
 If you get `bash: wget: command not found` you can install it from a terminal with
@@ -48,10 +48,11 @@ If you don't have Gdebi installed you can install it from a terminal
 	sudo apt install gdebi
 
 If the graphical version of gdebi has problems you can run it from a
-terminal in the directory where you downloaded the deb with:
+terminal in the directory where you downloaded the deb with n.n.n replaced
+by the version your installing.
 ::
 
-	sudo gdebi mesact_1.2.0_amd64.deb
+	sudo gdebi mesact_n.n.n_amd64.deb
 
 If you don't have LinuxCNC installed then the mesact Configuration tool
 will show up in the Applications > Other menu otherwise it will be in
