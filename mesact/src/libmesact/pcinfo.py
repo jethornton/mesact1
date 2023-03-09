@@ -75,9 +75,14 @@ def readServoTmax(parent):
 		parent.errorMsgOk('LinuxCNC must be running this configuration!','Error')
 
 def calcServoPercent(parent):
-	sp = parent.servoPeriodSB.value()
+	cpu_speed = float(parent.cpuSpeedLE.text()) * parent.cpuSpeedCB.currentData()
+	# cpuSpeedLE
+	# 100 * stmax /
+	# (100*1747291/2333333)
+	# (100*1747291)/2333333
+	#sp = parent.servoPeriodSB.value()
 	stmax = int(parent.servoThreadTmaxLB.text())
-	parent.servoResultLB.setText(f'{(stmax / sp)*100:.0f}%')
+	parent.servoResultLB.setText(f'{(100 * stmax) / cpu_speed:.0f}%')
 
 def readTmax(parent):
 	if not functions.check_emc():
