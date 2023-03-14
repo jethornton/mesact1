@@ -30,9 +30,9 @@ Previous Version of the Mesa Configuration Tool if you experiance growing pains 
 Or use wget from a terminal
 ::
 
-	wget https://github.com/jethornton/mesact/releases/download/1.2.2/mesact_1.2.3_amd64.deb
-	wget https://github.com/jethornton/mesact/releases/download/1.2.2/mesact_1.2.3_armhf.deb
-	wget https://github.com/jethornton/mesact/releases/download/1.2.2/mesact_1.2.3_arm64.deb
+	wget https://github.com/jethornton/mesact/releases/download/1.2.3/mesact_1.2.3_amd64.deb
+	wget https://github.com/jethornton/mesact/releases/download/1.2.3/mesact_1.2.3_armhf.deb
+	wget https://github.com/jethornton/mesact/releases/download/1.2.3/mesact_1.2.3_arm64.deb
 
 
 If you get `bash: wget: command not found` you can install it from a terminal with
