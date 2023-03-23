@@ -42,14 +42,17 @@ def nicInfo(parent):
 	parent.extcmd.job(cmd="lspci", args=None, dest=parent.infoPTE)
 
 def nicCalc(parent):
-	cpuSpeedText = parent.cpuSpeedLE.text()
-	readtmaxText = parent.readtmaxLE.text()
-	writetmaxText = parent.writetmaxLE.text()
+	cpuSpeedText = int(parent.cpuSpeedLE.text())
+	readtmaxText = int(parent.readtmaxLE.text())
+	writetmaxText = int(parent.writetmaxLE.text())
 	if cpuSpeedText != '' and readtmaxText != '' and writetmaxText != '':
-		readtmax = int(int(readtmaxText) / 1000)
-		writetmax = int(int(writetmaxText) / 1000)
+		readtmax = int(readtmaxText / 1000)
+		writetmax = int(writetmaxText / 1000)
 		tMax = readtmax + writetmax
-		cpuSpeed = float(cpuSpeedText) * parent.cpuSpeedCB.currentData()
+		cpuSpeed = int(cpuSpeedText)
+		print(f'parent.cpuSpeedCB.currentData() {parent.cpuSpeedCB.currentData()}')
+		print(f'tMax {tMax}')
+		print(f'cpuSpeed {cpuSpeed}')
 		packetTime = tMax / cpuSpeed
 		parent.packetTimeLB.setText(f'{packetTime:.1%}')
 	else:
@@ -75,14 +78,19 @@ def readServoTmax(parent):
 		parent.errorMsgOk('LinuxCNC must be running this configuration!','Error')
 
 def calcServoPercent(parent):
-	cpu_speed = float(parent.cpuSpeedLE.text()) * parent.cpuSpeedCB.currentData()
-	# cpuSpeedLE
-	# 100 * stmax /
-	# (100*1747291/2333333)
-	# (100*1747291)/2333333
-	#sp = parent.servoPeriodSB.value()
-	stmax = int(parent.servoThreadTmaxLB.text())
-	parent.servoResultLB.setText(f'{(100 * stmax) / cpu_speed:.0f}%')
+	cpu_speed_Hz = int(parent.cpuSpeedLE.text()) * parent.cpuSpeedCB.currentData()
+	#cpu_speed_Hz = int(2333) * parent.cpuSpeedCB.currentData()
+	print(f'cpu_speed_Hz: {cpu_speed_Hz}')
+	cpu_clock_time = 0.000000001 * parent.servoPeriodSB.value()
+	print(f'cpu_clock_time: {cpu_clock_time}')
+	clocks_per_period = int(cpu_speed_Hz * cpu_clock_time)
+	print(f'clocks_per_period: {clocks_per_period}')
+	servoTmax = 1747291
+	#servoTmax = int(parent.servoThreadTmaxLB.text())
+	cpu_clocks_used = servoTmax / clocks_per_period
+	print(f'cpu_clocks_used: {cpu_clocks_used}')
+	result = cpu_clocks_used * 100
+	parent.servoResultLB.setText(f'{result:.0f}%')
 
 def readTmax(parent):
 	if not functions.check_emc():

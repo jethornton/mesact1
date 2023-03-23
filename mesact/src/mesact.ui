@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>972</width>
+    <width>973</width>
     <height>891</height>
    </rect>
   </property>
@@ -245,7 +245,7 @@ QGroupBox::title {
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>930</width>
+             <width>931</width>
              <height>460</height>
             </rect>
            </property>
@@ -27752,7 +27752,7 @@ Direction</string>
            <item row="0" column="0">
             <widget class="QSpinBox" name="servoPeriodSB">
              <property name="suffix">
-              <string>us</string>
+              <string>ns</string>
              </property>
              <property name="minimum">
               <number>10000</number>
@@ -29646,7 +29646,7 @@ reload all default PID values</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>458</width>
+                 <width>461</width>
                  <height>121</height>
                 </rect>
                </property>
@@ -29692,7 +29692,7 @@ reload all default PID values</string>
         <item>
          <widget class="QTabWidget" name="tabWidget_4">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_19">
            <attribute name="title">
@@ -30105,7 +30105,7 @@ try increasing the thread period.</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>908</width>
+                 <width>909</width>
                  <height>330</height>
                 </rect>
                </property>
@@ -30190,7 +30190,7 @@ auto enp2s0
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>972</width>
+     <width>973</width>
      <height>24</height>
     </rect>
    </property>

@@ -218,8 +218,8 @@ def build(parent):
 		parent.debugCB.addItem(item[0], item[1])
 
 	cpuSpeed = [
-		['GHz', 1000],
-		['MHz', 1]
+		['GHz', 1000000000],
+		['MHz', 1000000]
 		]
 
 	for item in cpuSpeed:
