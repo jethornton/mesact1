@@ -29646,7 +29646,7 @@ reload all default PID values</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>461</width>
+                 <width>458</width>
                  <height>121</height>
                 </rect>
                </property>
@@ -30105,8 +30105,8 @@ try increasing the thread period.</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>909</width>
-                 <height>330</height>
+                 <width>88</width>
+                 <height>88</height>
                 </rect>
                </property>
                <layout class="QGridLayout" name="gridLayout_40">

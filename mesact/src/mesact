@@ -22,8 +22,8 @@ you can configure the daughter card, but not the 7i97, which, is weird.
 Store Connector used for building config
 
 """
-VERSION = '1.2.3'
-BUILD_DATE = '02/04/2023'
+VERSION = '1.2.4'
+BUILD_DATE = '03/25/2023'
 
 from traceback import StackSummary
 from functools import partial
