@@ -271,6 +271,19 @@ class MainWindow(QMainWindow, Ui_mainWindow): # < for Translations
 		else:
 			return False
 
+	def errorMsgYesNo(self, text, title=None):
+		msgBox = QMessageBox()
+		msgBox.setIcon(QMessageBox.Warning)
+		msgBox.setWindowTitle(title)
+		msgBox.setText(text)
+		msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+		returnValue = msgBox.exec()
+		if returnValue == QMessageBox.Yes:
+			return True
+		else:
+			return False
+
+
 	def infoMsgOk(self, text, title=None):
 		msgBox = QMessageBox()
 		msgBox.setIcon(QMessageBox.Information)

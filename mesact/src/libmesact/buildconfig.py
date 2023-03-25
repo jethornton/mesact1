@@ -11,13 +11,6 @@ from libmesact import buildss
 from libmesact import utilities
 
 def build(parent):
-
-	if not checkconfig.checkit(parent):
-		parent.machinePTE.appendPlainText('Build Failed')
-		return
-	if parent.backupCB.isChecked():
-		utilities.backupFiles(parent)
-
 	# check for linuxcnc paths
 	if not os.path.exists(os.path.expanduser('~/linuxcnc')):
 		try:
@@ -43,6 +36,27 @@ def build(parent):
 		except OSError:
 			parent.machinePTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
+	buildAll = True
+
+	if not checkconfig.checkit(parent):
+		parent.machinePTE.appendPlainText('Build Failed')
+		if parent.configNameLE.text() != '':
+			msg = ('There are Errors in the Config\n'
+				'Do you want to save the ini file\n'
+				'and come back later to fix the Errors?')
+			result = parent.errorMsgYesNo(msg, 'Build Errors')
+			if result:
+				buildAll = False
+				iniFile = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
+				if os.path.exists(iniFile):
+					parent.updateini.update(parent, iniFile)
+				else:
+					buildini.build(parent)
+		return
+	if parent.backupCB.isChecked():
+		utilities.backupFiles(parent)
+
+
 	iniFile = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
 	if os.path.exists(iniFile):
 		parent.updateini.update(parent, iniFile)
@@ -50,10 +64,12 @@ def build(parent):
 		buildini.build(parent)
 
 	#buildini.build(parent)
-	buildhal.build(parent)
-	buildio.build(parent)
-	buildmisc.build(parent)
-	buildss.build(parent)
+
+	if buildAll:
+		buildhal.build(parent)
+		buildio.build(parent)
+		buildmisc.build(parent)
+		buildss.build(parent)
 
 	'''
 	# build halfiles.hal
