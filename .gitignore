@@ -8,3 +8,4 @@ debian/debhelper*
 debian/*.substvars
 debian/files
 docs/build
+info/*
