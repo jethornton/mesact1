@@ -42,9 +42,56 @@ def nicInfo(parent):
 	parent.extcmd.job(cmd="lspci", args=None, dest=parent.infoPTE)
 
 def nicCalc(parent):
+	'''
+	The (X86) tmax values are in CPU clocks so to get the percentage of servo
+	thread time these represent you must divide them by CPU clocks per full
+	servo period = servo thread period in seconds*CPU clock speed in Hz
+	servo period 1000000ns
+	0.001 = servo thread period in seconds = 1000000 / 1000000000
+	cpu speed 3300 MHz == 3300000000 Hz
+	read tmax 1214912
+	write tmax 264328
+	packet time 44.8%
+	'''
+	error_text = []
+	if parent.cpuSpeedLE.text() != '':
+		cpu_speed_hz = int(parent.cpuSpeedLE.text()) * parent.cpuSpeedCB.currentData()
+		#print(f'cpu_speed_hz: {cpu_speed_hz}')
+		# 3300000000
+		# 3300000000
+	else:
+		error_text.append('CPU Speed can not be empty')
+
+	servo_period_seconds = parent.servoPeriodSB.value() / 1000000000
+	#print(f'servo_period_seconds: {servo_period_seconds}')
+
+	if parent.readtmaxLE.text() != '':
+		read_tmax = int(parent.readtmaxLE.text())
+	else:
+		error_text.append('read.tmax can not be empty')
+
+	if parent.writetmaxLE.text() != '':
+		write_tmax = int(parent.writetmaxLE.text())
+	else:
+		error_text.append('write.tmax can not be empty')
+
+	if not errorText:
+		rw_tmax = read_tmax + write_tmax
+		#print(f'rw_tmax: {rw_tmax}')
+		# 1479240
+
+		cpu_clocks_per_period = int(servo_period_seconds * cpu_speed_hz)
+		#print(f'cpu_clocks_per_period: {cpu_clocks_per_period}')
+
+		packet_time_percent = rw_tmax / cpu_clocks_per_period
+		#print(f'packet_time_percent: {packet_time_percent:.1%}')
+		parent.packetTimeLB.setText(f'{packet_time_percent:.1%}')
+
+	else:
+		parent.errorMsgOk('\n'.join(error_text))
+
+	'''
 	cpuSpeedText = int(parent.cpuSpeedLE.text())
-	readtmaxText = int(parent.readtmaxLE.text())
-	writetmaxText = int(parent.writetmaxLE.text())
 	if cpuSpeedText != '' and readtmaxText != '' and writetmaxText != '':
 		readtmax = int(readtmaxText / 1000)
 		writetmax = int(writetmaxText / 1000)
@@ -64,6 +111,7 @@ def nicCalc(parent):
 		if parent.writetmaxLE.text() == '':
 			errorText.append('write.tmax can not be empty')
 		parent.errorMsgOk('\n'.join(errorText))
+	'''
 
 def readServoTmax(parent):
 	if "0x48414c32" in subprocess.getoutput('ipcs'):
@@ -78,17 +126,19 @@ def readServoTmax(parent):
 		parent.errorMsgOk('LinuxCNC must be running this configuration!','Error')
 
 def calcServoPercent(parent):
-	cpu_speed_Hz = int(parent.cpuSpeedLE.text()) * parent.cpuSpeedCB.currentData()
+	error_text = []
+	if parent.cpuSpeedLE.text() != '':
+		cpu_speed_Hz = int(parent.cpuSpeedLE.text()) * parent.cpuSpeedCB.currentData()
 	#cpu_speed_Hz = int(2333) * parent.cpuSpeedCB.currentData()
-	print(f'cpu_speed_Hz: {cpu_speed_Hz}')
+	#print(f'cpu_speed_Hz: {cpu_speed_Hz}')
 	cpu_clock_time = 0.000000001 * parent.servoPeriodSB.value()
-	print(f'cpu_clock_time: {cpu_clock_time}')
+	#print(f'cpu_clock_time: {cpu_clock_time}')
 	clocks_per_period = int(cpu_speed_Hz * cpu_clock_time)
-	print(f'clocks_per_period: {clocks_per_period}')
+	#print(f'clocks_per_period: {clocks_per_period}')
 	servoTmax = 1747291
 	#servoTmax = int(parent.servoThreadTmaxLB.text())
 	cpu_clocks_used = servoTmax / clocks_per_period
-	print(f'cpu_clocks_used: {cpu_clocks_used}')
+	#print(f'cpu_clocks_used: {cpu_clocks_used}')
 	result = cpu_clocks_used * 100
 	parent.servoResultLB.setText(f'{result:.0f}%')
 
