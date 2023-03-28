@@ -75,7 +75,7 @@ def nicCalc(parent):
 	else:
 		error_text.append('write.tmax can not be empty')
 
-	if not errorText:
+	if not error_text:
 		rw_tmax = read_tmax + write_tmax
 		#print(f'rw_tmax: {rw_tmax}')
 		# 1479240
