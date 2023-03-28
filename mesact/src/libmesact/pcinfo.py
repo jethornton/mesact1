@@ -129,16 +129,10 @@ def calcServoPercent(parent):
 	error_text = []
 	if parent.cpuSpeedLE.text() != '':
 		cpu_speed_Hz = int(parent.cpuSpeedLE.text()) * parent.cpuSpeedCB.currentData()
-		#cpu_speed_Hz = int(2333) * parent.cpuSpeedCB.currentData()
-		#print(f'cpu_speed_Hz: {cpu_speed_Hz}')
 		cpu_clock_time = 0.000000001 * parent.servoPeriodSB.value()
-		#print(f'cpu_clock_time: {cpu_clock_time}')
 		clocks_per_period = int(cpu_speed_Hz * cpu_clock_time)
-		#print(f'clocks_per_period: {clocks_per_period}')
-		#servoTmax = 1747291
 		servoTmax = int(parent.servoThreadTmaxLB.text())
 		cpu_clocks_used = servoTmax / clocks_per_period
-		#print(f'cpu_clocks_used: {cpu_clocks_used}')
 		result = cpu_clocks_used * 100
 		parent.servoResultLB.setText(f'{result:.0f}%')
 	else:
