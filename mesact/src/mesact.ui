@@ -30105,8 +30105,8 @@ try increasing the thread period.</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>88</width>
-                 <height>88</height>
+                 <width>909</width>
+                 <height>330</height>
                 </rect>
                </property>
                <layout class="QGridLayout" name="gridLayout_40">
