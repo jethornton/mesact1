@@ -5,12 +5,11 @@ Source: https://github.com/jethornton/mesact
 Files-Excluded: *.deb
 
 Files: *
-Copyright: 2022, J. E. Thornton
-                 CnC Machines LLC
+Copyright: 2023, J. E. Thornton
 License: Expat
  MIT License
  .
- Copyright (c) 2022 jethornton
+ Copyright (c) 2023 jethornton
  .
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
