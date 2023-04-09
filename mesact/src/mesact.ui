@@ -87,7 +87,7 @@ QGroupBox::title {
            <item>
             <widget class="QTabWidget" name="tabWidget">
              <property name="currentIndex">
-              <number>0</number>
+              <number>1</number>
              </property>
              <widget class="QWidget" name="tab_23">
               <attribute name="title">
@@ -29919,19 +29919,6 @@ configuration before trying to read tMax.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="1">
-                <widget class="QLineEdit" name="cpuSpeedLE">
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="2">
                 <widget class="QComboBox" name="cpuSpeedCB">
                  <property name="sizePolicy">
@@ -30017,6 +30004,16 @@ the configuration.</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QSpinBox" name="cpuSpeedSB">
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="maximum">
+                  <number>999999</number>
                  </property>
                 </widget>
                </item>
@@ -31464,7 +31461,6 @@ auto enp2s0
   <tabstop>calculateServoPB</tabstop>
   <tabstop>servoThreadTmaxPB</tabstop>
   <tabstop>cpuSpeedPB</tabstop>
-  <tabstop>cpuSpeedLE</tabstop>
   <tabstop>cpuSpeedCB</tabstop>
   <tabstop>readTmaxPB</tabstop>
   <tabstop>readtmaxLE</tabstop>

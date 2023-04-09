@@ -54,8 +54,8 @@ def nicCalc(parent):
 	packet time 44.8%
 	'''
 	error_text = []
-	if parent.cpuSpeedLE.text() != '':
-		cpu_speed_hz = int(parent.cpuSpeedLE.text()) * parent.cpuSpeedCB.currentData()
+	if parent.cpuSpeedSB.value() > 0:
+		cpu_speed_hz = parent.cpuSpeedSB.value() * parent.cpuSpeedCB.currentData()
 		#print(f'cpu_speed_hz: {cpu_speed_hz}')
 		# 3300000000
 		# 3300000000
@@ -127,8 +127,8 @@ def readServoTmax(parent):
 
 def calcServoPercent(parent):
 	error_text = []
-	if parent.cpuSpeedLE.text() != '':
-		cpu_speed_Hz = int(parent.cpuSpeedLE.text()) * parent.cpuSpeedCB.currentData()
+	if parent.cpuSpeedSB.value() > 0:
+		cpu_speed_Hz = parent.cpuSpeedSB.value() * parent.cpuSpeedCB.currentData()
 		cpu_clock_time = 0.000000001 * parent.servoPeriodSB.value()
 		clocks_per_period = int(cpu_speed_Hz * cpu_clock_time)
 		servoTmax = int(parent.servoThreadTmaxLB.text())
