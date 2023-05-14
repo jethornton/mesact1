@@ -172,6 +172,8 @@ def d7i92t(parent):
 	'7i92t_7i76x2d.bin':['7i76', '7i76'],
 	'7i92t_7i77_7i74d.bin':['7i77', False],
 	'7i92t_7i77x2d.bin':['7i77', '7i77'],
+	'7i92t_mx3660d.bin':['MX3660', 'MX3660'],
+	'7i92t_mx4660d.bin':['MX4660', 'MX4660'],
 		}
 	return daughters
 

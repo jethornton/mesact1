@@ -87,7 +87,7 @@ QGroupBox::title {
            <item>
             <widget class="QTabWidget" name="tabWidget">
              <property name="currentIndex">
-              <number>1</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="tab_23">
               <attribute name="title">
@@ -30102,8 +30102,8 @@ try increasing the thread period.</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>909</width>
-                 <height>330</height>
+                 <width>88</width>
+                 <height>88</height>
                 </rect>
                </property>
                <layout class="QGridLayout" name="gridLayout_40">

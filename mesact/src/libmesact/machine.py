@@ -17,16 +17,16 @@ def daughterCardChanged(parent):
 
 	if parent.sender().currentData():
 		axes = {'7i33': 0, '7i47s': 0, '7i47': 0, '7i76': 5, '7i77': 6, '7i78': 4,
-			'7i85': 4, '7i85s': 4, '5ABOB': 5}
+			'7i85': 4, '7i85s': 4, '5ABOB': 5, 'MX3660':3, 'MX4660':4}
 		inputs = {'7i33': 0, '7i47s': 0, '7i47': 0, '7i76': '32', '7i77': '32',
-			'7i78': '0', '7i85': 0, '7i85s': 0, '5ABOB': '5'}
+			'7i78': '0', '7i85': 0, '7i85s': 0, '5ABOB': '5', 'MX3660': '4', 'MX4660': '8'}
 		outputs = {'7i33': 4, '7i47s': 0, '7i47': 6, '7i76': '16', '7i77': '16',
-			'7i78': '0', '7i85': 0, '7i85s': 0, '5ABOB': '1'}
+			'7i78': '0', '7i85': 0, '7i85s': 0, '5ABOB': '1', 'MX3660': '4', 'MX4660': '6'}
 		stepper = ['7i76', '7i78']
 		servo = ['7i77']
 		cardType = {'7i33': 'servo', '7i47s': 'step', '7i47': 'step',
 			'7i76': 'step', '7i77': 'servo', '7i78': 'step', '7i85': 'servo',
-			'7i85s': 'step', '5ABOB': 'step'}
+			'7i85s': 'step', '5ABOB': 'step', 'MX3660': 'step', 'MX4660': 'step'}
 
 		if parent.sender().currentData() == '7i76':
 			spinnotes = ('SPINDLE INTERFACE\n'
