@@ -267,8 +267,12 @@ def checkit(parent):
 						if not isNumber(getattr(parent, f'{card}_ff2_{i}').text()):
 							tabError = True
 							configErrors.append(f'\tThe FF2 for Joint {i} {validNumber}')
-					if getattr(parent, f'{card}_min_ferror_{i}').text(): # not a required entry
-						if not isNumber(getattr(parent, f'{card}_ferror_{i}').text()):
+
+					if not getattr(parent, f'{card}_min_ferror_{i}').text():
+						tabError = True
+						configErrors.append(f'\tThe Min Following Error for Joint {i} must be specified')
+					else: # make sure it's a valid number
+						if not isNumber(getattr(parent, f'{card}_min_ferror_{i}').text()):
 							tabError = True
 							configErrors.append(f'\tThe Min Following Error for Joint {i} {validNumber}')
 
