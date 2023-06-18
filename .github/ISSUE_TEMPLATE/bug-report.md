@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
+**Please use English for Bug Report**
+
 **Version and Build Date**
 Version = 1.1.2
 Build Date =11/12/2022
