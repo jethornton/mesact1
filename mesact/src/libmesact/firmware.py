@@ -11,7 +11,7 @@ def o5i24(parent):
 
 def d5i25(parent):
 	daughters = {
-		'5i25_7i76x2d.bit': ['7i76', '7i76'],
+		'5i25_7i76x2.bit': ['7i76', '7i76'],
 		'5i25_7i77_7i85.bit': ['7i77', '7i85'],
 		'5i25_7i85s_7i78.bit': ['7i85s', ''],
 		'5i25_7i77_7i76.bit': ['7i77', '7i76'],
