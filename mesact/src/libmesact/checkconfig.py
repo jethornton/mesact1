@@ -164,7 +164,7 @@ def checkit(parent):
 						homeOk = True
 				if not homeOk:
 					tabError = True
-					configErrors.append(f'\tMultiple Joint Axis {"".join(gantry)} {" & ".join(gantryJoints)} must be negative for at least one Joint.')
+					configErrors.append(f'\tMultiple Joint Axis {"".join(gantry)} {" & ".join(gantryJoints)} Home Sequence must be negative for at least one Joint.')
 
 
 			card = 'c0'
