@@ -12,9 +12,16 @@ from libmesact import startup
 def downloadFirmware(parent):
 	board = parent.boardCB.currentData()
 	if board:
-		libpath = os.path.join(os.path.expanduser('~'), '.local/lib/libmesact')
+		libpath = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/{board}')
 		firmware_url = f'https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/{board}.tar.xz'
 		destination = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/{board}.tar.xz')
+		if os.path.isdir(libpath):
+			#print(f'removed {destination}')
+			subprocess.run(["rm", "-rf", libpath])
+		#print(f'libpath {libpath}')
+		#print(f'firmware_url {firmware_url}')
+		#print(f'destination {destination}')
+
 		utilities.download(parent, firmware_url, destination)
 		with tarfile.open(destination) as f:
 			f.extractall(libpath)
