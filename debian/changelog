@@ -1,3 +1,9 @@
+mesact (1.2.5) unstable; urgency=medium
+
+  * Fix downloading firmware if directory exists
+
+ -- John Thornton <dev@gnipsel.com>  Wed, 28 Jun 2023 06:20:08 -0500
+
 mesact (1.2.4) unstable; urgency=medium
 
   * Add option to save ini file when errors exist
