@@ -1,5 +1,8 @@
 # mesact
 
+The Mesa Configuration Tool 1.x.x is being redesigned from the ground up and
+is replaced by the Mesa Configuration Tool 2.x.x
+
 Update the Mesa Configuraton Tool does not change any additions to the ini file
 by the user. New sections, key-values and comments are preserved when updating.
 
