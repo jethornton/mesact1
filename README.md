@@ -1,4 +1,4 @@
-# Mesa Configuration Tool 1.x.x
+Mesa Configuration Tool 1.x.x
 
 The Mesa Configuration Tool 1.x.x is being redesigned from the ground up and
 is replaced by the Mesa Configuration Tool 2.x.x
