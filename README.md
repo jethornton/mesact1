@@ -1,3 +1,6 @@
+NOTE: this tool is depreciated and no longer supported. Use the 
+[Mesa Configuration Tool II](https://gnipsel.com/linuxcnc/mesact/index.html) instead.
+
 Mesa Configuration Tool 1.x.x
 
 The Mesa Configuration Tool 1.x.x is being redesigned from the ground up and
